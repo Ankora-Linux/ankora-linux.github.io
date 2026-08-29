@@ -4,8 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateLanguage = (lang) => {
         document.querySelectorAll('[data-tr][data-en]').forEach(el => {
-            el.innerHTML = el.getAttribute(`data-${lang}`);
+            if (el.tagName.toLowerCase() !== 'title') {
+                el.innerHTML = el.getAttribute(`data-${lang}`);
+            }
         });
+
+        // Handle page title explicitly
+        const titleEl = document.querySelector('title[data-tr][data-en]');
+        if (titleEl) {
+            document.title = titleEl.getAttribute(`data-${lang}`);
+        }
 
         // Handle placeholders if there are any
         document.querySelectorAll('[data-tr-placeholder][data-en-placeholder]').forEach(el => {
