@@ -1,318 +1,254 @@
 <!DOCTYPE html>
-<html lang="tr" data-theme="dark">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ankora Linux | Hızlı, Hafif ve Bağımsız OS</title>
+    <title>Ankora Linux | Hafif ve Kullanıma Hazır Linux Dağıtımı</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        :root[data-theme="dark"] {
-            --bg-base: #06090e;
-            --bg-surface: rgba(13, 18, 28, 0.75);
-            --bg-surface-hover: rgba(20, 28, 44, 0.9);
-            --border-subtle: rgba(255, 255, 255, 0.08);
-            --border-glow: rgba(0, 180, 216, 0.4);
-            --text-main: #f0f6fc;
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --surface-hover: #21262d;
+            --border: #30363d;
+            --text-main: #c9d1d9;
+            --text-bright: #f0f6fc;
             --text-muted: #8b949e;
-            --accent-emerald: #10b981;
-            --accent-cyan: #00b4d8;
-            --dock-bg: rgba(10, 14, 23, 0.88);
-            --dock-border: rgba(255, 255, 255, 0.12);
-            --ambient-1: rgba(0, 180, 216, 0.15);
-            --ambient-2: rgba(16, 185, 129, 0.12);
+            --accent: #38bdf8;
+            --accent-hover: #0284c7;
         }
 
-        :root[data-theme="light"] {
-            --bg-base: #f8fafc;
-            --bg-surface: rgba(255, 255, 255, 0.85);
-            --bg-surface-hover: rgba(241, 245, 249, 0.95);
-            --border-subtle: rgba(0, 0, 0, 0.08);
-            --border-glow: rgba(0, 180, 216, 0.4);
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --accent-emerald: #059669;
-            --accent-cyan: #0284c7;
-            --dock-bg: rgba(255, 255, 255, 0.88);
-            --dock-border: rgba(0, 0, 0, 0.1);
-            --ambient-1: rgba(2, 132, 199, 0.12);
-            --ambient-2: rgba(16, 185, 129, 0.12);
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
+
+        /* Navigation Bar */
+        nav {
+            border-bottom: 1px solid var(--border);
+            background: rgba(13, 17, 23, 0.95);
+            position: sticky; top: 0; z-index: 50;
         }
+        .nav-container {
+            max-width: 1000px; margin: 0 auto; padding: 14px 24px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-left { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-bright); }
+        .nav-badge { font-size: 0.75rem; background: var(--surface); border: 1px solid var(--border); padding: 2px 8px; border-radius: 12px; color: var(--accent); }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-bright); }
+        
+        .lang-btn {
+            background: var(--surface); border: 1px solid var(--border);
+            color: var(--text-bright); padding: 5px 10px; border-radius: 6px;
+            font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: background 0.2s;
+        }
+        .lang-btn:hover { background: var(--surface-hover); }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg-base); color: var(--text-main); overflow-x: hidden; transition: background 0.4s, color 0.4s; padding-bottom: 120px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 
-        .ambient-glow { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 0; overflow: hidden; }
-        .glow-orb { position: absolute; border-radius: 50%; filter: blur(120px); transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
-        .orb-1 { width: 550px; height: 550px; top: -100px; left: -100px; background: radial-gradient(circle, var(--ambient-1), transparent 70%); }
-        .orb-2 { width: 600px; height: 600px; bottom: -150px; right: -150px; background: radial-gradient(circle, var(--ambient-2), transparent 70%); }
+        /* Hero Section - Centered Logo */
+        .hero { text-align: center; padding: 70px 0 50px; }
+        .hero-logo {
+            width: 130px; height: 130px; border-radius: 50%; object-fit: cover;
+            border: 1px solid var(--border); margin-bottom: 24px;
+            background: var(--surface);
+        }
+        .hero h1 { font-size: 2.5rem; color: var(--text-bright); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+        .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 620px; margin: 0 auto 32px; }
 
-        .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+        .hero-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
+            border-radius: 8px; font-size: 0.95rem; font-weight: 600; text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-primary { background: var(--accent); color: #0d1117; }
+        .btn-primary:hover { background: var(--accent-hover); color: #ffffff; }
+        .btn-secondary { background: var(--surface); color: var(--text-bright); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: var(--surface-hover); border-color: var(--text-muted); }
 
-        header { display: flex; justify-content: space-between; align-items: center; padding: 30px 0 20px; }
-        .brand { display: flex; align-items: center; gap: 12px; font-size: 1.35rem; font-weight: 800; text-decoration: none; color: var(--text-main); }
-        .brand-logo { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-cyan); box-shadow: 0 0 15px rgba(0, 180, 216, 0.4); }
-        .brand-badge { font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; background: var(--border-subtle); color: var(--accent-cyan); font-weight: 700; }
+        /* Updates Box */
+        .update-box {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 10px; padding: 20px 24px; margin: 20px 0 50px;
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+        }
+        .update-tag { font-size: 0.8rem; color: var(--accent); font-weight: 600; text-transform: uppercase; margin-bottom: 4px; }
+        .update-title { font-size: 1rem; color: var(--text-bright); font-weight: 600; }
+        .update-desc { font-size: 0.9rem; color: var(--text-muted); }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* Grid Section */
+        .section-header { margin: 40px 0 24px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+        .section-header h2 { font-size: 1.3rem; color: var(--text-bright); font-weight: 600; }
 
-        .hero { padding: 70px 0 50px; text-align: center; }
-        .hero-logo-big { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-cyan); box-shadow: 0 0 40px rgba(0, 180, 216, 0.45); margin-bottom: 24px; animation: float 4s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .feature-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 8px; padding: 20px;
+        }
+        .feature-card h3 { font-size: 1.05rem; color: var(--text-bright); margin-bottom: 8px; font-weight: 600; }
+        .feature-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
 
-        .tagline { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 99px; background: var(--bg-surface); border: 1px solid var(--border-subtle); font-size: 0.88rem; font-weight: 600; color: var(--accent-cyan); margin-bottom: 20px; }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.15; letter-spacing: -1.5px; margin-bottom: 20px; }
-        .gradient-text { background: linear-gradient(135deg, var(--text-main) 30%, var(--accent-cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 680px; margin: 0 auto 35px; line-height: 1.6; }
+        /* Requirements Table */
+        .req-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        .req-table th, .req-table td { text-align: left; padding: 12px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+        .req-table th { color: var(--text-bright); font-weight: 600; background: var(--surface); }
+        .req-table td { color: var(--text-muted); }
+        .req-table tr:last-child td { border-bottom: none; }
 
-        .hero-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 12px; font-size: 1rem; font-weight: 700; text-decoration: none; transition: all 0.3s ease; cursor: pointer; }
-        .btn-primary { background: linear-gradient(135deg, var(--accent-cyan), var(--accent-emerald)); color: #000; box-shadow: 0 8px 25px rgba(0, 180, 216, 0.3); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0, 180, 216, 0.45); }
-        .btn-secondary { background: var(--bg-surface); color: var(--text-main); border: 1px solid var(--border-subtle); }
-        .btn-secondary:hover { background: var(--bg-surface-hover); transform: translateY(-3px); border-color: var(--border-glow); }
+        /* Footer */
+        footer { margin-top: 80px; border-top: 1px solid var(--border); padding: 30px 0; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+        footer a { color: var(--text-main); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
 
-        .news-card { background: linear-gradient(135deg, rgba(0, 180, 216, 0.12), rgba(16, 185, 129, 0.08)); border: 1px solid var(--accent-cyan); border-radius: 20px; padding: 28px; margin: 40px 0; backdrop-filter: blur(15px); display: flex; justify-content: space-between; align-items: center; gap: 20px; transition: transform 0.3s; }
-        .news-card:hover { transform: translateY(-4px); }
-        .news-date { font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 6px; }
-        .news-title { font-size: 1.35rem; font-weight: 800; margin-bottom: 6px; }
-        .news-desc { color: var(--text-muted); font-size: 0.95rem; }
-
-        .section-title { text-align: center; margin: 80px 0 40px; }
-        .section-title h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
-        .section-title p { color: var(--text-muted); }
-
-        .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .bento-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 30px; backdrop-filter: blur(15px); transition: all 0.35s ease; }
-        .bento-card:hover { transform: translateY(-5px); border-color: var(--border-glow); }
-        .bento-card.wide { grid-column: span 2; }
-        .card-icon { font-size: 1.8rem; margin-bottom: 16px; }
-        .bento-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
-        .bento-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
-
-        .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 35px; backdrop-filter: blur(15px); }
-        .specs-col h4 { color: var(--accent-cyan); margin-bottom: 14px; font-size: 1.1rem; }
-        .specs-col ul { list-style: none; }
-        .specs-col li { padding: 10px 0; border-bottom: 1px solid var(--border-subtle); color: var(--text-muted); display: flex; justify-content: space-between; font-size: 0.95rem; }
-        .specs-col li span { color: var(--text-main); font-weight: 600; }
-
-        .dock-container { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; }
-        .dock { display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: var(--dock-bg); border: 1px solid var(--dock-border); border-radius: 24px; backdrop-filter: blur(20px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); }
-        .dock-item { position: relative; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 14px; color: var(--text-main); text-decoration: none; background: transparent; border: none; cursor: pointer; transition: 0.25s; font-weight: 800; font-size: 0.85rem; }
-        .dock-item svg { width: 20px; height: 20px; }
-        .dock-item:hover { background: var(--border-subtle); transform: translateY(-5px) scale(1.1); color: var(--accent-cyan); }
-        .dock-divider { width: 1px; height: 24px; background: var(--dock-border); margin: 0 4px; }
-
-        .dock-item::after { content: attr(data-tooltip); position: absolute; top: -38px; background: var(--bg-surface); color: var(--text-main); font-size: 0.75rem; padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border-subtle); white-space: nowrap; opacity: 0; pointer-events: none; transition: 0.2s; }
-        .dock-item:hover::after { opacity: 1; transform: translateY(-3px); }
-
-        @media (max-width: 850px) {
-            .hero h1 { font-size: 2.3rem; }
-            .bento-grid, .specs-grid { grid-template-columns: 1fr; }
-            .bento-card.wide { grid-column: span 1; }
-            .news-card { flex-direction: column; align-items: flex-start; }
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 1.8rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .update-box { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
 
-    <div class="ambient-glow">
-        <div class="glow-orb orb-1" id="orb1"></div>
-        <div class="glow-orb orb-2" id="orb2"></div>
-    </div>
+    <!-- Üst Menü -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-left">
+                <span>Ankora Linux</span>
+                <span class="nav-badge">v1.0</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" data-tr="Özellikler" data-en="Features">Özellikler</a>
+                <a href="#requirements" data-tr="Gereksinimler" data-en="Requirements">Gereksinimler</a>
+                <a href="https://ankalab.flarum.cloud" target="_blank">Forum</a>
+                <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank">GitHub</a>
+                <button class="lang-btn" id="langBtn">EN</button>
+            </div>
+        </div>
+    </nav>
 
     <div class="container">
-        <header>
-            <a href="#" class="brand">
-                <img src="logo.png" alt="Ankora Logo" class="brand-logo" onerror="this.src='https://raw.githubusercontent.com/Parsozkn/Ankora-Linux/main/logo.png'">
-                <span>Ankora Linux</span>
-                <span class="brand-badge" data-tr="1.0 Zümrüt" data-en="1.0 Emerald">1.0 Zümrüt</span>
-            </a>
-        </header>
-
-        <!-- Hero Section -->
-        <section class="hero reveal" id="home">
-            <img src="logo.png" alt="Ankora Logo" class="hero-logo-big" onerror="this.src='https://raw.githubusercontent.com/Parsozkn/Ankora-Linux/main/logo.png'">
-            <div class="tagline" data-tr="🏔️ Saf Güç &bull; Bağımsız ve Hafif Dağıtım" data-en="🏔️ Pure Power &bull; Independent & Lightweight Distro">🏔️ Saf Güç &bull; Bağımsız ve Hafif Dağıtım</div>
-            
-            <h1 data-tr="Eski Donanımlara Yeni Güç,<br><span class='gradient-text'>Oyunculara Tam Performans.</span>" 
-                data-en="New Life for Legacy Hardware,<br><span class='gradient-text'>Peak Power for Gamers.</span>">
-                Eski Donanımlara Yeni Güç,<br><span class="gradient-text">Oyunculara Tam Performans.</span>
+        <!-- Hero Section - Ortalanmış Logo -->
+        <section class="hero">
+            <img src="logo.jpg" alt="Ankora OS Logo" class="hero-logo" onerror="this.src='logo.png'">
+            <h1 data-tr="Hızlı, Hafif ve Kullanıma Hazır Linux Dağıtımı" 
+                data-en="Fast, Lightweight, and Ready-to-Use Linux Distro">
+                Hızlı, Hafif ve Kullanıma Hazır Linux Dağıtımı
             </h1>
-            
-            <p data-tr="ZRAM bellek sıkıştırması, GameMode katmanı, Pardus Mağazası entegrasyonu ve son derece hafif XFCE arayüzü ile donatılmış yeni nesil Linux deneyimi."
-               data-en="Next-gen Linux experience powered by ZRAM memory compression, GameMode integration, Pardus Store, and lightweight XFCE desktop environment.">
-               ZRAM bellek sıkıştırması, GameMode katmanı, Pardus Mağazası entegrasyonu ve son derece hafif XFCE arayüzü ile donatılmış yeni nesil Linux deneyimi.
+            <p data-tr="Ankora Linux; düşük sistem kaynağı tüketen XFCE masaüstü ortamı, ZRAM bellek yapılandırması ve oyun/geliştirici paketleriyle önceden hazırlanmış Debian tabanlı bir işletim sistemidir."
+               data-en="Ankora Linux is a Debian-based operating system featuring low resource-usage XFCE desktop, ZRAM memory configuration, and pre-packed gaming and developer tools.">
+                Ankora Linux; düşük sistem kaynağı tüketen XFCE masaüstü ortamı, ZRAM bellek yapılandırması ve oyun/geliştirici paketleriyle önceden hazırlanmış Debian tabanlı bir işletim sistemidir.
             </p>
             
-            <div class="hero-actions">
+            <div class="hero-buttons">
                 <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" class="btn btn-primary">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                    <span data-tr="Ankora Linux'u İndir" data-en="Download Ankora Linux">Ankora Linux'u İndir</span>
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                    <span data-tr="ISO İndir (GitHub)" data-en="Download ISO (GitHub)">ISO İndir (GitHub)</span>
                 </a>
                 <a href="https://ankalab.flarum.cloud" target="_blank" class="btn btn-secondary">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
                     <span data-tr="AnkaLab Forum" data-en="AnkaLab Forum">AnkaLab Forum</span>
                 </a>
             </div>
         </section>
 
-        <!-- Haberler -->
-        <section id="news" class="reveal">
-            <div class="news-card">
-                <div>
-                    <div class="news-date" data-tr="📅 18 Ağustos 2026 &bull; Resmi Duyuru" data-en="📅 August 18, 2026 &bull; Official Release">📅 18 Ağustos 2026 &bull; Resmi Duyuru</div>
-                    <div class="news-title" data-tr="🚀 Ankora Linux 1.0 (Zümrüt) Kararlı Sürümü Yayınlandı!" data-en="🚀 Ankora Linux 1.0 (Emerald) Stable Released!">🚀 Ankora Linux 1.0 (Zümrüt) Kararlı Sürümü Yayınlandı!</div>
-                    <div class="news-desc" data-tr="ZRAM sıkıştırma algoritması, yerleşik GameMode katmanı ve Calamares yükleyicisiyle ilk sürüm indirmeye açıldı." data-en="Initial release is live featuring ZRAM compression, built-in GameMode layer, and Calamares installer.">ZRAM sıkıştırma algoritması, yerleşik GameMode katmanı ve Calamares yükleyicisiyle ilk sürüm indirmeye açıldı.</div>
-                </div>
-                <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" class="btn btn-secondary" style="white-space: nowrap;" data-tr="Sürüm Notları &rarr;" data-en="Release Notes &rarr;">Sürüm Notları &rarr;</a>
+        <!-- Son Sürüm Kutusu -->
+        <div class="update-box">
+            <div>
+                <div class="update-tag" data-tr="Son Sürüm Duyurusu" data-en="Latest Release">Son Sürüm Duyurusu</div>
+                <div class="update-title" data-tr="Ankora Linux 1.0 Zümrüt Yayınlandı" data-en="Ankora Linux 1.0 Emerald Released">Ankora Linux 1.0 Zümrüt Yayınlandı</div>
+                <div class="update-desc" data-tr="Calamares yükleyici, varsayılan ZRAM desteği ve yapılandırılmış masaüstü düzeniyle ilk kararlı sürüm hazır." data-en="First stable release ready with Calamares installer, default ZRAM support, and configured desktop layout.">Calamares yükleyici, varsayılan ZRAM desteği ve yapılandırılmış masaüstü düzeniyle ilk kararlı sürüm hazır.</div>
             </div>
-        </section>
+            <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" class="btn btn-secondary" data-tr="İncele" data-en="View Release">İncele</a>
+        </div>
 
-        <!-- Bento Grid Özellikler -->
+        <!-- Özellikler -->
         <section id="features">
-            <div class="section-title reveal">
-                <h2 data-tr="Öne Çıkan Yetenekler" data-en="Core Capabilities">Öne Çıkan Yetenekler</h2>
-                <p data-tr="Sıfır şişkinlik, maksimum sistem verimliliği." data-en="Zero bloatware, maximum system efficiency.">Sıfır şişkinlik, maksimum sistem verimliliği.</p>
+            <div class="section-header">
+                <h2 data-tr="Sistem Özellikleri" data-en="System Features">Sistem Özellikleri</h2>
             </div>
-
-            <div class="bento-grid">
-                <div class="bento-card wide reveal">
-                    <div class="card-icon">⚡</div>
-                    <h3 data-tr="ZRAM & Bellek Optimizasyonu" data-en="ZRAM & Memory Optimization">ZRAM & Bellek Optimizasyonu</h3>
-                    <p data-tr="ZSTD algoritması sayesinde 2 GB RAM'li cihazlarda bile bellek darboğazı yaşatmaz; çoklu görevleri yüksek hızda çalıştırır." data-en="Utilizes ZSTD algorithm to eliminate memory bottlenecks even on 2 GB RAM devices, delivering smooth multitasking.">ZSTD algoritması sayesinde 2 GB RAM'li cihazlarda bile bellek darboğazı yaşatmaz; çoklu görevleri yüksek hızda çalıştırır.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3 data-tr="ZRAM & Bellek Optimizasyonu" data-en="ZRAM & Memory Management">ZRAM & Bellek Optimizasyonu</h3>
+                    <p data-tr="ZSTD sıkıştırmalı ZRAM yapılandırması sayesinde düşük RAM'li cihazlarda kilitlenme olmadan akıcı çalışma sağlar." data-en="ZSTD compressed ZRAM configuration prevents system freezing on low-RAM devices during high workloads.">ZSTD sıkıştırmalı ZRAM yapılandırması sayesinde düşük RAM'li cihazlarda kilitlenme olmadan akıcı çalışma sağlar.</p>
                 </div>
-                <div class="bento-card reveal">
-                    <div class="card-icon">🎮</div>
-                    <h3 data-tr="Oyuncu Katmanı" data-en="Gaming Architecture">Oyuncu Katmanı</h3>
-                    <p data-tr="GameMode, MangoHud ve Mesa Vulkan sürücüleri varsayılan olarak hazır gelir." data-en="GameMode, MangoHud, and Mesa Vulkan drivers pre-installed and tuned out-of-the-box.">GameMode, MangoHud ve Mesa Vulkan sürücüleri varsayılan olarak hazır gelir.</p>
+                <div class="feature-card">
+                    <h3 data-tr="Oyun Paketleri" data-en="Gaming Suite">Oyun Paketleri</h3>
+                    <p data-tr="Mesa Vulkan sürücüleri, GameMode ve MangoHud alt yapısı hazır kurulmuş olarak gelir." data-en="Pre-configured Mesa Vulkan drivers, GameMode layer, and MangoHud utility out of the box.">Mesa Vulkan sürücüleri, GameMode ve MangoHud alt yapısı hazır kurulmuş olarak gelir.</p>
                 </div>
-                <div class="bento-card reveal">
-                    <div class="card-icon">🛍️</div>
-                    <h3 data-tr="Pardus & Flathub Mağazası" data-en="Pardus & Flathub Store">Pardus & Flathub Mağazası</h3>
-                    <p data-tr="Pardus Yazılım Merkezi entegrasyonuyla binlerce yerli ve küresel uygulamayı güvenle yükleyin." data-en="Easily install thousands of national and global apps via Pardus Software Center integration.">Pardus Yazılım Merkezi entegrasyonuyla binlerce yerli ve küresel uygulamayı güvenle yükleyin.</p>
+                <div class="feature-card">
+                    <h3 data-tr="Uygulama Desteği" data-en="App Ecosystem">Uygulama Desteği</h3>
+                    <p data-tr="Pardus Yazılım Merkezi entegrasyonu ve Flatpak desteği ile geniş uygulama yelpazesine erişim." data-en="Access to a wide software catalog via Pardus Software Center integration and Flatpak support.">Pardus Yazılım Merkezi entegrasyonu ve Flatpak desteği ile geniş uygulama yelpazesine erişim.</p>
                 </div>
-                <div class="bento-card wide reveal">
-                    <div class="card-icon">🛠️</div>
-                    <h3 data-tr="Geliştirici Araç Seti" data-en="Developer Toolset">Geliştirici Araç Seti</h3>
-                    <p data-tr="Python, C/C++, Git, Zsh, Powerlevel10k ve Fastfetch gibi araçlar sistem kurulumuyla hazır sunulur." data-en="Pre-configured development stack including Python, C/C++, Git, Zsh, Powerlevel10k, and Fastfetch.">Python, C/C++, Git, Zsh, Powerlevel10k ve Fastfetch gibi araçlar sistem kurulumuyla hazır sunulur.</p>
+                <div class="feature-card">
+                    <h3 data-tr="Geliştirici Araçları" data-en="Developer Tooling">Geliştirici Araçları</h3>
+                    <p data-tr="Python, C/C++ ortamları, Git ve yapılandırılmış Zsh terminal araçları varsayılan olarak sunulur." data-en="Pre-installed Python, C/C++ environments, Git, and custom Zsh terminal configuration.">Python, C/C++ ortamları, Git ve yapılandırılmış Zsh terminal araçları varsayılan olarak sunulur.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Sistem Gereksinimleri -->
-        <section id="specs">
-            <div class="section-title reveal">
+        <!-- Gereksinimler -->
+        <section id="requirements">
+            <div class="section-header">
                 <h2 data-tr="Sistem Gereksinimleri" data-en="System Requirements">Sistem Gereksinimleri</h2>
-                <p data-tr="Minimum ve önerilen sistem yapılandırması." data-en="Minimum and recommended system hardware.">Minimum ve önerilen sistem yapılandırması.</p>
             </div>
-            <div class="specs-grid reveal">
-                <div class="specs-col">
-                    <h4 data-tr="⚡ Minimum Sistem" data-en="⚡ Minimum Specs">⚡ Minimum Sistem</h4>
-                    <ul>
-                        <li><span data-tr="İşlemci" data-en="Processor">İşlemci</span>: <span>64-bit Dual-Core (1.6 GHz+)</span></li>
-                        <li><span data-tr="Bellek (RAM)" data-en="Memory (RAM)">Bellek (RAM)</span>: <span>2 GB (ZRAM Enabled)</span></li>
-                        <li><span data-tr="Depolama" data-en="Storage">Depolama</span>: <span>15 GB SSD / HDD</span></li>
-                    </ul>
-                </div>
-                <div class="specs-col">
-                    <h4 data-tr="🔥 Önerilen Sistem" data-en="🔥 Recommended Specs">🔥 Önerilen Sistem</h4>
-                    <ul>
-                        <li><span data-tr="İşlemci" data-en="Processor">İşlemci</span>: <span>64-bit Quad-Core+</span></li>
-                        <li><span data-tr="Bellek (RAM)" data-en="Memory (RAM)">Bellek (RAM)</span>: <span>4 GB+</span></li>
-                        <li><span data-tr="Depolama" data-en="Storage">Depolama</span>: <span>30 GB SSD (Vulkan GPU)</span></li>
-                    </ul>
-                </div>
-            </div>
+            <table class="req-table">
+                <thead>
+                    <tr>
+                        <th data-tr="Bileşen" data-en="Component">Bileşen</th>
+                        <th data-tr="Minimum" data-en="Minimum">Minimum</th>
+                        <th data-tr="Önerilen" data-en="Recommended">Önerilen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-tr="İşlemci" data-en="Processor">İşlemci</td>
+                        <td>64-bit Çift Çekirdek (1.6 GHz)</td>
+                        <td>64-bit Dört Çekirdek</td>
+                    </tr>
+                    <tr>
+                        <td data-tr="Bellek (RAM)" data-en="Memory (RAM)">Bellek (RAM)</td>
+                        <td>2 GB (ZRAM Aktif)</td>
+                        <td>4 GB veya üzeri</td>
+                    </tr>
+                    <tr>
+                        <td data-tr="Depolama" data-en="Storage">Depolama</td>
+                        <td>15 GB SSD / HDD</td>
+                        <td>30 GB SSD</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </div>
 
-    <!-- macOS / Pardus Stili Dock -->
-    <div class="dock-container">
-        <nav class="dock">
-            <a href="#home" class="dock-item" data-tooltip="Ana Sayfa">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-            </a>
-            <a href="#news" class="dock-item" data-tooltip="Haberler">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/></svg>
-            </a>
-            <a href="#features" class="dock-item" data-tooltip="Özellikler">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </a>
-            <a href="#specs" class="dock-item" data-tooltip="Gereksinimler">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </a>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Ankora Linux &bull; Bağımsız Topluluk Projesi</p>
+            <p style="margin-top: 6px;">
+                <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank">GitHub Deposu</a> &bull; 
+                <a href="https://ankalab.flarum.cloud" target="_blank">AnkaLab Forum</a>
+            </p>
+        </div>
+    </footer>
 
-            <div class="dock-divider"></div>
-
-            <a href="https://ankalab.flarum.cloud" target="_blank" class="dock-item" data-tooltip="AnkaLab Forum">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </a>
-            <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" class="dock-item" data-tooltip="GitHub / ISO İndir">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            </a>
-
-            <div class="dock-divider"></div>
-
-            <!-- Türkçe / İngilizce Dil Butonu -->
-            <button class="dock-item" id="langToggle" data-tooltip="Dil / Language" aria-label="Language Toggle">
-                <span id="langText">EN</span>
-            </button>
-
-            <!-- Tema Değiştirici -->
-            <button class="dock-item" id="themeToggle" data-tooltip="Tema Değiştir" aria-label="Theme Toggle">
-                <svg id="themeIcon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            </button>
-        </nav>
-    </div>
-
+    <!-- Dil Değiştirici Script -->
     <script>
-        // Scroll Animation
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-        }, { threshold: 0.15 });
-        reveals.forEach(el => observer.observe(el));
-
-        // Parallax Ambient Effect
-        const orb1 = document.getElementById('orb1');
-        const orb2 = document.getElementById('orb2');
-        window.addEventListener('scroll', () => {
-            const p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-            orb1.style.transform = `translate(${p * 150}px, ${p * 200}px)`;
-            orb2.style.transform = `translate(-${p * 150}px, -${p * 200}px)`;
-        });
-
-        // TR / EN Dynamic Language Switcher
         let currentLang = 'tr';
-        const langBtn = document.getElementById('langToggle');
-        const langText = document.getElementById('langText');
+        const langBtn = document.getElementById('langBtn');
 
         langBtn.addEventListener('click', () => {
             currentLang = currentLang === 'tr' ? 'en' : 'tr';
-            langText.innerText = currentLang === 'tr' ? 'EN' : 'TR';
+            langBtn.innerText = currentLang === 'tr' ? 'EN' : 'TR';
             document.documentElement.lang = currentLang;
 
             document.querySelectorAll('[data-tr]').forEach(el => {
-                const targetText = el.getAttribute(`data-${currentLang}`);
-                if (targetText) el.innerHTML = targetText;
+                const text = el.getAttribute(`data-${currentLang}`);
+                if (text) el.innerText = text;
             });
-        });
-
-        // Light / Dark Theme Switcher
-        const themeBtn = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const html = document.documentElement;
-
-        themeBtn.addEventListener('click', () => {
-            const isDark = html.getAttribute('data-theme') === 'dark';
-            html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-            themeIcon.innerHTML = isDark 
-                ? '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>' 
-                : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
         });
     </script>
 </body>
