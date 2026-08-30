@@ -31,6 +31,20 @@
             --purple-glow: rgba(167, 139, 250, 0.12);
             --red: #f87171;
             --red-glow: rgba(248, 113, 113, 0.12);
+
+            --transition: 0.3s ease;
+        }
+
+        [data-theme="light"] {
+            --bg: #f1f5f9;
+            --surface: #ffffff;
+            --surface-hover: #e2e8f0;
+            --border: #cbd5e1;
+            --border-hover: #94a3b8;
+            --text-main: #475569;
+            --text-bright: #0f172a;
+            --accent: #0ea5e9;
+            --accent-glow: rgba(14, 165, 233, 0.12);
         }
 
         * {
@@ -47,6 +61,7 @@
             line-height: 1.6;
             padding-bottom: 110px;
             overflow-x: hidden;
+            transition: background-color var(--transition), color var(--transition);
         }
 
         .container {
@@ -57,60 +72,63 @@
 
         /* Header */
         header {
-            padding: 24px 0;
+            padding: 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--border);
+            transition: border-color var(--transition);
         }
 
-        .brand {
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .header-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border);
+            background: var(--surface);
+            transition: border-color var(--transition);
+        }
+
+        .header-logo:hover {
+            border-color: var(--accent);
+        }
+
+        .header-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+        }
+
+        .header-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-bright);
+            letter-spacing: -0.5px;
+            transition: color var(--transition);
+        }
+
+        .header-sub {
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--accent);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        .header-right {
             display: flex;
             align-items: center;
             gap: 10px;
-            font-weight: 700;
-            color: var(--text-bright);
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-
-        .brand-badge {
-            font-size: 0.75rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            color: var(--accent);
-            padding: 2px 10px;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-
-        /* 30 Ağustos */
-        .bayram-banner {
-            margin-top: 18px;
-            padding: 13px 18px;
-            border: 1px solid rgba(220, 38, 38, 0.25);
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(220, 38, 38, 0.10),
-                    rgba(255,255,255,0.025),
-                    rgba(220, 38, 38, 0.10)
-                );
-            border-radius: 12px;
-            text-align: center;
-            color: var(--text-bright);
-            font-size: 0.88rem;
-            font-weight: 600;
-        }
-
-        .bayram-banner strong {
-            color: #f87171;
-        }
-
-        .bayram-sub {
-            color: var(--text-main);
-            font-size: 0.76rem;
-            margin-top: 2px;
         }
 
         /* Hero */
@@ -133,7 +151,7 @@
             border: 2px solid var(--border);
             background: var(--surface);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color var(--transition);
         }
 
         .hero-logo:hover {
@@ -153,6 +171,7 @@
             font-weight: 600;
             color: var(--accent);
             margin-bottom: 20px;
+            transition: background var(--transition), border-color var(--transition);
         }
 
         .hero h1 {
@@ -162,6 +181,7 @@
             letter-spacing: -0.8px;
             line-height: 1.2;
             margin-bottom: 18px;
+            transition: color var(--transition);
         }
 
         .hero p {
@@ -170,6 +190,7 @@
             max-width: 640px;
             margin: 0 auto 32px;
             font-weight: 400;
+            transition: color var(--transition);
         }
 
         .hero-actions {
@@ -206,6 +227,7 @@
             background: var(--surface);
             color: var(--text-bright);
             border: 1px solid var(--border);
+            transition: background var(--transition), border-color var(--transition), color var(--transition);
         }
 
         .btn-secondary:hover {
@@ -225,7 +247,7 @@
             justify-content: space-between;
             align-items: center;
             gap: 20px;
-            transition: border-color 0.2s;
+            transition: background var(--transition), border-color var(--transition);
         }
 
         .release-card:hover {
@@ -246,11 +268,13 @@
             font-weight: 700;
             color: var(--text-bright);
             margin-bottom: 4px;
+            transition: color var(--transition);
         }
 
         .release-desc {
             font-size: 0.9rem;
             color: var(--text-main);
+            transition: color var(--transition);
         }
 
         /* Sections */
@@ -262,12 +286,14 @@
             font-size: 1.4rem;
             color: var(--text-bright);
             font-weight: 700;
+            transition: color var(--transition);
         }
 
         .section-description {
             margin-top: 5px;
             font-size: 0.88rem;
             color: var(--text-main);
+            transition: color var(--transition);
         }
 
         /* Cards */
@@ -283,7 +309,7 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 24px;
-            transition: all 0.2s ease;
+            transition: all 0.2s ease, background var(--transition), border-color var(--transition);
         }
 
         .card:hover {
@@ -301,6 +327,7 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 16px;
+            transition: background var(--transition);
         }
 
         .card h3 {
@@ -308,12 +335,14 @@
             color: var(--text-bright);
             font-weight: 700;
             margin-bottom: 8px;
+            transition: color var(--transition);
         }
 
         .card p {
             font-size: 0.9rem;
             color: var(--text-main);
             line-height: 1.5;
+            transition: color var(--transition);
         }
 
         /* Versions */
@@ -330,8 +359,7 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 22px;
-            transition: all 0.2s ease;
-            overflow: hidden;
+            transition: all 0.2s ease, background var(--transition), border-color var(--transition);
         }
 
         .version-card:hover {
@@ -357,17 +385,20 @@
             background: var(--accent-glow);
             color: var(--accent);
             flex-shrink: 0;
+            transition: background var(--transition);
         }
 
         .version-card h3 {
             color: var(--text-bright);
             font-size: 1.05rem;
             margin-bottom: 5px;
+            transition: color var(--transition);
         }
 
         .version-card p {
             font-size: 0.84rem;
             color: var(--text-main);
+            transition: color var(--transition);
         }
 
         .status {
@@ -428,6 +459,16 @@
             background: var(--red);
         }
 
+        .status.done {
+            color: var(--green);
+            background: var(--green-glow);
+            border-color: rgba(52, 211, 153, 0.18);
+        }
+
+        .status.done .status-dot {
+            background: var(--green);
+        }
+
         /* Tools */
         .tools-list {
             display: grid;
@@ -444,7 +485,7 @@
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 11px;
-            transition: all 0.2s ease;
+            transition: all 0.2s ease, background var(--transition), border-color var(--transition);
         }
 
         .tool:hover {
@@ -462,6 +503,9 @@
             background: var(--accent-glow);
             color: var(--accent);
             flex-shrink: 0;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background var(--transition);
         }
 
         .tool-info {
@@ -473,6 +517,7 @@
             color: var(--text-bright);
             font-size: 0.88rem;
             font-weight: 700;
+            transition: color var(--transition);
         }
 
         .tool-status {
@@ -488,6 +533,10 @@
             color: var(--purple);
         }
 
+        .tool-status.done {
+            color: var(--green);
+        }
+
         /* Specs */
         .specs-table {
             width: 100%;
@@ -497,6 +546,7 @@
             border-radius: 12px;
             overflow: hidden;
             margin-bottom: 60px;
+            transition: background var(--transition), border-color var(--transition);
         }
 
         .specs-table th,
@@ -511,11 +561,13 @@
             color: var(--text-bright);
             font-weight: 600;
             border-bottom: 1px solid var(--border);
+            transition: color var(--transition), border-color var(--transition);
         }
 
         .specs-table td {
             border-bottom: 1px solid var(--border);
             color: var(--text-main);
+            transition: color var(--transition), border-color var(--transition);
         }
 
         .specs-table tr:last-child td {
@@ -524,6 +576,7 @@
 
         .specs-table td strong {
             color: var(--text-bright);
+            transition: color var(--transition);
         }
 
         /* Footer */
@@ -533,6 +586,7 @@
             text-align: center;
             font-size: 0.85rem;
             color: var(--text-main);
+            transition: border-color var(--transition), color var(--transition);
         }
 
         footer a {
@@ -561,6 +615,13 @@
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            transition: background var(--transition), border-color var(--transition);
+        }
+
+        [data-theme="light"] .dock {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .dock-btn {
@@ -594,11 +655,19 @@
             transform: translateY(-4px);
         }
 
+        [data-theme="light"] .dock-btn:hover {
+            background: rgba(0, 0, 0, 0.06);
+        }
+
         .dock-divider {
             width: 1px;
             height: 22px;
             background: rgba(255, 255, 255, 0.12);
             margin: 0 4px;
+        }
+
+        [data-theme="light"] .dock-divider {
+            background: rgba(0, 0, 0, 0.12);
         }
 
         .dock-btn::after {
@@ -618,6 +687,12 @@
             font-weight: 600;
         }
 
+        [data-theme="light"] .dock-btn::after {
+            background: #e2e8f0;
+            color: #0f172a;
+            border-color: #cbd5e1;
+        }
+
         .dock-btn:hover::after {
             opacity: 1;
             transform: translateY(-2px);
@@ -635,6 +710,13 @@
             width: 145px;
             box-shadow: 0 15px 35px rgba(0,0,0,.45);
             display: none;
+            transition: background var(--transition), border-color var(--transition);
+        }
+
+        [data-theme="light"] .language-menu {
+            background: #ffffff;
+            border-color: #cbd5e1;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
 
         .language-menu.open {
@@ -652,11 +734,23 @@
             cursor: pointer;
             font-size: .78rem;
             font-weight: 600;
+            transition: background var(--transition), color var(--transition);
         }
 
         .language-option:hover {
             background: var(--surface-hover);
             color: var(--text-bright);
+        }
+
+        [data-theme="light"] .language-option:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            font-size: 1.1rem;
+            line-height: 1;
         }
 
         /* Responsive */
@@ -689,6 +783,20 @@
             .dock-divider {
                 margin: 0 2px;
             }
+
+            .header-title {
+                font-size: 1rem;
+            }
+            .header-sub {
+                font-size: 0.6rem;
+            }
+            .header-logo {
+                width: 32px;
+                height: 32px;
+            }
+            .header-center {
+                padding: 0 8px;
+            }
         }
 
         @media (max-width: 500px) {
@@ -714,6 +822,17 @@
             .dock-btn:nth-child(4) {
                 display: none;
             }
+
+            .header-title {
+                font-size: 0.85rem;
+            }
+            .header-sub {
+                font-size: 0.5rem;
+            }
+            .header-logo {
+                width: 28px;
+                height: 28px;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -733,24 +852,22 @@
 
     <!-- Header -->
     <header>
-        <a href="#home" class="brand">
-            <span>Ankora Linux</span>
-            <span class="brand-badge">v1.0</span>
-        </a>
+        <div class="header-left">
+            <img
+                src="logo.jpg"
+                alt="Ankora OS Logo"
+                class="header-logo"
+                onerror="this.onerror=null; this.src='logo.png';"
+            >
+        </div>
+        <div class="header-center">
+            <div class="header-title" data-tr="Ankora Linux" data-en="Ankora Linux" data-de="Ankora Linux" data-fr="Ankora Linux" data-es="Ankora Linux" data-ru="Ankora Linux" data-ar="أنكورا لينكس" data-pt="Ankora Linux" data-it="Ankora Linux">Ankora Linux</div>
+            <div class="header-sub" data-tr="Modern Masaüstü · AI Destekli" data-en="Modern Desktop · AI Powered" data-de="Moderner Desktop · KI-Unterstützt" data-fr="Bureau Moderne · Alimenté par IA" data-es="Escritorio Moderno · Con IA" data-ru="Современный Рабочий Стол · На базе ИИ" data-ar="سطح مكتب حديث · مدعوم بالذكاء الاصطناعي" data-pt="Desktop Moderno · Com IA" data-it="Desktop Moderno · Con IA">Modern Masaüstü · AI Destekli</div>
+        </div>
+        <div class="header-right">
+            <!-- Boşluk, simetri için -->
+        </div>
     </header>
-
-    <!-- 30 Ağustos Zafer Bayramı -->
-    <div class="bayram-banner">
-        <div data-tr="🇹🇷 <strong>30 Ağustos Zafer Bayramı Kutlu Olsun</strong>"
-             data-en="🇹🇷 <strong>Happy Victory Day — 30 August</strong>">
-            🇹🇷 <strong>30 Ağustos Zafer Bayramı Kutlu Olsun</strong>
-        </div>
-        <div class="bayram-sub"
-             data-tr="Ankora Linux ekibi olarak tüm milletimizin Zafer Bayramı'nı kutlarız."
-             data-en="The Ankora Linux team wishes everyone a happy Victory Day.">
-            Ankora Linux ekibi olarak tüm milletimizin Zafer Bayramı'nı kutlarız.
-        </div>
-    </div>
 
     <!-- Hero -->
     <section class="hero" id="home">
@@ -766,19 +883,40 @@
 
         <div class="tagline"
              data-tr="🏔️ Bağımsız & Performance-Oriented"
-             data-en="🏔️ Independent & Performance-Oriented">
+             data-en="🏔️ Independent & Performance-Oriented"
+             data-de="🏔️ Unabhängig & Leistungsorientiert"
+             data-fr="🏔️ Indépendant & Axé Performance"
+             data-es="🏔️ Independiente & Orientado al Rendimiento"
+             data-ru="🏔️ Независимый & Ориентированный на Производительность"
+             data-ar="🏔️ مستقل & موجه للأداء"
+             data-pt="🏔️ Independente & Focado em Performance"
+             data-it="🏔️ Indipendente & Orientato alle Prestazioni">
             🏔️ Bağımsız & Performance-Oriented
         </div>
 
         <h1
             data-tr="Hızlı, Hafif ve Kullanıma Hazır<br>Linux Dağıtımı"
-            data-en="Fast, Lightweight & Ready-to-Use<br>Linux Distro">
+            data-en="Fast, Lightweight & Ready-to-Use<br>Linux Distro"
+            data-de="Schnell, Leicht & Gebrauchsfertige<br>Linux-Distribution"
+            data-fr="Rapide, Léger & Prêt à l'Emploi<br>Distribution Linux"
+            data-es="Rápido, Ligero y Listo para Usar<br>Distribución Linux"
+            data-ru="Быстрая, Легкая и Готовая к Использованию<br>Дистрибутив Linux"
+            data-ar="سريع وخفيف وجاهز للاستخدام<br>توزيعة لينكس"
+            data-pt="Rápido, Leve e Pronto para Uso<br>Distribuição Linux"
+            data-it="Veloce, Leggero e Pronto all'Uso<br>Distribuzione Linux">
             Hızlı, Hafif ve Kullanıma Hazır<br>Linux Dağıtımı
         </h1>
 
         <p
             data-tr="Debian tabanı üzerine inşa edilen Ankora OS; optimize edilmiş XFCE masaüstü ortamı, ZRAM bellek sıkıştırması ve yerleşik oyun/geliştirici paketleriyle gelir."
-            data-en="Built on Debian base, Ankora OS arrives with an optimized XFCE desktop, ZRAM memory compression, and pre-configured gaming and developer tools.">
+            data-en="Built on Debian base, Ankora OS arrives with an optimized XFCE desktop, ZRAM memory compression, and pre-configured gaming and developer tools."
+            data-de="Basierend auf Debian kommt Ankora OS mit einem optimierten XFCE-Desktop, ZRAM-Speicherkomprimierung und vorkonfigurierten Gaming- und Entwicklertools."
+            data-fr="Construit sur une base Debian, Ankora OS arrive avec un bureau XFCE optimisé, une compression mémoire ZRAM et des outils de jeu et de développement préconfigurés."
+            data-es="Construido sobre la base de Debian, Ankora OS llega con un escritorio XFCE optimizado, compresión de memoria ZRAM y herramientas de juegos y desarrollo preconfiguradas."
+            data-ru="Построенный на базе Debian, Ankora OS поставляется с оптимизированным рабочим столом XFCE, сжатием памяти ZRAM и предварительно настроенными игровыми и инструментами разработчика."
+            data-ar="تم بناء أنكورا لينكس على أساس دبيان، ويأتي مع سطح مكتب XFCE محسّن، وضغط ذاكرة ZRAM، وأدوات ألعاب وتطوير مهيأة مسبقًا."
+            data-pt="Construído sobre a base Debian, o Ankora OS chega com um desktop XFCE otimizado, compressão de memória ZRAM e ferramentas de jogos e desenvolvimento pré-configuradas."
+            data-it="Costruito su base Debian, Ankora OS arriva con un desktop XFCE ottimizzato, compressione della memoria ZRAM e strumenti di gioco e sviluppo preconfigurati.">
             Debian tabanı üzerine inşa edilen Ankora OS; optimize edilmiş XFCE masaüstü ortamı, ZRAM bellek sıkıştırması ve yerleşik oyun/geliştirici paketleriyle gelir.
         </p>
 
@@ -793,7 +931,7 @@
                           d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                 </svg>
 
-                <span data-tr="ISO İndir" data-en="Download ISO">ISO İndir</span>
+                <span data-tr="ISO İndir" data-en="Download ISO" data-de="ISO Herunterladen" data-fr="Télécharger ISO" data-es="Descargar ISO" data-ru="Скачать ISO" data-ar="تحميل ISO" data-pt="Baixar ISO" data-it="Scarica ISO">ISO İndir</span>
             </a>
 
             <a href="https://ankalab.flarum.cloud"
@@ -806,7 +944,7 @@
                           d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                 </svg>
 
-                <span data-tr="AnkaLab Forum" data-en="AnkaLab Forum">AnkaLab Forum</span>
+                <span data-tr="AnkaLab Forum" data-en="AnkaLab Forum" data-de="AnkaLab Forum" data-fr="Forum AnkaLab" data-es="Foro AnkaLab" data-ru="Форум AnkaLab" data-ar="منتدى أنكا لاب" data-pt="Fórum AnkaLab" data-it="Forum AnkaLab">AnkaLab Forum</span>
             </a>
         </div>
     </section>
@@ -816,19 +954,40 @@
         <div>
             <div class="release-badge"
                  data-tr="Son Sürüm Duyurusu"
-                 data-en="Latest Release">
+                 data-en="Latest Release"
+                 data-de="Neueste Veröffentlichung"
+                 data-fr="Dernière Version"
+                 data-es="Último Lanzamiento"
+                 data-ru="Последний Релиз"
+                 data-ar="آخر إصدار"
+                 data-pt="Último Lançamento"
+                 data-it="Ultima Release">
                 Son Sürüm Duyurusu
             </div>
 
             <div class="release-title"
                  data-tr="Ankora Linux 1.0 (Zümrüt) Yayında"
-                 data-en="Ankora Linux 1.0 (Emerald) Released">
+                 data-en="Ankora Linux 1.0 (Emerald) Released"
+                 data-de="Ankora Linux 1.0 (Smaragd) Veröffentlicht"
+                 data-fr="Ankora Linux 1.0 (Émeraude) Disponible"
+                 data-es="Ankora Linux 1.0 (Esmeralda) Lanzado"
+                 data-ru="Ankora Linux 1.0 (Изумруд) Выпущен"
+                 data-ar="أنكورا لينكس 1.0 (زمرد) تم إصداره"
+                 data-pt="Ankora Linux 1.0 (Esmeralda) Lançado"
+                 data-it="Ankora Linux 1.0 (Smeraldo) Rilasciato">
                 Ankora Linux 1.0 (Zümrüt) Yayında
             </div>
 
             <div class="release-desc"
                  data-tr="Calamares yükleyici, varsayılan ZRAM konfigürasyonu ve güncel paket deposuyla ilk sürüm indirmeye hazır."
-                 data-en="First release ready for download with Calamares installer, default ZRAM configuration, and updated packages.">
+                 data-en="First release ready for download with Calamares installer, default ZRAM configuration, and updated packages."
+                 data-de="Erste Version zum Download mit Calamares-Installer, Standard-ZRAM-Konfiguration und aktualisierten Paketen."
+                 data-fr="Première version prête à télécharger avec l'installateur Calamares, la configuration ZRAM par défaut et des paquets mis à jour."
+                 data-es="Primera versión lista para descargar con el instalador Calamares, configuración ZRAM predeterminada y paquetes actualizados."
+                 data-ru="Первая версия готова к загрузке с установщиком Calamares, конфигурацией ZRAM по умолчанию и обновленными пакетами."
+                 data-ar="الإصدار الأول جاهز للتحميل مع مثبت Calamares، وتكوين ZRAM الافتراضي، وحزم محدثة."
+                 data-pt="Primeira versão pronta para download com o instalador Calamares, configuração ZRAM padrão e pacotes atualizados."
+                 data-it="Prima versione pronta per il download con l'installer Calamares, configurazione ZRAM predefinita e pacchetti aggiornati.">
                 Calamares yükleyici, varsayılan ZRAM konfigürasyonu ve güncel paket deposuyla ilk sürüm indirmeye hazır.
             </div>
         </div>
@@ -839,7 +998,14 @@
            class="btn btn-secondary"
            style="white-space: nowrap;"
            data-tr="Sürüm Notları"
-           data-en="Release Notes">
+           data-en="Release Notes"
+           data-de="Versionshinweise"
+           data-fr="Notes de Version"
+           data-es="Notas de la Versión"
+           data-ru="Примечания к Выпуску"
+           data-ar="ملاحظات الإصدار"
+           data-pt="Notas de Lançamento"
+           data-it="Note di Rilascio">
             Sürüm Notları
         </a>
     </div>
@@ -848,7 +1014,7 @@
     <section id="features">
 
         <div class="section-title">
-            <h2 data-tr="Öne Çıkan Özellikler" data-en="Core Features">
+            <h2 data-tr="Öne Çıkan Özellikler" data-en="Core Features" data-de="Hauptfunktionen" data-fr="Fonctionnalités Principales" data-es="Características Principales" data-ru="Основные Возможности" data-ar="الميزات الأساسية" data-pt="Recursos Principais" data-it="Funzionalità Principali">
                 Öne Çıkan Özellikler
             </h2>
         </div>
@@ -863,12 +1029,19 @@
                     </svg>
                 </div>
 
-                <h3 data-tr="ZRAM Optimizasyonu" data-en="ZRAM Optimization">
+                <h3 data-tr="ZRAM Optimizasyonu" data-en="ZRAM Optimization" data-de="ZRAM-Optimierung" data-fr="Optimisation ZRAM" data-es="Optimización ZRAM" data-ru="Оптимизация ZRAM" data-ar="تحسين ZRAM" data-pt="Otimização ZRAM" data-it="Ottimizzazione ZRAM">
                     ZRAM Optimizasyonu
                 </h3>
 
                 <p data-tr="Düşük RAM kapasiteli cihazlarda bile kilitlenme yaşamadan akıcı çoklu görev yürütme imkanı."
-                   data-en="Prevents system freezing on low-RAM hardware through smart memory compression.">
+                   data-en="Prevents system freezing on low-RAM hardware through smart memory compression."
+                   data-de="Verhindert Systemabstürze auf Geräten mit geringem Arbeitsspeicher durch intelligente Speicherkomprimierung."
+                   data-fr="Empêche le blocage du système sur les appareils à faible RAM grâce à une compression de mémoire intelligente."
+                   data-es="Evita que el sistema se congele en equipos con poca RAM mediante compresión de memoria inteligente."
+                   data-ru="Предотвращает зависание системы на устройствах с малым объемом ОЗУ за счет интеллектуального сжатия памяти."
+                   data-ar="يمنع تجمد النظام على الأجهزة ذات الذاكرة المنخفضة من خلال ضغط الذاكرة الذكي."
+                   data-pt="Evita o congelamento do sistema em dispositivos com pouca RAM através de compressão de memória inteligente."
+                   data-it="Previene il blocco del sistema su dispositivi con poca RAM tramite compressione intelligente della memoria.">
                     Düşük RAM kapasiteli cihazlarda bile kilitlenme yaşamadan akıcı çoklu görev yürütme imkanı.
                 </p>
             </div>
@@ -881,12 +1054,19 @@
                     </svg>
                 </div>
 
-                <h3 data-tr="Oyun ve Sürücü Katmanı" data-en="Gaming & Drivers">
+                <h3 data-tr="Oyun ve Sürücü Katmanı" data-en="Gaming & Drivers" data-de="Gaming & Treiber" data-fr="Jeux & Pilotes" data-es="Juegos & Controladores" data-ru="Игры & Драйверы" data-ar="الألعاب وبرامج التشغيل" data-pt="Jogos & Drivers" data-it="Giochi & Driver">
                     Oyun ve Sürücü Katmanı
                 </h3>
 
                 <p data-tr="Mesa Vulkan sürücüleri, GameMode ve MangoHud alt yapısı hazır yapılandırılmış gelir."
-                   data-en="Mesa Vulkan drivers, GameMode layer, and MangoHud utilities pre-installed.">
+                   data-en="Mesa Vulkan drivers, GameMode layer, and MangoHud utilities pre-installed."
+                   data-de="Mesa Vulkan-Treiber, GameMode-Schicht und MangoHud-Dienstprogramme vorinstalliert."
+                   data-fr="Pilotes Mesa Vulkan, couche GameMode et utilitaires MangoHud pré-installés."
+                   data-es="Controladores Mesa Vulkan, capa GameMode y utilidades MangoHud preinstaladas."
+                   data-ru="Драйверы Mesa Vulkan, слой GameMode и утилиты MangoHud предустановлены."
+                   data-ar="برامج تشغيل Mesa Vulkan، طبقة GameMode، وأدوات MangoHud مثبتة مسبقًا."
+                   data-pt="Drivers Mesa Vulkan, camada GameMode e utilitários MangoHud pré-instalados."
+                   data-it="Driver Mesa Vulkan, livello GameMode e utilità MangoHud preinstallati.">
                     Mesa Vulkan sürücüleri, GameMode ve MangoHud alt yapısı hazır yapılandırılmış gelir.
                 </p>
             </div>
@@ -899,12 +1079,19 @@
                     </svg>
                 </div>
 
-                <h3 data-tr="Geniş Paket Desteği" data-en="App Ecosystem">
+                <h3 data-tr="Geniş Paket Desteği" data-en="App Ecosystem" data-de="App-Ökosystem" data-fr="Écosystème d'Apps" data-es="Ecosistema de Apps" data-ru="Экосистема Приложений" data-ar="النظام البيئي للتطبيقات" data-pt="Ecossistema de Apps" data-it="Ecosistema App">
                     Geniş Paket Desteği
                 </h3>
 
                 <p data-tr="Pardus Yazılım Merkezi entegrasyonu ve Flatpak desteği ile binlerce uygulamaya doğrudan erişim."
-                   data-en="Direct access to thousands of applications via Pardus Store and Flatpak integration.">
+                   data-en="Direct access to thousands of applications via Pardus Store and Flatpak integration."
+                   data-de="Direkter Zugriff auf Tausende von Anwendungen über die Pardus Store und Flatpak-Integration."
+                   data-fr="Accès direct à des milliers d'applications via Pardus Store et l'intégration Flatpak."
+                   data-es="Acceso directo a miles de aplicaciones a través de Pardus Store y la integración Flatpak."
+                   data-ru="Прямой доступ к тысячам приложений через Pardus Store и интеграцию Flatpak."
+                   data-ar="الوصول المباشر إلى آلاف التطبيقات عبر متجر Pardus وتكامل Flatpak."
+                   data-pt="Acesso direto a milhares de aplicativos via Pardus Store e integração Flatpak."
+                   data-it="Accesso diretto a migliaia di applicazioni tramite Pardus Store e integrazione Flatpak.">
                     Pardus Yazılım Merkezi entegrasyonu ve Flatpak desteği ile binlerce uygulamaya doğrudan erişim.
                 </p>
             </div>
@@ -917,12 +1104,19 @@
                     </svg>
                 </div>
 
-                <h3 data-tr="Geliştirici Araçları" data-en="Developer Tooling">
+                <h3 data-tr="Geliştirici Araçları" data-en="Developer Tooling" data-de="Entwickler-Tools" data-fr="Outils Développeur" data-es="Herramientas de Desarrollador" data-ru="Инструменты Разработчика" data-ar="أدوات المطور" data-pt="Ferramentas de Desenvolvedor" data-it="Strumenti Sviluppatore">
                     Geliştirici Araçları
                 </h3>
 
                 <p data-tr="Python, C/C++ derleyicileri, Git ve özel Zsh terminal konfigürasyonu tek tıkla kullanıma hazır."
-                   data-en="Pre-configured Python, C/C++ toolchains, Git, and customized Zsh terminal environment.">
+                   data-en="Pre-configured Python, C/C++ toolchains, Git, and customized Zsh terminal environment."
+                   data-de="Vorkonfigurierte Python-, C/C++-Toolchains, Git und angepasste Zsh-Terminalumgebung."
+                   data-fr="Chaînes d'outils Python, C/C++ préconfigurées, Git et environnement terminal Zsh personnalisé."
+                   data-es="Cadenas de herramientas Python, C/C++ preconfiguradas, Git y entorno de terminal Zsh personalizado."
+                   data-ru="Предварительно настроенные цепочки инструментов Python, C/C++, Git и настраиваемая среда терминала Zsh."
+                   data-ar="سلاسل أدوات Python و C/C++ المهيأة مسبقًا، و Git، وبيئة طرفية Zsh مخصصة."
+                   data-pt="Cadeias de ferramentas Python, C/C++ pré-configuradas, Git e ambiente de terminal Zsh personalizado."
+                   data-it="Toolchain Python, C/C++ preconfigurati, Git e ambiente terminale Zsh personalizzato.">
                     Python, C/C++ derleyicileri, Git ve özel Zsh terminal konfigürasyonu tek tıkla kullanıma hazır.
                 </p>
             </div>
@@ -934,13 +1128,20 @@
     <section id="versions">
 
         <div class="section-title">
-            <h2 data-tr="Ankora Sürümleri" data-en="Ankora Editions">
+            <h2 data-tr="Ankora Sürümleri" data-en="Ankora Editions" data-de="Ankora Editionen" data-fr="Éditions Ankora" data-es="Ediciones Ankora" data-ru="Редакции Ankora" data-ar="إصدارات أنكورا" data-pt="Edições Ankora" data-it="Edizioni Ankora">
                 Ankora Sürümleri
             </h2>
 
             <p class="section-description"
                data-tr="Ankora ekosisteminin mevcut ve gelecekteki dağıtımları."
-               data-en="Current and upcoming distributions of the Ankora ecosystem.">
+               data-en="Current and upcoming distributions of the Ankora ecosystem."
+               data-de="Aktuelle und zukünftige Distributionen des Ankora-Ökosystems."
+               data-fr="Distributions actuelles et à venir de l'écosystème Ankora."
+               data-es="Distribuciones actuales y futuras del ecosistema Ankora."
+               data-ru="Текущие и предстоящие дистрибутивы экосистемы Ankora."
+               data-ar="التوزيعات الحالية والمستقبلية لنظام أنكورا البيئي."
+               data-pt="Distribuições atuais e futuras do ecossistema Ankora."
+               data-it="Distribuzioni attuali e future dell'ecosistema Ankora.">
                 Ankora ekosisteminin mevcut ve gelecekteki dağıtımları.
             </p>
         </div>
@@ -956,17 +1157,24 @@
                         </svg>
                     </div>
 
-                    <span class="status inactive">
+                    <span class="status building">
                         <span class="status-dot"></span>
-                        <span data-tr="Aktif Değil" data-en="Inactive">Aktif Değil</span>
+                        <span data-tr="Yapımda" data-en="In Development" data-de="In Entwicklung" data-fr="En Développement" data-es="En Desarrollo" data-ru="В Разработке" data-ar="قيد التطوير" data-pt="Em Desenvolvimento" data-it="In Sviluppo">Yapımda</span>
                     </span>
                 </div>
 
                 <h3>Ankora Debian Masaüstü</h3>
 
-                <p data-tr="Ankora'nın Debian tabanlı masaüstü sürümü. Şu anda aktif geliştirme aşamasında değildir."
-                   data-en="Ankora's Debian-based desktop edition. It is not currently under active development.">
-                    Ankora'nın Debian tabanlı masaüstü sürümü. Şu anda aktif geliştirme aşamasında değildir.
+                <p data-tr="Ankora'nın Debian tabanlı masaüstü sürümü. Şu anda aktif geliştirme aşamasındadır."
+                   data-en="Ankora's Debian-based desktop edition. It is currently under active development."
+                   data-de="Die Debian-basierte Desktop-Edition von Ankora. Sie befindet sich derzeit in aktiver Entwicklung."
+                   data-fr="L'édition de bureau basée sur Debian d'Ankora. Elle est actuellement en développement actif."
+                   data-es="La edición de escritorio basada en Debian de Ankora. Actualmente se encuentra en desarrollo activo."
+                   data-ru="Настольная редакция Ankora на основе Debian. В настоящее время находится в активной разработке."
+                   data-ar="إصدار سطح المكتب القائم على دبيان من أنكورا. قيد التطوير النشط حاليًا."
+                   data-pt="A edição desktop baseada em Debian do Ankora. Atualmente está em desenvolvimento ativo."
+                   data-it="L'edizione desktop basata su Debian di Ankora. Attualmente è in sviluppo attivo.">
+                    Ankora'nın Debian tabanlı masaüstü sürümü. Şu anda aktif geliştirme aşamasındadır.
                 </p>
             </div>
 
@@ -979,40 +1187,24 @@
                         </svg>
                     </div>
 
-                    <span class="status building">
+                    <span class="status done">
                         <span class="status-dot"></span>
-                        <span data-tr="Yapımda" data-en="In Development">Yapımda</span>
+                        <span data-tr="Bitti - Genel Taramalar Yapılıyor" data-en="Done - General Scans in Progress" data-de="Fertig - Allgemeine Scans laufen" data-fr="Terminé - Analyses Générales en Cours" data-es="Completado - Escaneos Generales en Progreso" data-ru="Готово - Общие Проверки Выполняются" data-ar="مكتمل - الفحوصات العامة قيد التقدم" data-pt="Concluído - Varreduras Gerais em Andamento" data-it="Completato - Scansioni Generali in Corso">Bitti - Genel Taramalar Yapılıyor</span>
                     </span>
                 </div>
 
-                <h3>Ankora Arch</h3>
+                <h3>Ankora Arch · AI</h3>
 
-                <p data-tr="Arch Linux tabanlı, daha esnek ve güncel bir Ankora deneyimi için geliştiriliyor."
-                   data-en="An Arch Linux-based edition being developed for a flexible and up-to-date Ankora experience.">
-                    Arch Linux tabanlı, daha esnek ve güncel bir Ankora deneyimi için geliştiriliyor.
-                </p>
-            </div>
-
-            <div class="version-card">
-                <div class="version-top">
-                    <div class="version-icon">
-                        <svg width="21" height="21" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M12 2a10 10 0 100 20 10 10 0 000-20zm-3 10h6m-3-3v6"/>
-                        </svg>
-                    </div>
-
-                    <span class="status planned">
-                        <span class="status-dot"></span>
-                        <span data-tr="Planlandı" data-en="Planned">Planlandı</span>
-                    </span>
-                </div>
-
-                <h3>Ankora Aİ Arch</h3>
-
-                <p data-tr="Yapay zeka destekli araçlar ve otomasyon odaklı planlanan Arch tabanlı sürüm."
-                   data-en="A planned Arch-based edition focused on AI-powered tools and automation.">
-                    Yapay zeka destekli araçlar ve otomasyon odaklı planlanan Arch tabanlı sürüm.
+                <p data-tr="Arch Linux tabanlı, yapay zeka destekli araçlar ve otomasyon odaklı sürüm. Temel altyapı tamamlandı."
+                   data-en="An Arch Linux-based edition focused on AI-powered tools and automation. Core infrastructure is complete."
+                   data-de="Eine Arch-Linux-basierte Edition mit Fokus auf KI-gestützte Tools und Automatisierung. Die Kerninfrastruktur ist abgeschlossen."
+                   data-fr="Une édition basée sur Arch Linux axée sur les outils alimentés par l'IA et l'automatisation. L'infrastructure de base est terminée."
+                   data-es="Una edición basada en Arch Linux centrada en herramientas impulsadas por IA y automatización. La infraestructura central está completa."
+                   data-ru="Редакция на основе Arch Linux, ориентированная на инструменты на базе ИИ и автоматизацию. Базовая инфраструктура завершена."
+                   data-ar="إصدار مبني على Arch Linux يركز على الأدوات المدعومة بالذكاء الاصطناعي والأتمتة. البنية التحتية الأساسية مكتملة."
+                   data-pt="Uma edição baseada em Arch Linux focada em ferramentas com IA e automação. A infraestrutura central está concluída."
+                   data-it="Un'edizione basata su Arch Linux focalizzata su strumenti alimentati dall'IA e automazione. L'infrastruttura di base è completata.">
+                    Arch Linux tabanlı, yapay zeka destekli araçlar ve otomasyon odaklı sürüm. Temel altyapı tamamlandı.
                 </p>
             </div>
 
@@ -1027,14 +1219,21 @@
 
                     <span class="status planned">
                         <span class="status-dot"></span>
-                        <span data-tr="Planlandı" data-en="Planned">Planlandı</span>
+                        <span data-tr="Planlandı" data-en="Planned" data-de="Geplant" data-fr="Planifié" data-es="Planeado" data-ru="Запланировано" data-ar="مخطط له" data-pt="Planejado" data-it="Pianificato">Planlandı</span>
                     </span>
                 </div>
 
                 <h3>Ankora Kurumsal</h3>
 
                 <p data-tr="Kurumsal kullanım, merkezi yönetim ve güvenilir altyapı ihtiyaçları için planlanan sürüm."
-                   data-en="An edition planned for enterprise use, centralized management, and reliable infrastructure.">
+                   data-en="An edition planned for enterprise use, centralized management, and reliable infrastructure."
+                   data-de="Eine Edition, die für den Unternehmenseinsatz, die zentrale Verwaltung und eine zuverlässige Infrastruktur geplant ist."
+                   data-fr="Une édition prévue pour une utilisation en entreprise, une gestion centralisée et une infrastructure fiable."
+                   data-es="Una edición planificada para uso empresarial, gestión centralizada e infraestructura confiable."
+                   data-ru="Редакция, запланированная для корпоративного использования, централизованного управления и надежной инфраструктуры."
+                   data-ar="إصدار مخطط للاستخدام المؤسسي والإدارة المركزية والبنية التحتية الموثوقة."
+                   data-pt="Uma edição planejada para uso empresarial, gerenciamento centralizado e infraestrutura confiável."
+                   data-it="Un'edizione pianificata per uso aziendale, gestione centralizzata e infrastruttura affidabile.">
                     Kurumsal kullanım, merkezi yönetim ve güvenilir altyapı ihtiyaçları için planlanan sürüm.
                 </p>
             </div>
@@ -1046,13 +1245,20 @@
     <section id="tools">
 
         <div class="section-title">
-            <h2 data-tr="Ankora Araçları" data-en="Ankora Tools">
+            <h2 data-tr="Ankora Araçları" data-en="Ankora Tools" data-de="Ankora Werkzeuge" data-fr="Outils Ankora" data-es="Herramientas Ankora" data-ru="Инструменты Ankora" data-ar="أدوات أنكورا" data-pt="Ferramentas Ankora" data-it="Strumenti Ankora">
                 Ankora Araçları
             </h2>
 
             <p class="section-description"
                data-tr="Ankora ekosistemi için geliştirilen sistem araçları ve yardımcı uygulamalar."
-               data-en="System tools and utilities being developed for the Ankora ecosystem.">
+               data-en="System tools and utilities being developed for the Ankora ecosystem."
+               data-de="Systemtools und Dienstprogramme, die für das Ankora-Ökosystem entwickelt werden."
+               data-fr="Outils système et utilitaires en cours de développement pour l'écosystème Ankora."
+               data-es="Herramientas del sistema y utilidades que se están desarrollando para el ecosistema Ankora."
+               data-ru="Системные инструменты и утилиты, разрабатываемые для экосистемы Ankora."
+               data-ar="أدوات النظام والمرافق التي يتم تطويرها لنظام أنكورا البيئي."
+               data-pt="Ferramentas de sistema e utilitários sendo desenvolvidos para o ecossistema Ankora."
+               data-it="Strumenti di sistema e utilità in fase di sviluppo per l'ecosistema Ankora.">
                 Ankora ekosistemi için geliştirilen sistem araçları ve yardımcı uygulamalar.
             </p>
         </div>
@@ -1065,7 +1271,14 @@
                     <div class="tool-name">Ankora Ai</div>
                     <div class="tool-status planned"
                          data-tr="Planlandı"
-                         data-en="Planned">
+                         data-en="Planned"
+                         data-de="Geplant"
+                         data-fr="Planifié"
+                         data-es="Planeado"
+                         data-ru="Запланировано"
+                         data-ar="مخطط له"
+                         data-pt="Planejado"
+                         data-it="Pianificato">
                         Planlandı
                     </div>
                 </div>
@@ -1075,10 +1288,17 @@
                 <div class="tool-icon">↻</div>
                 <div class="tool-info">
                     <div class="tool-name">Ankora Backup</div>
-                    <div class="tool-status building"
-                         data-tr="Yapılıyor"
-                         data-en="In Development">
-                        Yapılıyor
+                    <div class="tool-status done"
+                         data-tr="Bitti"
+                         data-en="Done"
+                         data-de="Fertig"
+                         data-fr="Terminé"
+                         data-es="Completado"
+                         data-ru="Готово"
+                         data-ar="مكتمل"
+                         data-pt="Concluído"
+                         data-it="Completato">
+                        Bitti
                     </div>
                 </div>
             </div>
@@ -1087,10 +1307,17 @@
                 <div class="tool-icon">⌫</div>
                 <div class="tool-info">
                     <div class="tool-name">Ankora Cleanup</div>
-                    <div class="tool-status building"
-                         data-tr="Yapılıyor"
-                         data-en="In Development">
-                        Yapılıyor
+                    <div class="tool-status done"
+                         data-tr="Bitti"
+                         data-en="Done"
+                         data-de="Fertig"
+                         data-fr="Terminé"
+                         data-es="Completado"
+                         data-ru="Готово"
+                         data-ar="مكتمل"
+                         data-pt="Concluído"
+                         data-it="Completato">
+                        Bitti
                     </div>
                 </div>
             </div>
@@ -1099,10 +1326,17 @@
                 <div class="tool-icon">🛡</div>
                 <div class="tool-info">
                     <div class="tool-name">Ankora Firewall Status</div>
-                    <div class="tool-status building"
-                         data-tr="Yapılıyor"
-                         data-en="In Development">
-                        Yapılıyor
+                    <div class="tool-status done"
+                         data-tr="Bitti"
+                         data-en="Done"
+                         data-de="Fertig"
+                         data-fr="Terminé"
+                         data-es="Completado"
+                         data-ru="Готово"
+                         data-ar="مكتمل"
+                         data-pt="Concluído"
+                         data-it="Completato">
+                        Bitti
                     </div>
                 </div>
             </div>
@@ -1111,10 +1345,17 @@
                 <div class="tool-icon">▤</div>
                 <div class="tool-info">
                     <div class="tool-name">Ankora Report</div>
-                    <div class="tool-status building"
-                         data-tr="Yapımda"
-                         data-en="In Development">
-                        Yapımda
+                    <div class="tool-status done"
+                         data-tr="Bitti"
+                         data-en="Done"
+                         data-de="Fertig"
+                         data-fr="Terminé"
+                         data-es="Completado"
+                         data-ru="Готово"
+                         data-ar="مكتمل"
+                         data-pt="Concluído"
+                         data-it="Completato">
+                        Bitti
                     </div>
                 </div>
             </div>
@@ -1123,10 +1364,17 @@
                 <div class="tool-icon">⌁</div>
                 <div class="tool-info">
                     <div class="tool-name">Ankora Systeminfo</div>
-                    <div class="tool-status building"
-                         data-tr="Yapımda"
-                         data-en="In Development">
-                        Yapımda
+                    <div class="tool-status done"
+                         data-tr="Bitti"
+                         data-en="Done"
+                         data-de="Fertig"
+                         data-fr="Terminé"
+                         data-es="Completado"
+                         data-ru="Готово"
+                         data-ar="مكتمل"
+                         data-pt="Concluído"
+                         data-it="Completato">
+                        Bitti
                     </div>
                 </div>
             </div>
@@ -1135,10 +1383,17 @@
                 <div class="tool-icon">↑</div>
                 <div class="tool-info">
                     <div class="tool-name">Ankora Update</div>
-                    <div class="tool-status building"
-                         data-tr="Yapımda"
-                         data-en="In Development">
-                        Yapımda
+                    <div class="tool-status done"
+                         data-tr="Bitti"
+                         data-en="Done"
+                         data-de="Fertig"
+                         data-fr="Terminé"
+                         data-es="Completado"
+                         data-ru="Готово"
+                         data-ar="مكتمل"
+                         data-pt="Concluído"
+                         data-it="Completato">
+                        Bitti
                     </div>
                 </div>
             </div>
@@ -1149,7 +1404,14 @@
                     <div class="tool-name">Ankora Sistem Ayarları</div>
                     <div class="tool-status planned"
                          data-tr="Planlandı"
-                         data-en="Planned">
+                         data-en="Planned"
+                         data-de="Geplant"
+                         data-fr="Planifié"
+                         data-es="Planeado"
+                         data-ru="Запланировано"
+                         data-ar="مخطط له"
+                         data-pt="Planejado"
+                         data-it="Pianificato">
                         Planlandı
                     </div>
                 </div>
@@ -1162,7 +1424,7 @@
     <section id="specs">
 
         <div class="section-title">
-            <h2 data-tr="Sistem Gereksinimleri" data-en="System Requirements">
+            <h2 data-tr="Sistem Gereksinimleri" data-en="System Requirements" data-de="Systemanforderungen" data-fr="Configuration Système" data-es="Requisitos del Sistema" data-ru="Системные Требования" data-ar="متطلبات النظام" data-pt="Requisitos de Sistema" data-it="Requisiti di Sistema">
                 Sistem Gereksinimleri
             </h2>
         </div>
@@ -1170,27 +1432,27 @@
         <table class="specs-table">
             <thead>
                 <tr>
-                    <th data-tr="Bileşen" data-en="Hardware">Bileşen</th>
-                    <th data-tr="Minimum" data-en="Minimum">Minimum</th>
-                    <th data-tr="Önerilen" data-en="Recommended">Önerilen</th>
+                    <th data-tr="Bileşen" data-en="Hardware" data-de="Komponente" data-fr="Composant" data-es="Componente" data-ru="Компонент" data-ar="المكون" data-pt="Componente" data-it="Componente">Bileşen</th>
+                    <th data-tr="Minimum" data-en="Minimum" data-de="Minimum" data-fr="Minimum" data-es="Mínimo" data-ru="Минимум" data-ar="الحد الأدنى" data-pt="Mínimo" data-it="Minimo">Minimum</th>
+                    <th data-tr="Önerilen" data-en="Recommended" data-de="Empfohlen" data-fr="Recommandé" data-es="Recomendado" data-ru="Рекомендуется" data-ar="موصى به" data-pt="Recomendado" data-it="Raccomandato">Önerilen</th>
                 </tr>
             </thead>
 
             <tbody>
                 <tr>
-                    <td data-tr="İşlemci" data-en="Processor">İşlemci</td>
+                    <td data-tr="İşlemci" data-en="Processor" data-de="Prozessor" data-fr="Processeur" data-es="Procesador" data-ru="Процессор" data-ar="المعالج" data-pt="Processador" data-it="Processore">İşlemci</td>
                     <td>64-bit Çift Çekirdek (1.6 GHz)</td>
                     <td>64-bit Dört Çekirdek</td>
                 </tr>
 
                 <tr>
-                    <td data-tr="Bellek (RAM)" data-en="Memory (RAM)">Bellek (RAM)</td>
+                    <td data-tr="Bellek (RAM)" data-en="Memory (RAM)" data-de="Arbeitsspeicher (RAM)" data-fr="Mémoire (RAM)" data-es="Memoria (RAM)" data-ru="Память (ОЗУ)" data-ar="الذاكرة (RAM)" data-pt="Memória (RAM)" data-it="Memoria (RAM)">Bellek (RAM)</td>
                     <td>2 GB (ZRAM Aktif)</td>
                     <td>4 GB veya üzeri</td>
                 </tr>
 
                 <tr>
-                    <td data-tr="Depolama" data-en="Storage">Depolama</td>
+                    <td data-tr="Depolama" data-en="Storage" data-de="Speicher" data-fr="Stockage" data-es="Almacenamiento" data-ru="Хранилище" data-ar="التخزين" data-pt="Armazenamento" data-it="Archiviazione">Depolama</td>
                     <td>15 GB SSD / HDD</td>
                     <td>30 GB SSD</td>
                 </tr>
@@ -1203,7 +1465,14 @@
         <p>
             Ankora Linux &bull;
             <span data-tr="Bağımsız Topluluk Projesi"
-                  data-en="Independent Community Project">
+                  data-en="Independent Community Project"
+                  data-de="Unabhängiges Gemeinschaftsprojekt"
+                  data-fr="Projet Communautaire Indépendant"
+                  data-es="Proyecto Comunitario Independiente"
+                  data-ru="Независимый Общественный Проект"
+                  data-ar="مشروع مجتمعي مستقل"
+                  data-pt="Projeto Comunitário Independente"
+                  data-it="Progetto Comunitario Indipendente">
                 Bağımsız Topluluk Projesi
             </span>
         </p>
@@ -1303,6 +1572,14 @@
 
         <div class="dock-divider"></div>
 
+        <!-- Tema Değiştirici -->
+        <button class="dock-btn theme-toggle"
+                id="themeBtn"
+                data-tooltip="Tema Değiştir"
+                aria-label="Toggle Theme">
+            <span id="themeIcon">🌙</span>
+        </button>
+
         <!-- Dil -->
         <div style="position:relative;">
 
@@ -1316,41 +1593,15 @@
 
             <div class="language-menu" id="languageMenu">
 
-                <button class="language-option" data-language="tr">
-                    🇹🇷 Türkçe
-                </button>
-
-                <button class="language-option" data-language="en">
-                    🇬🇧 English
-                </button>
-
-                <button class="language-option" data-language="de">
-                    🇩🇪 Deutsch
-                </button>
-
-                <button class="language-option" data-language="fr">
-                    🇫🇷 Français
-                </button>
-
-                <button class="language-option" data-language="es">
-                    🇪🇸 Español
-                </button>
-
-                <button class="language-option" data-language="ru">
-                    🇷🇺 Русский
-                </button>
-
-                <button class="language-option" data-language="ar">
-                    🇸🇦 العربية
-                </button>
-
-                <button class="language-option" data-language="pt">
-                    🇵🇹 Português
-                </button>
-
-                <button class="language-option" data-language="it">
-                    🇮🇹 Italiano
-                </button>
+                <button class="language-option" data-language="tr">🇹🇷 Türkçe</button>
+                <button class="language-option" data-language="en">🇬🇧 English</button>
+                <button class="language-option" data-language="de">🇩🇪 Deutsch</button>
+                <button class="language-option" data-language="fr">🇫🇷 Français</button>
+                <button class="language-option" data-language="es">🇪🇸 Español</button>
+                <button class="language-option" data-language="ru">🇷🇺 Русский</button>
+                <button class="language-option" data-language="ar">🇸🇦 العربية</button>
+                <button class="language-option" data-language="pt">🇵🇹 Português</button>
+                <button class="language-option" data-language="it">🇮🇹 Italiano</button>
 
             </div>
         </div>
@@ -1361,20 +1612,17 @@
 <script>
     /*
      * Ankora Linux
-     * Lightweight client-side language system.
-     *
-     * Türkçe ve İngilizce metinler özel olarak hazırlanmıştır.
-     * Diğer diller için tarayıcı otomatik çevirisi kullanılır.
-     *
-     * Böylece siteyi gereksiz şekilde devasa bir JSON çeviri
-     * dosyasıyla doldurmadan çoklu dil desteği sağlanır.
+     * Client-side language system with full translation support.
      */
 
     let currentLang = 'tr';
+    let currentTheme = 'dark';
 
     const langBtn = document.getElementById('langBtn');
     const langLabel = document.getElementById('langLabel');
     const languageMenu = document.getElementById('languageMenu');
+    const themeBtn = document.getElementById('themeBtn');
+    const themeIcon = document.getElementById('themeIcon');
 
     const supportedLanguages = {
         tr: 'TR',
@@ -1388,153 +1636,95 @@
         it: 'IT'
     };
 
-    /*
-     * Tarayıcı dili otomatik algılama.
-     *
-     * tr-TR -> tr
-     * en-US -> en
-     * de-DE -> de
-     *
-     * Türkçe veya İngilizce metinler doğrudan kullanılır.
-     * Diğer dillerde tarayıcının yerleşik çeviri özelliği
-     * devreye girebilir; site harici bir API'ye bağımlı değildir.
-     */
     function detectLanguage() {
         const browserLanguage =
             (navigator.language || navigator.userLanguage || 'tr')
             .toLowerCase()
             .split('-')[0];
-
-        if (supportedLanguages[browserLanguage]) {
-            return browserLanguage;
-        }
-
-        return 'en';
+        return supportedLanguages[browserLanguage] ? browserLanguage : 'en';
     }
 
     function applyLanguage(lang) {
-
         currentLang = lang;
-
         document.documentElement.lang = lang;
-
-        /*
-         * RTL diller için Arapça desteği.
-         */
         document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-        /*
-         * Türkçe ve İngilizce için gerçek içerikleri kullan.
-         */
-        if (lang === 'tr' || lang === 'en') {
+        // Tüm diller için çeviriyi uygula
+        document.querySelectorAll('[data-tr]').forEach(el => {
+            const value = el.getAttribute(`data-${lang}`);
+            if (value) {
+                el.innerHTML = value;
+            }
+        });
 
-            document.querySelectorAll('[data-tr]').forEach(el => {
-
-                const value = el.getAttribute(
-                    `data-${lang}`
-                );
-
-                if (value) {
-                    el.innerHTML = value;
-                }
-
-            });
-
-        }
-
-        /*
-         * Diğer dillerde:
-         * Eğer tarayıcı bu dili destekliyorsa, sayfanın doğal
-         * çeviri sistemi kullanıcı tarafından kullanılabilir.
-         *
-         * İçeriği bozacak otomatik API çağrısı yapılmaz.
-         */
-        langLabel.textContent =
-            supportedLanguages[lang] || 'EN';
-
+        langLabel.textContent = supportedLanguages[lang] || 'EN';
         languageMenu.classList.remove('open');
 
         try {
-            localStorage.setItem(
-                'ankora-language',
-                lang
-            );
-        } catch (e) {
-            /* localStorage kullanılamıyorsa site çalışmaya devam eder. */
+            localStorage.setItem('ankora-language', lang);
+        } catch (e) { /* ignore */ }
+    }
+
+    function applyTheme(theme) {
+        currentTheme = theme;
+        if (theme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeIcon.textContent = '☀️';
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            themeIcon.textContent = '🌙';
         }
+        try {
+            localStorage.setItem('ankora-theme', theme);
+        } catch (e) { /* ignore */ }
     }
 
-    /*
-     * Dil menüsünü aç/kapat.
-     */
+    // Dil menüsü
     langBtn.addEventListener('click', function (event) {
-
         event.stopPropagation();
-
         languageMenu.classList.toggle('open');
-
     });
 
-    /*
-     * Dil seçenekleri.
-     */
     document.querySelectorAll('.language-option').forEach(button => {
-
         button.addEventListener('click', function () {
-
-            const selectedLanguage =
-                this.getAttribute('data-language');
-
+            const selectedLanguage = this.getAttribute('data-language');
             applyLanguage(selectedLanguage);
-
         });
-
     });
 
-    /*
-     * Menü dışına tıklanınca kapat.
-     */
     document.addEventListener('click', function () {
-
         languageMenu.classList.remove('open');
-
     });
 
-    /*
-     * Daha önce seçilmiş dili kullan.
-     * Yoksa tarayıcı dilini algıla.
-     */
+    // Tema değiştirici
+    themeBtn.addEventListener('click', function () {
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+    });
+
+    // Başlangıç
     let initialLanguage = 'tr';
-
     try {
-
-        const savedLanguage =
-            localStorage.getItem('ankora-language');
-
-        initialLanguage =
-            savedLanguage ||
-            detectLanguage();
-
+        const savedLanguage = localStorage.getItem('ankora-language');
+        initialLanguage = savedLanguage || detectLanguage();
     } catch (e) {
-
-        initialLanguage =
-            detectLanguage();
-
+        initialLanguage = detectLanguage();
     }
 
-    /*
-     * Başlangıçta TR/EN dışındaki diller için
-     * sayfayı İngilizce bırakıyoruz.
-     * Böylece bozuk veya yarım çeviri oluşmaz.
-     */
-    if (
-        initialLanguage !== 'tr' &&
-        initialLanguage !== 'en'
-    ) {
+    // TR/EN dışındaki diller için sayfayı İngilizce bırak
+    if (initialLanguage !== 'tr' && initialLanguage !== 'en') {
         initialLanguage = 'en';
     }
 
     applyLanguage(initialLanguage);
+
+    // Tema başlangıç
+    let initialTheme = 'dark';
+    try {
+        const savedTheme = localStorage.getItem('ankora-theme');
+        if (savedTheme) initialTheme = savedTheme;
+    } catch (e) { /* ignore */ }
+    applyTheme(initialTheme);
 </script>
 
 </body>
