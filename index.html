@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090d16">
+    <meta name="description" content="Ankora Linux — Hafif, performanslı ve modern Linux dağıtımı.">
     <title>Ankora Linux | Hafif ve Performanslı OS</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
             --bg: #090d16;
@@ -19,303 +22,1520 @@
             --text-bright: #f8fafc;
             --accent: #38bdf8;
             --accent-glow: rgba(56, 189, 248, 0.15);
+
+            --green: #34d399;
+            --green-glow: rgba(52, 211, 153, 0.12);
+            --yellow: #fbbf24;
+            --yellow-glow: rgba(251, 191, 36, 0.12);
+            --purple: #a78bfa;
+            --purple-glow: rgba(167, 139, 250, 0.12);
+            --red: #f87171;
+            --red-glow: rgba(248, 113, 113, 0.12);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; padding-bottom: 110px; overflow-x: hidden; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 110px;
+            overflow-x: hidden;
+        }
 
-        /* Top Header */
-        header { padding: 24px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
-        .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--text-bright); text-decoration: none; font-size: 1.1rem; }
-        .brand-badge { font-size: 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--accent); padding: 2px 10px; border-radius: 20px; font-weight: 600; }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-        /* Hero Section - Centered Logo */
-        .hero { text-align: center; padding: 60px 0 40px; }
-        .hero-logo-wrapper { position: relative; display: inline-block; margin-bottom: 24px; }
+        /* Header */
+        header {
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: var(--text-bright);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .brand-badge {
+            font-size: 0.75rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--accent);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* 30 Ağustos */
+        .bayram-banner {
+            margin-top: 18px;
+            padding: 13px 18px;
+            border: 1px solid rgba(220, 38, 38, 0.25);
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(220, 38, 38, 0.10),
+                    rgba(255,255,255,0.025),
+                    rgba(220, 38, 38, 0.10)
+                );
+            border-radius: 12px;
+            text-align: center;
+            color: var(--text-bright);
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .bayram-banner strong {
+            color: #f87171;
+        }
+
+        .bayram-sub {
+            color: var(--text-main);
+            font-size: 0.76rem;
+            margin-top: 2px;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .hero-logo-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
         .hero-logo {
-            width: 120px; height: 120px; border-radius: 50%; object-fit: cover;
-            border: 2px solid var(--border); background: var(--surface);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border);
+            background: var(--surface);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
         }
-        .hero-logo:hover { transform: scale(1.03); border-color: var(--accent); }
+
+        .hero-logo:hover {
+            transform: scale(1.03);
+            border-color: var(--accent);
+        }
 
         .tagline {
-            display: inline-flex; align-items: center; gap: 6px; padding: 4px 14px;
-            background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
-            font-size: 0.85rem; font-weight: 600; color: var(--accent); margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 20px;
         }
-        .hero h1 { font-size: 2.75rem; color: var(--text-bright); font-weight: 800; letter-spacing: -0.8px; line-height: 1.2; margin-bottom: 18px; }
-        .hero p { font-size: 1.05rem; color: var(--text-main); max-width: 640px; margin: 0 auto 32px; font-weight: 400; }
 
-        .hero-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+        .hero h1 {
+            font-size: 2.75rem;
+            color: var(--text-bright);
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            max-width: 640px;
+            margin: 0 auto 32px;
+            font-weight: 400;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
         .btn {
-            display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px;
-            border-radius: 10px; font-size: 0.95rem; font-weight: 700; text-decoration: none;
-            transition: all 0.2s ease; cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
         }
-        .btn-primary { background: var(--accent); color: #090d16; }
-        .btn-primary:hover { background: #7dd3fc; transform: translateY(-2px); }
-        .btn-secondary { background: var(--surface); color: var(--text-bright); border: 1px solid var(--border); }
-        .btn-secondary:hover { background: var(--surface-hover); border-color: var(--border-hover); transform: translateY(-2px); }
 
-        /* Announcement Card */
+        .btn-primary {
+            background: var(--accent);
+            color: #090d16;
+        }
+
+        .btn-primary:hover {
+            background: #7dd3fc;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text-bright);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Release */
         .release-card {
-            background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-            padding: 24px; margin: 30px 0 60px; display: flex; justify-content: space-between;
-            align-items: center; gap: 20px; transition: border-color 0.2s;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            margin: 30px 0 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            transition: border-color 0.2s;
         }
-        .release-card:hover { border-color: var(--border-hover); }
-        .release-badge { font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
-        .release-title { font-size: 1.15rem; font-weight: 700; color: var(--text-bright); margin-bottom: 4px; }
-        .release-desc { font-size: 0.9rem; color: var(--text-main); }
 
-        /* Features Section */
-        .section-title { margin-bottom: 24px; }
-        .section-title h2 { font-size: 1.4rem; color: var(--text-bright); font-weight: 700; }
+        .release-card:hover {
+            border-color: var(--border-hover);
+        }
 
-        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 60px; }
+        .release-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .release-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-bright);
+            margin-bottom: 4px;
+        }
+
+        .release-desc {
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        /* Sections */
+        .section-title {
+            margin-bottom: 24px;
+        }
+
+        .section-title h2 {
+            font-size: 1.4rem;
+            color: var(--text-bright);
+            font-weight: 700;
+        }
+
+        .section-description {
+            margin-top: 5px;
+            font-size: 0.88rem;
+            color: var(--text-main);
+        }
+
+        /* Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
         .card {
-            background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-            padding: 24px; transition: all 0.2s ease;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s ease;
         }
-        .card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+
+        .card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+        }
+
         .card-icon {
-            width: 40px; height: 40px; border-radius: 10px; background: var(--accent-glow);
-            color: var(--accent); display: flex; align-items: center; justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--accent-glow);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 16px;
         }
-        .card h3 { font-size: 1.1rem; color: var(--text-bright); font-weight: 700; margin-bottom: 8px; }
-        .card p { font-size: 0.9rem; color: var(--text-main); line-height: 1.5; }
 
-        /* Specs Table */
-        .specs-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 60px; }
-        .specs-table th, .specs-table td { padding: 14px 20px; text-align: left; font-size: 0.9rem; }
-        .specs-table th { background: rgba(255, 255, 255, 0.02); color: var(--text-bright); font-weight: 600; border-bottom: 1px solid var(--border); }
-        .specs-table td { border-bottom: 1px solid var(--border); color: var(--text-main); }
-        .specs-table tr:last-child td { border-bottom: none; }
-        .specs-table td strong { color: var(--text-bright); }
+        .card h3 {
+            font-size: 1.1rem;
+            color: var(--text-bright);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        /* Versions */
+        .versions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .version-card {
+            position: relative;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+            transition: all 0.2s ease;
+            overflow: hidden;
+        }
+
+        .version-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+        }
+
+        .version-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .version-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-glow);
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .version-card h3 {
+            color: var(--text-bright);
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+        }
+
+        .version-card p {
+            font-size: 0.84rem;
+            color: var(--text-main);
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            padding: 5px 9px;
+            border-radius: 20px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            border: 1px solid transparent;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .status.active {
+            color: var(--green);
+            background: var(--green-glow);
+            border-color: rgba(52, 211, 153, 0.18);
+        }
+
+        .status.active .status-dot {
+            background: var(--green);
+        }
+
+        .status.building {
+            color: var(--yellow);
+            background: var(--yellow-glow);
+            border-color: rgba(251, 191, 36, 0.18);
+        }
+
+        .status.building .status-dot {
+            background: var(--yellow);
+        }
+
+        .status.planned {
+            color: var(--purple);
+            background: var(--purple-glow);
+            border-color: rgba(167, 139, 250, 0.18);
+        }
+
+        .status.planned .status-dot {
+            background: var(--purple);
+        }
+
+        .status.inactive {
+            color: var(--red);
+            background: var(--red-glow);
+            border-color: rgba(248, 113, 113, 0.18);
+        }
+
+        .status.inactive .status-dot {
+            background: var(--red);
+        }
+
+        /* Tools */
+        .tools-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 60px;
+        }
+
+        .tool {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 15px 17px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            transition: all 0.2s ease;
+        }
+
+        .tool:hover {
+            border-color: var(--border-hover);
+            background: var(--surface-hover);
+        }
+
+        .tool-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9px;
+            background: var(--accent-glow);
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .tool-info {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .tool-name {
+            color: var(--text-bright);
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .tool-status {
+            font-size: 0.72rem;
+            margin-top: 2px;
+        }
+
+        .tool-status.building {
+            color: var(--yellow);
+        }
+
+        .tool-status.planned {
+            color: var(--purple);
+        }
+
+        /* Specs */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 14px 20px;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .specs-table th {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-bright);
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .specs-table td {
+            border-bottom: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .specs-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .specs-table td strong {
+            color: var(--text-bright);
+        }
 
         /* Footer */
-        footer { border-top: 1px solid var(--border); padding: 30px 0; text-align: center; font-size: 0.85rem; color: var(--text-main); }
-        footer a { color: var(--accent); text-decoration: none; }
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-main);
+        }
 
-        /* --- MODERN FLOATING BOTTOM DOCK --- */
-        .dock-container { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; }
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Dock */
+        .dock-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            max-width: calc(100vw - 20px);
+        }
+
         .dock {
-            display: flex; align-items: center; gap: 6px; padding: 6px 10px;
-            background: rgba(18, 24, 36, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            background: rgba(18, 24, 36, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
+
         .dock-btn {
-            width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center;
-            justify-content: center; color: var(--text-main); text-decoration: none;
-            background: transparent; border: none; cursor: pointer; transition: all 0.2s ease;
-            position: relative; font-weight: 700; font-size: 0.85rem;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            text-decoration: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
         }
-        .dock-btn svg { width: 20px; height: 20px; stroke-width: 2; }
-        .dock-btn:hover { background: rgba(255, 255, 255, 0.08); color: var(--accent); transform: translateY(-4px); }
-        .dock-divider { width: 1px; height: 22px; background: rgba(255, 255, 255, 0.12); margin: 0 4px; }
 
-        /* Dock Tooltip */
+        .dock-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2;
+        }
+
+        .dock-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .dock-divider {
+            width: 1px;
+            height: 22px;
+            background: rgba(255, 255, 255, 0.12);
+            margin: 0 4px;
+        }
+
         .dock-btn::after {
-            content: attr(data-tooltip); position: absolute; top: -38px;
-            background: #1e293b; color: var(--text-bright); font-size: 0.75rem;
-            padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border);
-            white-space: nowrap; opacity: 0; pointer-events: none; transition: 0.2s ease; font-weight: 600;
+            content: attr(data-tooltip);
+            position: absolute;
+            top: -38px;
+            background: #1e293b;
+            color: var(--text-bright);
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.2s ease;
+            font-weight: 600;
         }
-        .dock-btn:hover::after { opacity: 1; transform: translateY(-2px); }
 
+        .dock-btn:hover::after {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        /* Language */
+        .language-menu {
+            position: absolute;
+            bottom: 57px;
+            right: 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 6px;
+            width: 145px;
+            box-shadow: 0 15px 35px rgba(0,0,0,.45);
+            display: none;
+        }
+
+        .language-menu.open {
+            display: block;
+        }
+
+        .language-option {
+            width: 100%;
+            border: 0;
+            background: transparent;
+            color: var(--text-main);
+            padding: 9px 10px;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            font-size: .78rem;
+            font-weight: 600;
+        }
+
+        .language-option:hover {
+            background: var(--surface-hover);
+            color: var(--text-bright);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .grid { grid-template-columns: 1fr; }
-            .release-card { flex-direction: column; align-items: flex-start; }
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .grid,
+            .versions-grid,
+            .tools-list {
+                grid-template-columns: 1fr;
+            }
+
+            .release-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .dock {
+                gap: 2px;
+                padding: 5px 7px;
+            }
+
+            .dock-btn {
+                width: 38px;
+                height: 38px;
+            }
+
+            .dock-divider {
+                margin: 0 2px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding-top: 45px;
+            }
+
+            .hero-logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .specs-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .dock-btn:nth-child(3),
+            .dock-btn:nth-child(4) {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <div class="container">
-        <!-- Brand Header -->
-        <header>
-            <a href="#" class="brand">
-                <span>Ankora Linux</span>
-                <span class="brand-badge">v1.0</span>
-            </a>
-        </header>
+<div class="container">
 
-        <!-- Hero Section - Centered Logo -->
-        <section class="hero" id="home">
-            <div class="hero-logo-wrapper">
-                <img src="logo.jpg" alt="Ankora OS Logo" class="hero-logo" onerror="this.src='logo.png'">
-            </div>
-            <div class="tagline" data-tr="🏔️ Bağımsız & Performance-Oriented" data-en="🏔️ Independent & Performance-Oriented">🏔️ Bağımsız & Performance-Oriented</div>
-            
-            <h1 data-tr="Hızlı, Hafif ve Kullanıma Hazır<br>Linux Dağıtımı" data-en="Fast, Lightweight & Ready-to-Use<br>Linux Distro">
-                Hızlı, Hafif ve Kullanıma Hazır<br>Linux Dağıtımı
-            </h1>
-            
-            <p data-tr="Debian tabanı üzerine inşa edilen Ankora OS; optimize edilmiş XFCE masaüstü ortamı, ZRAM bellek sıkıştırması ve yerleşik oyun/geliştirici paketleriyle gelir."
-               data-en="Built on Debian base, Ankora OS arrives with an optimized XFCE desktop, ZRAM memory compression, and pre-configured gaming and developer tools.">
-                Debian tabanı üzerine inşa edilen Ankora OS; optimize edilmiş XFCE masaüstü ortamı, ZRAM bellek sıkıştırması ve yerleşik oyun/geliştirici paketleriyle gelir.
-            </p>
-            
-            <div class="hero-actions">
-                <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" class="btn btn-primary">
-                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                    <span data-tr="ISO İndir" data-en="Download ISO">ISO İndir</span>
-                </a>
-                <a href="https://ankalab.flarum.cloud" target="_blank" class="btn btn-secondary">
-                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-                    <span data-tr="AnkaLab Forum" data-en="AnkaLab Forum">AnkaLab Forum</span>
-                </a>
-            </div>
-        </section>
+    <!-- Header -->
+    <header>
+        <a href="#home" class="brand">
+            <span>Ankora Linux</span>
+            <span class="brand-badge">v1.0</span>
+        </a>
+    </header>
 
-        <!-- Duyuru Kartı -->
-        <div class="release-card" id="news">
-            <div>
-                <div class="release-badge" data-tr="Son Sürüm Duyurusu" data-en="Latest Release">Son Sürüm Duyurusu</div>
-                <div class="release-title" data-tr="Ankora Linux 1.0 (Zümrüt) Yayında" data-en="Ankora Linux 1.0 (Emerald) Released">Ankora Linux 1.0 (Zümrüt) Yayında</div>
-                <div class="release-desc" data-tr="Calamares yükleyici, varsayılan ZRAM konfigürasyonu ve güncel paket deposuyla ilk sürüm indirmeye hazır." data-en="First release ready for download with Calamares installer, default ZRAM configuration, and updated packages.">Calamares yükleyici, varsayılan ZRAM konfigürasyonu ve güncel paket deposuyla ilk sürüm indirmeye hazır.</div>
-            </div>
-            <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" class="btn btn-secondary" style="white-space: nowrap;" data-tr="Sürüm Notları" data-en="Release Notes">Sürüm Notları</a>
+    <!-- 30 Ağustos Zafer Bayramı -->
+    <div class="bayram-banner">
+        <div data-tr="🇹🇷 <strong>30 Ağustos Zafer Bayramı Kutlu Olsun</strong>"
+             data-en="🇹🇷 <strong>Happy Victory Day — 30 August</strong>">
+            🇹🇷 <strong>30 Ağustos Zafer Bayramı Kutlu Olsun</strong>
+        </div>
+        <div class="bayram-sub"
+             data-tr="Ankora Linux ekibi olarak tüm milletimizin Zafer Bayramı'nı kutlarız."
+             data-en="The Ankora Linux team wishes everyone a happy Victory Day.">
+            Ankora Linux ekibi olarak tüm milletimizin Zafer Bayramı'nı kutlarız.
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+
+        <div class="hero-logo-wrapper">
+            <img
+                src="logo.jpg"
+                alt="Ankora OS Logo"
+                class="hero-logo"
+                onerror="this.onerror=null; this.src='logo.png';"
+            >
         </div>
 
-        <!-- Özellikler Grid -->
-        <section id="features">
-            <div class="section-title">
-                <h2 data-tr="Öne Çıkan Özellikler" data-en="Core Features">Öne Çıkan Özellikler</h2>
-            </div>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-icon">
-                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    </div>
-                    <h3 data-tr="ZRAM Optimizasyonu" data-en="ZRAM Optimization">ZRAM Optimizasyonu</h3>
-                    <p data-tr="Düşük RAM kapasiteli cihazlarda bile kilitlenme yaşamadan akıcı çoklu görev yürütme imkanı." data-en="Prevents system freezing on low-RAM hardware through smart memory compression.">Düşük RAM kapasiteli cihazlarda bile kilitlenme yaşamadan akıcı çoklu görev yürütme imkanı.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5z"/></svg>
-                    </div>
-                    <h3 data-tr="Oyun ve Sürücü Katmanı" data-en="Gaming & Drivers">Oyun ve Sürücü Katmanı</h3>
-                    <p data-tr="Mesa Vulkan sürücüleri, GameMode ve MangoHud alt yapısı hazır yapılandırılmış gelir." data-en="Mesa Vulkan drivers, GameMode layer, and MangoHud utilities pre-installed.">Mesa Vulkan sürücüleri, GameMode ve MangoHud alt yapısı hazır yapılandırılmış gelir.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-                    </div>
-                    <h3 data-tr="Geniş Paket Desteği" data-en="App Ecosystem">Geniş Paket Desteği</h3>
-                    <p data-tr="Pardus Yazılım Merkezi entegrasyonu ve Flatpak desteği ile binlerce uygulamaya doğrudan erişim." data-en="Direct access to thousands of applications via Pardus Store and Flatpak integration.">Pardus Yazılım Merkezi entegrasyonu ve Flatpak desteği ile binlerce uygulamaya doğrudan erişim.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                    </div>
-                    <h3 data-tr="Geliştirici Araçları" data-en="Developer Tooling">Geliştirici Araçları</h3>
-                    <p data-tr="Python, C/C++ derleyicileri, Git ve özel Zsh terminal konfigürasyonu tek tıkla kullanıma hazır." data-en="Pre-configured Python, C/C++ toolchains, Git, and customized Zsh terminal environment.">Python, C/C++ derleyicileri, Git ve özel Zsh terminal konfigürasyonu tek tıkla kullanıma hazır.</p>
-                </div>
-            </div>
-        </section>
+        <div class="tagline"
+             data-tr="🏔️ Bağımsız & Performance-Oriented"
+             data-en="🏔️ Independent & Performance-Oriented">
+            🏔️ Bağımsız & Performance-Oriented
+        </div>
 
-        <!-- Sistem Gereksinimleri -->
-        <section id="specs">
-            <div class="section-title">
-                <h2 data-tr="Sistem Gereksinimleri" data-en="System Requirements">Sistem Gereksinimleri</h2>
-            </div>
-            <table class="specs-table">
-                <thead>
-                    <tr>
-                        <th data-tr="Bileşen" data-en="Hardware">Bileşen</th>
-                        <th data-tr="Minimum" data-en="Minimum">Minimum</th>
-                        <th data-tr="Önerilen" data-en="Recommended">Önerilen</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-tr="İşlemci" data-en="Processor">İşlemci</td>
-                        <td>64-bit Çift Çekirdek (1.6 GHz)</td>
-                        <td>64-bit Dört Çekirdek</td>
-                    </tr>
-                    <tr>
-                        <td data-tr="Bellek (RAM)" data-en="Memory (RAM)">Bellek (RAM)</td>
-                        <td>2 GB (ZRAM Aktif)</td>
-                        <td>4 GB veya üzeri</td>
-                    </tr>
-                    <tr>
-                        <td data-tr="Depolama" data-en="Storage">Depolama</td>
-                        <td>15 GB SSD / HDD</td>
-                        <td>30 GB SSD</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <h1
+            data-tr="Hızlı, Hafif ve Kullanıma Hazır<br>Linux Dağıtımı"
+            data-en="Fast, Lightweight & Ready-to-Use<br>Linux Distro">
+            Hızlı, Hafif ve Kullanıma Hazır<br>Linux Dağıtımı
+        </h1>
 
-        <!-- Footer -->
-        <footer>
-            <p>Ankora Linux &bull; Bağımsız Topluluk Projesi</p>
-        </footer>
+        <p
+            data-tr="Debian tabanı üzerine inşa edilen Ankora OS; optimize edilmiş XFCE masaüstü ortamı, ZRAM bellek sıkıştırması ve yerleşik oyun/geliştirici paketleriyle gelir."
+            data-en="Built on Debian base, Ankora OS arrives with an optimized XFCE desktop, ZRAM memory compression, and pre-configured gaming and developer tools.">
+            Debian tabanı üzerine inşa edilen Ankora OS; optimize edilmiş XFCE masaüstü ortamı, ZRAM bellek sıkıştırması ve yerleşik oyun/geliştirici paketleriyle gelir.
+        </p>
+
+        <div class="hero-actions">
+            <a href="https://github.com/Parsozkn/Ankora-Linux"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn-primary">
+
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+
+                <span data-tr="ISO İndir" data-en="Download ISO">ISO İndir</span>
+            </a>
+
+            <a href="https://ankalab.flarum.cloud"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn-secondary">
+
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+
+                <span data-tr="AnkaLab Forum" data-en="AnkaLab Forum">AnkaLab Forum</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Release -->
+    <div class="release-card" id="news">
+        <div>
+            <div class="release-badge"
+                 data-tr="Son Sürüm Duyurusu"
+                 data-en="Latest Release">
+                Son Sürüm Duyurusu
+            </div>
+
+            <div class="release-title"
+                 data-tr="Ankora Linux 1.0 (Zümrüt) Yayında"
+                 data-en="Ankora Linux 1.0 (Emerald) Released">
+                Ankora Linux 1.0 (Zümrüt) Yayında
+            </div>
+
+            <div class="release-desc"
+                 data-tr="Calamares yükleyici, varsayılan ZRAM konfigürasyonu ve güncel paket deposuyla ilk sürüm indirmeye hazır."
+                 data-en="First release ready for download with Calamares installer, default ZRAM configuration, and updated packages.">
+                Calamares yükleyici, varsayılan ZRAM konfigürasyonu ve güncel paket deposuyla ilk sürüm indirmeye hazır.
+            </div>
+        </div>
+
+        <a href="https://github.com/Parsozkn/Ankora-Linux"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-secondary"
+           style="white-space: nowrap;"
+           data-tr="Sürüm Notları"
+           data-en="Release Notes">
+            Sürüm Notları
+        </a>
     </div>
 
-    <!-- MODERN FLOATING DOCK -->
-    <div class="dock-container">
-        <nav class="dock">
-            <!-- Ana Sayfa -->
-            <a href="#home" class="dock-btn" data-tooltip="Ana Sayfa">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-            </a>
-            <!-- Haberler -->
-            <a href="#news" class="dock-btn" data-tooltip="Sürüm Notları">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6m-6 4h6"/></svg>
-            </a>
-            <!-- Özellikler -->
-            <a href="#features" class="dock-btn" data-tooltip="Özellikler">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
-            </a>
-            <!-- Gereksinimler -->
-            <a href="#specs" class="dock-btn" data-tooltip="Gereksinimler">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
-            </a>
+    <!-- Özellikler -->
+    <section id="features">
 
-            <div class="dock-divider"></div>
+        <div class="section-title">
+            <h2 data-tr="Öne Çıkan Özellikler" data-en="Core Features">
+                Öne Çıkan Özellikler
+            </h2>
+        </div>
 
-            <!-- Forum -->
-            <a href="https://ankalab.flarum.cloud" target="_blank" class="dock-btn" data-tooltip="AnkaLab Forum">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
-            </a>
-            <!-- GitHub / İndir -->
-            <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" class="dock-btn" data-tooltip="GitHub / İndir">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-            </a>
+        <div class="grid">
 
-            <div class="dock-divider"></div>
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
 
-            <!-- Dil Geçiş Butonu -->
-            <button class="dock-btn" id="langBtn" data-tooltip="Dil / Language">
+                <h3 data-tr="ZRAM Optimizasyonu" data-en="ZRAM Optimization">
+                    ZRAM Optimizasyonu
+                </h3>
+
+                <p data-tr="Düşük RAM kapasiteli cihazlarda bile kilitlenme yaşamadan akıcı çoklu görev yürütme imkanı."
+                   data-en="Prevents system freezing on low-RAM hardware through smart memory compression.">
+                    Düşük RAM kapasiteli cihazlarda bile kilitlenme yaşamadan akıcı çoklu görev yürütme imkanı.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5z"/>
+                    </svg>
+                </div>
+
+                <h3 data-tr="Oyun ve Sürücü Katmanı" data-en="Gaming & Drivers">
+                    Oyun ve Sürücü Katmanı
+                </h3>
+
+                <p data-tr="Mesa Vulkan sürücüleri, GameMode ve MangoHud alt yapısı hazır yapılandırılmış gelir."
+                   data-en="Mesa Vulkan drivers, GameMode layer, and MangoHud utilities pre-installed.">
+                    Mesa Vulkan sürücüleri, GameMode ve MangoHud alt yapısı hazır yapılandırılmış gelir.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                    </svg>
+                </div>
+
+                <h3 data-tr="Geniş Paket Desteği" data-en="App Ecosystem">
+                    Geniş Paket Desteği
+                </h3>
+
+                <p data-tr="Pardus Yazılım Merkezi entegrasyonu ve Flatpak desteği ile binlerce uygulamaya doğrudan erişim."
+                   data-en="Direct access to thousands of applications via Pardus Store and Flatpak integration.">
+                    Pardus Yazılım Merkezi entegrasyonu ve Flatpak desteği ile binlerce uygulamaya doğrudan erişim.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                </div>
+
+                <h3 data-tr="Geliştirici Araçları" data-en="Developer Tooling">
+                    Geliştirici Araçları
+                </h3>
+
+                <p data-tr="Python, C/C++ derleyicileri, Git ve özel Zsh terminal konfigürasyonu tek tıkla kullanıma hazır."
+                   data-en="Pre-configured Python, C/C++ toolchains, Git, and customized Zsh terminal environment.">
+                    Python, C/C++ derleyicileri, Git ve özel Zsh terminal konfigürasyonu tek tıkla kullanıma hazır.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sürümler -->
+    <section id="versions">
+
+        <div class="section-title">
+            <h2 data-tr="Ankora Sürümleri" data-en="Ankora Editions">
+                Ankora Sürümleri
+            </h2>
+
+            <p class="section-description"
+               data-tr="Ankora ekosisteminin mevcut ve gelecekteki dağıtımları."
+               data-en="Current and upcoming distributions of the Ankora ecosystem.">
+                Ankora ekosisteminin mevcut ve gelecekteki dağıtımları.
+            </p>
+        </div>
+
+        <div class="versions-grid">
+
+            <div class="version-card">
+                <div class="version-top">
+                    <div class="version-icon">
+                        <svg width="21" height="21" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M4 6h16M4 10h16M4 14h10M4 18h7"/>
+                        </svg>
+                    </div>
+
+                    <span class="status inactive">
+                        <span class="status-dot"></span>
+                        <span data-tr="Aktif Değil" data-en="Inactive">Aktif Değil</span>
+                    </span>
+                </div>
+
+                <h3>Ankora Debian Masaüstü</h3>
+
+                <p data-tr="Ankora'nın Debian tabanlı masaüstü sürümü. Şu anda aktif geliştirme aşamasında değildir."
+                   data-en="Ankora's Debian-based desktop edition. It is not currently under active development.">
+                    Ankora'nın Debian tabanlı masaüstü sürümü. Şu anda aktif geliştirme aşamasında değildir.
+                </p>
+            </div>
+
+            <div class="version-card">
+                <div class="version-top">
+                    <div class="version-icon">
+                        <svg width="21" height="21" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M12 3v18m9-9H3m14.5-6.5L6.5 18.5m11 0L6.5 6.5"/>
+                        </svg>
+                    </div>
+
+                    <span class="status building">
+                        <span class="status-dot"></span>
+                        <span data-tr="Yapımda" data-en="In Development">Yapımda</span>
+                    </span>
+                </div>
+
+                <h3>Ankora Arch</h3>
+
+                <p data-tr="Arch Linux tabanlı, daha esnek ve güncel bir Ankora deneyimi için geliştiriliyor."
+                   data-en="An Arch Linux-based edition being developed for a flexible and up-to-date Ankora experience.">
+                    Arch Linux tabanlı, daha esnek ve güncel bir Ankora deneyimi için geliştiriliyor.
+                </p>
+            </div>
+
+            <div class="version-card">
+                <div class="version-top">
+                    <div class="version-icon">
+                        <svg width="21" height="21" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M12 2a10 10 0 100 20 10 10 0 000-20zm-3 10h6m-3-3v6"/>
+                        </svg>
+                    </div>
+
+                    <span class="status planned">
+                        <span class="status-dot"></span>
+                        <span data-tr="Planlandı" data-en="Planned">Planlandı</span>
+                    </span>
+                </div>
+
+                <h3>Ankora Aİ Arch</h3>
+
+                <p data-tr="Yapay zeka destekli araçlar ve otomasyon odaklı planlanan Arch tabanlı sürüm."
+                   data-en="A planned Arch-based edition focused on AI-powered tools and automation.">
+                    Yapay zeka destekli araçlar ve otomasyon odaklı planlanan Arch tabanlı sürüm.
+                </p>
+            </div>
+
+            <div class="version-card">
+                <div class="version-top">
+                    <div class="version-icon">
+                        <svg width="21" height="21" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M4 7h16M4 12h16M4 17h16"/>
+                        </svg>
+                    </div>
+
+                    <span class="status planned">
+                        <span class="status-dot"></span>
+                        <span data-tr="Planlandı" data-en="Planned">Planlandı</span>
+                    </span>
+                </div>
+
+                <h3>Ankora Kurumsal</h3>
+
+                <p data-tr="Kurumsal kullanım, merkezi yönetim ve güvenilir altyapı ihtiyaçları için planlanan sürüm."
+                   data-en="An edition planned for enterprise use, centralized management, and reliable infrastructure.">
+                    Kurumsal kullanım, merkezi yönetim ve güvenilir altyapı ihtiyaçları için planlanan sürüm.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Ankora Tools -->
+    <section id="tools">
+
+        <div class="section-title">
+            <h2 data-tr="Ankora Araçları" data-en="Ankora Tools">
+                Ankora Araçları
+            </h2>
+
+            <p class="section-description"
+               data-tr="Ankora ekosistemi için geliştirilen sistem araçları ve yardımcı uygulamalar."
+               data-en="System tools and utilities being developed for the Ankora ecosystem.">
+                Ankora ekosistemi için geliştirilen sistem araçları ve yardımcı uygulamalar.
+            </p>
+        </div>
+
+        <div class="tools-list">
+
+            <div class="tool">
+                <div class="tool-icon">AI</div>
+                <div class="tool-info">
+                    <div class="tool-name">Ankora Ai</div>
+                    <div class="tool-status planned"
+                         data-tr="Planlandı"
+                         data-en="Planned">
+                        Planlandı
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool">
+                <div class="tool-icon">↻</div>
+                <div class="tool-info">
+                    <div class="tool-name">Ankora Backup</div>
+                    <div class="tool-status building"
+                         data-tr="Yapılıyor"
+                         data-en="In Development">
+                        Yapılıyor
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool">
+                <div class="tool-icon">⌫</div>
+                <div class="tool-info">
+                    <div class="tool-name">Ankora Cleanup</div>
+                    <div class="tool-status building"
+                         data-tr="Yapılıyor"
+                         data-en="In Development">
+                        Yapılıyor
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool">
+                <div class="tool-icon">🛡</div>
+                <div class="tool-info">
+                    <div class="tool-name">Ankora Firewall Status</div>
+                    <div class="tool-status building"
+                         data-tr="Yapılıyor"
+                         data-en="In Development">
+                        Yapılıyor
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool">
+                <div class="tool-icon">▤</div>
+                <div class="tool-info">
+                    <div class="tool-name">Ankora Report</div>
+                    <div class="tool-status building"
+                         data-tr="Yapımda"
+                         data-en="In Development">
+                        Yapımda
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool">
+                <div class="tool-icon">⌁</div>
+                <div class="tool-info">
+                    <div class="tool-name">Ankora Systeminfo</div>
+                    <div class="tool-status building"
+                         data-tr="Yapımda"
+                         data-en="In Development">
+                        Yapımda
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool">
+                <div class="tool-icon">↑</div>
+                <div class="tool-info">
+                    <div class="tool-name">Ankora Update</div>
+                    <div class="tool-status building"
+                         data-tr="Yapımda"
+                         data-en="In Development">
+                        Yapımda
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool">
+                <div class="tool-icon">⚙</div>
+                <div class="tool-info">
+                    <div class="tool-name">Ankora Sistem Ayarları</div>
+                    <div class="tool-status planned"
+                         data-tr="Planlandı"
+                         data-en="Planned">
+                        Planlandı
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sistem Gereksinimleri -->
+    <section id="specs">
+
+        <div class="section-title">
+            <h2 data-tr="Sistem Gereksinimleri" data-en="System Requirements">
+                Sistem Gereksinimleri
+            </h2>
+        </div>
+
+        <table class="specs-table">
+            <thead>
+                <tr>
+                    <th data-tr="Bileşen" data-en="Hardware">Bileşen</th>
+                    <th data-tr="Minimum" data-en="Minimum">Minimum</th>
+                    <th data-tr="Önerilen" data-en="Recommended">Önerilen</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td data-tr="İşlemci" data-en="Processor">İşlemci</td>
+                    <td>64-bit Çift Çekirdek (1.6 GHz)</td>
+                    <td>64-bit Dört Çekirdek</td>
+                </tr>
+
+                <tr>
+                    <td data-tr="Bellek (RAM)" data-en="Memory (RAM)">Bellek (RAM)</td>
+                    <td>2 GB (ZRAM Aktif)</td>
+                    <td>4 GB veya üzeri</td>
+                </tr>
+
+                <tr>
+                    <td data-tr="Depolama" data-en="Storage">Depolama</td>
+                    <td>15 GB SSD / HDD</td>
+                    <td>30 GB SSD</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            Ankora Linux &bull;
+            <span data-tr="Bağımsız Topluluk Projesi"
+                  data-en="Independent Community Project">
+                Bağımsız Topluluk Projesi
+            </span>
+        </p>
+    </footer>
+
+</div>
+
+<!-- FLOATING DOCK -->
+<div class="dock-container">
+
+    <nav class="dock">
+
+        <!-- Ana Sayfa -->
+        <a href="#home" class="dock-btn" data-tooltip="Ana Sayfa">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+        </a>
+
+        <!-- Haberler -->
+        <a href="#news" class="dock-btn" data-tooltip="Sürüm Notları">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6m-6 4h6"/>
+            </svg>
+        </a>
+
+        <!-- Özellikler -->
+        <a href="#features" class="dock-btn" data-tooltip="Özellikler">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+            </svg>
+        </a>
+
+        <!-- Sürümler -->
+        <a href="#versions" class="dock-btn" data-tooltip="Sürümler">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 3v18m9-9H3m14.5-6.5L6.5 18.5m11 0L6.5 6.5"/>
+            </svg>
+        </a>
+
+        <!-- Araçlar -->
+        <a href="#tools" class="dock-btn" data-tooltip="Ankora Araçları">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14.7 6.3a1 1 0 001.4 1.4l1-1 1.6 1.6-1 1a1 1 0 001.4 1.4l1-1 1.6 1.6-1 1a1 1 0 00-1.4 1.4l1 1-1.6 1.6-1-1a1 1 0 00-1.4 1.4l1 1-1.6 1.6-1-1a1 1 0 00-1.4 1.4l-1 1-1.6-1.6 1-1a1 1 0 00-1.4-1.4l-1 1-1.6-1.6 1-1a1 1 0 00-1.4-1.4l-1 1-1.6-1.6 1-1a1 1 0 00-1.4-1.4l-1-1 1.6-1.6 1 1a1 1 0 001.4-1.4l-1-1 1.6-1.6 1 1a1 1 0 001.4-1.4l-1-1 1.6-1.6 1 1z"/>
+                <circle cx="12" cy="12" r="3"/>
+            </svg>
+        </a>
+
+        <!-- Gereksinimler -->
+        <a href="#specs" class="dock-btn" data-tooltip="Gereksinimler">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+            </svg>
+        </a>
+
+        <div class="dock-divider"></div>
+
+        <!-- Forum -->
+        <a href="https://ankalab.flarum.cloud"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="dock-btn"
+           data-tooltip="AnkaLab Forum">
+
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+            </svg>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/Parsozkn/Ankora-Linux"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="dock-btn"
+           data-tooltip="GitHub / İndir">
+
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l4 4m0 0l-4 4m4-4H4"/>
+            </svg>
+        </a>
+
+        <div class="dock-divider"></div>
+
+        <!-- Dil -->
+        <div style="position:relative;">
+
+            <button class="dock-btn"
+                    id="langBtn"
+                    data-tooltip="Dil / Language"
+                    aria-label="Language">
+
                 <span id="langLabel">EN</span>
             </button>
-        </nav>
-    </div>
 
-    <!-- Dynamic TR / EN Translation JS -->
-    <script>
-        let currentLang = 'tr';
-        const langBtn = document.getElementById('langBtn');
-        const langLabel = document.getElementById('langLabel');
+            <div class="language-menu" id="languageMenu">
 
-        langBtn.addEventListener('click', () => {
-            currentLang = currentLang === 'tr' ? 'en' : 'tr';
-            langLabel.innerText = currentLang === 'tr' ? 'EN' : 'TR';
-            document.documentElement.lang = currentLang;
+                <button class="language-option" data-language="tr">
+                    🇹🇷 Türkçe
+                </button>
+
+                <button class="language-option" data-language="en">
+                    🇬🇧 English
+                </button>
+
+                <button class="language-option" data-language="de">
+                    🇩🇪 Deutsch
+                </button>
+
+                <button class="language-option" data-language="fr">
+                    🇫🇷 Français
+                </button>
+
+                <button class="language-option" data-language="es">
+                    🇪🇸 Español
+                </button>
+
+                <button class="language-option" data-language="ru">
+                    🇷🇺 Русский
+                </button>
+
+                <button class="language-option" data-language="ar">
+                    🇸🇦 العربية
+                </button>
+
+                <button class="language-option" data-language="pt">
+                    🇵🇹 Português
+                </button>
+
+                <button class="language-option" data-language="it">
+                    🇮🇹 Italiano
+                </button>
+
+            </div>
+        </div>
+
+    </nav>
+</div>
+
+<script>
+    /*
+     * Ankora Linux
+     * Lightweight client-side language system.
+     *
+     * Türkçe ve İngilizce metinler özel olarak hazırlanmıştır.
+     * Diğer diller için tarayıcı otomatik çevirisi kullanılır.
+     *
+     * Böylece siteyi gereksiz şekilde devasa bir JSON çeviri
+     * dosyasıyla doldurmadan çoklu dil desteği sağlanır.
+     */
+
+    let currentLang = 'tr';
+
+    const langBtn = document.getElementById('langBtn');
+    const langLabel = document.getElementById('langLabel');
+    const languageMenu = document.getElementById('languageMenu');
+
+    const supportedLanguages = {
+        tr: 'TR',
+        en: 'EN',
+        de: 'DE',
+        fr: 'FR',
+        es: 'ES',
+        ru: 'RU',
+        ar: 'AR',
+        pt: 'PT',
+        it: 'IT'
+    };
+
+    /*
+     * Tarayıcı dili otomatik algılama.
+     *
+     * tr-TR -> tr
+     * en-US -> en
+     * de-DE -> de
+     *
+     * Türkçe veya İngilizce metinler doğrudan kullanılır.
+     * Diğer dillerde tarayıcının yerleşik çeviri özelliği
+     * devreye girebilir; site harici bir API'ye bağımlı değildir.
+     */
+    function detectLanguage() {
+        const browserLanguage =
+            (navigator.language || navigator.userLanguage || 'tr')
+            .toLowerCase()
+            .split('-')[0];
+
+        if (supportedLanguages[browserLanguage]) {
+            return browserLanguage;
+        }
+
+        return 'en';
+    }
+
+    function applyLanguage(lang) {
+
+        currentLang = lang;
+
+        document.documentElement.lang = lang;
+
+        /*
+         * RTL diller için Arapça desteği.
+         */
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+        /*
+         * Türkçe ve İngilizce için gerçek içerikleri kullan.
+         */
+        if (lang === 'tr' || lang === 'en') {
 
             document.querySelectorAll('[data-tr]').forEach(el => {
-                const text = el.getAttribute(`data-${currentLang}`);
-                if (text) el.innerHTML = text;
+
+                const value = el.getAttribute(
+                    `data-${lang}`
+                );
+
+                if (value) {
+                    el.innerHTML = value;
+                }
+
             });
+
+        }
+
+        /*
+         * Diğer dillerde:
+         * Eğer tarayıcı bu dili destekliyorsa, sayfanın doğal
+         * çeviri sistemi kullanıcı tarafından kullanılabilir.
+         *
+         * İçeriği bozacak otomatik API çağrısı yapılmaz.
+         */
+        langLabel.textContent =
+            supportedLanguages[lang] || 'EN';
+
+        languageMenu.classList.remove('open');
+
+        try {
+            localStorage.setItem(
+                'ankora-language',
+                lang
+            );
+        } catch (e) {
+            /* localStorage kullanılamıyorsa site çalışmaya devam eder. */
+        }
+    }
+
+    /*
+     * Dil menüsünü aç/kapat.
+     */
+    langBtn.addEventListener('click', function (event) {
+
+        event.stopPropagation();
+
+        languageMenu.classList.toggle('open');
+
+    });
+
+    /*
+     * Dil seçenekleri.
+     */
+    document.querySelectorAll('.language-option').forEach(button => {
+
+        button.addEventListener('click', function () {
+
+            const selectedLanguage =
+                this.getAttribute('data-language');
+
+            applyLanguage(selectedLanguage);
+
         });
-    </script>
+
+    });
+
+    /*
+     * Menü dışına tıklanınca kapat.
+     */
+    document.addEventListener('click', function () {
+
+        languageMenu.classList.remove('open');
+
+    });
+
+    /*
+     * Daha önce seçilmiş dili kullan.
+     * Yoksa tarayıcı dilini algıla.
+     */
+    let initialLanguage = 'tr';
+
+    try {
+
+        const savedLanguage =
+            localStorage.getItem('ankora-language');
+
+        initialLanguage =
+            savedLanguage ||
+            detectLanguage();
+
+    } catch (e) {
+
+        initialLanguage =
+            detectLanguage();
+
+    }
+
+    /*
+     * Başlangıçta TR/EN dışındaki diller için
+     * sayfayı İngilizce bırakıyoruz.
+     * Böylece bozuk veya yarım çeviri oluşmaz.
+     */
+    if (
+        initialLanguage !== 'tr' &&
+        initialLanguage !== 'en'
+    ) {
+        initialLanguage = 'en';
+    }
+
+    applyLanguage(initialLanguage);
+</script>
+
 </body>
 </html>
