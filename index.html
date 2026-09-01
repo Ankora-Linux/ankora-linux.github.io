@@ -3,1225 +3,1203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0b1a33">
-    <meta name="description" content="Ankora Linux — Hafif, performanslı ve modern Linux dağıtımı.">
-    <title>Ankora Linux | Hafif ve Performanslı OS</title>
-
+    <title>Ankora Linux — Performans Odaklı Yerel AI Destekli Dağıtım</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* ===== RESET & ROOT ===== */
+        :root {
+            --bg-body: #090d16;
+            --bg-surface: #111726;
+            --bg-surface-hover: #182032;
+            --border: #1f293d;
+            --border-hover: #334155;
+            
+            --text-main: #f1f5f9;
+            --text-sub: #cbd5e1;
+            --text-muted: #64748b;
+            
+            --accent-blue: #38bdf8;
+            --accent-green: #22c55e;
+            --accent-amber: #f59e0b;
+            --accent-purple: #a855f7;
+            
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
-        :root {
-            --bg: #0b1a33;
-            --surface: #0f2341;
-            --surface-hover: #1a3a66;
-            --border: #1a4a7a;
-            --border-hover: #3a7abf;
-            --text-main: #b0ccee;
-            --text-bright: #e8f0ff;
-            --accent: #4d9fff;
-            --accent-glow: rgba(77, 159, 255, 0.2);
-            --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-            --transition: 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        [data-theme="light"] {
-            --bg: #e8f0ff;
-            --surface: #ffffff;
-            --surface-hover: #d6e5ff;
-            --border: #aac0e8;
-            --border-hover: #4d9fff;
-            --text-main: #1a3a66;
-            --text-bright: #0b1a33;
-            --accent: #1a6bc4;
-            --accent-glow: rgba(26, 107, 196, 0.12);
-            --shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
-        }
-
         body {
-            background-color: var(--bg);
+            font-family: var(--font-sans);
+            background-color: var(--bg-body);
             color: var(--text-main);
             line-height: 1.6;
-            padding-bottom: 110px;
-            overflow-x: hidden;
-            transition: background-color var(--transition), color var(--transition);
-            background: radial-gradient(ellipse at 20% 50%, var(--surface) 0%, var(--bg) 70%);
-            min-height: 100vh;
-        }
-
-        [data-theme="light"] body {
-            background: radial-gradient(ellipse at 20% 50%, #d6e5ff 0%, var(--bg) 70%);
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 1;
+            padding: 0 20px;
         }
 
-        /* ===== HEADER ===== */
+        /* PAGE SWITCHING MIMARISI */
+        .page-view {
+            display: none;
+        }
+
+        .page-view.active {
+            display: block;
+        }
+
+        /* HEADER */
         header {
-            padding: 16px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: rgba(9, 13, 22, 0.95);
+            backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border);
-            background: rgba(var(--bg), 0.6);
-            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 100;
-            transition: all var(--transition);
         }
 
-        .header-title {
-            font-size: 1.6rem;
-            font-weight: 900;
-            color: var(--text-bright);
-            letter-spacing: -0.5px;
-            text-shadow: 0 0 30px var(--accent-glow);
-            transition: color var(--transition);
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
         }
 
-        .header-title span {
-            color: var(--accent);
-        }
-
-        /* ===== HERO ===== */
-        .hero {
-            text-align: center;
-            padding: 70px 0 50px;
-            position: relative;
-        }
-
-        .hero-logo-wrapper {
-            display: inline-block;
-            margin-bottom: 28px;
-        }
-
-        .hero-logo {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--border);
-            background: var(--surface);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .hero-logo:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 50px var(--accent-glow);
-            transform: scale(1.03);
-        }
-
-        .tagline {
-            display: inline-block;
-            padding: 6px 20px;
-            background: var(--surface);
-            border: 1px solid var(--accent);
-            border-radius: 30px;
-            font-size: 0.85rem;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
             font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 24px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            opacity: 0;
-            animation: fadeSlideUp 0.8s 0.2s forwards;
+            font-size: 1.1rem;
+            letter-spacing: -0.01em;
+            cursor: pointer;
+        }
+
+        .brand-logo-wrapper {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brand-logo-wrapper img, .brand-logo-wrapper svg {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.15s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.8rem;
+        }
+
+        .btn-lg {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: #166534;
+            color: #ffffff;
+            border-color: #22c55e;
+        }
+
+        .btn-primary:hover {
+            background: #15803d;
+        }
+
+        .btn-forum {
+            background: rgba(56, 189, 248, 0.08);
+            color: var(--accent-blue);
+            border-color: rgba(56, 189, 248, 0.25);
+        }
+
+        .btn-forum:hover {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: var(--accent-blue);
+        }
+
+        .btn-secondary {
+            background: var(--bg-surface);
+            color: var(--text-sub);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-surface-hover);
+            border-color: var(--border-hover);
+            color: var(--text-main);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 56px 0 48px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+            background: rgba(56, 189, 248, 0.06);
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(56, 189, 248, 0.18);
+            margin-bottom: 16px;
         }
 
         .hero h1 {
-            font-size: 3.2rem;
-            color: var(--text-bright);
-            font-weight: 900;
-            letter-spacing: -1px;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 .line {
-            display: block;
-            opacity: 0;
-            animation: fadeSlideUp 0.8s forwards;
-        }
-        .hero h1 .line:nth-child(1) { animation-delay: 0.3s; }
-        .hero h1 .line:nth-child(2) { animation-delay: 0.5s; }
-
-        .hero h1 .highlight {
-            color: var(--accent);
-            text-shadow: 0 0 40px var(--accent-glow);
-        }
-
-        @keyframes fadeSlideUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
+            font-size: 2.4rem;
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
         }
 
         .hero p {
-            font-size: 1.1rem;
-            max-width: 640px;
-            margin: 0 auto 36px;
-            opacity: 0;
-            animation: fadeSlideUp 0.8s 0.7s forwards;
-            color: var(--text-main);
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 24px;
+            max-width: 540px;
         }
 
         .hero-actions {
             display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeSlideUp 0.8s 0.9s forwards;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
             gap: 10px;
-            padding: 14px 34px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            letter-spacing: 0.3px;
+            flex-wrap: wrap;
         }
 
-        .btn-primary {
-            background: var(--accent);
-            color: #0b1a33;
-            box-shadow: 0 4px 25px var(--accent-glow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 8px 45px var(--accent-glow);
-        }
-
-        .btn-secondary {
-            background: var(--surface);
-            color: var(--text-bright);
+        /* TERMINAL PREVIEW */
+        .terminal-preview {
+            background: #04070d;
             border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
         }
 
-        .btn-secondary:hover {
-            background: var(--surface-hover);
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-        }
-
-        /* ===== RELEASE CARD ===== */
-        .release-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 32px 36px;
-            margin: 50px 0 60px;
+        .term-header {
+            background: var(--bg-surface);
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            gap: 24px;
-            transition: all 0.5s ease;
-            box-shadow: var(--shadow);
-            opacity: 0;
-            transform: translateY(40px);
+            gap: 6px;
+            color: var(--text-muted);
+            font-size: 0.75rem;
         }
 
-        .release-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+        .dot-red { background: #ef4444; }
+        .dot-yellow { background: #eab308; }
+        .dot-green { background: #22c55e; }
+
+        .term-body {
+            padding: 16px;
+            line-height: 1.65;
+            color: var(--text-sub);
         }
 
-        .release-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-6px);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
-        }
+        .term-green { color: var(--accent-green); }
+        .term-blue { color: var(--accent-blue); }
+        .term-yellow { color: var(--accent-amber); }
 
-        .release-badge {
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 6px;
-        }
-
-        .release-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--text-bright);
-            margin-bottom: 4px;
-        }
-
-        .release-desc {
-            font-size: 0.92rem;
-            color: var(--text-main);
-        }
-
-        /* ===== HIZLI BAKIŞ (ÖZET) ===== */
-        .quick-overview {
-            margin-bottom: 70px;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.6s ease;
-        }
-
-        .quick-overview.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .quick-overview h2 {
-            font-size: 1.8rem;
-            color: var(--text-bright);
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        .quick-overview .sub {
-            color: var(--text-main);
-            font-size: 0.95rem;
-            margin-bottom: 28px;
-        }
-
-        .quick-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
+        /* SECTION HEADERS */
+        .section-header {
             margin-bottom: 24px;
         }
 
-        .quick-grid .item {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 18px 16px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .quick-grid .item:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-        }
-
-        .quick-grid .item .icon {
-            font-size: 1.8rem;
-            color: var(--accent);
-            margin-bottom: 6px;
-            display: block;
-        }
-
-        .quick-grid .item h4 {
-            color: var(--text-bright);
-            font-size: 0.95rem;
+        .section-header h2 {
+            font-size: 1.35rem;
             font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-main);
         }
 
-        .quick-grid .item p {
-            font-size: 0.78rem;
-            color: var(--text-main);
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
             margin-top: 4px;
         }
 
-        .quick-versions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 8px;
-        }
-
-        .quick-versions .vchip {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            padding: 6px 18px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-bright);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .quick-versions .vchip:hover {
-            border-color: var(--accent);
-            background: var(--surface-hover);
-        }
-
-        .quick-versions .vchip .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-        .quick-versions .vchip .dot.building { background: #ffd166; }
-        .quick-versions .vchip .dot.done { background: #4dffb8; }
-        .quick-versions .vchip .dot.planned { background: #a78bfa; }
-
-        .quick-tools {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 16px;
-        }
-
-        .quick-tools .tchip {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            padding: 4px 16px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--text-main);
-            transition: all 0.3s ease;
-        }
-
-        .quick-tools .tchip:hover {
-            border-color: var(--accent);
-            color: var(--text-bright);
-            background: var(--surface-hover);
-        }
-
-        /* ===== DETAYLI BÖLÜMLER ===== */
-        .detail-section {
-            padding: 70px 0 60px;
+        /* EKRAN GÖRÜNTÜLERİ */
+        .screenshots-section {
+            padding: 48px 0;
             border-bottom: 1px solid var(--border);
-            opacity: 0;
-            transform: translateY(60px);
-            transition: all 0.8s ease;
         }
 
-        .detail-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .detail-section:nth-child(odd) {
-            transform: translateX(-50px);
-        }
-        .detail-section:nth-child(odd).visible {
-            transform: translateX(0);
-        }
-
-        .detail-section:nth-child(even) {
-            transform: translateX(50px);
-        }
-        .detail-section:nth-child(even).visible {
-            transform: translateX(0);
-        }
-
-        .detail-section .section-icon {
-            font-size: 2.6rem;
-            color: var(--accent);
-            margin-bottom: 16px;
-            opacity: 0.8;
-            display: inline-block;
-            transition: transform 0.4s ease;
-            line-height: 1;
-        }
-
-        .detail-section:hover .section-icon {
-            transform: scale(1.1) rotate(2deg);
-        }
-
-        .detail-section h2 {
-            font-size: 2rem;
-            color: var(--text-bright);
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 10px;
-        }
-
-        .detail-section .subtitle {
-            font-size: 1.05rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 16px;
-            letter-spacing: 0.5px;
-        }
-
-        .detail-section p {
-            font-size: 1rem;
-            max-width: 760px;
-            color: var(--text-main);
-            line-height: 1.8;
-        }
-
-        .detail-section .feature-grid {
+        .screenshot-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin-top: 28px;
         }
 
-        .detail-section .feature-item {
-            background: var(--surface);
+        .shot-card {
+            background: var(--bg-surface);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 20px;
-            transition: all 0.3s ease;
+            border-radius: 6px;
+            overflow: hidden;
         }
 
-        .detail-section .feature-item:hover {
-            border-color: var(--accent);
-            transform: translateY(-6px);
-            box-shadow: var(--shadow);
-        }
-
-        .detail-section .feature-item .icon {
-            font-size: 1.8rem;
-            color: var(--accent);
-            margin-bottom: 10px;
-            display: block;
-            line-height: 1;
-        }
-
-        .detail-section .feature-item h4 {
-            color: var(--text-bright);
-            font-size: 1.05rem;
-            margin-bottom: 6px;
-        }
-
-        .detail-section .feature-item p {
-            font-size: 0.88rem;
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 36px 0;
-            text-align: center;
-            font-size: 0.88rem;
-            color: var(--text-main);
-            margin-top: 40px;
-        }
-
-        /* ===== DOCK ===== */
-        .dock-container {
-            position: fixed;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            max-width: calc(100vw - 20px);
-        }
-
-        .dock {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
-            background: rgba(11, 26, 51, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(77, 159, 255, 0.2);
-            border-radius: 30px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-            transition: all 0.4s ease;
-        }
-
-        [data-theme="light"] .dock {
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(26, 107, 196, 0.15);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.06);
-        }
-
-        .dock-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
+        .shot-img-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #04070d;
+            border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-main);
-            text-decoration: none;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            position: relative;
-            font-weight: 700;
-            font-size: 0.85rem;
-            flex-shrink: 0;
+            overflow: hidden;
         }
 
-        .dock-btn svg {
-            width: 20px;
-            height: 20px;
+        .shot-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .shot-info {
+            padding: 12px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .shot-title {
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .shot-tag {
+            font-size: 0.72rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            background: var(--bg-body);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        /* DAĞITIM SÜRÜMLERİ (4 CARD) */
+        .editions-section {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .edition-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: border-color 0.15s, transform 0.15s;
+        }
+
+        .edition-box:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .edition-tag {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 12px;
+            width: fit-content;
+        }
+
+        .tag-active { background: rgba(34, 197, 94, 0.1); color: var(--accent-green); border: 1px solid rgba(34, 197, 94, 0.2); }
+        .tag-test { background: rgba(245, 158, 11, 0.1); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.2); }
+        .tag-dev { background: rgba(168, 85, 247, 0.1); color: var(--accent-purple); border: 1px solid rgba(168, 85, 247, 0.2); }
+
+        .edition-box h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .edition-box h3 svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--text-muted);
             stroke-width: 2;
-            stroke: currentColor;
             fill: none;
         }
 
-        .dock-btn:hover {
-            background: var(--accent-glow);
-            color: var(--accent);
-            transform: translateY(-6px);
+        .edition-box p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.5;
         }
 
-        .dock-divider {
-            width: 1px;
-            height: 26px;
-            background: rgba(77, 159, 255, 0.15);
-            margin: 0 6px;
+        .edition-features {
+            list-style: none;
+            font-size: 0.78rem;
+            color: var(--text-sub);
+            border-top: 1px solid var(--border);
+            padding-top: 12px;
         }
 
-        .dock-btn::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            top: -42px;
-            background: var(--surface);
-            color: var(--text-bright);
-            font-size: 0.7rem;
-            padding: 5px 14px;
-            border-radius: 8px;
+        .edition-features li {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .edition-features li::before {
+            content: "—";
+            color: var(--text-muted);
+        }
+
+        /* DETAYLI ÖZET SECTION */
+        .detailed-summary-section {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .summary-card {
+            background: var(--bg-surface);
             border: 1px solid var(--border);
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: 0.2s ease;
-            font-weight: 600;
+            border-radius: 6px;
+            padding: 20px;
         }
 
-        .dock-btn:hover::after {
-            opacity: 1;
-            transform: translateY(-4px);
+        .summary-card-icon {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent-blue);
+            stroke-width: 1.75;
+            fill: none;
+            margin-bottom: 12px;
+            display: block;
         }
 
-        /* ===== LANGUAGE MENU ===== */
-        .language-menu {
-            position: absolute;
-            bottom: 60px;
-            right: 0;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 8px;
-            width: 155px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            display: none;
-            transition: all 0.3s ease;
-        }
-
-        .language-menu.open { display: block; }
-
-        .language-option {
-            width: 100%;
-            border: 0;
-            background: transparent;
+        .summary-card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 6px;
             color: var(--text-main);
-            padding: 10px 12px;
-            border-radius: 10px;
+        }
+
+        .summary-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* SÜRÜM NOTLARI & DOKÜMANTASYON */
+        .release-section, .subpage-section {
+            padding: 48px 0;
+        }
+
+        .doc-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 32px;
+        }
+
+        .doc-header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+
+        .doc-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .doc-meta {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 16px;
+            font-family: var(--font-mono);
+        }
+
+        .doc-content {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .doc-content h3 {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            margin: 24px 0 10px;
+        }
+
+        .doc-content p {
+            margin-bottom: 12px;
+        }
+
+        .doc-content ul {
+            margin: 0 0 16px 20px;
+        }
+
+        .doc-content li {
+            margin-bottom: 4px;
+        }
+
+        .code-inline {
+            font-family: var(--font-mono);
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 0.82em;
+            color: var(--accent-blue);
+        }
+
+        .callout {
+            background: rgba(56, 189, 248, 0.04);
+            border-left: 2px solid var(--accent-blue);
+            padding: 14px 16px;
+            border-radius: 0 4px 4px 0;
+            margin: 16px 0;
+            font-size: 0.88rem;
+        }
+
+        /* TABLO DÜZENİ */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.85rem;
+        }
+
+        .spec-table th, .spec-table td {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
             text-align: left;
-            cursor: pointer;
-            font-size: 0.8rem;
+        }
+
+        .spec-table th {
+            background: var(--bg-body);
+            color: var(--text-main);
             font-weight: 600;
-            transition: all 0.2s ease;
         }
 
-        .language-option:hover {
-            background: var(--surface-hover);
-            color: var(--text-bright);
+        .spec-table td {
+            color: var(--text-sub);
         }
 
-        .theme-toggle {
-            font-size: 1.2rem;
-            line-height: 1;
+        /* İNDİRME CTA */
+        .download-cta-section {
+            padding: 48px 0;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.4rem; }
-            .quick-grid { grid-template-columns: repeat(2, 1fr); }
-            .detail-section { padding: 50px 0 40px; }
-            .detail-section h2 { font-size: 1.8rem; }
-            .release-card { flex-direction: column; align-items: flex-start; }
-            .dock { gap: 4px; padding: 6px 10px; }
-            .dock-btn { width: 38px; height: 38px; }
-            .header-title { font-size: 1.3rem; }
-            .detail-section .feature-grid { grid-template-columns: 1fr; }
+        .download-box {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        @media (max-width: 500px) {
-            .container { padding: 0 16px; }
-            .hero { padding-top: 40px; }
-            .hero-logo { width: 100px; height: 100px; }
-            .hero h1 { font-size: 1.8rem; }
-            .header-title { font-size: 1.1rem; }
-            .quick-grid { grid-template-columns: 1fr; }
+        .download-box h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        .download-box p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 32px 0;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-main);
+        }
+
+        @media (max-width: 900px) {
+            .hero, .screenshot-grid { grid-template-columns: 1fr; }
+            .grid-4, .summary-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .grid-4, .summary-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .footer-wrapper { flex-direction: column; gap: 14px; text-align: center; }
         }
     </style>
 </head>
-
 <body>
 
-<div class="container">
-
-    <!-- ===== HEADER ===== -->
+    <!-- NAVBAR -->
     <header>
-        <div class="header-title">Ankora <span>Linux</span></div>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a onclick="showPage('home')" class="brand">
+                    <div class="brand-logo-wrapper">
+                        <!-- LOGO: Hata durumunda dahili SVG render edilir, harici dosya varsa logo.png yüklenir -->
+                        <img src="logo.png" alt="Ankora Logo" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\' fill=\'none\' stroke=\'%2338bdf8\' stroke-width=\'8\'><polygon points=\'50,15 85,80 15,80\'/><polygon points=\'50,35 70,72 30,72\' fill=\'%2338bdf8\'/></svg>';">
+                    </div>
+                    <span>Ankora Linux</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a onclick="showPage('home'); setTimeout(() => document.getElementById('ekran-goruntuleri').scrollIntoView(), 50);">Masaüstü</a></li>
+                    <li><a onclick="showPage('home'); setTimeout(() => document.getElementById('surumler').scrollIntoView(), 50);">Sürümler</a></li>
+                    <li><a onclick="showPage('home'); setTimeout(() => document.getElementById('detayli-ozet').scrollIntoView(), 50);">Mimari Özet</a></li>
+                    <li><a onclick="showPage('home'); setTimeout(() => document.getElementById('surum-notlari').scrollIntoView(), 50);">Sürüm Notları</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="https://ankalab.flarum.cloud" target="_blank" class="btn btn-forum btn-sm">
+                        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        AnkaLab Forum
+                    </a>
+                    <a onclick="showPage('home'); setTimeout(() => document.getElementById('indir').scrollIntoView(), 50);" class="btn btn-primary btn-sm">
+                        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        İndir
+                    </a>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- ===== HERO (ANA SAYFA) ===== -->
-    <section class="hero" id="home">
-        <div class="hero-logo-wrapper">
-            <img src="logo.jpg" alt="Ankora OS Logo" class="hero-logo" onerror="this.onerror=null; this.src='logo.png';">
+    <main>
+        <!-- SAYFA 1: ANA SAYFA (HOME) -->
+        <div id="page-home" class="page-view active">
+            <!-- HERO -->
+            <section class="container hero">
+                <div>
+                    <span class="hero-badge">Debian 13 & Arch Linux Tabanlı</span>
+                    <h1>Hafif, Performans Odaklı Yerel AI Destekli Dağıtım</h1>
+                    <p>Ankora Linux; gereksiz arka plan servislerinden arındırılmış, entegre terminal AI asistanına sahip, ZRAM bellek mimarisi ve oyun katmanıyla güçlendirilmiş bağımsız işletim sistemidir.</p>
+                    
+                    <div class="hero-actions">
+                        <a href="#indir" class="btn btn-primary btn-lg">
+                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Ankora Linux İndir
+                        </a>
+                        <a href="https://ankalab.flarum.cloud" target="_blank" class="btn btn-forum btn-lg">
+                            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            AnkaLab Forum
+                        </a>
+                        <a href="#detayli-ozet" class="btn btn-secondary btn-lg">
+                            Detaylı Özeti İncele
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TERMINAL PREVIEW (FASTFETCH) -->
+                <div class="terminal-preview">
+                    <div class="term-header">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                        <span>ankora-terminal — fastfetch</span>
+                    </div>
+                    <div class="term-body">
+                        <div><span class="term-green">user@ankora-pc</span>:<span class="term-blue">~</span>$ fastfetch</div>
+                        <pre style="font-family: var(--font-mono); font-size: 0.72rem; line-height: 1.35; margin-top: 10px; color: var(--text-sub); overflow-x: auto; background: transparent; padding: 0; border: none;"><span class="term-blue">       /\          </span><span class="term-green" style="font-weight:bold;">user</span><span class="term-sub">@</span><span class="term-green" style="font-weight:bold;">ankora-pc</span>
+<span class="term-blue">      /  \         </span>--------------
+<span class="term-blue">     / /\ \        </span><span class="term-yellow">OS:</span> Ankora Linux 2.0 (Zümrüt) x86_64
+<span class="term-blue">    / /  \ \       </span><span class="term-yellow">Base:</span> Debian 13 (Trixie) / Arch Linux
+<span class="term-blue">   / /____\ \      </span><span class="term-yellow">Kernel:</span> 6.8.0-ankora-generic
+<span class="term-blue">  / /______\ \     </span><span class="term-yellow">Uptime:</span> 2 hours, 14 mins
+<span class="term-blue"> / /        \ \    </span><span class="term-yellow">Packages:</span> 1240 (dpkg), 8 (flatpak)
+<span class="term-blue">/_/          \_\   </span><span class="term-yellow">Shell:</span> zsh 5.9
+                   <span class="term-yellow">DE:</span> KDE Plasma 6.0 / XFCE 4.18
+                   <span class="term-yellow">WM:</span> KWin / Xfwm4
+                   <span class="term-yellow">Icons:</span> Fairy Wren
+                   <span class="term-yellow">Terminal:</span> kitty / xfce4-terminal
+                   <span class="term-yellow">CPU:</span> Intel i5-10300H (8) @ 4.50GHz
+                   <span class="term-yellow">GPU:</span> NVIDIA GeForce GTX 1650
+                   <span class="term-yellow">Memory:</span> 1840MiB / 7820MiB (ZRAM Engine)
+                   <span class="term-yellow">Local AI:</span> yardimci (Quantized Offline LLM)</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EKRAN GÖRÜNTÜLERİ -->
+            <section class="screenshots-section" id="ekran-goruntuleri">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Masaüstü Ortamları</h2>
+                        <p>Özelleştirilmiş KDE Plasma ve hafifletilmiş XFCE masaüstü görünümleri</p>
+                    </div>
+                    <div class="screenshot-grid">
+                        <div class="shot-card">
+                            <div class="shot-img-wrapper">
+                                <!-- HARİCİ GÖRSEL VE HATA DURUMU İÇİN GÖRSEL YER TUTUCU (SVG) -->
+                                <img src="kde.png" alt="Ankora Linux KDE Plasma Ekran Görüntüsü" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'450\' viewBox=\'0 0 800 450\'><rect width=\'100%\' height=\'100%\' fill=\'%230b0f19\'/><rect x=\'0\' y=\'415\' width=\'100%\' height=\'35\' fill=\'%23111726\'/><circle cx=\'20\' cy=\'432\' r=\'8\' fill=\'%2338bdf8\'/><rect x=\'40\' y=\'427\' width=\'80\' height=\ me=\'10\' rx=\'3\' fill=\'%231f293d\'/><rect x=\'130\' y=\'427\' width=\ me=\'60\' height=\'10\' rx=\'3\' fill=\'%231f293d\'/><rect x=\'200\' y=\'80\' width=\'400\' height=\'250\' rx=\'6\' fill=\'%23111726\' stroke=\'%231f293d\' stroke-width=\'2\'/><text x=\'400\' y=\'210\' fill=\'%2338bdf8\' font-family=\'sans-serif\' font-size=\'20\' text-anchor=\'middle\' font-weight=\'bold\'>Ankora KDE Plasma 6.0</text><text x=\'400\' y=\'235\' fill=\'%2364748b\' font-family=\'sans-serif\' font-size=\'13\' text-anchor=\'middle\'>Görsel yüklenemedi (kde.png bekleniyor)</text></svg>';">
+                            </div>
+                            <div class="shot-info">
+                                <span class="shot-title">Ankora KDE Plasma</span>
+                                <span class="shot-tag">Fairy Wren Icon Set</span>
+                            </div>
+                        </div>
+                        <div class="shot-card">
+                            <div class="shot-img-wrapper">
+                                <img src="xfce.png" alt="Ankora Linux XFCE Ekran Görüntüsü" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'450\' viewBox=\'0 0 800 450\'><rect width=\'100%\' height=\'100%\' fill=\'%230b0f19\'/><rect x=\'0\' y=\'0\' width=\'100%\' height=\'30\' fill=\'%23111726\'/><rect x=\'10\' y=\'8\' width=\'50\' height=\ me=\'14\' rx=\'3\' fill=\'%2322c55e\'/><rect x=\'150\' y=\'90\' width=\'500\' height=\'280\' rx=\'6\' fill=\'%23111726\' stroke=\'%231f293d\' stroke-width=\'2\'/><text x=\'400\' y=\'220\' fill=\'%2322c55e\' font-family=\'sans-serif\' font-size=\'20\' text-anchor=\'middle\' font-weight=\'bold\'>Ankora XFCE 4.18</text><text x=\'400\' y=\'245\' fill=\'%2364748b\' font-family=\'sans-serif\' font-size=\'13\' text-anchor=\'middle\'>Görsel yüklenemedi (xfce.png bekleniyor)</text></svg>';">
+                            </div>
+                            <div class="shot-info">
+                                <span class="shot-title">Ankora XFCE</span>
+                                <span class="shot-tag">Ortak Dolphin Ekosistemi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4 SÜRÜM (TIKLANABİLİR KARTLAR) -->
+            <section class="editions-section" id="surumler">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Ankora Linux Sürümleri</h2>
+                        <p>Detaylı bilgi ve teknik dokümantasyon için sürüm kartına tıklayın</p>
+                    </div>
+                    <div class="grid-4">
+                        <!-- AI Debian Card -->
+                        <div class="edition-box" onclick="showPage('debian')">
+                            <div>
+                                <span class="edition-tag tag-active">Aktif Dağıtım</span>
+                                <h3>
+                                    Ankora AI Debian
+                                    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </h3>
+                                <p>Debian altyapısında yüksek stabilite ve düşük kaynak tüketimi sunan ana sürüm.</p>
+                            </div>
+                            <ul class="edition-features">
+                                <li>Terminal AI Asistanı</li>
+                                <li>KDE & XFCE Masaüstü</li>
+                                <li>ZRAM + SWAP Yapısı</li>
+                                <li>GameMode Entegrasyonu</li>
+                            </ul>
+                        </div>
+
+                        <!-- AI Arch Card -->
+                        <div class="edition-box" onclick="showPage('arch')">
+                            <div>
+                                <span class="edition-tag tag-test">Test Aşamasında</span>
+                                <h3>
+                                    Ankora AI Arch
+                                    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </h3>
+                                <p>Arch Linux tabanlı, en güncel paketler ve özel Ankora sistem araçları odaklı sürüm.</p>
+                            </div>
+                            <ul class="edition-features">
+                                <li>Ankora Backup Tool</li>
+                                <li>Ankora Cleanup Tool</li>
+                                <li>Ankora Firewall Status</li>
+                                <li>Ankora Update & Report</li>
+                            </ul>
+                        </div>
+
+                        <!-- Kurumsal Card -->
+                        <div class="edition-box" onclick="showPage('kurumsal')">
+                            <div>
+                                <span class="edition-tag tag-dev">Planlanan</span>
+                                <h3>
+                                    Ankora Kurumsal
+                                    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </h3>
+                                <p>Merkezi yönetim ve yüksek güvenlik gerektiren kurumlar için özel tasarlanmış sürüm.</p>
+                            </div>
+                            <ul class="edition-features">
+                                <li>Merkezi Yönetim Modülü</li>
+                                <li>Sıkılaştırılmış Güvenlik</li>
+                                <li>Geniş Ölçek Dağıtım Desteği</li>
+                            </ul>
+                        </div>
+
+                        <!-- Geliştirici Card -->
+                        <div class="edition-box" onclick="showPage('gelistirici')">
+                            <div>
+                                <span class="edition-tag tag-dev">Özel Sürüm</span>
+                                <h3>
+                                    Ankora Geliştirici
+                                    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </h3>
+                                <p>Geliştirici ekibinin kendi günlük iş akışına göre yapılandırdığı çalışma ortamı.</p>
+                            </div>
+                            <ul class="edition-features">
+                                <li>Gelişmiş Araç Zinciri</li>
+                                <li>Hazır Derleyici Ortamları</li>
+                                <li>Özel Terminal Yapılandırması</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DETAYLI ÖZET SECTION -->
+            <section class="detailed-summary-section" id="detayli-ozet">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Mimarinin Detaylı Özeti</h2>
+                        <p>Ankora Linux'u Farklı Kılan Temel Mühendislik Kararları</p>
+                    </div>
+
+                    <div class="summary-grid">
+                        <div class="summary-card">
+                            <svg class="summary-card-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                            <h3>Kademeli Bellek Yapısı</h3>
+                            <p>Düşük RAM kapasiteli cihazlarda kilitlenmeleri engellemek amacıyla doğrudan diske yazmak yerine önce RAM içinde ZRAM sıkıştırması devreye girer, ardından Disk SWAP kullanılır.</p>
+                        </div>
+
+                        <div class="summary-card">
+                            <svg class="summary-card-icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                            <h3>Çevrimdışı Yerel AI</h3>
+                            <p>Terminalde <span class="code-inline">yardimci</span> komutu ile çağrılan model internete bağlanmaz. Verilerinizi ve sorgularınızı harici bir sunucuya göndermeden cihaz üzerinde işler.</p>
+                        </div>
+
+                        <div class="summary-card">
+                            <svg class="summary-card-icon" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                            <h3>Sistem Şişkinliğini Önleme</h3>
+                            <p>Aynı görevi gören birden fazla yazılım elendi. LibreOffice gibi büyük ve seçmeli olması gereken uygulamalar sistem varsayılanından çıkarılarak ISO boyutu küçültüldü.</p>
+                        </div>
+
+                        <div class="summary-card">
+                            <svg class="summary-card-icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                            <h3>Masaüstü Ekosistem Birliği</h3>
+                            <p>KDE Plasma ve XFCE ortamlarında çift uygulama yükünün önüne geçildi. Örneğin her iki masaüstü ortamında da dosya yöneticisi olarak ortak standart olan Dolphin kullanılır.</p>
+                        </div>
+
+                        <div class="summary-card">
+                            <svg class="summary-card-icon" viewBox="0 0 24 24"><polygon points="6 11 6 4 11 4 11 11 6 11"></polygon><polygon points="13 11 13 4 18 4 18 11 13 11"></polygon><polygon points="6 18 6 13 11 13 11 18 6 18"></polygon><polygon points="13 18 13 13 18 13 18 18 13 18"></polygon></svg>
+                            <h3>Oyun Hazır Yapılandırma</h3>
+                            <p>GameMode ve MangoHud araçları sistem düzeyinde önceden yapılandırıldı. Kullanıcı ekstra yapılandırma dosyası düzenlemeden oyun katmanını aktif edebilir.</p>
+                        </div>
+
+                        <div class="summary-card">
+                            <svg class="summary-card-icon" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            <h3>Geliştirici Araç Seti</h3>
+                            <p>Python, C/C++, Git, Zsh ve Fastfetch kutudan çıktığı gibi hazır durumda gelir. Terminal optimizasyonları sayesinde eski donanımlarda kodlama akıcılığı korunur.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2.0 SÜRÜM NOTLARI -->
+            <section class="release-section" id="surum-notlari">
+                <div class="container">
+                    <div class="doc-card">
+                        <div class="doc-header">
+                            <h2>Ankora Linux 2.0 — Sürüm Notları</h2>
+                            <div class="doc-meta">
+                                <span>Yayınlayan: Ankora Geliştirme Ekibi</span>
+                                <span>•</span>
+                                <span>Taban: Debian 13 (Trixie)</span>
+                            </div>
+                        </div>
+
+                        <div class="doc-content">
+                            <p>Ankora Linux 2.0 sürümüyle birlikte sistem gereksiz yüklerden arındırılmış, KDE Plasma ve XFCE katmanları ortak bir araç ekosisteminde birleştirilmiştir.</p>
+
+                            <h3>Sistem Tabanı ve Görsel Kimlik</h3>
+                            <p>Ankora Linux 2.0 temelini <strong>Debian 13</strong> paketi oluşturur. Standart dağıtım görünümünün ötesine geçmek için şu özelleştirmeler uygulandı:</p>
+                            <ul>
+                                <li>Özel GRUB bootloader menü düzeni</li>
+                                <li>Ankora temalı Fastfetch ASCII ve terminal karşılama ekranı</li>
+                                <li>Özel simge ve duvar kağıdı paketleri</li>
+                            </ul>
+
+                            <h3>KDE Plasma + XFCE Yapılandırması</h3>
+                            <p>Sistemde hem KDE hem XFCE masaüstü ortamları optimize edilmiştir. Ancak sistem genelinde çift uygulama kirliliğini engellemak adına ortak araçlar belirlendi. Dosya yöneticisi olarak iki ortamda da <strong>Dolphin</strong> hizmet verir. Görsel icon seti olarak <strong>Fairy Wren</strong> entegre edilmiştir.</p>
+
+                            <h3>ZRAM + SWAP Mimari Yapısı</h3>
+                            <p>Düşük bellekli sistemlerde kilitlenmelerin önüne geçmek amacıyla kademeli bellek mimarisi kuruldu:</p>
+                            <div class="callout">
+                                <strong>Fiziksel RAM → ZRAM (Sıkıştırılmış Bellek) → Disk SWAP</strong><br>
+                                Bu mimari sayesinde 2 çekirdekli CPU ve 3 GB RAM gibi sınırlı sistemlerde dahi akıcı çoklu görev yürütülebilir.
+                            </div>
+
+                            <h3>Yerel Terminal AI Asistanı</h3>
+                            <p>Terminal içerisinden <span class="code-inline">yardimci</span> komutu ile çağrılabilen quantized AI asistanı; herhangi bir internet bağlantısına veya dış sunucuya ihtiyaç duymadan yerel makinede çalışır.</p>
+
+                            <h3>Gelecek Yol Haritası</h3>
+                            <p>Gelecek güncellemeler ve hazırlanmakta olan Arch sürümü ile sisteme eklenecek araçlar:</p>
+                            <ul>
+                                <li>Ankora Smart-Cleaner ve Ankora Convert araçları</li>
+                                <li>Bulut Depolama Yönetim Modülü</li>
+                                <li>Opsiyonel Açık Kaynak Sunucu Modelleri (Ankora Pro)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- İNDİRME ALANI -->
+            <section class="download-cta-section" id="indir">
+                <div class="container">
+                    <div class="download-box">
+                        <h2>Ankora Linux'u İndirin</h2>
+                        <p>Sistem kaynaklarını verimli kullanan, yerel AI destekli Ankora Linux 2.0 ISO imajını hemen edinin.</p>
+                        <div class="download-buttons">
+                            <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" class="btn btn-primary btn-lg">
+                                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                Ankora Linux 2.0 ISO (GitHub)
+                            </a>
+                            <a href="https://ankalab.flarum.cloud" target="_blank" class="btn btn-forum btn-lg">
+                                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                AnkaLab Forum
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <div class="tagline" data-tr="Bağımsız & Performance-Oriented" data-en="Independent & Performance-Oriented">Bağımsız & Performance-Oriented</div>
+        <!-- SAYFA 2: ANKORA AI DEBIAN DETAY SAYFASI -->
+        <div id="page-debian" class="page-view">
+            <section class="subpage-section">
+                <div class="container">
+                    <div style="margin-bottom: 20px;">
+                        <button onclick="showPage('home')" class="btn btn-secondary btn-sm">
+                            <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Ana Sayfaya Dön
+                        </button>
+                    </div>
 
-        <h1>
-            <span class="line" data-tr="Hızlı, Hafif ve Kullanıma Hazır" data-en="Fast, Lightweight & Ready-to-Use">Hızlı, Hafif ve Kullanıma Hazır</span>
-            <span class="line"><span class="highlight" data-tr="Linux" data-en="Linux">Linux</span> <span data-tr="Dağıtımı" data-en="Distro">Dağıtımı</span></span>
-        </h1>
+                    <div class="doc-card">
+                        <div class="doc-header">
+                            <span class="edition-tag tag-active">Ana Dağıtım Sürümü</span>
+                            <h2>Ankora AI Debian 2.0</h2>
+                            <div class="doc-meta">
+                                <span>Paket Tabanı: Debian 13 (Trixie)</span>
+                                <span>•</span>
+                                <span>Çekirdek: Linux Kernel 6.x</span>
+                            </div>
+                        </div>
 
-        <p data-tr="Debian tabanı üzerine inşa edilen Ankora OS; optimize edilmiş XFCE masaüstü ortamı, ZRAM bellek sıkıştırması ve yerleşik oyun/geliştirici paketleriyle gelir." data-en="Built on Debian base, Ankora OS arrives with an optimized XFCE desktop, ZRAM memory compression, and pre-configured gaming and developer tools.">Debian tabanı üzerine inşa edilen Ankora OS; optimize edilmiş XFCE masaüstü ortamı, ZRAM bellek sıkıştırması ve yerleşik oyun/geliştirici paketleriyle gelir.</p>
+                        <div class="doc-content">
+                            <p>Ankora AI Debian, projenin en kararlı ve geniş donanım desteği sunan ana sürümüdür. Sunucu ve günlük kullanım stabilitesini Debian 13 tabanından alırken, modern masaüstü optimizasyonlarını entegre eder.</p>
 
-        <div class="hero-actions">
-            <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                <span data-tr="ISO İndir" data-en="Download ISO">ISO İndir</span>
-            </a>
-            <a href="https://ankalab.flarum.cloud" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-                <span data-tr="AnkaLab Forum" data-en="AnkaLab Forum">AnkaLab Forum</span>
-            </a>
+                            <h3>Öne Çıkan Sistem Özellikleri</h3>
+                            <ul>
+                                <li><strong>Kararlılık:</strong> Debian Trixie deposu üzerine inşa edilmiş test edilmiş paket yapısı.</li>
+                                <li><strong>Hafifletilmiş Paket Yükü:</strong> Arka planda çalışan gereksiz telemetri ve sistem servisleri devre dışı bırakılmıştır.</li>
+                                <li><strong>Terminal AI Asistanı:</strong> Kutudan çıktığı haliyle <span class="code-inline">yardimci</span> komutuyla çalışan çevrimdışı dil modeli entegredir.</li>
+                                <li><strong>Ortak Masaüstü Yığını:</strong> Hem KDE hem XFCE modülünde Dolphin dosya yöneticisi ve Fairy Wren simge seti standarttır.</li>
+                            </ul>
+
+                            <h3>Donanım Gereksinimleri</h3>
+                            <table class="spec-table">
+                                <thead>
+                                    <tr>
+                                        <th>Bileşen</th>
+                                        <th>Minimum</th>
+                                        <th>Önerilen</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>İşlemci (CPU)</td>
+                                        <td>64-bit Çift Çekirdek 1.5 GHz</td>
+                                        <td>64-bit Dört Çekirdek 2.0 GHz+</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bellek (RAM)</td>
+                                        <td>2 GB (ZRAM Aktif)</td>
+                                        <td>4 GB ve üzeri</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Depolama</td>
+                                        <td>15 GB Boş Disk Alanı</td>
+                                        <td>25 GB SSD Depolama</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="callout">
+                                <strong>ISO İndirme Bağlantısı:</strong> GitHub sürümler alanından doğrudan <span class="code-inline">ankora-2.0-debian-x86_64.iso</span> imajını indirebilirsiniz.
+                            </div>
+
+                            <div style="margin-top: 24px;">
+                                <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" class="btn btn-primary">
+                                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                    Debian ISO İmajını İndir
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
 
-    <!-- ===== RELEASE CARD ===== -->
-    <div class="release-card animate-on-scroll" id="news">
-        <div>
-            <div class="release-badge" data-tr="Son Sürüm Duyurusu" data-en="Latest Release">Son Sürüm Duyurusu</div>
-            <div class="release-title" data-tr="Ankora Linux 1.0 (Zümrüt) Yayında" data-en="Ankora Linux 1.0 (Emerald) Released">Ankora Linux 1.0 (Zümrüt) Yayında</div>
-            <div class="release-desc" data-tr="Calamares yükleyici, varsayılan ZRAM konfigürasyonu ve güncel paket deposuyla ilk sürüm indirmeye hazır." data-en="First release ready for download with Calamares installer, default ZRAM configuration, and updated packages.">Calamares yükleyici, varsayılan ZRAM konfigürasyonu ve güncel paket deposuyla ilk sürüm indirmeye hazır.</div>
-        </div>
-        <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="white-space: nowrap;" data-tr="Sürüm Notları" data-en="Release Notes">Sürüm Notları</a>
-    </div>
+        <!-- SAYFA 3: ANKORA AI ARCH DETAY SAYFASI -->
+        <div id="page-arch" class="page-view">
+            <section class="subpage-section">
+                <div class="container">
+                    <div style="margin-bottom: 20px;">
+                        <button onclick="showPage('home')" class="btn btn-secondary btn-sm">
+                            <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Ana Sayfaya Dön
+                        </button>
+                    </div>
 
-    <!-- ===== HIZLI BAKIŞ (KABACA ÖZET) ===== -->
-    <section class="quick-overview animate-on-scroll" id="overview">
-        <h2 data-tr="Öne Çıkanlar" data-en="Highlights">Öne Çıkanlar</h2>
-        <p class="sub" data-tr="Ankora Linux'un ana özelliklerine, sürümlerine ve araçlarına hızlı bir bakış." data-en="A quick look at Ankora Linux's main features, editions, and tools.">Ankora Linux'un ana özelliklerine, sürümlerine ve araçlarına hızlı bir bakış.</p>
+                    <div class="doc-card">
+                        <div class="doc-header">
+                            <span class="edition-tag tag-test">Test / Geliştirme Aşamasında</span>
+                            <h2>Ankora AI Arch</h2>
+                            <div class="doc-meta">
+                                <span>Paket Tabanı: Arch Linux Rolling Release</span>
+                                <span>•</span>
+                                <span>Sürüm: Rolling / Bleeding Edge</span>
+                            </div>
+                        </div>
 
-        <!-- Özellikler (4) -->
-        <div class="quick-grid">
-            <div class="item">
-                <span class="icon">◈</span>
-                <h4 data-tr="ZRAM" data-en="ZRAM">ZRAM</h4>
-                <p data-tr="Bellek sıkıştırma" data-en="Memory compression">Bellek sıkıştırma</p>
-            </div>
-            <div class="item">
-                <span class="icon">◈</span>
-                <h4 data-tr="Oyun Katmanı" data-en="Gaming Layer">Oyun Katmanı</h4>
-                <p data-tr="Vulkan + GameMode" data-en="Vulkan + GameMode">Vulkan + GameMode</p>
-            </div>
-            <div class="item">
-                <span class="icon">◈</span>
-                <h4 data-tr="Paket Desteği" data-en="Package Support">Paket Desteği</h4>
-                <p data-tr="Pardus + Flatpak" data-en="Pardus + Flatpak">Pardus + Flatpak</p>
-            </div>
-            <div class="item">
-                <span class="icon">◈</span>
-                <h4 data-tr="Geliştirici" data-en="Developer">Geliştirici</h4>
-                <p data-tr="Python, C++, Git" data-en="Python, C++, Git">Python, C++, Git</p>
-            </div>
-        </div>
+                        <div class="doc-content">
+                            <p>Ankora AI Arch, en güncel yazılım paketlerini ve en son Linux çekirdeğini kullanmak isteyen kullanıcılar için geliştirilmektedir. Arch Linux altyapısı üzerine Ankora'ya özel sistem yönetim yazılımları entegre edilmiştir.</p>
 
-        <!-- Sürümler (3) -->
-        <div class="quick-versions">
-            <span class="vchip"><span class="dot building"></span> Debian Masaüstü <span style="font-weight:400;color:var(--text-main);font-size:0.7rem;margin-left:4px;">(Yapımda)</span></span>
-            <span class="vchip"><span class="dot done"></span> Arch · AI <span style="font-weight:400;color:var(--text-main);font-size:0.7rem;margin-left:4px;">(Bitti)</span></span>
-            <span class="vchip"><span class="dot planned"></span> Kurumsal <span style="font-weight:400;color:var(--text-main);font-size:0.7rem;margin-left:4px;">(Planlandı)</span></span>
+                            <h3>Ankora Özel Araç Seti</h3>
+                            <p>Arch sürümüyle birlikte varsayılan olarak gelecek yerel sistem araçları:</p>
+                            <ul>
+                                <li><strong>Ankora Backup Tool:</strong> Sistem snapshot ve yedekleme yönetim yazılımı.</li>
+                                <li><strong>Ankora Cleanup Tool:</strong> Gereksiz önbellek, yetim paket ve log dosyası temizleyici.</li>
+                                <li><strong>Ankora Firewall Status:</strong> Grafik arayüzlü ve terminal tabanlı güvenlik duvarı paneli.</li>
+                                <li><strong>Ankora Systeminfo & Report:</strong> Sistem durumunu analiz eden raporlama aracı.</li>
+                                <li><strong>Ankora Update Manager:</strong> Güvenli paket güncelleme arayüzü.</li>
+                            </ul>
+
+                            <div class="callout">
+                                <strong>Geliştirici Notu:</strong> Ankora AI Arch sürümü şu anda iç test aşamasındadır. Yakında AnkaLab Forum ve GitHub üzerinden açık betaya sunulacaktır.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <!-- Araçlar (8) -->
-        <div class="quick-tools">
-            <span class="tchip">Ankora Ai</span>
-            <span class="tchip">Backup</span>
-            <span class="tchip">Cleanup</span>
-            <span class="tchip">Firewall</span>
-            <span class="tchip">Report</span>
-            <span class="tchip">Systeminfo</span>
-            <span class="tchip">Update</span>
-            <span class="tchip">Sistem Ayarları</span>
+        <!-- SAYFA 4: ANKORA KURUMSAL DETAY SAYFASI -->
+        <div id="page-kurumsal" class="page-view">
+            <section class="subpage-section">
+                <div class="container">
+                    <div style="margin-bottom: 20px;">
+                        <button onclick="showPage('home')" class="btn btn-secondary btn-sm">
+                            <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Ana Sayfaya Dön
+                        </button>
+                    </div>
+
+                    <div class="doc-card">
+                        <div class="doc-header">
+                            <span class="edition-tag tag-dev">Planlama / Mimari Tasarım</span>
+                            <h2>Ankora Kurumsal</h2>
+                            <div class="doc-meta">
+                                <span>Odak: Merkezi Yönetim & Güvenlik</span>
+                            </div>
+                        </div>
+
+                        <div class="doc-content">
+                            <p>Ankora Kurumsal; okullar, kamu kurumları ve özel işletmelerin bilgisayar parklarını tek noktadan yönetmesini sağlamak amacıyla planlanan kurumsal sürümdür.</p>
+
+                            <h3>Planlanan Kurumsal Bileşenler</h3>
+                            <ul>
+                                <li><strong>Merkezi Politika Yönetimi:</strong> Kullanıcı yetkileri, güncelleme takvimleri ve istemci ayarlarının merkezden dağıtılması.</li>
+                                <li><strong>Genişletilmiş Güvenlik Modülleri:</strong> Sıkılaştırılmış AppArmor / SELinux profilleri ve yerel disk şifreleme standartları.</li>
+                                <li><strong>Uzun Süreli Destek (LTS):</strong> Güncelleme kaynaklı sistem kesintilerini önleyen sabitleşmiş paket havuzları.</li>
+                            </ul>
+
+                            <p style="margin-top:20px;">Kurumsal toplu kurulum çözümleri için AnkaLab Forum üzerinden ekiple iletişime geçebilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
 
-    <!-- ========== DETAYLI BÖLÜMLER (KAYDIRMA ile AÇILAN) ========== -->
+        <!-- SAYFA 5: ANKORA GELİŞTİRİCİ DETAY SAYFASI -->
+        <div id="page-gelistirici" class="page-view">
+            <section class="subpage-section">
+                <div class="container">
+                    <div style="margin-bottom: 20px;">
+                        <button onclick="showPage('home')" class="btn btn-secondary btn-sm">
+                            <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Ana Sayfaya Dön
+                        </button>
+                    </div>
 
-    <!-- ÖZELLİK 1: ZRAM -->
-    <section class="detail-section animate-on-scroll" id="feature-zram">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="ZRAM Optimizasyonu" data-en="ZRAM Optimization">ZRAM Optimizasyonu</h2>
-        <div class="subtitle" data-tr="Akıllı Bellek Yönetimi" data-en="Smart Memory Management">Akıllı Bellek Yönetimi</div>
-        <p data-tr="Ankora Linux, düşük RAM kapasiteli cihazlarda bile sistemin kilitlenmesini önleyen ZRAM teknolojisini varsayılan olarak etkinleştirir. Bu sayede çoklu görevlerde akıcılık korunur, donanımınızın potansiyeli sonuna kadar kullanılır." data-en="Ankora Linux enables ZRAM by default, preventing system freezes even on low-RAM devices. This ensures smooth multitasking and full utilization of your hardware's potential.">Ankora Linux, düşük RAM kapasiteli cihazlarda bile sistemin kilitlenmesini önleyen ZRAM teknolojisini varsayılan olarak etkinleştirir. Bu sayede çoklu görevlerde akıcılık korunur, donanımınızın potansiyeli sonuna kadar kullanılır.</p>
-        <div class="feature-grid">
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Sıkıştırma Oranı" data-en="Compression Ratio">Sıkıştırma Oranı</h4><p data-tr="ZRAM, bellek içeriğini %30-50 oranında sıkıştırarak etkin bellek alanını artırır." data-en="ZRAM compresses memory content by 30-50%, increasing effective memory space.">ZRAM, bellek içeriğini %30-50 oranında sıkıştırarak etkin bellek alanını artırır.</p></div>
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Düşük Gecikme" data-en="Low Latency">Düşük Gecikme</h4><p data-tr="Sıkıştırma/dekompresyon işlemleri optimize edilmiş olup, performans kaybı neredeyse fark edilmez." data-en="Compression/decompression operations are optimized with negligible performance impact.">Sıkıştırma/dekompresyon işlemleri optimize edilmiş olup, performans kaybı neredeyse fark edilmez.</p></div>
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Varsayılan Yapılandırma" data-en="Default Configuration">Varsayılan Yapılandırma</h4><p data-tr="Kurulumdan sonra hiçbir ek ayar yapmadan ZRAM avantajından yararlanmaya başlayabilirsiniz." data-en="You can benefit from ZRAM immediately after installation with no extra configuration.">Kurulumdan sonra hiçbir ek ayar yapmadan ZRAM avantajından yararlanmaya başlayabilirsiniz.</p></div>
+                    <div class="doc-card">
+                        <div class="doc-header">
+                            <span class="edition-tag tag-dev">Özel Çalışma Ortamı</span>
+                            <h2>Ankora Geliştirici Sürümü</h2>
+                            <div class="doc-meta">
+                                <span>Odak: Yazılım Geliştirme & Derleme</span>
+                            </div>
+                        </div>
+
+                        <div class="doc-content">
+                            <p>Ankora Geliştirici sürümü, projenin çekirdek geliştiricilerinin günlük kodlama, derleme ve sistem paketleme ihtiyaçlarına göre yapılandırılmış özel bir ISO derlemesidir.</p>
+
+                            <h3>Hazır Derleyici ve Araç Zinciri</h3>
+                            <ul>
+                                <li><strong>Programlama Dilleri:</strong> Python 3.x, GCC/G++, Rust, Go ve Node.js ortamları hazır yapılandırılmıştır.</li>
+                                <li><strong>Sürüm Kontrol:</strong> Git, GitHub CLI ve terminal bazlı diff araçları entegredir.</li>
+                                <li><strong>Özelleştirilmiş Terminal:</strong> Zsh shell, Powerlevel10k teması ve hızlı komut takma adları (aliases) tanımlıdır.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
+    </main>
 
-    <!-- ÖZELLİK 2: OYUN -->
-    <section class="detail-section animate-on-scroll" id="feature-gaming">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Oyun ve Sürücü Katmanı" data-en="Gaming & Driver Layer">Oyun ve Sürücü Katmanı</h2>
-        <div class="subtitle" data-tr="Kesintisiz Oyun Deneyimi" data-en="Seamless Gaming Experience">Kesintisiz Oyun Deneyimi</div>
-        <p data-tr="Ankora Linux, oyuncular için özel olarak hazırlanmış Mesa Vulkan sürücüleri, GameMode performans optimizasyonu ve MangoHud ekran üstü gösterge araçları ile gelir. Tüm bu araçlar kutudan çıkar çıkmaz çalışır durumdadır." data-en="Ankora Linux comes with Mesa Vulkan drivers, GameMode performance optimization, and MangoHud on-screen display tools specifically prepared for gamers. All these tools work out-of-the-box.">Ankora Linux, oyuncular için özel olarak hazırlanmış Mesa Vulkan sürücüleri, GameMode performans optimizasyonu ve MangoHud ekran üstü gösterge araçları ile gelir. Tüm bu araçlar kutudan çıkar çıkmaz çalışır durumdadır.</p>
-        <div class="feature-grid">
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Vulkan Desteği" data-en="Vulkan Support">Vulkan Desteği</h4><p data-tr="En yeni oyunlar için en iyi grafik performansını sunan Vulkan API'si hazır." data-en="Vulkan API ready for best graphics performance in the latest games.">En yeni oyunlar için en iyi grafik performansını sunan Vulkan API'si hazır.</p></div>
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="GameMode" data-en="GameMode">GameMode</h4><p data-tr="Oyun sırasında sistem kaynaklarını önceliklendirerek performansı artırır." data-en="Prioritizes system resources during gaming to boost performance.">Oyun sırasında sistem kaynaklarını önceliklendirerek performansı artırır.</p></div>
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="MangoHud" data-en="MangoHud">MangoHud</h4><p data-tr="FPS, sıcaklık ve kaynak kullanımını oyun içinde gösteren araç." data-en="Displays FPS, temperature, and resource usage in-game.">FPS, sıcaklık ve kaynak kullanımını oyun içinde gösteren araç.</p></div>
-        </div>
-    </section>
-
-    <!-- ÖZELLİK 3: PAKET DESTEĞİ -->
-    <section class="detail-section animate-on-scroll" id="feature-packages">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Geniş Paket Desteği" data-en="Extensive Package Support">Geniş Paket Desteği</h2>
-        <div class="subtitle" data-tr="Binlerce Uygulama Tek Tıkla" data-en="Thousands of Apps at Your Fingertips">Binlerce Uygulama Tek Tıkla</div>
-        <p data-tr="Pardus Yazılım Merkezi entegrasyonu ve Flatpak desteği sayesinde Ankora Linux, kullanıcılarına en popüler uygulamalara anında erişim imkanı sunar. Ofis, grafik, mühendislik, medya ve daha birçok kategoride binlerce yazılım hazırdır." data-en="With Pardus Store integration and Flatpak support, Ankora Linux provides instant access to thousands of popular applications across office, graphics, engineering, media, and more.">Pardus Yazılım Merkezi entegrasyonu ve Flatpak desteği sayesinde Ankora Linux, kullanıcılarına en popüler uygulamalara anında erişim imkanı sunar. Ofis, grafik, mühendislik, medya ve daha birçok kategoride binlerce yazılım hazırdır.</p>
-        <div class="feature-grid">
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Pardus Store" data-en="Pardus Store">Pardus Store</h4><p data-tr="Türkiye’nin yerel yazılım deposu, güvenli ve güncel uygulamalar." data-en="Turkey's local software repository with secure and updated apps.">Türkiye’nin yerel yazılım deposu, güvenli ve güncel uygulamalar.</p></div>
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Flatpak" data-en="Flatpak">Flatpak</h4><p data-tr="Bağımsız uygulama paketleme sistemi, dağıtımdan bağımsız çalışır." data-en="Cross-distribution application packaging system that runs independently.">Bağımsız uygulama paketleme sistemi, dağıtımdan bağımsız çalışır.</p></div>
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Güncel Depo" data-en="Up-to-date Repo">Güncel Depo</h4><p data-tr="Sürekli güncellenen paket listesi ile en son sürümlere erişim." data-en="Access to the latest versions with a continuously updated package list.">Sürekli güncellenen paket listesi ile en son sürümlere erişim.</p></div>
-        </div>
-    </section>
-
-    <!-- ÖZELLİK 4: GELİŞTİRİCİ -->
-    <section class="detail-section animate-on-scroll" id="feature-dev">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Geliştirici Araçları" data-en="Developer Tools">Geliştirici Araçları</h2>
-        <div class="subtitle" data-tr="Hazır Geliştirme Ortamı" data-en="Ready-to-Use Dev Environment">Hazır Geliştirme Ortamı</div>
-        <p data-tr="Python, C/C++ derleyicileri, Git ve özelleştirilmiş Zsh terminali ile Ankora Linux, yazılım geliştiriciler için eksiksiz bir platform sunar. Tüm araçlar önceden yapılandırılmıştır, böylece projelerinize hemen başlayabilirsiniz." data-en="With Python, C/C++ compilers, Git, and a customized Zsh terminal, Ankora Linux provides a complete platform for developers. All tools are pre-configured so you can start coding immediately.">Python, C/C++ derleyicileri, Git ve özelleştirilmiş Zsh terminali ile Ankora Linux, yazılım geliştiriciler için eksiksiz bir platform sunar. Tüm araçlar önceden yapılandırılmıştır, böylece projelerinize hemen başlayabilirsiniz.</p>
-        <div class="feature-grid">
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Python & C/C++" data-en="Python & C/C++">Python & C/C++</h4><p data-tr="Popüler diller için derleyiciler ve kütüphaneler hazır." data-en="Compilers and libraries ready for popular languages.">Popüler diller için derleyiciler ve kütüphaneler hazır.</p></div>
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Git" data-en="Git">Git</h4><p data-tr="Sürüm kontrol sistemi, projelerinizi kolayca yönetin." data-en="Version control system to easily manage your projects.">Sürüm kontrol sistemi, projelerinizi kolayca yönetin.</p></div>
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Zsh Terminal" data-en="Zsh Terminal">Zsh Terminal</h4><p data-tr="Otomatik tamamlama, eklentiler ve renkli temalarla güçlendirilmiş terminal." data-en="Enhanced with auto-completion, plugins, and colorful themes.">Otomatik tamamlama, eklentiler ve renkli temalarla güçlendirilmiş terminal.</p></div>
-        </div>
-    </section>
-
-    <!-- SÜRÜM 1: DEBIAN -->
-    <section class="detail-section animate-on-scroll" id="version-debian">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Ankora Debian Masaüstü" data-en="Ankora Debian Desktop">Ankora Debian Masaüstü</h2>
-        <div class="subtitle" data-tr="Kararlı ve Güvenilir Temel" data-en="Stable and Reliable Foundation">Kararlı ve Güvenilir Temel</div>
-        <p data-tr="Ankora Debian Masaüstü, Debian'ın sağlam ve güvenli altyapısı üzerine inşa edilmiştir. Şu anda aktif geliştirme aşamasında olan bu sürüm, kurumsal kararlılık ve uzun vadeli destek hedeflerine yönelik olarak tasarlanmaktadır. XFCE masaüstü ortamıyla hafif ve verimli bir kullanım sunar." data-en="Ankora Debian Desktop is built on Debian's robust and secure infrastructure. Currently in active development, this edition is designed for enterprise stability and long-term support. It offers a lightweight and efficient experience with the XFCE desktop environment.">Ankora Debian Masaüstü, Debian'ın sağlam ve güvenli altyapısı üzerine inşa edilmiştir. Şu anda aktif geliştirme aşamasında olan bu sürüm, kurumsal kararlılık ve uzun vadeli destek hedeflerine yönelik olarak tasarlanmaktadır. XFCE masaüstü ortamıyla hafif ve verimli bir kullanım sunar.</p>
-        <div class="feature-grid">
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Debian Tabanlı" data-en="Debian Based">Debian Tabanlı</h4><p data-tr="En kararlı ve güvenli Linux temellerinden biri." data-en="One of the most stable and secure Linux foundations.">En kararlı ve güvenli Linux temellerinden biri.</p></div>
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="XFCE Masaüstü" data-en="XFCE Desktop">XFCE Masaüstü</h4><p data-tr="Hafif, hızlı ve özelleştirilebilir arayüz." data-en="Lightweight, fast, and customizable interface.">Hafif, hızlı ve özelleştirilebilir arayüz.</p></div>
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Uzun Vadeli Destek" data-en="Long-Term Support">Uzun Vadeli Destek</h4><p data-tr="Kurumsal kullanıma uygun, uzun süreli güncelleme garantisi." data-en="Suitable for enterprise use with long-term update guarantees.">Kurumsal kullanıma uygun, uzun süreli güncelleme garantisi.</p></div>
-        </div>
-    </section>
-
-    <!-- SÜRÜM 2: ARCH AI -->
-    <section class="detail-section animate-on-scroll" id="version-arch">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Ankora Arch · AI" data-en="Ankora Arch · AI">Ankora Arch · AI</h2>
-        <div class="subtitle" data-tr="Yapay Zeka ile Güçlendirilmiş" data-en="AI-Powered">Yapay Zeka ile Güçlendirilmiş</div>
-        <p data-tr="Ankora Arch · AI, Arch Linux tabanlı, yapay zeka destekli araçlar ve otomasyon odaklı bir sürümdür. Temel altyapısı tamamlanmış olup, şu anda son test ve iyileştirme aşamaları sürmektedir. Bu sürüm, gelişmiş kullanıcılar ve yenilikçi teknolojilere ilgi duyanlar için idealdir." data-en="Ankora Arch · AI is an Arch Linux-based edition focused on AI-powered tools and automation. The core infrastructure is complete, and final testing and improvements are underway. This edition is ideal for advanced users and those interested in cutting-edge technologies.">Ankora Arch · AI, Arch Linux tabanlı, yapay zeka destekli araçlar ve otomasyon odaklı bir sürümdür. Temel altyapısı tamamlanmış olup, şu anda son test ve iyileştirme aşamaları sürmektedir. Bu sürüm, gelişmiş kullanıcılar ve yenilikçi teknolojilere ilgi duyanlar için idealdir.</p>
-        <div class="feature-grid">
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Arch Linux" data-en="Arch Linux">Arch Linux</h4><p data-tr="En güncel paketlere sahip, esnek ve hafif temel." data-en="Flexible and lightweight base with the latest packages.">En güncel paketlere sahip, esnek ve hafif temel.</p></div>
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="AI Araçları" data-en="AI Tools">AI Araçları</h4><p data-tr="Makine öğrenmesi ve otomasyon için özel araçlar entegre." data-en="Integrated tools for machine learning and automation.">Makine öğrenmesi ve otomasyon için özel araçlar entegre.</p></div>
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Performans" data-en="Performance">Performans</h4><p data-tr="Hafif yapısı sayesinde yüksek performans ve hızlı çalışma." data-en="High performance and speed thanks to its lightweight structure.">Hafif yapısı sayesinde yüksek performans ve hızlı çalışma.</p></div>
-        </div>
-    </section>
-
-    <!-- SÜRÜM 3: KURUMSAL -->
-    <section class="detail-section animate-on-scroll" id="version-enterprise">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Ankora Kurumsal" data-en="Ankora Enterprise">Ankora Kurumsal</h2>
-        <div class="subtitle" data-tr="Merkezi Yönetim ve Güvenlik" data-en="Centralized Management & Security">Merkezi Yönetim ve Güvenlik</div>
-        <p data-tr="Ankora Kurumsal, işletmelerin merkezi yönetim, güvenlik ve kararlılık ihtiyaçlarına cevap vermek üzere planlanmıştır. Henüz geliştirme aşamasında olan bu sürüm, büyük ölçekli dağıtımlar ve kritik sistemler için tasarlanmaktadır." data-en="Ankora Enterprise is planned to meet the needs of businesses for centralized management, security, and stability. Still in the planning phase, this edition is designed for large-scale deployments and critical systems.">Ankora Kurumsal, işletmelerin merkezi yönetim, güvenlik ve kararlılık ihtiyaçlarına cevap vermek üzere planlanmıştır. Henüz geliştirme aşamasında olan bu sürüm, büyük ölçekli dağıtımlar ve kritik sistemler için tasarlanmaktadır.</p>
-        <div class="feature-grid">
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Merkezi Yönetim" data-en="Centralized Management">Merkezi Yönetim</h4><p data-tr="Ağ üzerinden kolay yapılandırma ve yönetim." data-en="Easy configuration and management over the network.">Ağ üzerinden kolay yapılandırma ve yönetim.</p></div>
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Güvenlik Odaklı" data-en="Security Focused">Güvenlik Odaklı</h4><p data-tr="Gelişmiş güvenlik politikaları ve izolasyon." data-en="Advanced security policies and isolation.">Gelişmiş güvenlik politikaları ve izolasyon.</p></div>
-            <div class="feature-item"><span class="icon">◈</span><h4 data-tr="Kararlılık" data-en="Stability">Kararlılık</h4><p data-tr="Kritik iş yükleri için yüksek erişilebilirlik." data-en="High availability for critical workloads.">Kritik iş yükleri için yüksek erişilebilirlik.</p></div>
-        </div>
-    </section>
-
-    <!-- ARAÇ 1: Ai -->
-    <section class="detail-section animate-on-scroll" id="tool-ai">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Ankora Ai" data-en="Ankora Ai">Ankora Ai</h2>
-        <div class="subtitle" data-tr="Akıllı Asistan" data-en="Intelligent Assistant">Akıllı Asistan</div>
-        <p data-tr="Ankora Ai, sistem yönetiminde size yardımcı olacak yapay zeka tabanlı bir asistandır. Planlanan bu araç, doğal dil ile komut verme, otomatik sorun tespiti ve öneriler sunma gibi yeteneklere sahip olacaktır." data-en="Ankora Ai is an AI-based assistant to help you with system management. This planned tool will feature natural language commands, automatic issue detection, and recommendations.">Ankora Ai, sistem yönetiminde size yardımcı olacak yapay zeka tabanlı bir asistandır. Planlanan bu araç, doğal dil ile komut verme, otomatik sorun tespiti ve öneriler sunma gibi yeteneklere sahip olacaktır.</p>
-    </section>
-
-    <!-- ARAÇ 2: Backup -->
-    <section class="detail-section animate-on-scroll" id="tool-backup">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Ankora Backup" data-en="Ankora Backup">Ankora Backup</h2>
-        <div class="subtitle" data-tr="Kolay ve Güvenli Yedekleme" data-en="Easy and Secure Backup">Kolay ve Güvenli Yedekleme</div>
-        <p data-tr="Ankora Backup, dosyalarınızı ve sistem ayarlarınızı düzenli olarak yedeklemenizi sağlayan araçtır. Zamanlanmış yedekleme, farklı depolama hedefleri ve şifreleme seçenekleri sunar. Bu araç tamamlanmıştır." data-en="Ankora Backup allows you to regularly back up your files and system settings. It offers scheduled backups, multiple storage targets, and encryption options. This tool is complete.">Ankora Backup, dosyalarınızı ve sistem ayarlarınızı düzenli olarak yedeklemenizi sağlayan araçtır. Zamanlanmış yedekleme, farklı depolama hedefleri ve şifreleme seçenekleri sunar. Bu araç tamamlanmıştır.</p>
-    </section>
-
-    <!-- ARAÇ 3: Cleanup -->
-    <section class="detail-section animate-on-scroll" id="tool-cleanup">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Ankora Cleanup" data-en="Ankora Cleanup">Ankora Cleanup</h2>
-        <div class="subtitle" data-tr="Sistem Temizleyici" data-en="System Cleaner">Sistem Temizleyici</div>
-        <p data-tr="Ankora Cleanup, gereksiz dosyaları, önbellekleri ve eski paketleri temizleyerek sisteminizin performansını artırır. Disk alanı kurtarmanıza ve sistemin hafif kalmasına yardımcı olur. Tamamlandı." data-en="Ankora Cleanup removes unnecessary files, caches, and old packages to improve system performance. It helps free up disk space and keep your system light. Completed.">Ankora Cleanup, gereksiz dosyaları, önbellekleri ve eski paketleri temizleyerek sisteminizin performansını artırır. Disk alanı kurtarmanıza ve sistemin hafif kalmasına yardımcı olur. Tamamlandı.</p>
-    </section>
-
-    <!-- ARAÇ 4: Firewall -->
-    <section class="detail-section animate-on-scroll" id="tool-firewall">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Ankora Firewall Status" data-en="Ankora Firewall Status">Ankora Firewall Status</h2>
-        <div class="subtitle" data-tr="Güvenlik Duvam Yönetimi" data-en="Firewall Management">Güvenlik Duvam Yönetimi</div>
-        <p data-tr="Ankora Firewall Status, sisteminizdeki güvenlik duvarı durumunu gösteren ve kolayca yapılandırmanıza olanak sağlayan bir araçtır. Aktif bağlantılar, kurallar ve port durumları hakkında bilgi verir. Tamamlandı." data-en="Ankora Firewall Status displays the firewall status and allows easy configuration. It provides information on active connections, rules, and port statuses. Completed.">Ankora Firewall Status, sisteminizdeki güvenlik duvarı durumunu gösteren ve kolayca yapılandırmanıza olanak sağlayan bir araçtır. Aktif bağlantılar, kurallar ve port durumları hakkında bilgi verir. Tamamlandı.</p>
-    </section>
-
-    <!-- ARAÇ 5: Report -->
-    <section class="detail-section animate-on-scroll" id="tool-report">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Ankora Report" data-en="Ankora Report">Ankora Report</h2>
-        <div class="subtitle" data-tr="Sistem Raporlama" data-en="System Reporting">Sistem Raporlama</div>
-        <p data-tr="Ankora Report, sisteminizle ilgili detaylı raporlar oluşturmanızı sağlar. Donanım, yazılım, ağ durumu ve hata günlükleri gibi bilgileri tek bir yerde toplar. Tamamlandı." data-en="Ankora Report generates detailed reports about your system. It gathers hardware, software, network status, and error logs in one place. Completed.">Ankora Report, sisteminizle ilgili detaylı raporlar oluşturmanızı sağlar. Donanım, yazılım, ağ durumu ve hata günlükleri gibi bilgileri tek bir yerde toplar. Tamamlandı.</p>
-    </section>
-
-    <!-- ARAÇ 6: Systeminfo -->
-    <section class="detail-section animate-on-scroll" id="tool-sysinfo">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Ankora Systeminfo" data-en="Ankora Systeminfo">Ankora Systeminfo</h2>
-        <div class="subtitle" data-tr="Sistem Bilgisi" data-en="System Information">Sistem Bilgisi</div>
-        <p data-tr="Ankora Systeminfo, işletim sistemi, işlemci, bellek, disk ve diğer donanım bileşenleri hakkında ayrıntılı bilgi sunar. Tamamlandı." data-en="Ankora Systeminfo provides detailed information about the operating system, CPU, memory, disk, and other hardware components. Completed.">Ankora Systeminfo, işletim sistemi, işlemci, bellek, disk ve diğer donanım bileşenleri hakkında ayrıntılı bilgi sunar. Tamamlandı.</p>
-    </section>
-
-    <!-- ARAÇ 7: Update -->
-    <section class="detail-section animate-on-scroll" id="tool-update">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Ankora Update" data-en="Ankora Update">Ankora Update</h2>
-        <div class="subtitle" data-tr="Sistem Güncelleme" data-en="System Update">Sistem Güncelleme</div>
-        <p data-tr="Ankora Update, sisteminizi ve yüklü paketleri güncel tutmanızı sağlayan basit ve etkili bir araçtır. Tüm güncellemeleri tek tıkla yapar. Tamamlandı." data-en="Ankora Update is a simple and effective tool to keep your system and packages up to date. It updates everything with a single click. Completed.">Ankora Update, sisteminizi ve yüklü paketleri güncel tutmanızı sağlayan basit ve etkili bir araçtır. Tüm güncellemeleri tek tıkla yapar. Tamamlandı.</p>
-    </section>
-
-    <!-- ARAÇ 8: Settings -->
-    <section class="detail-section animate-on-scroll" id="tool-settings">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Ankora Sistem Ayarları" data-en="Ankora System Settings">Ankora Sistem Ayarları</h2>
-        <div class="subtitle" data-tr="Merkezi Yapılandırma" data-en="Centralized Configuration">Merkezi Yapılandırma</div>
-        <p data-tr="Ankora Sistem Ayarları, tüm sistem seçeneklerini tek bir arayüzden yönetmenize olanak tanır. Görünüm, performans, ağ ve güvenlik ayarları buradan düzenlenebilir. Planlanan bu araç, kullanıcı deneyimini kolaylaştırmayı hedeflemektedir." data-en="Ankora System Settings allows you to manage all system options from a single interface. Appearance, performance, network, and security settings can be adjusted here. This planned tool aims to simplify the user experience.">Ankora Sistem Ayarları, tüm sistem seçeneklerini tek bir arayüzden yönetmenize olanak tanır. Görünüm, performans, ağ ve güvenlik ayarları buradan düzenlenebilir. Planlanan bu araç, kullanıcı deneyimini kolaylaştırmayı hedeflemektedir.</p>
-    </section>
-
-    <!-- ===== GEREKSİNİMLER TABLOSU ===== -->
-    <section class="detail-section animate-on-scroll" id="specs" style="border-bottom: none;">
-        <div class="section-icon">◈</div>
-        <h2 data-tr="Sistem Gereksinimleri" data-en="System Requirements">Sistem Gereksinimleri</h2>
-        <div style="overflow-x:auto; margin-top: 24px;">
-            <table style="width:100%; border-collapse:collapse; background:var(--surface); border-radius:16px; overflow:hidden; box-shadow:var(--shadow);">
-                <thead style="background:var(--accent-glow);">
-                    <tr><th style="padding:14px 20px; text-align:left; color:var(--text-bright); font-weight:700;" data-tr="Bileşen" data-en="Component">Bileşen</th>
-                        <th style="padding:14px 20px; text-align:left; color:var(--text-bright); font-weight:700;" data-tr="Minimum" data-en="Minimum">Minimum</th>
-                        <th style="padding:14px 20px; text-align:left; color:var(--text-bright); font-weight:700;" data-tr="Önerilen" data-en="Recommended">Önerilen</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="border-bottom:1px solid var(--border);"><td style="padding:14px 20px;"><strong data-tr="İşlemci" data-en="Processor">İşlemci</strong></td><td style="padding:14px 20px;">64-bit Çift Çekirdek (1.6 GHz)</td><td style="padding:14px 20px;">64-bit Dört Çekirdek</td></tr>
-                    <tr style="border-bottom:1px solid var(--border);"><td style="padding:14px 20px;"><strong data-tr="Bellek (RAM)" data-en="Memory (RAM)">Bellek (RAM)</strong></td><td style="padding:14px 20px;">2 GB (ZRAM Aktif)</td><td style="padding:14px 20px;">4 GB veya üzeri</td></tr>
-                    <tr><td style="padding:14px 20px;"><strong data-tr="Depolama" data-en="Storage">Depolama</strong></td><td style="padding:14px 20px;">15 GB SSD / HDD</td><td style="padding:14px 20px;">30 GB SSD</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
+    <!-- FOOTER -->
     <footer>
-        <p><span data-tr="Ankora Linux" data-en="Ankora Linux">Ankora Linux</span> &bull; <span data-tr="Bağımsız Topluluk Projesi" data-en="Independent Community Project">Bağımsız Topluluk Projesi</span></p>
+        <div class="container footer-wrapper">
+            <div>
+                © 2026 Ankora Linux Projesi. Özgür ve Açık Kaynaklı Yazılım.
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank">GitHub Deposu</a>
+                <a href="https://ankalab.flarum.cloud" target="_blank">AnkaLab Forum</a>
+                <a onclick="showPage('home'); setTimeout(() => document.getElementById('surum-notlari').scrollIntoView(), 50);">Sürüm Notları</a>
+                <a onclick="showPage('home'); setTimeout(() => document.getElementById('indir').scrollIntoView(), 50);">İndir</a>
+            </div>
+        </div>
     </footer>
 
-</div>
-
-<!-- ===== DOCK ===== -->
-<div class="dock-container">
-    <nav class="dock">
-        <a href="#home" class="dock-btn" data-tooltip="Ana Sayfa"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a>
-        <a href="#news" class="dock-btn" data-tooltip="Sürüm Notları"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6m-6 4h6"/></svg></a>
-        <a href="#overview" class="dock-btn" data-tooltip="Öne Çıkanlar"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg></a>
-        <a href="#feature-zram" class="dock-btn" data-tooltip="Detaylı Özellikler"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></a>
-        <a href="#version-debian" class="dock-btn" data-tooltip="Detaylı Sürümler"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m9-9H3m14.5-6.5L6.5 18.5m11 0L6.5 6.5"/></svg></a>
-        <a href="#tool-ai" class="dock-btn" data-tooltip="Detaylı Araçlar"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 001.4 1.4l1-1 1.6 1.6-1 1a1 1 0 001.4 1.4l1-1 1.6 1.6-1 1a1 1 0 00-1.4 1.4l1 1-1.6 1.6-1-1a1 1 0 00-1.4 1.4l1 1-1.6 1.6-1-1a1 1 0 00-1.4 1.4l-1 1-1.6-1.6 1-1a1 1 0 00-1.4-1.4l-1 1-1.6-1.6 1-1a1 1 0 00-1.4-1.4l-1 1-1.6-1.6 1-1a1 1 0 00-1.4-1.4l-1-1 1.6-1.6 1 1a1 1 0 001.4-1.4l-1-1 1.6-1.6 1 1z"/><circle cx="12" cy="12" r="3"/></svg></a>
-        <a href="#specs" class="dock-btn" data-tooltip="Gereksinimler"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg></a>
-        <div class="dock-divider"></div>
-        <a href="https://ankalab.flarum.cloud" target="_blank" rel="noopener noreferrer" class="dock-btn" data-tooltip="AnkaLab Forum"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg></a>
-        <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" rel="noopener noreferrer" class="dock-btn" data-tooltip="GitHub / İndir"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l4 4m0 0l-4 4m4-4H4"/></svg></a>
-        <div class="dock-divider"></div>
-        <button class="dock-btn theme-toggle" id="themeBtn" data-tooltip="Tema Değiştir"><span id="themeIcon">🌙</span></button>
-        <div style="position:relative;">
-            <button class="dock-btn" id="langBtn" data-tooltip="Dil / Language"><span id="langLabel">TR</span></button>
-            <div class="language-menu" id="languageMenu">
-                <button class="language-option" data-lang="tr">Türkçe</button>
-                <button class="language-option" data-lang="en">English</button>
-                <button class="language-option" data-lang="de">Deutsch</button>
-                <button class="language-option" data-lang="fr">Français</button>
-                <button class="language-option" data-lang="es">Español</button>
-                <button class="language-option" data-lang="ru">Русский</button>
-                <button class="language-option" data-lang="ar">العربية</button>
-                <button class="language-option" data-lang="pt">Português</button>
-                <button class="language-option" data-lang="it">Italiano</button>
-            </div>
-        </div>
-    </nav>
-</div>
-
-<script>
-    // ===== DİL SİSTEMİ (TR, EN, DE, FR, ES, RU, AR, PT, IT) =====
-    const translations = {
-        tr: {
-            tagline: 'Bağımsız & Performance-Oriented',
-            heroTitle1: 'Hızlı, Hafif ve Kullanıma Hazır',
-            heroTitle2: 'Dağıtımı',
-            heroDesc: 'Debian tabanı üzerine inşa edilen Ankora OS; optimize edilmiş XFCE masaüstü ortamı, ZRAM bellek sıkıştırması ve yerleşik oyun/geliştirici paketleriyle gelir.',
-            btnIso: 'ISO İndir',
-            btnForum: 'AnkaLab Forum',
-            releaseBadge: 'Son Sürüm Duyurusu',
-            releaseTitle: 'Ankora Linux 1.0 (Zümrüt) Yayında',
-            releaseDesc: 'Calamares yükleyici, varsayılan ZRAM konfigürasyonu ve güncel paket deposuyla ilk sürüm indirmeye hazır.',
-            releaseNotes: 'Sürüm Notları',
-            overviewTitle: 'Öne Çıkanlar',
-            overviewSub: 'Ankora Linux\'un ana özelliklerine, sürümlerine ve araçlarına hızlı bir bakış.',
-            footer: 'Ankora Linux • Bağımsız Topluluk Projesi'
-        },
-        en: {
-            tagline: 'Independent & Performance-Oriented',
-            heroTitle1: 'Fast, Lightweight & Ready-to-Use',
-            heroTitle2: 'Distro',
-            heroDesc: 'Built on Debian base, Ankora OS arrives with an optimized XFCE desktop, ZRAM memory compression, and pre-configured gaming and developer tools.',
-            btnIso: 'Download ISO',
-            btnForum: 'AnkaLab Forum',
-            releaseBadge: 'Latest Release',
-            releaseTitle: 'Ankora Linux 1.0 (Emerald) Released',
-            releaseDesc: 'First release ready for download with Calamares installer, default ZRAM configuration, and updated packages.',
-            releaseNotes: 'Release Notes',
-            overviewTitle: 'Highlights',
-            overviewSub: 'A quick look at Ankora Linux\'s main features, editions, and tools.',
-            footer: 'Ankora Linux • Independent Community Project'
-        },
-        de: {
-            tagline: 'Unabhängig & Leistungsorientiert',
-            heroTitle1: 'Schnell, Leicht & Gebrauchsfertig',
-            heroTitle2: 'Distribution',
-            heroDesc: 'Basierend auf Debian kommt Ankora OS mit einem optimierten XFCE-Desktop, ZRAM-Speicherkomprimierung und vorkonfigurierten Gaming- und Entwicklertools.',
-            btnIso: 'ISO Herunterladen',
-            btnForum: 'AnkaLab Forum',
-            releaseBadge: 'Neueste Veröffentlichung',
-            releaseTitle: 'Ankora Linux 1.0 (Smaragd) Veröffentlicht',
-            releaseDesc: 'Erste Version zum Download mit Calamares-Installer, Standard-ZRAM-Konfiguration und aktualisierten Paketen.',
-            releaseNotes: 'Versionshinweise',
-            overviewTitle: 'Übersicht',
-            overviewSub: 'Ein schneller Blick auf die Hauptfunktionen, Editionen und Werkzeuge von Ankora Linux.',
-            footer: 'Ankora Linux • Unabhängiges Gemeinschaftsprojekt'
-        },
-        fr: {
-            tagline: 'Indépendant & Axé Performance',
-            heroTitle1: 'Rapide, Léger & Prêt à l\'Emploi',
-            heroTitle2: 'Distribution',
-            heroDesc: 'Construit sur une base Debian, Ankora OS arrive avec un bureau XFCE optimisé, une compression mémoire ZRAM et des outils de jeu et de développement préconfigurés.',
-            btnIso: 'Télécharger ISO',
-            btnForum: 'Forum AnkaLab',
-            releaseBadge: 'Dernière Version',
-            releaseTitle: 'Ankora Linux 1.0 (Émeraude) Disponible',
-            releaseDesc: 'Première version prête à télécharger avec l\'installateur Calamares, la configuration ZRAM par défaut et des paquets mis à jour.',
-            releaseNotes: 'Notes de Version',
-            overviewTitle: 'Aperçu',
-            overviewSub: 'Un aperçu rapide des principales fonctionnalités, éditions et outils d\'Ankora Linux.',
-            footer: 'Ankora Linux • Projet Communautaire Indépendant'
-        },
-        es: {
-            tagline: 'Independiente & Orientado al Rendimiento',
-            heroTitle1: 'Rápido, Ligero y Listo para Usar',
-            heroTitle2: 'Distribución',
-            heroDesc: 'Construido sobre la base de Debian, Ankora OS llega con un escritorio XFCE optimizado, compresión de memoria ZRAM y herramientas de juegos y desarrollo preconfiguradas.',
-            btnIso: 'Descargar ISO',
-            btnForum: 'Foro AnkaLab',
-            releaseBadge: 'Último Lanzamiento',
-            releaseTitle: 'Ankora Linux 1.0 (Esmeralda) Lanzado',
-            releaseDesc: 'Primera versión lista para descargar con el instalador Calamares, configuración ZRAM predeterminada y paquetes actualizados.',
-            releaseNotes: 'Notas de la Versión',
-            overviewTitle: 'Destacados',
-            overviewSub: 'Un vistazo rápido a las principales características, ediciones y herramientas de Ankora Linux.',
-            footer: 'Ankora Linux • Proyecto Comunitario Independiente'
-        },
-        ru: {
-            tagline: 'Независимый & Ориентированный на Производительность',
-            heroTitle1: 'Быстрая, Легкая и Готовая к Использованию',
-            heroTitle2: 'Дистрибутив',
-            heroDesc: 'Построенный на базе Debian, Ankora OS поставляется с оптимизированным рабочим столом XFCE, сжатием памяти ZRAM и предварительно настроенными игровыми и инструментами разработчика.',
-            btnIso: 'Скачать ISO',
-            btnForum: 'Форум AnkaLab',
-            releaseBadge: 'Последний Релиз',
-            releaseTitle: 'Ankora Linux 1.0 (Изумруд) Выпущен',
-            releaseDesc: 'Первая версия готова к загрузке с установщиком Calamares, конфигурацией ZRAM по умолчанию и обновленными пакетами.',
-            releaseNotes: 'Примечания к Выпуску',
-            overviewTitle: 'Основное',
-            overviewSub: 'Быстрый обзор основных функций, редакций и инструментов Ankora Linux.',
-            footer: 'Ankora Linux • Независимый Общественный Проект'
-        },
-        ar: {
-            tagline: 'مستقل & موجه للأداء',
-            heroTitle1: 'سريع وخفيف وجاهز للاستخدام',
-            heroTitle2: 'توزيعة',
-            heroDesc: 'تم بناء أنكورا لينكس على أساس دبيان، ويأتي مع سطح مكتب XFCE محسّن، وضغط ذاكرة ZRAM، وأدوات ألعاب وتطوير مهيأة مسبقًا.',
-            btnIso: 'تحميل ISO',
-            btnForum: 'منتدى أنكا لاب',
-            releaseBadge: 'آخر إصدار',
-            releaseTitle: 'أنكورا لينكس 1.0 (زمرد) تم إصداره',
-            releaseDesc: 'الإصدار الأول جاهز للتحميل مع مثبت Calamares، وتكوين ZRAM الافتراضي، وحزم محدثة.',
-            releaseNotes: 'ملاحظات الإصدار',
-            overviewTitle: 'نظرة عامة',
-            overviewSub: 'نظرة سريعة على الميزات الرئيسية والإصدارات والأدوات لأنكورا لينكس.',
-            footer: 'أنكورا لينكس • مشروع مجتمعي مستقل'
-        },
-        pt: {
-            tagline: 'Independente & Focado em Performance',
-            heroTitle1: 'Rápido, Leve e Pronto para Uso',
-            heroTitle2: 'Distribuição',
-            heroDesc: 'Construído sobre a base Debian, o Ankora OS chega com um desktop XFCE otimizado, compressão de memória ZRAM e ferramentas de jogos e desenvolvimento pré-configuradas.',
-            btnIso: 'Baixar ISO',
-            btnForum: 'Fórum AnkaLab',
-            releaseBadge: 'Último Lançamento',
-            releaseTitle: 'Ankora Linux 1.0 (Esmeralda) Lançado',
-            releaseDesc: 'Primeira versão pronta para download com o instalador Calamares, configuração ZRAM padrão e pacotes atualizados.',
-            releaseNotes: 'Notas de Lançamento',
-            overviewTitle: 'Destaques',
-            overviewSub: 'Uma visão rápida dos principais recursos, edições e ferramentas do Ankora Linux.',
-            footer: 'Ankora Linux • Projeto Comunitário Independente'
-        },
-        it: {
-            tagline: 'Indipendente & Orientato alle Prestazioni',
-            heroTitle1: 'Veloce, Leggero e Pronto all\'Uso',
-            heroTitle2: 'Distribuzione',
-            heroDesc: 'Costruito su base Debian, Ankora OS arriva con un desktop XFCE ottimizzato, compressione della memoria ZRAM e strumenti di gioco e sviluppo preconfigurati.',
-            btnIso: 'Scarica ISO',
-            btnForum: 'Forum AnkaLab',
-            releaseBadge: 'Ultima Release',
-            releaseTitle: 'Ankora Linux 1.0 (Smeraldo) Rilasciato',
-            releaseDesc: 'Prima versione pronta per il download con l\'installer Calamares, configurazione ZRAM predefinita e pacchetti aggiornati.',
-            releaseNotes: 'Note di Rilascio',
-            overviewTitle: 'In Evidenza',
-            overviewSub: 'Uno sguardo rapido alle principali funzionalità, edizioni e strumenti di Ankora Linux.',
-            footer: 'Ankora Linux • Progetto Comunitario Indipendente'
-        }
-    };
-
-    // ===== UYGULAMA =====
-    let currentLang = 'tr';
-    let currentTheme = 'dark';
-
-    const langBtn = document.getElementById('langBtn');
-    const langLabel = document.getElementById('langLabel');
-    const languageMenu = document.getElementById('languageMenu');
-    const themeBtn = document.getElementById('themeBtn');
-    const themeIcon = document.getElementById('themeIcon');
-
-    function applyLanguage(lang) {
-        const t = translations[lang] || translations.tr;
-        // Hero
-        document.querySelector('.tagline').textContent = t.tagline;
-        document.querySelector('.hero h1 .line:nth-child(1)').textContent = t.heroTitle1;
-        document.querySelector('.hero h1 .line:nth-child(2)').innerHTML = `<span class="highlight">Linux</span> ${t.heroTitle2}`;
-        document.querySelector('.hero p').textContent = t.heroDesc;
-        document.querySelectorAll('.hero-actions .btn')[0].innerHTML = `<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> ${t.btnIso}`;
-        document.querySelectorAll('.hero-actions .btn')[1].innerHTML = `<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg> ${t.btnForum}`;
-        // Release
-        document.querySelector('.release-badge').textContent = t.releaseBadge;
-        document.querySelector('.release-title').textContent = t.releaseTitle;
-        document.querySelector('.release-desc').textContent = t.releaseDesc;
-        document.querySelector('.release-card .btn-secondary').textContent = t.releaseNotes;
-        // Overview
-        document.querySelector('#overview h2').textContent = t.overviewTitle;
-        document.querySelector('#overview .sub').textContent = t.overviewSub;
-        // Footer
-        document.querySelector('footer p').innerHTML = t.footer;
-        // Tüm data-tr/data-en etiketlerini güncelle (detay bölümleri için)
-        document.querySelectorAll('[data-tr]').forEach(el => {
-            const trText = el.getAttribute('data-tr');
-            const enText = el.getAttribute('data-en');
-            if (lang === 'tr' && trText) el.textContent = trText;
-            else if (lang === 'en' && enText) el.textContent = enText;
-        });
-        langLabel.textContent = lang.toUpperCase();
-        languageMenu.classList.remove('open');
-        try { localStorage.setItem('ankora-language', lang); } catch(e) {}
-    }
-
-    // Dil menüsü
-    langBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        languageMenu.classList.toggle('open');
-    });
-    document.querySelectorAll('.language-option').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const lang = this.getAttribute('data-lang');
-            if (translations[lang]) applyLanguage(lang);
-        });
-    });
-    document.addEventListener('click', function() { languageMenu.classList.remove('open'); });
-
-    // Tema
-    function applyTheme(theme) {
-        currentTheme = theme;
-        if (theme === 'light') {
-            document.documentElement.setAttribute('data-theme', 'light');
-            themeIcon.textContent = '☀️';
-        } else {
-            document.documentElement.removeAttribute('data-theme');
-            themeIcon.textContent = '🌙';
-        }
-        try { localStorage.setItem('ankora-theme', theme); } catch(e) {}
-    }
-    themeBtn.addEventListener('click', function() {
-        applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
-    });
-
-    // Başlangıç
-    let initialLang = localStorage.getItem('ankora-language') || 'tr';
-    if (!translations[initialLang]) initialLang = 'tr';
-    applyLanguage(initialLang);
-
-    let initialTheme = localStorage.getItem('ankora-theme') || 'dark';
-    applyTheme(initialTheme);
-
-    // ===== KAYDIRMA ANİMASYONLARI =====
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+    <!-- JS YÖNLENDİRME SİSTEMİ -->
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            const selectedPage = document.getElementById('page-' + pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-</script>
-
+        }
+    </script>
 </body>
 </html>
