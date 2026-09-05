@@ -832,7 +832,6 @@
             color: var(--accent-cyan);
         }
 
-        /* Dil seçici */
         .lang-selector {
             display: flex;
             align-items: center;
@@ -1282,13 +1281,13 @@
             </section>
         </div>
 
-        <!-- BİZE ULAŞIN SAYFASI -->
+        <!-- BİZE ULAŞIN SAYFASI (FORMSUZ, SADECE İLETİŞİM BİLGİLERİ) -->
         <div id="page-contact" class="page-view">
             <section class="container" style="padding: 100px 0;">
                 <div class="section-title" data-key="contact_title">Bize Ulaşın</div>
                 <div class="section-subtitle" data-key="contact_sub">Sorularınız, önerileriniz veya hata bildirimleri için buradayız.</div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto;">
                     <div class="glass-card" style="padding: 40px;">
                         <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 16px;" data-key="contact_info_title">İletişim Bilgileri</h3>
                         <p style="color: var(--text-muted); margin-bottom: 24px;" data-key="contact_info_desc">Genel sorular ve destek için e-posta adresimizi kullanabilir veya topluluk forumuna göz atabilirsiniz.</p>
@@ -1304,25 +1303,14 @@
                         </div>
                     </div>
 
-                    <div class="glass-card" style="padding: 40px;">
-                        <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 16px;" data-key="contact_form_title">Mesaj Gönderin</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;" data-key="contact_form_desc">Bu formu doldurduğunuzda e-posta istemciniz üzerinden bize ulaşacaktır.</p>
-
-                        <form action="mailto:ankoralinux@proton.me" method="post" enctype="text/plain">
-                            <div style="margin-bottom: 16px;">
-                                <label style="display: block; font-size: 0.9rem; margin-bottom: 6px; color: var(--text-sub);" data-key="form_name_label">Adınız Soyadınız</label>
-                                <input type="text" name="isim" required placeholder="Adınızı girin" data-key="form_name_placeholder" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-body); color: var(--text-main); font-family: var(--font-sans);">
-                            </div>
-                            <div style="margin-bottom: 16px;">
-                                <label style="display: block; font-size: 0.9rem; margin-bottom: 6px; color: var(--text-sub);" data-key="form_email_label">E-posta Adresiniz</label>
-                                <input type="email" name="eposta" required placeholder="ornek@mail.com" data-key="form_email_placeholder" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-body); color: var(--text-main); font-family: var(--font-sans);">
-                            </div>
-                            <div style="margin-bottom: 16px;">
-                                <label style="display: block; font-size: 0.9rem; margin-bottom: 6px; color: var(--text-sub);" data-key="form_message_label">Mesajınız</label>
-                                <textarea name="mesaj" rows="5" required placeholder="Mesajınızı yazın..." data-key="form_message_placeholder" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-body); color: var(--text-main); font-family: var(--font-sans);"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" data-key="form_submit">Gönder</button>
-                        </form>
+                    <div class="glass-card" style="padding: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                        <div style="font-size: 4rem; margin-bottom: 16px;">💬</div>
+                        <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 16px;" data-key="contact_alt_title">Hemen Ulaşın</h3>
+                        <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 300px;" data-key="contact_alt_desc">E-posta ile doğrudan yazabilir veya topluluk forumumuzda konu açabilirsiniz.</p>
+                        <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px; width: 100%;">
+                            <a href="mailto:ankoralinux@proton.me" class="btn btn-primary btn-lg" style="width: 100%;" data-key="contact_alt_email">E-posta Gönder</a>
+                            <a href="https://ankalab.flarum.cloud" target="_blank" class="btn btn-accent btn-lg" style="width: 100%;" data-key="contact_alt_forum">Foruma Git</a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1476,7 +1464,7 @@
     </footer>
 
     <script>
-        // Çeviri Sözlüğü
+        // Çeviri Sözlüğü (aynı, sadece form kısmı kaldırıldığı için ilgili anahtarlar eklendi)
         const translations = {
             tr: {
                 brand_name: "Ankora Linux",
@@ -1619,15 +1607,10 @@
                 contact_info_desc: "Genel sorular ve destek için e-posta adresimizi kullanabilir veya topluluk forumuna göz atabilirsiniz.",
                 contact_email_label: "E-posta",
                 contact_forum_label: "Topluluk Forumu",
-                contact_form_title: "Mesaj Gönderin",
-                contact_form_desc: "Bu formu doldurduğunuzda e-posta istemciniz üzerinden bize ulaşacaktır.",
-                form_name_label: "Adınız Soyadınız",
-                form_name_placeholder: "Adınızı girin",
-                form_email_label: "E-posta Adresiniz",
-                form_email_placeholder: "ornek@mail.com",
-                form_message_label: "Mesajınız",
-                form_message_placeholder: "Mesajınızı yazın...",
-                form_submit: "Gönder",
+                contact_alt_title: "Hemen Ulaşın",
+                contact_alt_desc: "E-posta ile doğrudan yazabilir veya topluluk forumumuzda konu açabilirsiniz.",
+                contact_alt_email: "E-posta Gönder",
+                contact_alt_forum: "Foruma Git",
                 back_home: "Ana Sayfaya Dön",
                 debian_tag: "Kararlı Sürüm",
                 debian_title: "Ankora AI Debian",
@@ -1667,6 +1650,7 @@
                 footer_copyright: "© 2026 Ankora Linux Projesi. Özgür ve Açık Kaynaklı Yazılım."
             },
             en: {
+                // İngilizce çeviriler aynı (form kısmı olmadığı için sadece contact_alt eklenmiş)
                 brand_name: "Ankora Linux",
                 nav_features: "Features",
                 nav_editions: "Editions",
@@ -1807,15 +1791,10 @@
                 contact_info_desc: "For general questions and support, you can use our email address or visit the community forum.",
                 contact_email_label: "Email",
                 contact_forum_label: "Community Forum",
-                contact_form_title: "Send a Message",
-                contact_form_desc: "When you fill out this form, it will reach us via your email client.",
-                form_name_label: "Your Full Name",
-                form_name_placeholder: "Enter your name",
-                form_email_label: "Your Email",
-                form_email_placeholder: "example@mail.com",
-                form_message_label: "Your Message",
-                form_message_placeholder: "Write your message...",
-                form_submit: "Send",
+                contact_alt_title: "Get in Touch",
+                contact_alt_desc: "Write directly via email or open a topic on our community forum.",
+                contact_alt_email: "Send Email",
+                contact_alt_forum: "Go to Forum",
                 back_home: "Back to Home",
                 debian_tag: "Stable Release",
                 debian_title: "Ankora AI Debian",
@@ -1868,17 +1847,13 @@
             const t = translations[lang];
             if (!t) return;
 
-            // Tüm data-key öğelerini güncelle
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (t[key] !== undefined) {
-                    // Eğer HTML içeriyorsa innerHTML, değilse textContent
-                    // Basitçe innerHTML kullanalım (çünkü bazı metinler HTML etiketi içeriyor)
                     el.innerHTML = t[key];
                 }
             });
 
-            // Placeholder'ları güncelle (input, textarea)
             document.querySelectorAll('input[data-key], textarea[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (t[key] !== undefined) {
@@ -1886,14 +1861,10 @@
                 }
             });
 
-            // Dil seçiciyi güncelle
             document.getElementById('langSelect').value = lang;
-
-            // Sayfa başlığını güncelle
             document.title = t.brand_name + ' | ' + (lang === 'tr' ? 'Modern Linux Deneyimi' : 'Modern Linux Experience');
         }
 
-        // Sayfa yüklendiğinde kaydedilmiş dili kontrol et
         document.addEventListener('DOMContentLoaded', function() {
             const savedLang = localStorage.getItem('ankora_lang');
             if (savedLang && translations[savedLang]) {
@@ -1905,7 +1876,6 @@
             }
         });
 
-        // Sayfa değiştirme fonksiyonu
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page-view');
             pages.forEach(page => page.classList.remove('active'));
@@ -1917,7 +1887,6 @@
             }
         }
 
-        // SSS aç/kapa
         function toggleFaq(element) {
             const answer = element.nextElementSibling;
             const icon = element.querySelector('.faq-icon');
