@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ankora Linux — Çok Yakında Dönüyoruz</title>
+<meta name="description" content="Ankora Linux: Debian 13 tabanlı, gizlilik öncelikli, çevrimdışı yapay zekâ destekli dağıtım. Ekip eksikliği nedeniyle geçici ara — çok yakında dönüş.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05070d;
+  --bg2:#090d17;
+  --card:#0b111e;
+  --line:rgba(148,178,255,.12);
+  --line2:rgba(148,178,255,.2);
+  --ink:#f2f6ff;
+  --mut:#8e9ab5;
+  --dim:#5b6a8c;
+  --blue:#2f7cf6;
+  --blue2:#5ea0ff;
+  --sky:#7cc4ff;
+  --grad:linear-gradient(135deg,#1c4fd8 0%,#2f7cf6 45%,#5ea0ff 100%);
+  --grad-t:linear-gradient(120deg,#a9c8ff 0%,#5ea0ff 45%,#2f7cf6 100%);
+  --r:20px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --fd:'Inter Tight',Inter,sans-serif;
+  --fb:'Inter',sans-serif;
+  --fm:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.locked{overflow:hidden}
+::selection{background:rgba(47,124,246,.45)}
+::-webkit-scrollbar{width:9px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#1a2440;border-radius:8px;border:2px solid var(--bg)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;background:none;border:0;color:inherit;cursor:pointer}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--blue2);outline-offset:3px}
+section{scroll-margin-top:92px}
+
+/* backdrop */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+.bg .a1{position:absolute;width:900px;height:600px;left:50%;top:-260px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(47,124,246,.22),transparent 65%);filter:blur(10px)}
+.bg .a2{position:absolute;width:700px;height:500px;left:-200px;top:30%;background:radial-gradient(ellipse,rgba(28,79,216,.14),transparent 65%)}
+.bg .a3{position:absolute;width:700px;height:500px;right:-200px;top:55%;background:radial-gradient(ellipse,rgba(94,160,255,.1),transparent 65%)}
+.bg .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(148,178,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(148,178,255,.05) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 30%,transparent 75%)}
+.bg .noise{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
+
+/* preloader */
+#pre{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px;transition:opacity .6s var(--ease),visibility .6s}
+#pre.done{opacity:0;visibility:hidden}
+#pre .mk{width:60px;height:60px;border-radius:18px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:1.6rem;box-shadow:0 0 60px rgba(47,124,246,.5);animation:pp 1.6s ease-in-out infinite}
+@keyframes pp{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+#pre .bar{width:180px;height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
+#pre .bar i{display:block;height:100%;width:0;background:var(--grad)}
+#pre small{font-family:var(--fm);font-size:10px;letter-spacing:.35em;color:var(--dim)}
+
+/* announcement */
+.anno{position:relative;z-index:60;display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 18px;font-size:.82rem;color:#c9d6f2;background:linear-gradient(90deg,rgba(28,79,216,.35),rgba(47,124,246,.22),rgba(28,79,216,.35));border-bottom:1px solid var(--line);text-align:center;flex-wrap:wrap}
+.anno b{color:#fff}
+.anno .dot{width:7px;height:7px;border-radius:50%;background:#5ea0ff;box-shadow:0 0 12px #5ea0ff;animation:bl 2s infinite;flex-shrink:0}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.35}}
+.anno a{color:#fff;font-weight:600;border-bottom:1px solid rgba(255,255,255,.4)}
+.anno a:hover{border-color:#fff}
+
+/* header */
+header{position:sticky;top:0;z-index:100;backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);background:rgba(5,7,13,.72);border-bottom:1px solid transparent;transition:border-color .4s,background .4s}
+header.on{border-bottom-color:var(--line);background:rgba(5,7,13,.88)}
+.nav{width:min(1200px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--fd);font-weight:700;font-size:1rem;letter-spacing:-.02em}
+.brand .mk{width:35px;height:35px;border-radius:11px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:800;box-shadow:0 4px 18px rgba(47,124,246,.4);transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.brand:hover .mk{transform:rotate(-10deg) scale(1.07)}
+.links{display:flex;gap:4px}
+.links a{font-size:.85rem;font-weight:500;color:var(--mut);padding:9px 15px;border-radius:11px;transition:.25s}
+.links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9cc2ff;background:rgba(47,124,246,.1);border:1px solid rgba(94,160,255,.25);padding:8px 14px;border-radius:100px}
+.pill i{width:6px;height:6px;border-radius:50%;background:#5ea0ff;box-shadow:0 0 10px #5ea0ff;animation:bl 2s infinite}
+.lang{display:flex;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:3px}
+.lang button{font-family:var(--fm);font-size:10.5px;font-weight:600;color:var(--dim);padding:6px 12px;border-radius:100px;transition:.25s}
+.lang button.on{background:var(--grad);color:#fff;box-shadow:0 2px 12px rgba(47,124,246,.4)}
+.gh{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;border:1px solid var(--line2);padding:9px 17px;border-radius:12px;transition:.3s;background:rgba(255,255,255,.03)}
+.gh:hover{border-color:rgba(94,160,255,.5);background:rgba(47,124,246,.12);transform:translateY(-1px)}
+
+.wrap{width:min(1200px,calc(100% - 40px));margin:0 auto;position:relative;z-index:5}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:20px}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--grad);border-radius:2px}
+h2.st{font-family:var(--fd);font-weight:700;font-size:clamp(1.9rem,4.4vw,3.1rem);letter-spacing:-.035em;line-height:1.06}
+h2.st .g{background:var(--grad-t);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:var(--mut);font-size:1.06rem;max-width:58ch;margin-top:16px}
+.sec{padding:110px 0}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+/* spotlight cards */
+.spot{position:relative;overflow:hidden}
+.spot::before{content:"";position:absolute;inset:0;border-radius:inherit;opacity:0;transition:opacity .4s;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(94,160,255,.12),transparent 65%)}
+.spot:hover::before{opacity:1}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.92rem;padding:15px 30px;border-radius:14px;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;position:relative;overflow:hidden}
+.btn .ar{transition:transform .3s var(--ease);display:inline-block}
+.btn:hover .ar{transform:translateX(4px)}
+.btn-p{background:var(--grad);color:#fff;box-shadow:0 10px 32px rgba(47,124,246,.4),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-p::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);transform:translateX(-130%);transition:transform .7s var(--ease)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(47,124,246,.55)}
+.btn-p:hover::after{transform:translateX(130%)}
+.btn-g{border:1px solid var(--line2);background:rgba(255,255,255,.04);backdrop-filter:blur(8px)}
+.btn-g:hover{transform:translateY(-2px);border-color:rgba(94,160,255,.5);background:rgba(47,124,246,.1)}
+
+/* HERO */
+.hero{padding:84px 0 70px;position:relative;z-index:5}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:60px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--fm);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#a9c8ff;background:rgba(47,124,246,.09);border:1px solid rgba(94,160,255,.25);padding:9px 18px;border-radius:100px;margin-bottom:26px}
+.badge i{width:7px;height:7px;border-radius:50%;background:#5ea0ff;box-shadow:0 0 12px #5ea0ff;animation:bl 2s infinite}
+.hero h1{font-family:var(--fd);font-weight:800;font-size:clamp(2.7rem,6.2vw,4.8rem);line-height:1;letter-spacing:-.045em;margin-bottom:24px}
+.hero h1 .g{background:var(--grad-t);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero h1 .row{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.hero h1 .row>span{display:inline-block;transform:translateY(112%);transition:transform 1s var(--ease)}
+body.loaded .hero h1 .row>span{transform:none}
+body.loaded .hero h1 .row:nth-child(2)>span{transition-delay:.09s}
+body.loaded .hero h1 .row:nth-child(3)>span{transition-delay:.18s}
+.hero .lead{color:var(--mut);font-size:1.12rem;max-width:50ch;margin-bottom:34px}
+.hero .lead b{color:var(--ink);font-weight:600}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px}
+.hero-meta{display:flex;gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.02);max-width:560px}
+.hero-meta div{flex:1;padding:14px 18px;border-right:1px solid var(--line)}
+.hero-meta div:last-child{border-right:0}
+.hero-meta b{display:block;font-size:.92rem}
+.hero-meta span{font-size:.75rem;color:var(--dim)}
+
+/* hero visual */
+.hv{position:relative;perspective:1400px}
+.hv-glow{position:absolute;inset:-6%;background:radial-gradient(ellipse at 50% 40%,rgba(47,124,246,.28),transparent 65%);filter:blur(30px);z-index:0}
+.hframe{position:relative;z-index:1;border-radius:22px;overflow:hidden;border:1px solid rgba(148,178,255,.18);background:var(--card);box-shadow:0 40px 100px rgba(0,0,0,.55),0 0 80px rgba(47,124,246,.12);transform:rotateY(-7deg) rotateX(4deg);transition:transform .9s var(--ease)}
+.hv:hover .hframe{transform:rotateY(-2deg) rotateX(1deg)}
+.hbar{display:flex;align-items:center;gap:7px;padding:13px 18px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--line)}
+.hbar i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.14)}
+.hbar i:first-child{background:#ff5f57}.hbar i:nth-child(2){background:#febc2e}.hbar i:nth-child(3){background:#28c840}
+.hbar span{margin-left:auto;font-family:var(--fm);font-size:10px;letter-spacing:.12em;color:var(--dim)}
+.hshot{position:relative;background:linear-gradient(135deg,#0a1230,#0d1a3f);min-height:280px}
+.hshot img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.hshot .fb{position:absolute;inset:0;display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;color:var(--sky);font-family:var(--fm);font-size:12px;letter-spacing:.2em;z-index:0}
+.hshot img{position:relative;z-index:1}
+.hchip{position:absolute;z-index:2;border-radius:15px;background:rgba(10,15,30,.82);border:1px solid rgba(148,178,255,.2);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 16px 44px rgba(0,0,0,.5);padding:13px 18px;animation:fl 5.5s ease-in-out infinite}
+.hchip .t{font-family:var(--fm);font-size:9px;letter-spacing:.18em;color:var(--dim);margin-bottom:3px}
+.hchip .v{font-family:var(--fd);font-weight:700;font-size:1.15rem;background:var(--grad-t);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hc1{top:-24px;right:-12px}
+.hc2{bottom:34px;left:-26px;animation-delay:-2.7s}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* marquee */
+.mq{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(9,13,23,.7);position:relative;z-index:5}
+.mq-t{display:inline-flex;animation:mq 26s linear infinite;padding:15px 0}
+.mq:hover .mq-t{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq-i{font-family:var(--fd);font-weight:600;font-size:.88rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);display:inline-flex;align-items:center;white-space:nowrap}
+.mq-i .s{color:var(--sky);margin:0 24px;font-size:.65em}
+.mq-i .o{color:transparent;-webkit-text-stroke:1px var(--dim)}
+
+/* notice */
+.notice{padding:96px 0 0}
+.ncard{position:relative;border-radius:26px;overflow:hidden;background:linear-gradient(135deg,#12275e 0%,#1c4fd8 55%,#2f7cf6 100%);padding:clamp(38px,5vw,64px);box-shadow:0 30px 90px rgba(28,79,216,.35)}
+.ncard::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 88% 12%,rgba(255,255,255,.2),transparent 45%),radial-gradient(circle at 8% 92%,rgba(124,196,255,.25),transparent 45%)}
+.ncard::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.13) 1px,transparent 1px);background-size:24px 24px;opacity:.35}
+.n-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:44px;align-items:center}
+.ntag{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);padding:8px 17px;border-radius:100px;margin-bottom:20px}
+.ncard h2{font-family:var(--fd);font-weight:800;font-size:clamp(1.65rem,3.6vw,2.7rem);letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
+.ncard p{color:rgba(255,255,255,.87);max-width:60ch;line-height:1.75;font-size:1.02rem}
+.ncard p b{color:#fff}
+.norb{width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.32);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;flex-shrink:0;animation:fl 5s ease-in-out infinite}
+.norb .b{font-family:var(--fd);font-weight:800;font-size:1.9rem}
+.norb .s{font-family:var(--fm);font-size:8.5px;letter-spacing:.2em;opacity:.85;text-align:center;line-height:1.7}
+
+/* editions */
+.egrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.ecard{border-radius:var(--r);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--line);padding:34px 30px;position:relative;transition:transform .5s var(--ease),border-color .4s,box-shadow .5s;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.ecard::before{content:"";position:absolute;top:0;left:28px;right:28px;height:2px;background:var(--grad);border-radius:2px;transform:scaleX(0);transition:transform .5s var(--ease)}
+.ecard:hover{transform:translateY(-9px);border-color:rgba(94,160,255,.35);box-shadow:0 26px 60px rgba(0,0,0,.45)}
+.ecard:hover::before{transform:scaleX(1)}
+.ecard .num{position:absolute;top:22px;right:26px;font-family:var(--fd);font-weight:200;font-size:2.3rem;color:rgba(94,160,255,.16)}
+.est{display:inline-flex;align-items:center;gap:7px;font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#9cc2ff;background:rgba(47,124,246,.1);border:1px solid rgba(94,160,255,.22);padding:6px 13px;border-radius:100px;margin-bottom:20px}
+.est i{width:6px;height:6px;border-radius:50%;background:#5ea0ff;animation:bl 2s infinite}
+.ecard h3{font-family:var(--fd);font-weight:700;font-size:1.28rem;letter-spacing:-.02em;margin-bottom:10px}
+.ecard p{color:var(--mut);font-size:.9rem;margin-bottom:22px;min-height:66px}
+.etags{display:flex;flex-wrap:wrap;gap:7px}
+.etags span{font-family:var(--fm);font-size:10px;color:#a9bcd9;background:rgba(255,255,255,.04);border:1px solid var(--line);padding:5px 11px;border-radius:8px}
+
+/* features bento */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+.bcell{border-radius:var(--r);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid var(--line);padding:32px 28px;position:relative;transition:transform .5s var(--ease),border-color .4s,box-shadow .5s;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.bcell:hover{transform:translateY(-7px);border-color:rgba(94,160,255,.32);box-shadow:0 22px 55px rgba(0,0,0,.4)}
+.bcell.big{grid-column:span 1}
+.bico{width:50px;height:50px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;margin-bottom:22px;box-shadow:0 8px 22px rgba(47,124,246,.35);transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.bcell:hover .bico{transform:scale(1.09) rotate(-6deg)}
+.bico svg{width:23px;height:23px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bcell h4{font-family:var(--fd);font-weight:600;font-size:1.02rem;letter-spacing:-.01em;margin-bottom:9px}
+.bcell p{color:var(--mut);font-size:.88rem}
+.bcell .fi{position:absolute;bottom:16px;right:20px;font-family:var(--fm);font-size:9.5px;color:var(--dim);letter-spacing:.14em}
+
+/* stats */
+.stats{padding:0 0 100px}
+.sband{border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.scell{padding:42px 20px;text-align:center;border-right:1px solid var(--line);transition:background .35s}
+.scell:last-child{border-right:0}
+.scell:hover{background:rgba(47,124,246,.06)}
+.snum{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,3.8vw,3rem);letter-spacing:-.04em;background:var(--grad-t);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.slab{margin-top:10px;font-family:var(--fm);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--mut)}
+
+/* showcase */
+.tabs{display:inline-flex;gap:4px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:14px;padding:4px;margin-top:30px}
+.tabs button{font-size:.85rem;font-weight:600;color:var(--mut);padding:10px 26px;border-radius:10px;transition:.3s}
+.tabs button.on{background:var(--grad);color:#fff;box-shadow:0 4px 16px rgba(47,124,246,.4)}
+.show{margin-top:26px;border-radius:24px;overflow:hidden;border:1px solid rgba(148,178,255,.16);background:var(--card);box-shadow:0 40px 90px rgba(0,0,0,.5)}
+.show .bar{display:flex;align-items:center;gap:7px;padding:13px 20px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--line)}
+.show .bar i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.13)}
+.show .bar span{margin-left:auto;font-family:var(--fm);font-size:10px;letter-spacing:.1em;color:var(--dim)}
+.show .stage{position:relative;background:linear-gradient(135deg,#0a1230,#0d1a3f);min-height:320px}
+.show img{width:100%;aspect-ratio:16/8.2;object-fit:cover;opacity:0;transition:opacity .5s;position:absolute;inset:0}
+.show img.on{opacity:1;position:relative}
+.show .cap{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;flex-wrap:wrap;gap:10px}
+.show .cap h4{font-family:var(--fd);font-weight:600;font-size:1rem}
+.show .cap span{font-family:var(--fm);font-size:10px;letter-spacing:.12em;color:#9cc2ff;background:rgba(47,124,246,.1);border:1px solid rgba(94,160,255,.22);padding:6px 13px;border-radius:100px}
+
+/* timeline */
+.tl{position:relative;padding-left:36px;margin-top:52px;max-width:760px}
+.tl::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(rgba(47,124,246,.5),rgba(94,160,255,.3),rgba(94,160,255,.06));border-radius:2px}
+.tl .it{position:relative;padding-bottom:40px}
+.tl .it:last-child{padding-bottom:0}
+.tl .it::before{content:"";position:absolute;left:-34px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--bg2);border:2px solid var(--blue);box-shadow:0 0 0 4px rgba(47,124,246,.12);transition:.35s}
+.tl .it:hover::before{transform:scale(1.3);background:var(--blue)}
+.tl .it.now::before{background:var(--blue);animation:bl 2s infinite}
+.tl .ty{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--sky);margin-bottom:6px}
+.tl .it h4{font-family:var(--fd);font-weight:600;font-size:1.12rem;margin-bottom:6px}
+.tl .it p{color:var(--mut);font-size:.92rem;max-width:60ch}
+.tl .chip{display:inline-block;margin-top:11px;font-family:var(--fm);font-size:9.5px;font-weight:700;letter-spacing:.14em;color:#9cc2ff;background:rgba(47,124,246,.1);border:1px solid rgba(94,160,255,.22);padding:5px 13px;border-radius:100px}
+
+/* faq */
+.faq{max-width:780px;margin:44px auto 0}
+.faq .it{border-radius:16px;margin-bottom:10px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.012));border:1px solid var(--line);overflow:hidden;transition:border-color .35s,box-shadow .35s}
+.faq .it.open{border-color:rgba(94,160,255,.35);box-shadow:0 10px 34px rgba(0,0,0,.3)}
+.faq .q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 26px;text-align:left}
+.faq .q h4{font-weight:600;font-size:.99rem;transition:color .3s}
+.faq .it.open .q h4,.faq .q:hover h4{color:#a9c8ff}
+.faq .x{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:300;color:var(--sky);transition:transform .45s cubic-bezier(.34,1.56,.64,1),background .35s}
+.faq .it.open .x{transform:rotate(45deg);background:var(--grad);color:#fff}
+.faq .a{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+.faq .a p{color:var(--mut);font-size:.92rem;padding:0 26px 24px}
+
+/* contact */
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+.ccard{border-radius:var(--r);padding:38px 28px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid var(--line);position:relative;overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.ccard::before{content:"";position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity .45s}
+.ccard:hover::before{opacity:1}
+.ccard>*{position:relative;z-index:2;transition:color .35s}
+.ccard:hover{transform:translateY(-8px);box-shadow:0 26px 60px rgba(47,124,246,.35)}
+.ccard .ci{width:56px;height:56px;margin:0 auto 20px;border-radius:17px;background:rgba(47,124,246,.12);border:1px solid rgba(94,160,255,.2);display:flex;align-items:center;justify-content:center;transition:.4s}
+.ccard:hover .ci{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.ccard .ci svg{width:25px;height:25px;stroke:var(--sky);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke .35s}
+.ccard:hover .ci svg{stroke:#fff}
+.ccard h4{font-family:var(--fd);font-weight:600;font-size:1.02rem;margin-bottom:7px}
+.ccard p{font-family:var(--fm);font-size:.78rem;color:var(--mut)}
+.ccard:hover h4{color:#fff}
+.ccard:hover p{color:rgba(255,255,255,.78)}
+
+/* footer */
+footer{padding:64px 0 28px;border-top:1px solid var(--line);position:relative;z-index:5;background:rgba(6,9,17,.6)}
+.ftop{display:flex;justify-content:space-between;align-items:flex-start;gap:26px;flex-wrap:wrap;padding-bottom:36px}
+.ftag{color:var(--mut);font-size:.86rem;margin-top:8px;max-width:36ch}
+.fls{display:flex;gap:6px;flex-wrap:wrap}
+.fls a{font-size:.85rem;font-weight:500;color:var(--mut);padding:9px 16px;border-radius:11px;transition:.3s}
+.fls a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.fbot{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;font-family:var(--fm);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim)}
+.fbot .hb{display:flex;align-items:center;gap:8px}
+.fbot .hb i{width:6px;height:6px;border-radius:50%;background:#5ea0ff;box-shadow:0 0 10px #5ea0ff;animation:bl 2s infinite}
+
+/* totop */
+#totop{position:fixed;bottom:22px;right:22px;z-index:90;width:48px;height:48px;border-radius:14px;background:var(--grad);color:#fff;font-size:17px;box-shadow:0 10px 28px rgba(47,124,246,.45);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(14px);transition:.4s}
+#totop.show{opacity:1;pointer-events:auto;transform:none}
+#totop:hover{transform:translateY(-4px)}
+
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:52px}
+  .hv{max-width:600px}
+  .egrid{grid-template-columns:1fr 1fr}
+  .bento{grid-template-columns:1fr 1fr}
+  .sband{grid-template-columns:1fr 1fr}
+  .scell:nth-child(2){border-right:0}
+  .scell{border-bottom:1px solid var(--line)}
+  .scell:nth-child(3),.scell:nth-child(4){border-bottom:0}
+  .n-in{grid-template-columns:1fr}
+  .norb{display:none}
+  .cgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:820px){
+  .links{display:none}
+  .hc2{left:-8px}.hc1{right:-6px}
+  .pill span{display:none}
+}
+@media(max-width:600px){
+  .egrid,.bento,.cgrid{grid-template-columns:1fr}
+  .sband{grid-template-columns:1fr}
+  .scell{border-right:0!important;border-bottom:1px solid var(--line)}
+  .scell:last-child{border-bottom:0}
+  .hero{padding-top:60px}
+  .sec{padding:80px 0}
+  .hero-meta{flex-direction:column}
+  .hero-meta div{border-right:0;border-bottom:1px solid var(--line)}
+  .hero-meta div:last-child{border-bottom:0}
+  .gh span{display:none}
+  .ftop{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  .hero h1 .row>span{transform:none}
+}
+
+/* =============================================
+   ANKORA DESKTOP MODE — Dual-Face Shell
+   ============================================= */
+body.desktop-mode{overflow:hidden!important;height:100vh;width:100vw;cursor:default}
+body.desktop-mode .bg,body.desktop-mode .anno,body.desktop-mode #hd,body.desktop-mode main,body.desktop-mode footer,body.desktop-mode #totop,body.desktop-mode #pre{display:none!important}
+#desktop-shell{display:none;position:fixed;inset:0;z-index:9999;font-family:var(--fb);animation:deskBoot .6s ease forwards}
+body.desktop-mode #desktop-shell{display:block}
+@keyframes deskBoot{from{opacity:0}to{opacity:1}}
+
+.desk-wp{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 15% 50%,rgba(28,79,216,.18),transparent 55%),radial-gradient(ellipse at 85% 20%,rgba(94,160,255,.12),transparent 50%),radial-gradient(ellipse at 50% 85%,rgba(47,124,246,.1),transparent 50%),linear-gradient(160deg,#030711 0%,#070e1f 35%,#0a1225 60%,#060b18 100%)}
+.desk-wp::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(148,178,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(148,178,255,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 70% 50% at 50% 50%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 50%,#000 20%,transparent 75%);opacity:.5}
+.desk-wp::after{content:"";position:absolute;inset:0;background-image:radial-gradient(1.2px 1.2px at 10% 20%,rgba(255,255,255,.35),transparent),radial-gradient(1px 1px at 25% 55%,rgba(255,255,255,.25),transparent),radial-gradient(1.5px 1.5px at 45% 12%,rgba(148,178,255,.4),transparent),radial-gradient(1px 1px at 65% 38%,rgba(255,255,255,.3),transparent),radial-gradient(1px 1px at 85% 72%,rgba(255,255,255,.28),transparent),radial-gradient(1.3px 1.3px at 18% 82%,rgba(148,178,255,.35),transparent),radial-gradient(1px 1px at 55% 68%,rgba(255,255,255,.22),transparent),radial-gradient(1px 1px at 78% 15%,rgba(255,255,255,.32),transparent),radial-gradient(1.4px 1.4px at 38% 42%,rgba(94,160,255,.3),transparent),radial-gradient(1px 1px at 92% 55%,rgba(255,255,255,.2),transparent);opacity:.55;pointer-events:none}
+
+/* — Top Panel — */
+.desk-panel{position:fixed;top:0;left:0;right:0;height:34px;z-index:10002;background:rgba(8,12,22,.82);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);border-bottom:1px solid rgba(148,178,255,.1);display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:12.5px;color:rgba(255,255,255,.85)}
+.desk-panel-l,.desk-panel-r{display:flex;align-items:center;gap:4px}
+.desk-panel-r{gap:14px}
+.panel-btn{display:flex;align-items:center;gap:7px;padding:4px 10px;border-radius:6px;cursor:pointer;transition:.2s;font-size:12.5px;color:rgba(255,255,255,.85)}
+.panel-btn:hover,.panel-btn.active{background:rgba(255,255,255,.1)}
+.panel-btn.active{background:rgba(47,124,246,.3)}
+.panel-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.panel-logo{width:18px;height:18px;border-radius:5px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:10px;color:#fff;box-shadow:0 2px 8px rgba(47,124,246,.4)}
+.panel-ind{display:flex;align-items:center;gap:5px;font-family:var(--fm);font-size:10.5px;color:rgba(255,255,255,.55)}
+.panel-ind svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.panel-clock{font-family:var(--fm);font-weight:500;font-size:12px;color:rgba(255,255,255,.88);letter-spacing:.04em}
+
+/* — App Menu — */
+.desk-menu{position:fixed;top:34px;left:0;width:380px;max-height:calc(100vh - 100px);z-index:10003;background:rgba(10,15,28,.92);backdrop-filter:blur(30px) saturate(1.5);-webkit-backdrop-filter:blur(30px) saturate(1.5);border:1px solid rgba(148,178,255,.12);border-top:0;border-radius:0 0 16px 0;box-shadow:0 20px 60px rgba(0,0,0,.6);padding:16px;transform:translateX(-10px);opacity:0;visibility:hidden;transition:all .3s var(--ease);overflow-y:auto}
+.desk-menu.open{transform:none;opacity:1;visibility:visible}
+.menu-search-w{position:relative;margin-bottom:14px}
+.menu-search-w svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:var(--dim);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.menu-search{width:100%;padding:9px 14px 9px 36px;border-radius:10px;border:1px solid rgba(148,178,255,.15);background:rgba(255,255,255,.04);color:#fff;font-size:13px;font-family:var(--fb);outline:none;transition:border-color .3s}
+.menu-search:focus{border-color:rgba(47,124,246,.5)}
+.menu-cat{font-family:var(--fm);font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:14px 0 8px;padding-left:4px}
+.menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.menu-item{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px;border-radius:10px;cursor:pointer;transition:.2s;text-align:center}
+.menu-item:hover{background:rgba(47,124,246,.15)}
+.menu-item .mi-ico{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(47,124,246,.2),rgba(94,160,255,.1));border:1px solid rgba(148,178,255,.12)}
+.menu-item .mi-ico svg{width:20px;height:20px;stroke:#a9c8ff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.menu-item .mi-name{font-size:10.5px;color:rgba(255,255,255,.8);line-height:1.2;max-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* — Bottom Dock — */
+.desk-dock{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:10001;background:rgba(10,15,28,.6);backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);border:1px solid rgba(148,178,255,.14);border-radius:20px;padding:6px 14px;display:flex;align-items:flex-end;gap:4px;box-shadow:0 12px 48px rgba(0,0,0,.5)}
+.dock-item{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .25s cubic-bezier(.34,1.56,.64,1),background .2s,border-color .2s,box-shadow .25s;position:relative;background:linear-gradient(135deg,rgba(47,124,246,.1),rgba(94,160,255,.05));border:1px solid rgba(148,178,255,.08)}
+.dock-item:hover{transform:scale(1.22) translateY(-8px);background:linear-gradient(135deg,rgba(47,124,246,.25),rgba(94,160,255,.15));border-color:rgba(94,160,255,.3);box-shadow:0 8px 24px rgba(47,124,246,.25)}
+.dock-item svg{width:22px;height:22px;stroke:#c9d6f2;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
+.dock-item:hover svg{stroke:#fff}
+.dock-dot{position:absolute;bottom:-5px;width:4px;height:4px;border-radius:50%;background:#5ea0ff;box-shadow:0 0 8px #5ea0ff;opacity:0;transition:opacity .3s}
+.dock-item.running .dock-dot{opacity:1}
+.dock-sep{width:1px;height:32px;background:rgba(148,178,255,.12);margin:0 6px;flex-shrink:0;align-self:center}
+.dock-tip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);font-size:11px;font-family:var(--fm);color:#fff;background:rgba(10,15,28,.92);border:1px solid rgba(148,178,255,.2);padding:4px 10px;border-radius:6px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s;backdrop-filter:blur(10px)}
+.dock-item:hover .dock-tip{opacity:1}
+
+/* — Window System — */
+.desk-window{position:absolute;z-index:100;min-width:320px;min-height:220px;background:rgba(12,17,30,.96);border:1px solid rgba(148,178,255,.13);border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.55),0 0 1px rgba(148,178,255,.2);display:flex;flex-direction:column;overflow:hidden;animation:winOpen .3s var(--ease) forwards}
+@keyframes winOpen{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.desk-window.closing{animation:winClose .2s ease forwards;pointer-events:none}
+@keyframes winClose{to{opacity:0;transform:scale(.92)}}
+.desk-window.fullscreen{top:34px!important;left:0!important;width:100vw!important;height:calc(100vh - 34px)!important;border-radius:0;border:0}
+.desk-window.focused{box-shadow:0 24px 72px rgba(0,0,0,.65),0 0 0 1px rgba(94,160,255,.18)}
+.win-bar{height:36px;display:flex;align-items:center;padding:0 12px;gap:8px;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(148,178,255,.08);flex-shrink:0;-webkit-user-select:none;user-select:none}
+.win-bar-icon{width:16px;height:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.win-bar-icon svg{width:14px;height:14px;stroke:#8e9ab5;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.win-title{flex:1;font-size:12px;font-weight:500;color:rgba(255,255,255,.65);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.win-btns{display:flex;gap:7px;margin-left:auto}
+.win-btn{width:13px;height:13px;border-radius:50%;cursor:pointer;transition:.15s}
+.win-btn:hover{filter:brightness(1.2);transform:scale(1.15)}
+.win-btn-close{background:#ff5f57}
+.win-btn-max{background:#28c840}
+.win-btn-min{background:#febc2e}
+.win-content{flex:1;overflow:hidden;position:relative}
+.win-content iframe{width:100%;height:100%;border:0;background:#0d111d}
+
+/* — Terminal — */
+.term-wrap{width:100%;height:100%;background:#0c0c0c;display:flex;flex-direction:column}
+.term-body{flex:1;overflow-y:auto;padding:14px;font-family:var(--fm);font-size:13px;line-height:1.65;color:#c8d6e5}
+.term-line{white-space:pre-wrap;word-break:break-all}
+.term-prompt{color:#5ea0ff}.term-cmd{color:#f2f6ff}.term-out{color:#8e9ab5}.term-err{color:#ff6b6b}.term-ok{color:#28c840}
+.term-input-wrap{display:flex;align-items:center;padding:6px 14px 10px;font-family:var(--fm);font-size:13px;background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.05)}
+.term-input{flex:1;background:none;border:0;color:#f2f6ff;font:inherit;font-size:13px;outline:none;caret-color:#5ea0ff;padding:0;margin-left:4px}
+
+/* — Store — */
+.store-wrap{width:100%;height:100%;display:flex;flex-direction:column;background:#080c16}
+.store-head{padding:18px 22px 14px;border-bottom:1px solid rgba(148,178,255,.08)}
+.store-title{font-family:var(--fd);font-weight:700;font-size:1.2rem;background:var(--grad-t);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.store-search-w{position:relative;margin-top:10px}
+.store-search-w svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:var(--dim);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.store-search{width:100%;max-width:380px;padding:8px 14px 8px 34px;border-radius:9px;border:1px solid rgba(148,178,255,.12);background:rgba(255,255,255,.04);color:#fff;font-size:12.5px;font-family:var(--fb);outline:none}
+.store-search:focus{border-color:rgba(47,124,246,.5)}
+.store-cats{display:flex;gap:4px;padding:10px 22px;border-bottom:1px solid rgba(148,178,255,.06);overflow-x:auto;flex-shrink:0}
+.store-cat{font-size:12px;font-weight:600;color:var(--mut);padding:6px 14px;border-radius:8px;cursor:pointer;transition:.2s;white-space:nowrap}
+.store-cat.on{background:var(--grad);color:#fff;box-shadow:0 4px 12px rgba(47,124,246,.3)}
+.store-cat:hover:not(.on){background:rgba(255,255,255,.06)}
+.store-body{flex:1;overflow-y:auto;padding:18px 22px}
+.store-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.store-card{border-radius:13px;background:rgba(255,255,255,.03);border:1px solid rgba(148,178,255,.1);padding:16px;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+.store-card:hover{transform:translateY(-3px);border-color:rgba(94,160,255,.25);box-shadow:0 10px 28px rgba(0,0,0,.25)}
+.store-card-top{display:flex;align-items:center;gap:11px;margin-bottom:10px}
+.store-card-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(47,124,246,.12),rgba(94,160,255,.06));border:1px solid rgba(148,178,255,.1);flex-shrink:0}
+.store-card-info h5{font-family:var(--fd);font-weight:600;font-size:.88rem;color:#e2e8f0;margin-bottom:2px}
+.store-card-info span{font-size:10px;color:var(--dim);font-family:var(--fm);letter-spacing:.05em}
+.store-card p{font-size:12px;color:var(--mut);line-height:1.5;margin-bottom:12px;min-height:34px}
+.store-btn{width:100%;padding:7px;border-radius:7px;font-size:11.5px;font-weight:600;cursor:pointer;transition:.3s;background:rgba(47,124,246,.1);color:#5ea0ff;border:1px solid rgba(94,160,255,.18)}
+.store-btn:hover{background:rgba(47,124,246,.22);border-color:rgba(94,160,255,.35)}
+.store-btn.done{background:rgba(40,200,64,.08);color:#28c840;border-color:rgba(40,200,64,.15);cursor:default;pointer-events:none}
+.store-btn.busy{color:#7cc4ff;cursor:wait;pointer-events:none}
+
+/* — Notepad — */
+.notepad-wrap{width:100%;height:100%;display:flex;flex-direction:column;background:#0a0e18}
+.notepad-bar{display:flex;gap:3px;padding:6px 10px;border-bottom:1px solid rgba(148,178,255,.08);background:rgba(255,255,255,.02)}
+.notepad-bar button{font-size:11px;color:var(--mut);padding:4px 10px;border-radius:5px;transition:.2s}
+.notepad-bar button:hover{background:rgba(255,255,255,.08);color:#fff}
+.notepad-area{flex:1;resize:none;background:transparent;border:0;color:#e2e8f0;font-family:var(--fm);font-size:13px;line-height:1.7;padding:14px;outline:none;width:100%}
+
+/* — Browser — */
+.browser-wrap{width:100%;height:100%;display:flex;flex-direction:column;background:#080c16}
+.browser-nav{display:flex;gap:6px;padding:7px 10px;border-bottom:1px solid rgba(148,178,255,.08);background:rgba(255,255,255,.02);align-items:center}
+.browser-url{flex:1;padding:6px 12px;border-radius:7px;border:1px solid rgba(148,178,255,.12);background:rgba(255,255,255,.04);color:#fff;font-size:12px;font-family:var(--fm);outline:none}
+.browser-url:focus{border-color:rgba(47,124,246,.5)}
+.browser-go{padding:6px 14px;border-radius:7px;background:var(--grad);color:#fff;font-size:11px;font-weight:600;cursor:pointer;flex-shrink:0}
+.browser-frame{flex:1;position:relative}
+.browser-frame iframe{width:100%;height:100%;border:0;background:#fff}
+
+/* — Panel Pages — */
+.ppanel{width:100%;height:100%;overflow-y:auto;padding:22px;background:#080c16}
+.ppanel h3{font-family:var(--fd);font-weight:700;font-size:1.1rem;margin-bottom:14px;background:var(--grad-t);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ppanel-sec{background:rgba(255,255,255,.03);border:1px solid rgba(148,178,255,.08);border-radius:11px;padding:16px;margin-bottom:12px}
+.ppanel-sec h4{font-size:.85rem;font-weight:600;margin-bottom:8px;color:#c9d6f2}
+.ppanel-sec p{font-size:12.5px;color:var(--mut);line-height:1.6}
+.ppanel-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(148,178,255,.05)}
+.ppanel-row:last-child{border-bottom:0}
+.ppanel-row label{font-size:12.5px;color:rgba(255,255,255,.8)}
+.toggle{width:34px;height:18px;border-radius:9px;background:rgba(255,255,255,.12);position:relative;cursor:pointer;transition:.3s;flex-shrink:0}
+.toggle.on{background:var(--blue)}
+.toggle::after{content:"";position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;top:2px;left:2px;transition:.3s}
+.toggle.on::after{left:18px}
+.files-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:10px;margin-top:12px}
+.file-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 6px;border-radius:10px;cursor:pointer;transition:.2s;text-align:center}
+.file-item:hover{background:rgba(47,124,246,.12)}
+.file-item svg{width:32px;height:32px;stroke:#5ea0ff;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.file-item span{font-size:10.5px;color:rgba(255,255,255,.7);max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* — Responsive Desktop — */
+@media(max-width:768px){
+  .desk-panel{font-size:11px;height:30px;padding:0 8px}
+  .desk-panel-r{gap:8px}
+  .desk-dock{bottom:6px;padding:4px 8px;gap:2px;border-radius:14px}
+  .dock-item{width:38px;height:38px;border-radius:10px}
+  .dock-item svg{width:18px;height:18px}
+  .desk-window:not(.fullscreen){width:calc(100vw - 10px)!important;left:5px!important}
+  .desk-menu{width:calc(100vw - 16px);left:8px;border-radius:0 0 14px 14px}
+  .menu-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body class="locked">
+
+<!-- ANKORA DESKTOP SHELL (activated with ?mod=ankora) -->
+<div id="desktop-shell">
+  <div class="desk-wp"></div>
+  <div class="desk-panel" id="desk-panel"></div>
+  <div id="desk-menu" class="desk-menu"></div>
+  <div id="desk-windows"></div>
+  <div id="desk-dock" class="desk-dock"></div>
+</div>
+
+<div class="bg"><div class="a1"></div><div class="a2"></div><div class="a3"></div><div class="grid"></div><div class="noise"></div></div>
+
+<div id="pre">
+  <div class="mk">A</div>
+  <div class="bar"><i id="pfill"></i></div>
+  <small>ANKORA OS</small>
+</div>
+
+<div class="anno">
+  <span class="dot"></span>
+  <span data-i="anno">Ekip eksikliği nedeniyle geçici ara veriyoruz — <b>çok yakında dönüyoruz.</b></span>
+  <a href="#duyuru" data-i="annoL">Duyuruyu oku →</a>
+</div>
+
+<header id="hd">
+  <div class="nav">
+    <a href="#top" class="brand"><span class="mk">A</span><span>Ankora Linux</span></a>
+    <nav class="links">
+      <a href="#duyuru" data-i="n1">Duyuru</a>
+      <a href="#surumler" data-i="n2">Sürümler</a>
+      <a href="#ozellikler" data-i="n3">Özellikler</a>
+      <a href="#ekran" data-i="n4">Ekran</a>
+      <a href="#yol" data-i="n5">Yol</a>
+      <a href="#sss" data-i="n6">SSS</a>
+      <a href="#iletisim" data-i="n7">İletişim</a>
+    </nav>
+    <div class="nav-r">
+      <span class="pill"><i></i><span data-i="flag">Geçici ara</span></span>
+      <div class="lang"><button id="btr" class="on" type="button">TR</button><button id="ben" type="button">EN</button></div>
+      <a class="gh" href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="badge"><i></i><span data-i="badge">Ekip arıyoruz · Çok yakında dönüş</span></div>
+          <h1>
+            <span class="row"><span data-i="h1a">Özgür.</span></span>
+            <span class="row"><span class="g" data-i="h1b">Hızlı.</span></span>
+            <span class="row"><span data-i="h1c">Sana ait.</span></span>
+          </h1>
+          <p class="lead" data-i="lead">Ankora Linux; Debian 13 tabanlı, gizlilik öncelikli, çevrimdışı yapay zekâ destekli bir dağıtımdır. <b>Ekip eksikliği nedeniyle geliştirme geçici olarak duraklatıldı</b> — kod açık, forum açık, dönüş yakın.</p>
+          <div class="hero-cta">
+            <a href="#duyuru" class="btn btn-p"><span data-i="cta1">Duyuruyu oku</span><span class="ar">→</span></a>
+            <a href="#surumler" class="btn btn-g"><span data-i="cta2">Sürümleri gör</span></a>
+          </div>
+          <div class="hero-meta">
+            <div><b>v2.0 “Zümrüt”</b><span data-i="m1">Son kararlı sürüm</span></div>
+            <div><b>KDE + XFCE</b><span data-i="m2">İki masaüstü</span></div>
+            <div><b data-i="m3v">Sıfır telemetri</b><span data-i="m3">Gizlilik varsayılan</span></div>
+          </div>
+        </div>
+        <div class="hv">
+          <div class="hv-glow"></div>
+          <div class="hframe">
+            <div class="hbar"><i></i><i></i><i></i><span>ANKORA OS — v2.0</span></div>
+            <div class="hshot">
+              <div class="fb"><span>ANKORA</span><span style="font-size:10px;opacity:.6">KDE PLASMA 6</span></div>
+              <img src="kde.png" alt="Ankora KDE Plasma" onerror="this.remove()">
+            </div>
+          </div>
+          <div class="hchip hc1"><div class="t" data-i="hf1t">RAM KULLANIMI</div><div class="v">−40%</div></div>
+          <div class="hchip hc2"><div class="t" data-i="hf2t">TELEMETRİ</div><div class="v">0</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="mq"><div class="mq-t" id="mq"></div></div>
+
+  <section class="notice" id="duyuru">
+    <div class="wrap">
+      <div class="ncard rv spot">
+        <div class="n-in">
+          <div>
+            <div class="ntag"><span>◈</span><span data-i="rtag">Resmî duyuru</span></div>
+            <h2 data-i="rtitle">Kısa bir ara. Büyük bir dönüş.</h2>
+            <p data-i="rdesc">Değerli topluluğumuz; <b>ekip eksikliği</b> nedeniyle Ankora Linux ve tüm alt projelerimizin faaliyetlerini geçici olarak askıya aldık. Bu karar inancımızın azalmasından değil — <b>daha güçlü bir ekiple geri dönmek</b> istememizden kaynaklanıyor. Kod açık kalacak, forum aktif olacak ve <b>çok yakında</b> yenilenmiş Ankora ile karşınızda olacağız.</p>
+          </div>
+          <div class="norb"><div class="b">↻</div><div class="s" data-i="rorb">ÇOK<br>YAKINDA</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="surumler">
+    <div class="wrap">
+      <div class="eyebrow rv" data-i="i02">Sürümler</div>
+      <h2 class="st rv d1"><span data-i="pt1">Üç sürüm,</span> <span class="g" data-i="pt2">tek çizgi.</span></h2>
+      <p class="sub rv d2" data-i="ps">Hepsi uyku modunda. Hepsi geri dönecek.</p>
+      <div class="egrid">
+        <article class="ecard spot rv">
+          <div class="num">01</div>
+          <span class="est"><i></i><span data-i="st">Askıda · dönecek</span></span>
+          <h3>Ankora AI Debian</h3>
+          <p data-i="pr1">Debian 13 tabanı, ZRAM bellek mimarisi, çevrimdışı terminal asistanı ve çift masaüstü. Amiral gemisi.</p>
+          <div class="etags"><span>Debian 13</span><span>ZRAM</span><span>KDE</span><span>XFCE</span><span>Offline AI</span></div>
+        </article>
+        <article class="ecard spot rv d1">
+          <div class="num">02</div>
+          <span class="est"><i></i><span data-i="st2">Askıda · dönecek</span></span>
+          <h3 data-i="pr2t">Ankora Kurumsal</h3>
+          <p data-i="pr2">Okul ve işletmeler için LTS, SELinux / AppArmor profilleri ve merkezi politika yönetimi.</p>
+          <div class="etags"><span>LTS</span><span>SELinux</span><span>AppArmor</span><span data-i="pr2t2">Merkezi yönetim</span></div>
+        </article>
+        <article class="ecard spot rv d2">
+          <div class="num">03</div>
+          <span class="est"><i></i><span data-i="st3">Askıda · dönecek</span></span>
+          <h3 data-i="pr3t">Ankora Geliştirici</h3>
+          <p data-i="pr3">Python, Rust, GCC, Node, Git, Zsh — kutudan çıkar çıkmaz kodlamaya hazır.</p>
+          <div class="etags"><span>Python</span><span>Rust</span><span>Node.js</span><span>Zsh</span><span>Git</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ozellikler" style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow rv" data-i="i03">Özellikler</div>
+      <h2 class="st rv d1"><span data-i="ft1">Bizi biz yapan</span> <span class="g" data-i="ft2">değerler.</span></h2>
+      <p class="sub rv d2" data-i="fs">Askıya alınmadan önce inşa ettiğimiz ve dönüşte daha da güçlendireceğimiz temeller.</p>
+      <div class="bento">
+        <div class="bcell spot rv">
+          <div class="bico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <h4 data-i="f1t">ZRAM + SWAP</h4>
+          <p data-i="f1d">RAM içinde sıkıştırma. 2 GB bellekli makinelerde bile akıcı deneyim.</p>
+          <span class="fi">F.01</span>
+        </div>
+        <div class="bcell spot rv d1">
+          <div class="bico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h4 data-i="f2t">Çevrimdışı AI</h4>
+          <p data-i="f2d">Terminalde “yardimci” komutu. Verileriniz cihazınızdan asla ayrılmaz.</p>
+          <span class="fi">F.02</span>
+        </div>
+        <div class="bcell spot rv d2">
+          <div class="bico"><svg viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/></svg></div>
+          <h4 data-i="f3t">Sıfır telemetri</h4>
+          <p data-i="f3d">Veri toplama servisi yok. Gizlilik varsayılan ayar.</p>
+          <span class="fi">F.03</span>
+        </div>
+        <div class="bcell spot rv">
+          <div class="bico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h4 data-i="f4t">Yerleşik güvenlik</h4>
+          <p data-i="f4d">Firewalld varsayılan aktif. LUKS tam disk şifreleme kuruluma entegre.</p>
+          <span class="fi">F.04</span>
+        </div>
+        <div class="bcell spot rv d1">
+          <div class="bico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+          <h4 data-i="f5t">Oyun modu</h4>
+          <p data-i="f5d">GameMode ve MangoHud önceden yapılandırılmış. Yüksek FPS, takılmasız oyun.</p>
+          <span class="fi">F.05</span>
+        </div>
+        <div class="bcell spot rv d2">
+          <div class="bico"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h4 data-i="f6t">Geliştirici dostu</h4>
+          <p data-i="f6d">Python, C/C++, Git, Zsh ve Node.js kutudan çıkar. Kur ve kodla.</p>
+          <span class="fi">F.06</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="wrap">
+      <div class="sband rv spot">
+        <div class="scell"><div class="snum" data-n="40" data-pre="−" data-suf="%">−0%</div><div class="slab" data-i="s1">RAM kullanımı</div></div>
+        <div class="scell"><div class="snum" data-n="0">0</div><div class="slab" data-i="s2">Telemetri servisi</div></div>
+        <div class="scell"><div class="snum" data-n="2">0</div><div class="slab" data-i="s3">Masaüstü ortamı</div></div>
+        <div class="scell"><div class="snum" data-n="100" data-suf="%">0%</div><div class="slab" data-i="s4">Açık kaynak</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ekran" style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow rv" data-i="i04">Masaüstü</div>
+      <h2 class="st rv d1"><span data-i="sc1">İki ortam,</span> <span class="g" data-i="sc2">tek kimlik.</span></h2>
+      <p class="sub rv d2" data-i="scs">KDE Plasma 6 ve XFCE 4.18 üzerine işlenmiş Ankora görsel kimliği.</p>
+      <div class="tabs rv"><button class="on" type="button" id="tabK">KDE Plasma 6</button><button type="button" id="tabX">XFCE 4.18</button></div>
+      <div class="show rv d1">
+        <div class="bar"><i></i><i></i><i></i><span id="shotLbl">ANKORA — KDE PLASMA 6</span></div>
+        <div class="stage">
+          <img id="shotK" class="on" src="kde.png" alt="Ankora KDE Plasma 6" onerror="this.remove()">
+          <img id="shotX" src="xfce.png" alt="Ankora XFCE 4.18" onerror="this.remove()">
+        </div>
+        <div class="cap"><h4 id="shotT">KDE Plasma 6</h4><span id="shotC">FAIRY WREN</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="yol" style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow rv" data-i="i05">Yol</div>
+      <h2 class="st rv d1"><span data-i="tl1">Nereden,</span> <span class="g" data-i="tl2">nereye.</span></h2>
+      <div class="tl rv">
+        <div class="it"><div class="ty">2026 · 01</div><h4 data-i="t1t">Başlangıç</h4><p data-i="t1d">Sade, hızlı, telemetrisiz ve yerel yapay zekâ destekli dağıtım fikri doğdu.</p><span class="chip" data-i="t1c">BAŞLANGIÇ</span></div>
+        <div class="it"><div class="ty">2026 · 05</div><h4 data-i="t2t">Ankora 1.0</h4><p data-i="t2d">İlk kararlı sürüm. ZRAM mimarisi topluluktan olumlu geri dönüş aldı.</p><span class="chip" data-i="t2c">KARARLI SÜRÜM</span></div>
+        <div class="it"><div class="ty">2026 · 08</div><h4 data-i="t3t">2.0 “Zümrüt”</h4><p data-i="t3d">Geliştirilmiş masaüstü entegrasyonları ve güncellenmiş yerel AI modeli.</p><span class="chip" data-i="t3c">SON BÜYÜK SÜRÜM</span></div>
+        <div class="it now"><div class="ty" data-i="t4y">2026 — şimdi</div><h4 data-i="t4t">Yeniden yapılanma</h4><p data-i="t4d">Ekip eksikliği nedeniyle faaliyetler geçici olarak askıya alındı. Yeni insanlar arıyoruz ve çok yakında daha güçlü döneceğiz.</p><span class="chip" data-i="t4c">● BURADAYIZ</span></div>
+        <div class="it"><div class="ty" data-i="t5y">Çok yakında</div><h4 data-i="t5t">Büyük dönüş</h4><p data-i="t5d">Yeni kadro, yeni enerji ve Ankora 3.0 vizyonuyla geri dönüyoruz. Takipte kalın.</p><span class="chip" data-i="t5c">YAKINDA →</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow rv" style="justify-content:center" data-i="i06">SSS</div>
+      <h2 class="st rv d1" style="text-align:center"><span data-i="qt1">Merak</span> <span class="g" data-i="qt2">edilenler.</span></h2>
+      <div class="faq rv">
+        <div class="it"><button class="q" type="button"><h4 data-i="q1">Faaliyetler neden askıya alındı?</h4><span class="x">+</span></button><div class="a"><p data-i="a1">Ekip eksikliği nedeniyle projelerin hak ettiği kalitede ilerletilemeyeceğine karar verdik. Yarım iş yapmaktansa, güçlü bir ekiple tam donanımlı dönmeyi tercih ettik. Bu geçici bir duraklamadır.</p></div></div>
+        <div class="it"><button class="q" type="button"><h4 data-i="q2">Ne zaman geri döneceksiniz?</h4><span class="x">+</span></button><div class="a"><p data-i="a2">Çok yakında! Ekibimizi yeniden kurma çalışmaları sürüyor. Kesin tarih AnkaLab forumu ve GitHub üzerinden duyurulacak.</p></div></div>
+        <div class="it"><button class="q" type="button"><h4 data-i="q3">Kaynak kodlara erişebilir miyim?</h4><span class="x">+</span></button><div class="a"><p data-i="a3">Evet. Tüm kaynak kodlar GitHub depomuzda açık kalacaktır. Fork'layabilir, inceleyebilir ve kendi sürümünüzü geliştirebilirsiniz.</p></div></div>
+        <div class="it"><button class="q" type="button"><h4 data-i="q4">Ekibe nasıl katılabilirim?</h4><span class="x">+</span></button><div class="a"><p data-i="a4">Dönüşümüzü hızlandıracak en önemli şey sizsiniz. Forumdan veya e-posta ile ulaşın — geliştirici, tasarımcı, çevirmen veya test kullanıcısı olarak katkı sağlayabilirsiniz.</p></div></div>
+        <div class="it"><button class="q" type="button"><h4 data-i="q5">Mevcut sürümü kullanmaya devam edebilir miyim?</h4><span class="x">+</span></button><div class="a"><p data-i="a5">Ankora 2.0 “Zümrüt” kullanılabilir durumdadır; ancak geri dönene kadar resmi güncelleme sağlanmayacağını unutmayın.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="iletisim" style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow rv" style="justify-content:center" data-i="i07">İletişim</div>
+      <h2 class="st rv d1" style="text-align:center"><span data-i="ct1">Bize</span> <span class="g" data-i="ct2">katılın.</span></h2>
+      <p class="sub rv d2" style="text-align:center;margin-left:auto;margin-right:auto" data-i="cs">Geri dönüşümüzün bir parçası olun. Soru, katkı ve destek için buradayız.</p>
+      <div class="cgrid rv" style="margin-top:52px">
+        <a class="ccard spot" href="https://ankalab.flarum.cloud" target="_blank" rel="noopener">
+          <div class="ci"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h4 data-i="c1">AnkaLab Forum</h4><p>ankalab.flarum.cloud</p>
+        </a>
+        <a class="ccard spot" href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" rel="noopener">
+          <div class="ci"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
+          <h4 data-i="c2">GitHub Deposu</h4><p>Parsozkn/Ankora-Linux</p>
+        </a>
+        <a class="ccard spot" href="mailto:ankoralinux@proton.me">
+          <div class="ci"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
+          <h4 data-i="c3">E-posta</h4><p>ankoralinux@proton.me</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ftop">
+      <div>
+        <a href="#top" class="brand"><span class="mk">A</span><span>Ankora Linux</span></a>
+        <div class="ftag" data-i="ftag">Özgür, hızlı ve gizlilik dostu. Çok yakında geri dönüyoruz.</div>
+      </div>
+      <div class="fls">
+        <a href="#duyuru" data-i="n1">Duyuru</a>
+        <a href="#surumler" data-i="n2">Sürümler</a>
+        <a href="#sss" data-i="n6">SSS</a>
+        <a href="https://github.com/Parsozkn/Ankora-Linux" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© 2026 ANKORA LINUX PROJESİ</span>
+      <span class="hb"><i></i><span data-i="fs">Durum: yeniden yapılanma — çok yakında</span></span>
+    </div>
+  </div>
+</footer>
+
+<button id="totop" aria-label="Yukarı">↑</button>
+
+<script>
+const T={
+tr:{
+ anno:'Ekip eksikliği nedeniyle geçici ara veriyoruz — <b>çok yakında dönüyoruz.</b>',annoL:'Duyuruyu oku →',
+ n1:'Duyuru',n2:'Sürümler',n3:'Özellikler',n4:'Ekran',n5:'Yol',n6:'SSS',n7:'İletişim',flag:'Geçici ara',
+ badge:'Ekip arıyoruz · Çok yakında dönüş',h1a:'Özgür.',h1b:'Hızlı.',h1c:'Sana ait.',
+ lead:'Ankora Linux; Debian 13 tabanlı, gizlilik öncelikli, çevrimdışı yapay zekâ destekli bir dağıtımdır. <b>Ekip eksikliği nedeniyle geliştirme geçici olarak duraklatıldı</b> — kod açık, forum açık, dönüş yakın.',
+ cta1:'Duyuruyu oku',cta2:'Sürümleri gör',
+ m1:'Son kararlı sürüm',m2:'İki masaüstü',m3:'Gizlilik varsayılan',m3v:'Sıfır telemetri',
+ hf1t:'RAM KULLANIMI',hf2t:'TELEMETRİ',
+ mq:['ÇOK YAKINDA GERİ DÖNÜYORUZ','EKİP ARANIYOR','KOD AÇIK KALIYOR','BU BİR SON DEĞİL'],
+ rtag:'Resmî duyuru',rtitle:'Kısa bir ara. Büyük bir dönüş.',
+ rdesc:'Değerli topluluğumuz; <b>ekip eksikliği</b> nedeniyle Ankora Linux ve tüm alt projelerimizin faaliyetlerini geçici olarak askıya aldık. Bu karar inancımızın azalmasından değil — <b>daha güçlü bir ekiple geri dönmek</b> istememizden kaynaklanıyor. Kod açık kalacak, forum aktif olacak ve <b>çok yakında</b> yenilenmiş Ankora ile karşınızda olacağız.',
+ rorb:'ÇOK<br>YAKINDA',
+ i02:'Sürümler',pt1:'Üç sürüm,',pt2:'tek çizgi.',ps:'Hepsi uyku modunda. Hepsi geri dönecek.',
+ st:'Askıda · dönecek',st2:'Askıda · dönecek',st3:'Askıda · dönecek',
+ pr1:'Debian 13 tabanı, ZRAM bellek mimarisi, çevrimdışı terminal asistanı ve çift masaüstü. Amiral gemisi.',
+ pr2t:'Ankora Kurumsal',pr2:'Okul ve işletmeler için LTS, SELinux / AppArmor profilleri ve merkezi politika yönetimi.',pr2t2:'Merkezi yönetim',
+ pr3t:'Ankora Geliştirici',pr3:'Python, Rust, GCC, Node, Git, Zsh — kutudan çıkar çıkmaz kodlamaya hazır.',
+ i03:'Özellikler',ft1:'Bizi biz yapan',ft2:'değerler.',fs:'Askıya alınmadan önce inşa ettiğimiz ve dönüşte daha da güçlendireceğimiz temeller.',
+ f1t:'ZRAM + SWAP',f1d:'RAM içinde sıkıştırma. 2 GB bellekli makinelerde bile akıcı deneyim.',
+ f2t:'Çevrimdışı AI',f2d:'Terminalde “yardimci” komutu. Verileriniz cihazınızdan asla ayrılmaz.',
+ f3t:'Sıfır telemetri',f3d:'Veri toplama servisi yok. Gizlilik varsayılan ayar.',
+ f4t:'Yerleşik güvenlik',f4d:'Firewalld varsayılan aktif. LUKS tam disk şifreleme kuruluma entegre.',
+ f5t:'Oyun modu',f5d:'GameMode ve MangoHud önceden yapılandırılmış. Yüksek FPS, takılmasız oyun.',
+ f6t:'Geliştirici dostu',f6d:'Python, C/C++, Git, Zsh ve Node.js kutudan çıkar. Kur ve kodla.',
+ s1:'RAM kullanımı',s2:'Telemetri servisi',s3:'Masaüstü ortamı',s4:'Açık kaynak',
+ i04:'Masaüstü',sc1:'İki ortam,',sc2:'tek kimlik.',scs:'KDE Plasma 6 ve XFCE 4.18 üzerine işlenmiş Ankora görsel kimliği.',
+ i05:'Yol',tl1:'Nereden,',tl2:'nereye.',
+ t1t:'Başlangıç',t1d:'Sade, hızlı, telemetrisiz ve yerel yapay zekâ destekli dağıtım fikri doğdu.',t1c:'BAŞLANGIÇ',
+ t2t:'Ankora 1.0',t2d:'İlk kararlı sürüm. ZRAM mimarisi topluluktan olumlu geri dönüş aldı.',t2c:'KARARLI SÜRÜM',
+ t3t:'2.0 “Zümrüt”',t3d:'Geliştirilmiş masaüstü entegrasyonları ve güncellenmiş yerel AI modeli.',t3c:'SON BÜYÜK SÜRÜM',
+ t4y:'2026 · 09 — şimdi',t4t:'Yeniden yapılanma',t4d:'Ekip eksikliği nedeniyle faaliyetler geçici olarak askıya alındı. Yeni insanlar arıyoruz ve çok yakında daha güçlü döneceğiz.',t4c:'● BURADAYIZ',
+ t5y:'Çok yakında',t5t:'Büyük dönüş',t5d:'Yeni kadro, yeni enerji ve Ankora 3.0 vizyonuyla geri dönüyoruz. Takipte kalın.',t5c:'YAKINDA →',
+ i06:'SSS',qt1:'Merak',qt2:'edilenler.',
+ q1:'Faaliyetler neden askıya alındı?',a1:'Ekip eksikliği nedeniyle projelerin hak ettiği kalitede ilerletilemeyeceğine karar verdik. Yarım iş yapmaktansa, güçlü bir ekiple tam donanımlı dönmeyi tercih ettik. Bu geçici bir duraklamadır.',
+ q2:'Ne zaman geri döneceksiniz?',a2:'Çok yakında! Ekibimizi yeniden kurma çalışmaları sürüyor. Kesin tarih AnkaLab forumu ve GitHub üzerinden duyurulacak.',
+ q3:'Kaynak kodlara erişebilir miyim?',a3:'Evet. Tüm kaynak kodlar GitHub depomuzda açık kalacaktır. Fork\u2019layabilir, inceleyebilir ve kendi sürümünüzü geliştirebilirsiniz.',
+ q4:'Ekibe nasıl katılabilirim?',a4:'Dönüşümüzü hızlandıracak en önemli şey sizsiniz. Forumdan veya e-posta ile ulaşın — geliştirici, tasarımcı, çevirmen veya test kullanıcısı olarak katkı sağlayabilirsiniz.',
+ q5:'Mevcut sürümü kullanmaya devam edebilir miyim?',a5:'Ankora 2.0 “Zümrüt” kullanılabilir durumdadır; ancak geri dönene kadar resmi güncelleme sağlanmayacağını unutmayın.',
+ i07:'İletişim',ct1:'Bize',ct2:'katılın.',cs:'Geri dönüşümüzün bir parçası olun. Soru, katkı ve destek için buradayız.',
+ c1:'AnkaLab Forum',c2:'GitHub Deposu',c3:'E-posta',
+ ftag:'Özgür, hızlı ve gizlilik dostu. Çok yakında geri dönüyoruz.',fs:'Durum: yeniden yapılanma — çok yakında',
+ title:'Ankora Linux — Çok Yakında Dönüyoruz'
+},
+en:{
+ anno:'We are on a temporary break due to team shortage — <b>returning very soon.</b>',annoL:'Read the notice →',
+ n1:'Notice',n2:'Editions',n3:'Features',n4:'Desktop',n5:'Path',n6:'FAQ',n7:'Contact',flag:'On pause',
+ badge:'Join the team · Returning soon',h1a:'Free.',h1b:'Fast.',h1c:'Yours.',
+ lead:'Ankora Linux is a Debian 13 based, privacy-first distribution with offline AI. <b>Development is temporarily paused due to a shortage of people</b> — the code stays open, the forum stays open, the return is near.',
+ cta1:'Read the notice',cta2:'See editions',
+ m1:'Latest stable',m2:'Two desktops',m3:'Privacy by default',m3v:'Zero telemetry',
+ hf1t:'RAM USAGE',hf2t:'TELEMETRY',
+ mq:['RETURNING VERY SOON','JOIN THE TEAM','CODE STAYS OPEN','THIS IS NOT THE END'],
+ rtag:'Official notice',rtitle:'A short break. A grand return.',
+ rdesc:'Dear community; <b>due to a shortage of team members</b>, we have temporarily suspended Ankora Linux and all sub-projects. This is not fading belief — it comes from wanting to <b>return with a stronger team</b>. The code stays open, the forum stays active, and <b>very soon</b> we will be back with a renewed Ankora.',
+ rorb:'VERY<br>SOON',
+ i02:'Editions',pt1:'Three editions,',pt2:'one line.',ps:'All asleep. All coming back.',
+ st:'Paused · returns',st2:'Paused · returns',st3:'Paused · returns',
+ pr1:'Debian 13 base, ZRAM memory architecture, offline terminal AI, and dual desktops. The flagship.',
+ pr2t:'Ankora Enterprise',pr2:'LTS, SELinux / AppArmor profiles, and central policy for schools and businesses.',pr2t2:'Central mgmt',
+ pr3t:'Ankora Developer',pr3:'Python, Rust, GCC, Node, Git, Zsh — ready to code out of the box.',
+ i03:'Features',ft1:'The values',ft2:'that define us.',fs:'The foundations we built before the pause — and will strengthen on return.',
+ f1t:'ZRAM + SWAP',f1d:'In-RAM compression. Smooth even on 2 GB machines.',
+ f2t:'Offline AI',f2d:'The “yardimci” terminal command. Your data never leaves the device.',
+ f3t:'Zero telemetry',f3d:'No collection services. Privacy is the default.',
+ f4t:'Built-in security',f4d:'Firewalld active by default. LUKS full-disk encryption in the installer.',
+ f5t:'Game mode',f5d:'GameMode and MangoHud pre-configured. High FPS, stutter-free gaming.',
+ f6t:'Developer friendly',f6d:'Python, C/C++, Git, Zsh, and Node.js out of the box. Install and code.',
+ s1:'RAM usage',s2:'Telemetry',s3:'Desktops',s4:'Open source',
+ i04:'Desktop',sc1:'Two environments,',sc2:'one identity.',scs:'The Ankora visual identity crafted on KDE Plasma 6 and XFCE 4.18.',
+ i05:'Path',tl1:'From,',tl2:'to.',
+ t1t:'Start',t1d:'The idea was born: lean, fast, no telemetry, local AI.',t1c:'BEGINNING',
+ t2t:'Ankora 1.0',t2d:'First stable release. ZRAM architecture got positive feedback.',t2c:'STABLE RELEASE',
+ t3t:'2.0 “Emerald”',t3d:'Improved desktop integrations and an updated local AI model.',t3c:'LATEST MAJOR RELEASE',
+ t4y:'2026 · 09 — now',t4t:'Rebuild',t4d:'Activities temporarily suspended due to team shortage. We need people and will return stronger very soon.',t4c:'● WE ARE HERE',
+ t5y:'Very soon',t5t:'The grand return',t5d:'New crew, new energy, and the Ankora 3.0 vision. Stay tuned.',t5c:'SOON →',
+ i06:'FAQ',qt1:'Frequently',qt2:'asked.',
+ q1:'Why were activities suspended?',a1:'Due to a team shortage, we decided we could not push the projects at the quality they deserve. Rather than half work, we chose a full return with a strong team. A temporary pause.',
+ q2:'When will you be back?',a2:'Very soon! Team rebuilding is underway. The exact date will be announced on the AnkaLab forum and GitHub.',
+ q3:'Is the code open?',a3:'Yes. All source code stays open on GitHub. Fork, study, and build your own version.',
+ q4:'How do I join the team?',a4:'You are the most important part of our return. Reach us via the forum or email — contribute as a developer, designer, translator, or tester.',
+ q5:'Can I keep using the current release?',a5:'Ankora 2.0 “Emerald” remains usable; however, no official updates will ship until we return.',
+ i07:'Contact',ct1:'Join',ct2:'us.',cs:'Be part of our comeback. Here for questions, contributions, and support.',
+ c1:'AnkaLab Forum',c2:'GitHub Repo',c3:'Email',
+ ftag:'Free, fast, and privacy-friendly. Returning very soon.',fs:'Status: rebuilding — very soon',
+ title:'Ankora Linux — Returning Very Soon'
+}};
+
+const isDesktopMode=new URLSearchParams(location.search).get('mod')==='ankora'||navigator.userAgent.includes('AnkoraOS');
+if(!isDesktopMode){
+let lang=localStorage.getItem('ankora_lang')||'tr';
+function apply(){
+  const t=T[lang];
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const k=el.getAttribute('data-i');
+    if(t[k]!=null)el.innerHTML=t[k];
+  });
+  document.documentElement.lang=lang;
+  document.title=t.title;
+  document.getElementById('btr').classList.toggle('on',lang==='tr');
+  document.getElementById('ben').classList.toggle('on',lang==='en');
+  buildMq();
+}
+function buildMq(){
+  let h='';
+  T[lang].mq.forEach((s,i)=>{h+='<span class="mq-i"><span class="'+(i%2?'o':'')+'">'+s+'</span><span class="s">◆</span></span>'});
+  document.getElementById('mq').innerHTML=h+h;
+}
+document.getElementById('btr').onclick=()=>{lang='tr';localStorage.setItem('ankora_lang',lang);apply();};
+document.getElementById('ben').onclick=()=>{lang='en';localStorage.setItem('ankora_lang',lang);apply();};
+
+/* preloader */
+const pre=document.getElementById('pre'),pf=document.getElementById('pfill');
+let pr=0;
+const piv=setInterval(()=>{
+  pr+=Math.random()*22+12;
+  if(pr>=100){pr=100;clearInterval(piv);setTimeout(()=>{pre.classList.add('done');document.body.classList.remove('locked');document.body.classList.add('loaded');},250);}
+  pf.style.width=pr+'%';
+},110);
+
+/* header + totop */
+const hd=document.getElementById('hd'),tt=document.getElementById('totop');
+addEventListener('scroll',()=>{hd.classList.toggle('on',scrollY>24);tt.classList.toggle('show',scrollY>700);},{passive:true});
+tt.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+
+/* reveal */
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -36px 0px'});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+/* spotlight */
+document.querySelectorAll('.spot').forEach(el=>{
+  el.addEventListener('mousemove',e=>{
+    const r=el.getBoundingClientRect();
+    el.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    el.style.setProperty('--my',(e.clientY-r.top)+'px');
+  });
+});
+
+/* counters */
+const so=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target;so.unobserve(el);
+    const target=+el.dataset.n,pre2=el.dataset.pre||'',suf=el.dataset.suf||'';
+    if(target===0){el.textContent=pre2+'0'+suf;return;}
+    const t0=performance.now(),dur=1400;
+    (function tick(t){
+      const k=Math.min((t-t0)/dur,1),ez=1-Math.pow(1-k,3);
+      el.textContent=pre2+Math.round(target*ez)+suf;
+      if(k<1)requestAnimationFrame(tick);
+    })(t0);
+  });
+},{threshold:.5});
+document.querySelectorAll('.snum').forEach(el=>so.observe(el));
+
+/* tabs */
+const tK=document.getElementById('tabK'),tX=document.getElementById('tabX');
+const sK=document.getElementById('shotK'),sX=document.getElementById('shotX');
+const sT=document.getElementById('shotT'),sC=document.getElementById('shotC'),sL=document.getElementById('shotLbl');
+function setTab(k){
+  const isK=k==='k';
+  tK.classList.toggle('on',isK);tX.classList.toggle('on',!isK);
+  if(sK)sK.classList.toggle('on',isK);
+  if(sX)sX.classList.toggle('on',!isK);
+  sT.textContent=isK?'KDE Plasma 6':'XFCE 4.18';
+  sC.textContent=isK?'FAIRY WREN':'DOLPHIN';
+  sL.textContent=isK?'ANKORA — KDE PLASMA 6':'ANKORA — XFCE 4.18';
+}
+tK.onclick=()=>setTab('k');tX.onclick=()=>setTab('x');
+
+/* faq */
+document.querySelectorAll('.faq .q').forEach(b=>{
+  b.onclick=()=>{
+    const it=b.parentElement,open=it.classList.contains('open');
+    document.querySelectorAll('.faq .it.open').forEach(i=>{i.classList.remove('open');i.querySelector('.a').style.maxHeight=null;});
+    if(!open){it.classList.add('open');const a=it.querySelector('.a');a.style.maxHeight=a.scrollHeight+'px';}
+  };
+});
+
+/* anchors */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.onclick=e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}};
+});
+
+apply();
+
+} else {
+/* =================================================
+   ANKORA DESKTOP MODE — Full Web Desktop Shell
+   ================================================= */
+document.body.classList.remove('locked');
+document.body.classList.add('desktop-mode','loaded');
+document.title='Ankora OS \u2014 Masa\u00fcst\u00fc';
+
+/* --- SVG Icon Paths --- */
+const DI={
+  terminal:'<polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>',
+  folder:'<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>',
+  globe:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+  mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
+  store:'<path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>',
+  notepad:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
+  map:'<polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/>',
+  settings:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>',
+  shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+  search:'<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
+  wifi:'<path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>',
+  volume:'<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>',
+  memory:'<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M9 2v2M15 20v2M9 20v2M2 15h2M2 9h2M20 15h2M20 9h2"/>',
+  file:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>'
+};
+function svg(n){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+(DI[n]||DI.globe)+'</svg>';}
+
+/* --- Dynamic App Registry (JSON) --- */
+let installedApps=JSON.parse(localStorage.getItem('ankora_installed')||'[]');
+const defaultApps=[
+  {id:'terminal',name:'Terminal',icon:'terminal',cat:'Sistem',type:'terminal',dock:true,order:1},
+  {id:'files',name:'Dosyalar',icon:'folder',cat:'Sistem',type:'files',dock:true,order:2},
+  {id:'browser',name:'Taray\u0131c\u0131',icon:'globe',cat:'\u0130nternet',type:'browser',dock:true,order:3},
+  {id:'mail',name:'ProtonMail',icon:'mail',cat:'\u0130nternet',type:'iframe',url:'https://mail.proton.me',dock:true,order:4},
+  {id:'notepad',name:'Not Defteri',icon:'notepad',cat:'Aksesuarlar',type:'notepad',dock:true,order:5},
+  {id:'maps',name:'Harita',icon:'map',cat:'\u0130nternet',type:'iframe',url:'https://www.openstreetmap.org/export/embed.html',dock:true,order:6},
+  {id:'store',name:'Ma\u011faza',icon:'store',cat:'Sistem',type:'store',dock:true,order:50},
+  {id:'settings',name:'Ayarlar',icon:'settings',cat:'Sistem',type:'settings',dock:false,order:60},
+  {id:'privacy',name:'Gizlilik',icon:'shield',cat:'Sistem',type:'privacy',dock:false,order:61}
+];
+function getApps(){
+  const all=[...defaultApps];
+  installedApps.forEach(function(a){if(!all.find(function(x){return x.id===a.id}))all.push(a);});
+  return all.sort(function(a,b){return (a.order||99)-(b.order||99);});
+}
+
+/* --- Store Catalog --- */
+const STORE=[
+  {name:'Spotify',emoji:'\uD83C\uDFB5',desc:'Milyonlarca \u015fark\u0131 ve podcast.',cat:'Medya',url:'https://open.spotify.com'},
+  {name:'Telegram',emoji:'\u2708\uFE0F',desc:'H\u0131zl\u0131 ve g\u00fcvenli mesajla\u015fma.',cat:'\u0130leti\u015fim',url:'https://web.telegram.org'},
+  {name:'Discord',emoji:'\uD83C\uDFAE',desc:'Sesli ve yaz\u0131l\u0131 topluluk ileti\u015fimi.',cat:'\u0130leti\u015fim',url:'https://discord.com/app'},
+  {name:'VS Code',emoji:'\uD83D\uDCBB',desc:'G\u00fc\u00e7l\u00fc bulut tabanl\u0131 kod edit\u00f6r\u00fc.',cat:'Geli\u015ftirme',url:'https://vscode.dev'},
+  {name:'GIMP',emoji:'\uD83C\uDFA8',desc:'Profesyonel g\u00f6rsel d\u00fczenleme arac\u0131.',cat:'Medya',url:'https://www.gimp.org'},
+  {name:'LibreOffice',emoji:'\uD83D\uDCC4',desc:'\u00dccretsiz ofis paketi.',cat:'Ara\u00e7lar',url:'https://www.libreoffice.org'},
+  {name:'VLC',emoji:'\u25B6\uFE0F',desc:'Her format\u0131 oynatan medya oynat\u0131c\u0131.',cat:'Medya',url:'https://www.videolan.org'},
+  {name:'OBS Studio',emoji:'\uD83D\uDCF9',desc:'Canl\u0131 yay\u0131n ve kay\u0131t yaz\u0131l\u0131m\u0131.',cat:'Medya',url:'https://obsproject.com'},
+  {name:'Blender',emoji:'\uD83E\uDDCA',desc:'3D modelleme ve animasyon.',cat:'Medya',url:'https://www.blender.org'},
+  {name:'Firefox',emoji:'\uD83E\uDD8A',desc:'Gizlilik odakl\u0131 web taray\u0131c\u0131.',cat:'\u0130nternet',url:'https://www.mozilla.org'},
+  {name:'Thunderbird',emoji:'\uD83D\uDCE8',desc:'G\u00fc\u00e7l\u00fc e-posta istemcisi.',cat:'\u0130leti\u015fim',url:'https://www.thunderbird.net'},
+  {name:'Krita',emoji:'\uD83D\uDD8C\uFE0F',desc:'Dijital \u00e7izim ve boyama.',cat:'Medya',url:'https://krita.org'},
+  {name:'Kdenlive',emoji:'\uD83C\uDFAC',desc:'Profesyonel video d\u00fczenleyici.',cat:'Medya',url:'https://kdenlive.org'},
+  {name:'Steam',emoji:'\uD83C\uDFAF',desc:'Oyun ma\u011fazas\u0131 ve platformu.',cat:'Oyun',url:'https://store.steampowered.com'},
+  {name:'Lutris',emoji:'\uD83D\uDD79\uFE0F',desc:'Linux oyun y\u00f6neticisi.',cat:'Oyun',url:'https://lutris.net'}
+];
+
+/* --- Window Manager --- */
+const WM={wins:[],z:100,cascade:0};
+
+window.openApp=function(appId){
+  var app=getApps().find(function(a){return a.id===appId;});
+  if(!app)return;
+  var di=document.querySelector('.dock-item[data-id="'+appId+'"]');
+  if(di)di.classList.add('running');
+  switch(app.type){
+    case 'terminal':openTerminal(app);break;
+    case 'store':openStore(app);break;
+    case 'notepad':openNotepad(app);break;
+    case 'browser':openBrowser(app);break;
+    case 'files':openFiles(app);break;
+    case 'settings':openSettings(app);break;
+    case 'privacy':openPrivacy(app);break;
+    case 'iframe':openIframe(app);break;
+  }
+};
+
+function createWindow(app,w,h,content){
+  WM.z++;WM.cascade=(WM.cascade+1)%10;
+  var id='win-'+Date.now()+'-'+Math.random().toString(36).slice(2,6);
+  var x=Math.min(80+WM.cascade*30,window.innerWidth-w-40);
+  var y=Math.min(60+WM.cascade*25,window.innerHeight-h-100);
+  var el=document.createElement('div');
+  el.className='desk-window focused';
+  el.id=id;
+  el.style.cssText='left:'+x+'px;top:'+y+'px;width:'+w+'px;height:'+h+'px;z-index:'+WM.z;
+  el.dataset.appId=app.id;
+  el.innerHTML='<div class="win-bar">'+
+    '<div class="win-bar-icon">'+svg(app.icon)+'</div>'+
+    '<span class="win-title">'+app.name+'</span>'+
+    '<div class="win-btns">'+
+    '<div class="win-btn win-btn-min"></div>'+
+    '<div class="win-btn win-btn-max"></div>'+
+    '<div class="win-btn win-btn-close"></div>'+
+    '</div></div>'+
+    '<div class="win-content">'+content+'</div>';
+  document.getElementById('desk-windows').appendChild(el);
+  WM.wins.push({id:id,appId:app.id,el:el});
+  el.addEventListener('mousedown',function(){bringToFront(el);});
+  el.querySelector('.win-btn-close').onclick=function(){closeWindow(id,app.id);};
+  el.querySelector('.win-btn-max').onclick=function(){toggleMax(el);};
+  el.querySelector('.win-btn-min').onclick=function(){closeWindow(id,app.id);};
+  enableDrag(el);
+  return el;
+}
+
+function closeWindow(winId,appId){
+  var el=document.getElementById(winId);
+  if(!el)return;
+  el.classList.add('closing');
+  setTimeout(function(){
+    el.remove();
+    WM.wins=WM.wins.filter(function(w){return w.id!==winId;});
+    if(!WM.wins.find(function(w){return w.appId===appId;})){
+      var di=document.querySelector('.dock-item[data-id="'+appId+'"]');
+      if(di)di.classList.remove('running');
+    }
+  },200);
+}
+
+function toggleMax(el){
+  if(!el.classList.contains('fullscreen')){
+    el.dataset.ox=el.style.left;el.dataset.oy=el.style.top;
+    el.dataset.ow=el.style.width;el.dataset.oh=el.style.height;
+  }
+  el.classList.toggle('fullscreen');
+  if(!el.classList.contains('fullscreen')){
+    el.style.left=el.dataset.ox||'80px';el.style.top=el.dataset.oy||'60px';
+    el.style.width=el.dataset.ow||'800px';el.style.height=el.dataset.oh||'500px';
+  }
+}
+
+function bringToFront(el){
+  WM.z++;el.style.zIndex=WM.z;
+  document.querySelectorAll('.desk-window').forEach(function(w){w.classList.remove('focused');});
+  el.classList.add('focused');
+}
+
+function enableDrag(winEl){
+  var bar=winEl.querySelector('.win-bar');
+  bar.addEventListener('mousedown',function(e){
+    if(e.target.closest('.win-btns'))return;
+    if(winEl.classList.contains('fullscreen'))return;
+    var sx=e.clientX,sy=e.clientY;
+    var ol=winEl.offsetLeft,ot=winEl.offsetTop;
+    function move(e2){winEl.style.left=(ol+e2.clientX-sx)+'px';winEl.style.top=Math.max(34,ot+e2.clientY-sy)+'px';}
+    function up(){document.removeEventListener('mousemove',move);document.removeEventListener('mouseup',up);}
+    document.addEventListener('mousemove',move);
+    document.addEventListener('mouseup',up);
+  });
+}
+
+/* --- Content Builders --- */
+function openIframe(app){
+  createWindow(app,850,550,'<iframe src="'+app.url+'" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>');
+}
+
+function openBrowser(app){
+  var el=createWindow(app,900,560,
+    '<div class="browser-wrap"><div class="browser-nav">'+
+    '<input class="browser-url" placeholder="URL giriniz..." value="https://ankora-linux.github.io"/>'+
+    '<button class="browser-go">Git</button>'+
+    '</div><div class="browser-frame"><iframe src="https://ankora-linux.github.io"></iframe></div></div>');
+  var urlInput=el.querySelector('.browser-url');
+  var goBtn=el.querySelector('.browser-go');
+  function nav(){var u=urlInput.value;if(u&&!u.match(/^https?:\/\//))u='https://'+u;el.querySelector('.browser-frame iframe').src=u;}
+  goBtn.onclick=nav;
+  urlInput.addEventListener('keydown',function(e){if(e.key==='Enter')nav();});
+}
+
+function openNotepad(app){
+  var el=createWindow(app,620,440,
+    '<div class="notepad-wrap"><div class="notepad-bar">'+
+    '<button data-a="sel">T\u00fcm\u00fcn\u00fc Se\u00e7</button>'+
+    '<button data-a="copy">Kopyala</button>'+
+    '<button data-a="clear">Temizle</button></div>'+
+    '<textarea class="notepad-area" placeholder="Yazmaya ba\u015flay\u0131n..." spellcheck="false"></textarea></div>');
+  var ta=el.querySelector('.notepad-area');
+  el.querySelector('[data-a="sel"]').onclick=function(){ta.select();};
+  el.querySelector('[data-a="copy"]').onclick=function(){ta.select();document.execCommand('copy');};
+  el.querySelector('[data-a="clear"]').onclick=function(){ta.value='';};
+}
+
+function openFiles(app){
+  var items=['Belgeler','\u0130ndirilenler','Masa\u00fcst\u00fc','M\u00fczik','Resimler','Videolar'];
+  var files=['notlar.txt','.bashrc','README.md'];
+  var h='<div class="ppanel"><h3>\uD83D\uDCC2 /home/ankora</h3><div class="files-grid">';
+  items.forEach(function(f){h+='<div class="file-item"><svg viewBox="0 0 24 24">'+DI.folder+'</svg><span>'+f+'</span></div>';});
+  files.forEach(function(f){h+='<div class="file-item"><svg viewBox="0 0 24 24">'+DI.file+'</svg><span>'+f+'</span></div>';});
+  h+='</div></div>';
+  createWindow(app,700,480,h);
+}
+
+function openSettings(app){
+  var el=createWindow(app,550,440,
+    '<div class="ppanel"><h3>\u2699 Ayarlar</h3>'+
+    '<div class="ppanel-sec"><h4>G\u00f6r\u00fcn\u00fcm</h4>'+
+    '<div class="ppanel-row"><label>Koyu Tema</label><div class="toggle on" data-t="theme"></div></div>'+
+    '<div class="ppanel-row"><label>Dock Efektleri</label><div class="toggle on" data-t="dock-fx"></div></div>'+
+    '<div class="ppanel-row"><label>Pencere Animasyonlar\u0131</label><div class="toggle on" data-t="win-anim"></div></div></div>'+
+    '<div class="ppanel-sec"><h4>Hakk\u0131nda</h4>'+
+    '<p><b>Ankora OS Web Shell</b> v1.0<br>Kernel: 6.8.0-ankora-web<br>Masa\u00fcst\u00fc: Ankora Desktop Environment<br>Taban: Debian 13 Trixie<br>Lisans: GPL-3.0</p></div></div>');
+  el.querySelectorAll('.toggle').forEach(function(t){t.onclick=function(){t.classList.toggle('on');};});
+}
+
+function openPrivacy(app){
+  var el=createWindow(app,550,440,
+    '<div class="ppanel"><h3>\uD83D\uDD12 Gizlilik</h3>'+
+    '<div class="ppanel-sec"><h4>Veri Toplama</h4>'+
+    '<div class="ppanel-row"><label>Telemetri</label><div class="toggle" data-t="tele"></div></div>'+
+    '<div class="ppanel-row"><label>\u00c7erez \u0130zleme</label><div class="toggle" data-t="cookie"></div></div>'+
+    '<div class="ppanel-row"><label>Konum Payla\u015f\u0131m\u0131</label><div class="toggle" data-t="loc"></div></div></div>'+
+    '<div class="ppanel-sec"><h4>Ankora Gizlilik \u0130lkesi</h4>'+
+    '<p>Ankora Linux <b>s\u0131f\u0131r telemetri</b> politikas\u0131yla \u00e7al\u0131\u015f\u0131r. Hi\u00e7bir kullan\u0131c\u0131 verisi toplanmaz, \u00fc\u00e7\u00fcnc\u00fc taraflarla payla\u015f\u0131lmaz. Gizlilik bir \u00f6zellik de\u011fil, <b>varsay\u0131lan ayar</b>d\u0131r.</p></div></div>');
+  el.querySelectorAll('.toggle').forEach(function(t){t.onclick=function(){t.classList.toggle('on');};});
+}
+
+/* --- Terminal Simulator --- */
+function openTerminal(app){
+  var termZ=WM.z+1;
+  var el=createWindow(app,720,460,
+    '<div class="term-wrap">'+
+    '<div class="term-body" id="tb'+termZ+'"></div>'+
+    '<div class="term-input-wrap">'+
+    '<span class="term-prompt" id="tp'+termZ+'">ankora@desktop:~$ </span>'+
+    '<input class="term-input" id="ti'+termZ+'" autofocus spellcheck="false"/>'+
+    '</div></div>');
+  var body=document.getElementById('tb'+termZ);
+  var input=document.getElementById('ti'+termZ);
+  var promptEl=document.getElementById('tp'+termZ);
+  var cwd='/home/ankora';
+  var history=[];var hIdx=-1;
+  var vfs={
+    '/home/ankora':{type:'dir',ch:['Belgeler','\u0130ndirilenler','Masa\u00fcst\u00fc','M\u00fczik','Resimler','.bashrc']},
+    '/home/ankora/Belgeler':{type:'dir',ch:['notlar.txt','proje.md']},
+    '/home/ankora/\u0130ndirilenler':{type:'dir',ch:[]},
+    '/home/ankora/Masa\u00fcst\u00fc':{type:'dir',ch:[]},
+    '/home/ankora/M\u00fczik':{type:'dir',ch:[]},
+    '/home/ankora/Resimler':{type:'dir',ch:[]},
+    '/home/ankora/.bashrc':{type:'file',content:'# ~/.bashrc\nexport PATH=$PATH:/usr/local/bin\nalias ll="ls -la"\nalias cls="clear"\nPS1="\\u@\\h:\\w\\$ "'},
+    '/home/ankora/Belgeler/notlar.txt':{type:'file',content:'Ankora Linux - Ki\u015fisel Notlar\n=============================\nBu bir \u00f6rnek metin dosyas\u0131d\u0131r.\nAnkora OS Web Desktop Shell \u00fczerinde \u00e7al\u0131\u015f\u0131yorsunuz.'},
+    '/home/ankora/Belgeler/proje.md':{type:'file',content:'# Ankora Projesi\n\nDebian 13 tabanl\u0131, gizlilik \u00f6ncelikli da\u011f\u0131t\u0131m.\n\n## \u00d6zellikler\n- ZRAM bellek y\u00f6netimi\n- \u00c7evrimd\u0131\u015f\u0131 AI asistan\u0131\n- S\u0131f\u0131r telemetri'}
+  };
+  function tOut(text,cls){var d=document.createElement('div');d.className='term-line '+(cls||'term-out');d.innerHTML=text;body.appendChild(d);body.scrollTop=body.scrollHeight;}
+  tOut('Ankora OS Web Terminal v1.0','term-ok');
+  tOut('ttyd ba\u011flant\u0131s\u0131: <a href="http://127.0.0.1:7681" target="_blank" style="color:#5ea0ff;text-decoration:underline">127.0.0.1:7681</a> (yerel servis)','term-out');
+  tOut('Yard\u0131m i\u00e7in "help" yaz\u0131n.\n','term-out');
+  function resP(p){if(!p)return cwd;if(p==='/') return '/home/ankora';if(p.charAt(0)==='~')return '/home/ankora'+p.slice(1);if(p.charAt(0)==='/')return p;return cwd+'/'+p;}
+  function exec(cmd){
+    tOut('<span class="term-prompt">ankora@desktop:'+cwd.replace('/home/ankora','~')+'$ </span><span class="term-cmd">'+cmd.replace(/</g,'&lt;')+'</span>');
+    var parts=cmd.trim().split(/\s+/);var c=parts[0];var args=parts.slice(1);
+    if(!c)return;
+    if(c==='help'){
+      tOut('Kullan\u0131labilir komutlar:');
+      tOut('  ls [path]      Dizin i\u00e7eri\u011fini listele');
+      tOut('  cd [path]      Dizin de\u011fi\u015ftir');
+      tOut('  pwd            Ge\u00e7erli dizini g\u00f6ster');
+      tOut('  cat [file]     Dosya i\u00e7eri\u011fini g\u00f6ster');
+      tOut('  echo [text]    Metin yazd\u0131r');
+      tOut('  whoami         Kullan\u0131c\u0131 ad\u0131');
+      tOut('  hostname       Makine ad\u0131');
+      tOut('  date           Tarih ve saat');
+      tOut('  uname -a       Sistem bilgisi');
+      tOut('  neofetch       Sistem bilgisi (detayl\u0131)');
+      tOut('  mkdir [name]   Dizin olu\u015ftur');
+      tOut('  touch [name]   Dosya olu\u015ftur');
+      tOut('  clear          Ekran\u0131 temizle');
+      tOut('  exit           Terminali kapat');
+    } else if(c==='pwd'){tOut(cwd);}
+    else if(c==='whoami'){tOut('ankora');}
+    else if(c==='hostname'){tOut('ankora-desktop');}
+    else if(c==='date'){tOut(new Date().toLocaleString('tr-TR'));}
+    else if(c==='uname'){tOut('AnkoraOS 2.0 Z\u00fcmr\u00fct ankora-desktop 6.8.0-ankora-web x86_64 GNU/Linux');}
+    else if(c==='clear'){body.innerHTML='';}
+    else if(c==='exit'){closeWindow(el.id,app.id);}
+    else if(c==='echo'){tOut(args.join(' '));}
+    else if(c==='ls'){
+      var target=resP(args[0]);
+      var node=vfs[target];
+      if(!node||node.type!=='dir'){tOut('ls: eri\u015filemiyor: '+(args[0]||''),'term-err');return;}
+      if(node.ch.length===0){tOut('(bo\u015f dizin)');return;}
+      tOut(node.ch.map(function(cc){var fp=target+'/'+cc;var nn=vfs[fp];return nn&&nn.type==='dir'?'<span style="color:#5ea0ff;font-weight:600">'+cc+'/</span>':cc;}).join('  '));
+    } else if(c==='cd'){
+      if(!args[0]||args[0]==='~'){cwd='/home/ankora';}
+      else if(args[0]==='..'){var pp=cwd.split('/');pp.pop();cwd=pp.join('/')||'/home/ankora';}
+      else{var target=resP(args[0]);var node=vfs[target];if(!node||node.type!=='dir'){tOut('cd: dizin yok: '+args[0],'term-err');return;}cwd=target;}
+    } else if(c==='cat'){
+      if(!args[0]){tOut('cat: dosya belirtin','term-err');return;}
+      var target=resP(args[0]);var node=vfs[target];
+      if(!node){tOut('cat: dosya yok: '+args[0],'term-err');return;}
+      if(node.type==='dir'){tOut('cat: bu bir dizin: '+args[0],'term-err');return;}
+      tOut(node.content.replace(/</g,'&lt;').replace(/\n/g,'<br>'));
+    } else if(c==='mkdir'){
+      if(!args[0]){tOut('mkdir: isim belirtin','term-err');return;}
+      var target=cwd+'/'+args[0];
+      if(vfs[target]){tOut('mkdir: zaten var: '+args[0],'term-err');return;}
+      vfs[target]={type:'dir',ch:[]};var par=vfs[cwd];if(par)par.ch.push(args[0]);
+    } else if(c==='touch'){
+      if(!args[0]){tOut('touch: isim belirtin','term-err');return;}
+      var target=cwd+'/'+args[0];
+      if(!vfs[target]){vfs[target]={type:'file',content:''};var par=vfs[cwd];if(par)par.ch.push(args[0]);}
+    } else if(c==='neofetch'){
+      tOut('<span style="color:#5ea0ff">      _          _                       </span><span style="color:#fff">ankora</span>@<span style="color:#fff">desktop</span>');
+      tOut('<span style="color:#5ea0ff">     / \\   _ __ | | _____  _ __ __ _     </span><span style="color:#5ea0ff">\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500</span>');
+      tOut('<span style="color:#5ea0ff">    / _ \\ | \'_ \\| |/ / _ \\| \'__/ _` |    </span><span style="color:#5ea0ff">OS:</span> Ankora Linux 2.0 Z\u00fcmr\u00fct');
+      tOut('<span style="color:#5ea0ff">   / ___ \\| | | |   &lt; (_) | | | (_| |    </span><span style="color:#5ea0ff">Kernel:</span> 6.8.0-ankora-web');
+      tOut('<span style="color:#5ea0ff">  /_/   \\_\\_| |_|_|\\_\\___/|_|  \\__,_|    </span><span style="color:#5ea0ff">Shell:</span> ankora-sh 1.0');
+      tOut('<span style="color:#5ea0ff">                                          </span><span style="color:#5ea0ff">DE:</span> Ankora Desktop');
+      tOut('<span style="color:#5ea0ff">    \u25C6 ankora linux                        </span><span style="color:#5ea0ff">Terminal:</span> Web Terminal');
+      tOut('<span style="color:#5ea0ff">                                          </span><span style="color:#5ea0ff">Resolution:</span> '+screen.width+'x'+screen.height);
+      tOut('<span style="color:#5ea0ff">                                          </span><span style="color:#5ea0ff">Memory:</span> '+(navigator.deviceMemory||8)+' GiB');
+    } else {
+      tOut(c+': komut bulunamad\u0131. "help" yazarak komut listesini g\u00f6r\u00fcn.','term-err');
+    }
+    if(promptEl)promptEl.textContent='ankora@desktop:'+cwd.replace('/home/ankora','~')+'$ ';
+  }
+  input.addEventListener('keydown',function(e){
+    if(e.key==='Enter'){var cmd=input.value;if(cmd.trim())history.push(cmd);hIdx=history.length;exec(cmd);input.value='';}
+    else if(e.key==='ArrowUp'){e.preventDefault();if(hIdx>0){hIdx--;input.value=history[hIdx];}}
+    else if(e.key==='ArrowDown'){e.preventDefault();if(hIdx<history.length-1){hIdx++;input.value=history[hIdx];}else{hIdx=history.length;input.value='';}}
+  });
+  el.querySelector('.win-content').addEventListener('click',function(){input.focus();});
+  setTimeout(function(){input.focus();},120);
+}
+
+/* --- Store --- */
+function openStore(app){
+  var currentCat='T\u00fcm\u00fc';
+  var el=createWindow(app,920,580,buildStoreHTML('T\u00fcm\u00fc',''));
+  bindStoreEv(el);
+
+  function buildStoreHTML(cat,q){
+    var cards=STORE.filter(function(a){
+      if(cat&&cat!=='T\u00fcm\u00fc'&&a.cat!==cat)return false;
+      if(q&&a.name.toLowerCase().indexOf(q.toLowerCase())<0)return false;
+      return true;
+    }).map(function(a){
+      var inst=installedApps.find(function(x){return x.name===a.name;});
+      return '<div class="store-card"><div class="store-card-top"><div class="store-card-ico">'+a.emoji+'</div><div class="store-card-info"><h5>'+a.name+'</h5><span>'+a.cat+'</span></div></div><p>'+a.desc+'</p><button class="store-btn'+(inst?' done':'')+'" data-sn="'+a.name+'">'+(inst?'Y\u00fcklendi \u2713':'Y\u00fckle')+'</button></div>';
+    }).join('');
+    return '<div class="store-wrap"><div class="store-head"><div class="store-title">Ankora Ma\u011faza</div><div class="store-search-w">'+svg('search')+'<input class="store-search" placeholder="Uygulama ara..."/></div></div>'+
+      '<div class="store-cats"><span class="store-cat'+(currentCat==='T\u00fcm\u00fc'?' on':'')+'" data-cat="T\u00fcm\u00fc">T\u00fcm\u00fc</span><span class="store-cat'+(currentCat==='\u0130nternet'?' on':'')+'" data-cat="\u0130nternet">\u0130nternet</span><span class="store-cat'+(currentCat==='\u0130leti\u015fim'?' on':'')+'" data-cat="\u0130leti\u015fim">\u0130leti\u015fim</span><span class="store-cat'+(currentCat==='Geli\u015ftirme'?' on':'')+'" data-cat="Geli\u015ftirme">Geli\u015ftirme</span><span class="store-cat'+(currentCat==='Medya'?' on':'')+'" data-cat="Medya">Medya</span><span class="store-cat'+(currentCat==='Oyun'?' on':'')+'" data-cat="Oyun">Oyun</span><span class="store-cat'+(currentCat==='Ara\u00e7lar'?' on':'')+'" data-cat="Ara\u00e7lar">Ara\u00e7lar</span></div>'+
+      '<div class="store-body"><div class="store-grid">'+cards+'</div></div></div>';
+  }
+
+  function refreshStore(){
+    var q=(el.querySelector('.store-search')||{}).value||'';
+    el.querySelector('.win-content').innerHTML=buildStoreHTML(currentCat,q);
+    bindStoreEv(el);
+  }
+
+  function bindStoreEv(el){
+    el.querySelectorAll('.store-cat').forEach(function(tab){
+      tab.onclick=function(){
+        currentCat=tab.dataset.cat;
+        el.querySelectorAll('.store-cat').forEach(function(t){t.classList.toggle('on',t.dataset.cat===currentCat);});
+        refreshStore();
+      };
+    });
+    var si=el.querySelector('.store-search');
+    if(si)si.addEventListener('input',function(){refreshStore();});
+    el.querySelectorAll('.store-btn:not(.done)').forEach(function(btn){
+      btn.onclick=function(){
+        var name=btn.dataset.sn;
+        var sApp=STORE.find(function(a){return a.name===name;});
+        if(!sApp)return;
+        btn.classList.add('busy');btn.textContent='Y\u00fckleniyor...';
+        setTimeout(function(){
+          btn.classList.remove('busy');btn.classList.add('done');btn.textContent='Y\u00fcklendi \u2713';
+          var newApp={id:'s-'+name.toLowerCase().replace(/\s+/g,'-'),name:name,icon:'globe',cat:sApp.cat,type:'iframe',url:sApp.url,dock:true,order:10+installedApps.length};
+          if(!installedApps.find(function(x){return x.name===name;})){
+            installedApps.push(newApp);
+            localStorage.setItem('ankora_installed',JSON.stringify(installedApps));
+            rebuildDock();rebuildMenu();
+          }
+        },1500);
+      };
+    });
+  }
+}
+
+/* --- Panel, Dock, Menu Builders --- */
+function buildPanel(){
+  var panel=document.getElementById('desk-panel');
+  panel.innerHTML=
+    '<div class="desk-panel-l">'+
+    '<div class="panel-btn" id="panel-menu-btn"><span class="panel-logo">A</span><span>Uygulamalar</span></div>'+
+    '</div>'+
+    '<div class="desk-panel-r">'+
+    '<div class="panel-ind">'+svg('volume')+'<span>50%</span></div>'+
+    '<div class="panel-ind">'+svg('wifi')+'</div>'+
+    '<div class="panel-ind" id="panel-ram">'+svg('memory')+'<span>'+((navigator.deviceMemory||4)*0.6).toFixed(1)+' GiB</span></div>'+
+    '<div class="panel-clock" id="panel-clock"></div>'+
+    '</div>';
+  document.getElementById('panel-menu-btn').onclick=function(){
+    document.getElementById('desk-menu').classList.toggle('open');
+    document.getElementById('panel-menu-btn').classList.toggle('active');
+  };
+  document.addEventListener('click',function(e){
+    var menu=document.getElementById('desk-menu');
+    if(menu.classList.contains('open')&&!e.target.closest('#desk-menu')&&!e.target.closest('#panel-menu-btn')){
+      menu.classList.remove('open');
+      document.getElementById('panel-menu-btn').classList.remove('active');
+    }
+  });
+}
+
+function startClock(){
+  var el=document.getElementById('panel-clock');
+  function tick(){el.textContent=new Date().toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit',second:'2-digit'});}
+  tick();setInterval(tick,1000);
+}
+
+function rebuildDock(){
+  var dock=document.getElementById('desk-dock');
+  var apps=getApps().filter(function(a){return a.dock;});
+  var h='';
+  apps.forEach(function(a,i){
+    if(a.order>=50&&i>0&&apps[i-1].order<50)h+='<div class="dock-sep"></div>';
+    h+='<div class="dock-item" data-id="'+a.id+'" onclick="openApp(\''+a.id+'\')">'+(DI[a.icon]?svg(a.icon):svg('globe'))+'<div class="dock-dot"></div><div class="dock-tip">'+a.name+'</div></div>';
+  });
+  dock.innerHTML=h;
+}
+
+function rebuildMenu(){
+  var menu=document.getElementById('desk-menu');
+  var apps=getApps();
+  var cats={};
+  apps.forEach(function(a){if(!cats[a.cat])cats[a.cat]=[];cats[a.cat].push(a);});
+  var h='<div class="menu-search-w">'+svg('search')+'<input class="menu-search" placeholder="Uygulama ara..." id="menu-si"/></div>';
+  Object.keys(cats).forEach(function(cat){
+    h+='<div class="menu-cat">'+cat+'</div><div class="menu-grid">';
+    cats[cat].forEach(function(a){
+      h+='<div class="menu-item" data-mn="'+a.name.toLowerCase()+'" onclick="openApp(\''+a.id+'\');document.getElementById(\'desk-menu\').classList.remove(\'open\');document.getElementById(\'panel-menu-btn\').classList.remove(\'active\')">';
+      h+='<div class="mi-ico">'+svg(a.icon||'globe')+'</div><span class="mi-name">'+a.name+'</span></div>';
+    });
+    h+='</div>';
+  });
+  menu.innerHTML=h;
+  setTimeout(function(){
+    var si=document.getElementById('menu-si');
+    if(si)si.addEventListener('input',function(){
+      var q=si.value.toLowerCase();
+      menu.querySelectorAll('.menu-item').forEach(function(it){it.style.display=it.dataset.mn.indexOf(q)>=0?'':'none';});
+      menu.querySelectorAll('.menu-cat').forEach(function(ct){
+        var grid=ct.nextElementSibling;
+        if(grid)ct.style.display=grid.querySelector('.menu-item:not([style*="display: none"])')?'':'none';
+      });
+    });
+  },0);
+}
+
+/* --- Initialize Desktop --- */
+buildPanel();
+rebuildDock();
+rebuildMenu();
+startClock();
+
+}
+</script>
+</body>
+</html>
