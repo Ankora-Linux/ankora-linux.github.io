@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ankora Linux 2.0 ve Ayaz, geri döndük</title>
+<meta name="description" content="Ankora Linux 2.0 güncel. Devuan SysVinit tabanı, kendi masaüstü ortamı Ayaz, GPL-3.0 açık kod. Ekrandaki her sayı gerçek.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* Karar notları (R-31): zemin grafit artı kemik AyazDE kartlarından. Vurgu Ankora mavisi logodan (açık temada koyultuldu, R-25). Display Sora logodaki A kesitini andırır. Cam yalnız headerda, üstten kayan içerik okunsun diye. Parlama yalnız hero penceresinde, ana odak. İlerleme çubuğu okuma konumunu gösterir (R-19). Gölge yalnız hero penceresinde. Satır listeler teknik döküm hissi için, kart ızgarası yok (R-14). */
+:root{
+  --paper:#F2EFE7; --ink:#131822; --mut:#4C5568; --line:#D5CEBD;
+  --card:#FFFFFF; --accent:#005A9C; --accent-ink:#FFFFFF; --accent-soft:rgba(0,90,156,.09);
+  --fd:'Sora',sans-serif; --fb:'IBM Plex Sans',sans-serif; --fm:'IBM Plex Mono',monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+[data-theme="dark"]{
+  --paper:#070B12; --ink:#F2EFE7; --mut:#9AA5BA; --line:rgba(150,180,220,.15);
+  --card:#101725; --accent:#2E9BEB; --accent-ink:#08131C; --accent-soft:rgba(46,155,235,.13);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--fb);line-height:1.65;overflow-x:hidden;transition:background .4s,color .4s}
+::selection{background:var(--accent);color:#fff}
+a{color:inherit;text-decoration:none}
+button{font:inherit;background:none;border:0;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1200px,calc(100% - 40px));margin:0 auto}
+section{scroll-margin-top:84px;position:relative}
+header{position:sticky;top:0;z-index:50;background:var(--paper);background:color-mix(in srgb,var(--paper) 82%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+@supports not (-webkit-text-stroke:1px black){.hero h1 .out,.secnum,.giant,.hero .bigmark{color:var(--mut)}}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:14px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--fd);font-weight:800;letter-spacing:-.02em;font-size:1.02rem}
+.brand small{font-family:var(--fm);font-size:10px;letter-spacing:.14em;color:var(--mut);display:block;font-weight:500}
+.logo-slot{width:38px;height:38px;flex-shrink:0;display:block;position:relative}
+.logo-slot img{width:38px;height:38px;border-radius:50%;object-fit:cover;position:absolute;inset:0;background:#000}
+.logo-slot svg{width:38px;height:38px;display:block}
+.logo-slot.has-file svg{display:none}
+.links{display:flex;gap:2px}
+.links a{font-size:.86rem;font-weight:500;color:var(--mut);padding:9px 13px;border-radius:10px;transition:.25s}
+.links a:hover{color:var(--ink);background:var(--accent-soft)}
+.nav-r{display:flex;align-items:center;gap:8px}
+.live{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:11px;letter-spacing:.08em;color:var(--mut);border:1px solid var(--line);padding:8px 13px;border-radius:100px}
+.live i{width:8px;height:8px;border-radius:50%;background:#2E9E5B}
+.tbtn{border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-family:var(--fm);font-size:11.5px;font-weight:600;color:var(--mut);transition:.25s;min-height:44px}
+.tbtn:hover{color:var(--ink);border-color:var(--accent)}
+.tbtn.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:60}
+
+/* HERO */
+.hero{padding:70px 0 0;overflow:hidden;position:relative}
+.hero .bigmark{position:absolute;right:-24px;bottom:-30px;font-family:var(--fd);font-weight:800;font-size:clamp(10rem,26vw,22rem);line-height:1;color:transparent;-webkit-text-stroke:1px var(--line);pointer-events:none;user-select:none}
+.hero .mono{font-family:var(--fm);font-size:11px;letter-spacing:.22em;color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.hero .mono::before{content:"";width:34px;height:2px;background:var(--accent)}
+.hero h1{font-family:var(--fd);font-weight:800;font-size:clamp(3.2rem,10vw,8.5rem);line-height:.94;letter-spacing:-.05em;margin-bottom:26px}
+.hero h1 .out{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.hero .lede{color:var(--mut);font-size:clamp(1.02rem,1.6vw,1.2rem);max-width:62ch;margin-bottom:32px}
+.hero .lede b{color:var(--ink)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.95rem;padding:17px 32px;border-radius:14px;transition:transform .3s var(--ease),box-shadow .3s,background .3s;min-height:48px}
+.btn-p{background:var(--accent);color:var(--accent-ink)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(0,90,156,.3)}
+[data-theme="dark"] .btn-p:hover{box-shadow:0 16px 34px rgba(46,155,235,.3)}
+.btn-g{border:1px solid var(--line);color:var(--ink)}
+.btn-g:hover{transform:translateY(-2px);background:var(--accent-soft)}
+.specs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:54px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card)}
+.specs div{padding:16px 20px;border-right:1px solid var(--line)}
+.specs div:last-child{border-right:0}
+.specs b{display:block;font-family:var(--fd);font-size:1rem;letter-spacing:-.01em}
+.specs span{font-family:var(--fm);font-size:10px;letter-spacing:.16em;color:var(--mut)}
+.stage{position:relative;border:1px solid var(--line);border-bottom:0;border-radius:24px 24px 0 0;overflow:hidden;background:var(--card);box-shadow:0 -20px 80px rgba(0,0,0,.25)}
+[data-theme="dark"] .stage{box-shadow:0 -20px 80px rgba(0,0,0,.4),0 0 130px rgba(46,155,235,.13)}
+.stage .bar{display:flex;align-items:center;gap:8px;padding:13px 18px;border-bottom:1px solid var(--line);font-family:var(--fm);font-size:10.5px;letter-spacing:.12em;color:var(--mut)}
+.stage .bar .dots{display:flex;gap:6px}
+.stage .bar .dots i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.stage .shot{position:relative;min-height:300px;background:#0B0F16}
+.stage .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.stage:hover .shot img{transform:scale(1.025)}
+.stage .cap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:14px 20px;font-family:var(--fm);font-size:10.5px;letter-spacing:.1em;color:var(--mut);border-top:1px solid var(--line)}
+.chips{position:absolute;z-index:2;display:flex;gap:10px;flex-wrap:wrap;padding:16px}
+.chips span{font-family:var(--fm);font-size:10.5px;letter-spacing:.08em;background:rgba(8,12,20,.78);color:#E8EEF7;border:1px solid rgba(255,255,255,.18);padding:8px 14px;border-radius:10px}
+.shotfb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--fm);font-size:11px;line-height:1.8;color:var(--mut);background:var(--card)}
+
+/* bölümler */
+.sec{padding:110px 0;border-top:1px solid var(--line)}
+.secnum{font-family:var(--fd);font-weight:800;font-size:clamp(5rem,14vw,11rem);line-height:1;color:transparent;-webkit-text-stroke:1px var(--line);position:absolute;top:34px;right:0;pointer-events:none;user-select:none}
+.eyebrow{font-family:var(--fm);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+h2.st{font-family:var(--fd);font-weight:700;font-size:clamp(2.2rem,5.4vw,3.8rem);letter-spacing:-.035em;line-height:1.02;max-width:24ch}
+.sub{color:var(--mut);margin-top:14px;max-width:64ch;font-size:1.04rem}
+.mani{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--card)}
+.mani>div{padding:clamp(26px,4vw,46px)}
+.mani>div+div{border-left:1px solid var(--line)}
+.mani p{color:var(--mut);margin-top:12px}
+.mani p b{color:var(--ink)}
+.mani .big{font-family:var(--fd);font-weight:800;font-size:clamp(2.6rem,5vw,4rem);letter-spacing:-.04em;line-height:1}
+.state{padding:56px 0;border-top:1px solid var(--line)}
+.state p{font-family:var(--fd);font-weight:800;font-size:clamp(1.9rem,4.8vw,3.5rem);letter-spacing:-.03em;line-height:1.12;max-width:26ch}
+.state p span{color:var(--accent)}
+.ticket{margin-top:40px;background:var(--ink);color:var(--paper);border-radius:22px;display:grid;grid-template-columns:1fr 260px;overflow:hidden;position:relative;transition:transform .5s var(--ease)}
+.ticket:hover{transform:translateY(-4px)}
+.ticket .l{padding:clamp(30px,4.5vw,54px)}
+.ticket .l .tv{font-family:var(--fm);font-size:11px;letter-spacing:.2em;color:var(--accent);margin-bottom:12px}
+.ticket h3{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,4.6vw,3.2rem);letter-spacing:-.035em;line-height:1;margin-bottom:14px}
+.ticket p{opacity:.75;max-width:56ch;margin-bottom:22px}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px}
+.tagrow span{font-family:var(--fm);font-size:11px;border:1px solid currentColor;padding:6px 13px;border-radius:9px}
+.ticket .nx{margin-top:18px;font-family:var(--fm);font-size:11px;letter-spacing:.06em;opacity:.65}
+.ticket .r{border-left:2px dashed currentColor;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:34px 26px;position:relative}
+.ticket .r::before,.ticket .r::after{content:"";position:absolute;left:-13px;width:24px;height:24px;border-radius:50%;background:var(--paper)}
+.ticket .r::before{top:-12px}
+.ticket .r::after{bottom:-12px}
+.ticket .r b{font-family:var(--fd);font-size:2.4rem;letter-spacing:-.03em}
+.ticket .r span{font-family:var(--fm);font-size:10px;letter-spacing:.22em}
+.ticket .r a{margin-top:8px;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:.9rem;padding:13px 26px;border-radius:12px;transition:transform .3s var(--ease);min-height:44px;display:inline-flex;align-items:center}
+.ticket .r a:hover{transform:translateY(-2px)}
+.shot-big{position:relative;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#000;min-height:340px;margin-top:36px}
+.shot-big img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.shot-big:hover img{transform:scale(1.02)}
+.vhint{position:absolute;bottom:12px;left:12px;font-family:var(--fm);font-size:10px;letter-spacing:.1em;background:rgba(0,0,0,.6);padding:7px 13px;border-radius:8px;color:#fff}
+.rows{margin-top:36px;display:grid;gap:14px}
+.row{border:1px solid var(--line);border-radius:18px;padding:28px;background:var(--card);display:grid;grid-template-columns:110px 1fr;gap:22px;align-items:start}
+.row .n{font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--accent);padding-top:6px}
+.row h4{font-family:var(--fd);font-size:1.12rem;margin-bottom:8px;letter-spacing:-.01em}
+.row p{color:var(--mut);font-size:.94rem;max-width:78ch}
+.row p b{color:var(--ink)}
+.row p code,.prose code{font-family:var(--fm);font-size:.85em;background:var(--accent-soft);padding:2px 8px;border-radius:6px;color:var(--ink)}
+.prose{margin-top:28px;max-width:76ch;color:var(--mut)}
+.prose p{margin-bottom:16px}
+.prose b{color:var(--ink)}
+.who{list-style:none;margin-top:24px;display:grid;gap:12px;max-width:76ch}
+.who li{display:flex;gap:12px;align-items:flex-start;color:var(--mut);font-size:.95rem}
+.who li b{color:var(--ink)}
+.tick{flex-shrink:0;width:24px;height:24px;border-radius:8px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.tl{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tl .it{border:1px solid var(--line);border-radius:18px;padding:28px;background:var(--card)}
+.tl .it.now{border-color:var(--accent);background:var(--accent-soft)}
+.tl .yr{font-family:var(--fd);font-weight:800;font-size:2rem;letter-spacing:-.03em;color:var(--accent)}
+.tl h4{font-family:var(--fd);font-size:1.1rem;margin:8px 0 6px}
+.tl p{color:var(--mut);font-size:.9rem}
+.faq{max-width:780px;margin:36px auto 0}
+.faq .it{border:1px solid var(--line);border-radius:16px;margin-bottom:10px;background:var(--card);overflow:hidden}
+.faq .q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:21px 24px;text-align:left;font-weight:600;font-size:1rem;min-height:48px}
+.faq .x{flex-shrink:0;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:19px;color:var(--accent);transition:transform .4s var(--ease)}
+.faq .it.open .x{transform:rotate(45deg);background:var(--accent);color:#fff;border-color:var(--accent)}
+.faq .a{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+.faq .a p{color:var(--mut);font-size:.94rem;padding:0 24px 24px}
+.cband{margin-top:36px;border:1px solid var(--line);border-radius:20px;background:var(--card);padding:clamp(28px,4vw,44px);display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}
+.clist{margin-top:12px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.clist a{display:flex;justify-content:space-between;align-items:center;padding:20px 26px;transition:.25s;border-bottom:1px solid var(--line);min-height:48px;font-weight:500}
+.clist a:last-child{border-bottom:0}
+.clist a:hover{background:var(--accent-soft)}
+.clist span:last-child{font-family:var(--fm);font-size:11px;color:var(--mut)}
+footer{border-top:1px solid var(--line);padding:60px 0 26px;margin-top:40px;overflow:hidden}
+.ftop{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-bottom:26px}
+.fls{display:flex;gap:4px;flex-wrap:wrap}
+.fls a{font-size:.86rem;color:var(--mut);padding:10px 14px;border-radius:10px;min-height:44px}
+.fls a:hover{color:var(--ink);background:var(--accent-soft)}
+.giant{font-family:var(--fd);font-weight:800;font-size:clamp(4rem,17vw,15rem);line-height:.9;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px var(--line);white-space:nowrap;margin:10px 0 0;user-select:none}
+.giant::after{content:".";color:var(--accent);-webkit-text-stroke:0}
+.fbot{border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--fm);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+#totop{position:fixed;bottom:20px;right:20px;z-index:60;width:48px;height:48px;border-radius:14px;background:var(--ink);color:var(--paper);font-size:17px;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(12px);transition:.35s}
+#totop.show{opacity:1;pointer-events:auto;transform:none}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+html{scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px;border:2px solid var(--paper)}
+.links a.on{color:var(--ink);background:var(--accent-soft)}
+@media(pointer:fine){
+.row,.ticket,.mani,.tl .it{position:relative;overflow:hidden}
+.row::before,.ticket::before,.mani::before,.tl .it::before{content:"";position:absolute;inset:0;border-radius:inherit;opacity:0;transition:opacity .4s;pointer-events:none;background:radial-gradient(440px circle at var(--mx,50%) var(--my,50%),var(--accent-soft),transparent 65%)}
+.row:hover::before,.ticket:hover::before,.mani:hover::before,.tl .it:hover::before{opacity:1}
+}
+@media(max-width:960px){.links{display:none}.specs{grid-template-columns:1fr 1fr}.specs div:nth-child(2){border-right:0}.specs div:nth-child(1),.specs div:nth-child(2){border-bottom:1px solid var(--line)}.mani,.ticket,.tl{grid-template-columns:1fr}.row{grid-template-columns:1fr;gap:10px}.ticket .r{border-left:0;border-top:2px dashed currentColor}.ticket .r::before{left:-12px;top:-13px}.ticket .r::after{right:-12px;left:auto;top:-13px}.secnum{top:20px}.sec{padding:72px 0}.hero{padding-top:52px}.state{padding:40px 0}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
+</style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+<div class="progress" id="pbar" aria-hidden="true"></div>
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <span class="logo-slot" id="logoSlot">
+        <img src="logo.png" alt="Ankora Linux logosu" onload="document.getElementById('logoSlot').classList.add('has-file')" onerror="this.remove()">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="#2E9BEB" stroke-width="3"/><path d="M10 34 L24 10 L38 34 L32 34 L24 20 L22 24 L19 22 L16 28 L13 26 Z" fill="#2E9BEB"/><path d="M17 34 L22 26 L26 30 L24 34 Z M27 34 L30 28 L34 34 Z" fill="#2E9BEB"/></svg>
+      </span>
+      <span>Ankora Linux<small>2.0 GÜNCEL</small></span>
+    </a>
+    <nav class="links" aria-label="Ana">
+      <a href="#surum" data-i="n1">Sürüm</a>
+      <a href="#neden" data-i="n2">Neden SysVinit</a>
+      <a href="#ayaz" data-i="n3">Ayaz</a>
+      <a href="#sayilar" data-i="n4">Sayılar</a>
+      <a href="#guven" data-i="n5">Güven</a>
+      <a href="#kurulum" data-i="n6">Kurulum</a>
+      <a href="#iletisim" data-i="n7">İletişim</a>
+    </nav>
+    <div class="nav-r">
+      <span class="live"><i aria-hidden="true"></i><span data-i="flag">Geri döndük</span></span>
+      <button class="tbtn" id="themeBtn" type="button" aria-label="Tema değiştir">Koyu</button>
+      <button class="tbtn on" id="btr" type="button">TR</button>
+      <button class="tbtn" id="ben" type="button">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="bigmark" aria-hidden="true" data-para=".12">2.0</div>
+  <div class="wrap">
+    <div class="mono rv"><span data-i="kick">DEVUAN SYSVINIT TABANI, AYAZ MASAÜSTÜ</span></div>
+    <h1 class="rv" style="transition-delay:.08s"><span data-i="h1a">Bizim masaüstümüz.</span><br><span class="out" data-i="h1b">Ayaz ile 2.0.</span></h1>
+    <p class="lede rv" data-i="lead" style="transition-delay:.16s">Ankora Linux, systemd yerine SysVinit kullanan Devuan üzerine kurulu bir dağıtımdır ve kendi masaüstü ortamı Ayaz ile gelir. <b>Kaynak kodunun tamamı açık, lisans GPL-3.0, güncel sürüm 2.0.</b></p>
+    <div class="cta-row rv" style="transition-delay:.24s">
+      <a href="#kurulum" class="btn btn-p"><span data-i="cta1">Kurulumu gör</span></a>
+      <a href="https://github.com/Ankora-Linux/Ayaz" target="_blank" rel="noopener" class="btn btn-g"><span data-i="cta2">Kaynak kodu aç</span></a>
+    </div>
+    <div class="specs rv" style="transition-delay:.32s">
+      <div><b>2.0</b><span data-i="sp1">SÜRÜM</span></div>
+      <div><b>Ayaz</b><span data-i="sp2">MASAÜSTÜ</span></div>
+      <div><b>SysVinit</b><span data-i="sp3">SERVİS YÖNETİMİ</span></div>
+      <div><b>GPL-3.0</b><span data-i="sp4">LİSANS</span></div>
+    </div>
+    <div class="stage rv" style="transition-delay:.4s">
+      <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>AYAZ MASAÜSTÜ, 2.0</span></div>
+      <div class="shot">
+        <div class="chips"><span>2.0 GÜNCEL</span><span>AYAZ</span><span>DEVUAN SYSVINIT</span></div>
+        <img src="ayazde-masaustu.png" alt="Ayaz masaüstü ortamı" onload="document.getElementById('heroFb').style.display='none'" onerror="this.remove()">
+        <div class="shotfb" id="heroFb">ayazde-masaustu.png klasöre eklenince<br>gerçek görüntü burada görünür</div>
+      </div>
+      <div class="cap"><span data-i="hcap">AYAZ MASAÜSTÜ, GERÇEK GÖRÜNTÜ</span><span>DEVUAN SYSVINIT</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="duyuru">
+  <div class="wrap">
+    <div class="secnum" aria-hidden="true">01</div>
+    <div class="eyebrow rv" data-i="i01">Duyuru</div>
+    <h2 class="st rv" data-i="rtitle">Ara bitti, Ayaz ile dönüyoruz.</h2>
+    <div class="mani rv">
+      <div>
+        <div class="big" data-i="rsub">2.0 güncel.</div>
+        <p data-i="rdesc">Eski 01.0 ve 02.0 Zümrüt geride kaldı. Çekirdek ekip yeniden kuruldu, <b>güncel sürüm 2.0 Ayaz masaüstü ortamıyla geliyor.</b> Kod açık kalacak, forum aktif olacak.</p>
+      </div>
+      <div>
+        <div class="big">Ayaz.</div>
+        <p data-i="rdesc2">Panel, tema motoru ve ayarlar bize ait. Pencere yönetiminde denenmiş açık bileşenleri kullanırız, yeniden icat etmeyiz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="state">
+  <div class="wrap">
+    <p class="rv" data-i="st1">Yabancı masaüstlerine tema giydirmeyi bıraktık, <span>kendi ortamımızı kurduk.</span></p>
+  </div>
+</section>
+
+<section class="sec" id="surum" style="padding-top:0">
+  <div class="wrap">
+    <div class="secnum" aria-hidden="true">02</div>
+    <div class="eyebrow rv" data-i="i02">Sürüm</div>
+    <h2 class="st rv" data-i="ptitle">Tek sürüm, net iş.</h2>
+    <p class="sub rv" data-i="psub">Liste yok. Güncel sürüm 2.0, Ayaz ile günlük kullanım içindir.</p>
+    <article class="ticket rv">
+      <div class="l">
+        <div class="tv">GÜNCEL SÜRÜM</div>
+        <h3>Ankora 2.0</h3>
+        <p data-i="pr1">Devuan SysVinit tabanı, Ayaz masaüstü ortamı, Debian paket deposu ve Türkçe arayüz. Günlük kullanım için indirilebilir kararlı sürüm.</p>
+        <div class="tagrow"><span>Devuan SysVinit</span><span>Ayaz</span><span>Tauri 1.5</span><span>Türkçe</span><span>GPL-3.0</span></div>
+        <p class="nx" data-i="nx1">01.0 ve 02.0 Zümrüt önceki sürümlerdir.</p>
+      </div>
+      <div class="r"><b>2.0</b><span data-i="rorb">GÜNCEL</span><a href="https://ankalab.flarum.cloud" target="_blank" rel="noopener"><span data-i="cta3">Forumda konuş</span></a></div>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="neden" style="padding-top:0">
+  <div class="wrap">
+    <div class="secnum" aria-hidden="true">03</div>
+    <div class="eyebrow rv" data-i="i03">Servis yönetimi</div>
+    <h2 class="st rv" data-i="svtitle">Neden SysVinit.</h2>
+    <div class="prose rv">
+      <p data-i="svd1">Servis yöneticisi olarak systemd değil, klasik SysVinit kullanılıyor. Sistem açılırken hangi servisin ne zaman başladığını gösteren <b>numaralandırılmış betikler sırayla çalışır.</b> <code>/etc/rc2.d</code> gibi dizinlere bakıp neyin ayakta olduğunu görebilir, bir servisi tek satırla durdurabilirsiniz.</p>
+      <p data-i="svd2">Arkada dönen, kendiliğinden yeniden başlatılan, dosya sisteminin kök dizinini yönetmeye soyunan görünmez bir katman yok. <b>Sürprizleri sevmeyenler için doğrusu bu.</b></p>
+      <p data-i="svd3">Debian paket deposu olduğu gibi duruyor. Devuan paketleri, apt komutları, yapılandırma alışkanlıkları hep tanıdık. Ankora bunların üstüne kendi arayüzünü ve kendi araçlarını ekliyor.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="ayaz" style="padding-top:0">
+  <div class="wrap">
+    <div class="secnum" aria-hidden="true">04</div>
+    <div class="eyebrow rv">Ayaz</div>
+    <h2 class="st rv" data-i="atitle">Tema değil, ortam: Ayaz.</h2>
+    <p class="sub rv" data-i="asub">Ayaz, Ankora'nın kendi masaüstü ortamı. Aşağıdaki görüntü gerçek sistemden alınmıştır.</p>
+    <div class="prose rv">
+      <p data-i="azd1">Çekirdeği <b>Rust ile yazılmış, Tauri 1.5 üzerinde çalışıyor;</b> arayüz katmanı WebKitGTK ile çiziliyor. Pencere yöneticisi olarak <b>openbox</b> görev yapıyor: açık pencere sayısı arttıkça RAM erimeyen, efekt peşinde koşmayan bir yönetici.</p>
+      <p data-i="azd2">Kabuk tek parça: <b>başlat menüsü, açık pencerelerin listesi, sistem tepsisi, bildirimler ve ayarlar</b> aynı arayüzün içinde. Monokrom cam tasarım sistemi kullanılıyor ve üç tema arasında geçiş yapılabiliyor. Sistem durumu neredeyse kontroller de orada.</p>
+      <p data-i="azd3">Arayüz Türkçe. Menülerden hata mesajlarına, güncelleyiciden görev yöneticisine kadar <b>kullanıcıyla konuşan her metin Türkçe</b> yazılmış.</p>
+    </div>
+    <figure class="shot-big rv">
+      <img src="ayazde-masaustu.png" alt="Ayaz masaüstü ortamı" onload="document.getElementById('bandFb').style.display='none'" onerror="this.remove()">
+      <div class="shotfb" id="bandFb">ayazde-masaustu.png klasöre eklenince<br>gerçek görüntü burada görünür</div>
+      <figcaption class="vhint">AYAZ MASAÜSTÜ ORTAMI, DEVUAN SYSVINIT</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" id="sayilar" style="padding-top:0">
+  <div class="wrap">
+    <div class="secnum" aria-hidden="true">05</div>
+    <div class="eyebrow rv" data-i="i05">Dürüstlük</div>
+    <h2 class="st rv" data-i="nmtitle">Ekrandaki her sayı gerçek.</h2>
+    <p class="sub rv" data-i="nmsub">Sahte gösterge yok. Her bilgi ya sistemden geliyor ya da yok yazıyor.</p>
+    <div class="rows rv">
+      <div class="row"><div class="n">GÖREV</div><div><h4 data-i="nm1t">Yöneticisi sistemden okur</h4><p data-i="nm1d">Hangi program çalışıyor, kim ne kadar CPU alıyor, bellek nasıl paylaşılmış, disk doluluğu ne seviyede: hepsi doğrudan sistem kaynaklarından geliyor. Listeden bir süreci sonlandırabilirsiniz; yetkiniz olmayan bir hedefe dokunmaya kalkarsanız sistem reddediyor, arayüz bunu da dürüstçe yazıyor.</p></div></div>
+      <div class="row"><div class="n">PİL</div><div><h4 data-i="nm2t">Yoksa gizlenir</h4><p data-i="nm2d">Pil göstergesi makinede pil varsa açılıyor, yoksa ikonu ve alt yazısı kendini gizliyor. Yerine sabit bir yüzde ve uydurma bir süre yazmıyor.</p></div></div>
+      <div class="row"><div class="n">AĞ</div><div><h4 data-i="nm3t">Canlı değerler</h4><p data-i="nm3d">Ağ panosu IP adresinizi, gateway'i ve DNS sunucunuzu canlı gösteriyor. Kablosuz arayüz sistemde yoksa bunu da olduğu gibi bildiriyor, boş liste üretmiyor.</p></div></div>
+      <div class="row"><div class="n">NMCLİ</div><div><h4 data-i="nm4t">Gerçek tarama</h4><p data-i="nm4d">Bluetooth ve Wi-Fi yönetimi nmcli üzerinden yürüyor: ağ taranıyor, bağlanılıyor, bağlantı kesiliyor. Arayüzde gördüğünüz ağ, makinenizin gerçekten gördüğü ağ.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="guven" style="padding-top:0">
+  <div class="wrap">
+    <div class="secnum" aria-hidden="true">06</div>
+    <div class="eyebrow rv" data-i="i06">Güven</div>
+    <h2 class="st rv" data-i="gvtitle">Kontrol sende.</h2>
+    <div class="rows rv">
+      <div class="row"><div class="n">OTURUM</div><div><h4 data-i="gv1t">Kapanmadan önce kaydeder</h4><p data-i="gv1d">Ayaz, kapanma anındaki masaüstü durumunu kaydediyor ve bir sonraki açılışta pencerelerinizi geri getiriyor. Makine beklenmedik biçimde kapandıysa bunu bir sayaçla sayıyor. Aynı şey iki kez üst üste olursa bir sonraki açılışta güvenli kip soruyor ve seçeneğinize göre oturumu ya eski haliyle sürdürüyor ya da tertemiz başlatıyor. Kullanıcı verisine dokunmadan hatayı tespit ediyor.</p></div></div>
+      <div class="row"><div class="n">GÜNCELLEME</div><div><h4 data-i="gv2t">Yarım iş kalmıyor</h4><p data-i="gv2d">Sistem güncelleme işlemi atomik adımlarla yürüyor: önce yeni paket hazırlanıyor ve doğrulanıyor, sonra uygulanıyor, her adımın kendi durum kaydı var. Süreç yarıda kesilirse betik durumundan nerede kaldığını okuyup ya kaldığı yerden devam ediyor ya da bir önceki çalışan duruma geri dönüyor.</p></div></div>
+      <div class="row"><div class="n">YAPAY ZEKA</div><div><h4 data-i="gv3t">Kafasına göre komut yok</h4><p data-i="gv3d">Gömülü yapay zeka ajanının çalıştırabileceği komutlar önceden belirlenmiş bir izin listesine bağlı; listede olmayan hiçbir komut geçmiyor. Tarayıcı köprüsü token ile korumalı, sayfanın dışına giden her istek güvenlik politikasından geçiyor, gömülü çerçeveler sandbox içinde tutuluyor. XDG ayarları sistemden okunuyor: bağlantılar varsayılan tarayıcınızla açılıyor.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="kurulum" style="padding-top:0">
+  <div class="wrap">
+    <div class="secnum" aria-hidden="true">07</div>
+    <div class="eyebrow rv" data-i="i07">Kurulum</div>
+    <h2 class="st rv" data-i="intitle">Önce deneyin, sonra karar verin.</h2>
+    <div class="mani rv">
+      <div>
+        <div class="big" data-i="in1t">Canlı ISO.</div>
+        <p data-i="in1d">Ankora hibrit canlı ISO olarak dağıtılıyor. İmajı USB'ye yazdırıp makineyi açtığınızda kurmadan kullanmaya başlıyorsunuz; beğendiyseniz aynı ortamdan kuruluma geçiyorsunuz.</p>
+      </div>
+      <div>
+        <div class="big">.deb</div>
+        <p data-i="in2d">Aynı sistemin .deb paketi de mevcut, mevcut bir sisteme üzerine kurmak isteyenler için. İmaj dosyasının SHA256 özeti yanında yayımlanıyor, indirdikten sonra doğrulayabiliyorsunuz.</p>
+      </div>
+    </div>
+    <ul class="who rv">
+      <li><span class="tick">✓</span><span data-i="w1"><b>Sistemin arkasında ne döndüğünü</b> bilmek isteyenler için.</span></li>
+      <li><span class="tick">✓</span><span data-i="w2"><b>Açılışta yalnız ihtiyaç duyulan servislerin</b> çalışmasını isteyenler için.</span></li>
+      <li><span class="tick">✓</span><span data-i="w3"><b>Animasyonsuz, Türkçe</b> bir masaüstü isteyenler için.</span></li>
+      <li><span class="tick">✓</span><span data-i="w4"><b>Eski donanıma ikinci bir hayat</b> vermek isteyenler için.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="yol" style="padding-top:0">
+  <div class="wrap">
+    <div class="secnum" aria-hidden="true">08</div>
+    <div class="eyebrow rv" data-i="i08">Yol</div>
+    <h2 class="st rv" data-i="tltitle">Mola verdik, dağıtmadık.</h2>
+    <div class="tl rv">
+      <div class="it"><div class="yr">01.0</div><h4>Ankora 01.0</h4><p data-i="t2d">İlk kararlı sürüm yayınlandı, sade ve telemetrisiz çizgiyi koydu.</p></div>
+      <div class="it"><div class="yr">02.0</div><h4>02.0 Zümrüt</h4><p data-i="t3d">Önceki büyük sürüm. Masaüstü entegrasyonları güncellendi.</p></div>
+      <div class="it now"><div class="yr">2.0</div><h4 data-i="t4t">Güncel: Ayaz dönemi</h4><p data-i="t4d">Ekip yeniden kuruldu. Kendi masaüstü ortamımız Ayaz ile 2.0 güncel sürüm oldu.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="sss" style="padding-top:0">
+  <div class="wrap">
+    <div class="secnum" aria-hidden="true">09</div>
+    <div class="eyebrow rv" style="text-align:center" data-i="i09">SSS</div>
+    <h2 class="st rv" style="text-align:center;margin:0 auto" data-i="qtitle">Sorulanlar, dürüst yanıtlar.</h2>
+    <div class="faq rv">
+      <div class="it"><button class="q" type="button"><span data-i="q1">Neden systemd değil de SysVinit?</span><span class="x">+</span></button><div class="a"><p data-i="a1">Numaralandırılmış betikler sırayla çalışır, neyin ne zaman başladığı bellidir. Tek satırla servis durdurulur, arkada kendiliğinden yeniden başlayan görünmez bir katman yoktur.</p></div></div>
+      <div class="it"><button class="q" type="button"><span data-i="q2">Eski bilgisayarda çalışır mı?</span><span class="x">+</span></button><div class="a"><p data-i="a2">Openbox efekt peşinde koşmaz, açılışta yalnız gerekli servisler çalışır, masaüstü animasyonla vakit kaybettirmez. Eski donanıma ikinci hayat için uygun bir başlangıçtır.</p></div></div>
+      <div class="it"><button class="q" type="button"><span data-i="q3">Güncelleme yarıda kesilirse ne olur?</span><span class="x">+</span></button><div class="a"><p data-i="a3">Hiçbir şey kaybolmaz. Betik durum kaydından nerede kaldığını okur, ya kaldığı yerden devam eder ya da bir önceki çalışan duruma geri döner.</p></div></div>
+      <div class="it"><button class="q" type="button"><span data-i="q4">Yapay zeka istediği komutu çalıştırır mı?</span><span class="x">+</span></button><div class="a"><p data-i="a4">Hayır. İzin listesinde olmayan hiçbir komut geçmiyor. Köprü token korumalı, dış istekler güvenlik politikasından geçiyor, çerçeveler sandbox içinde.</p></div></div>
+      <div class="it"><button class="q" type="button"><span data-i="q5">Ekibe nasıl katılırım?</span><span class="x">+</span></button><div class="a"><p data-i="a5">Kaynak kod GitHub'da, Ankora-Linux/Ayaz deposunda. Sorun bildirimi, çeviri ve paketleme yardımı kabul ediliyor. Forumdan veya e-posta ile de ulaşabilirsiniz.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="iletisim" style="padding-top:0">
+  <div class="wrap">
+    <div class="secnum" aria-hidden="true">10</div>
+    <div class="eyebrow rv" data-i="i10">İletişim</div>
+    <h2 class="st rv" data-i="ctitle">Dönüşün parçası ol.</h2>
+    <div class="cband rv">
+      <div><h3 style="font-family:var(--fd);font-size:1.4rem" data-i="cMain">Kod açık, katkı açık</h3><p style="color:var(--mut)" data-i="cSub">GPL-3.0 lisansıyla GitHub'da. İncele, çatalla, katkı ver.</p></div>
+      <a href="https://github.com/Ankora-Linux/Ayaz" target="_blank" rel="noopener" class="btn btn-p"><span data-i="cBtn">Kodu gör</span></a>
+    </div>
+    <div class="clist rv">
+      <a href="https://github.com/Ankora-Linux/Ayaz" target="_blank" rel="noopener"><span data-i="c1">Ayaz kaynak kodu</span><span>Ankora-Linux/Ayaz</span></a>
+      <a href="https://ankalab.flarum.cloud" target="_blank" rel="noopener"><span>AnkaLab Forum</span><span>ankalab.flarum.cloud</span></a>
+      <a href="mailto:ankoralinux@proton.me"><span>E-posta</span><span>ankoralinux@proton.me</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ftop">
+      <div><a href="#top" class="brand"><span class="logo-slot"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="#2E9BEB" stroke-width="3"/><path d="M10 34 L24 10 L38 34 L32 34 L24 20 L22 24 L19 22 L16 28 L13 26 Z" fill="#2E9BEB"/><path d="M17 34 L22 26 L26 30 L24 34 Z M27 34 L30 28 L34 34 Z" fill="#2E9BEB"/></svg></span><span>Ankora Linux</span></a>
+      <div style="color:var(--mut);font-size:.86rem;margin-top:8px" data-i="ftag">Özgür, sade ve bize ait. 2.0 güncel, Ayaz ile.</div></div>
+      <div class="fls">
+        <a href="#surum" data-i="n1">Sürüm</a><a href="#neden" data-i="n2">Neden SysVinit</a><a href="#kurulum" data-i="n6">Kurulum</a><a href="#sss" data-i="i09">SSS</a>
+      </div>
+    </div>
+    <div class="giant" aria-hidden="true">ANKORA</div>
+    <div class="fbot"><span>© 2026 ANKORA LINUX, GPL-3.0</span><span data-i="fs">Durum: geri döndük, 2.0 güncel</span></div>
+  </div>
+</footer>
+<button id="totop" aria-label="Yukarı">↑</button>
+
+<script>
+const T={
+tr:{n1:'Sürüm',n2:'Neden SysVinit',n3:'Ayaz',n4:'Sayılar',n5:'Güven',n6:'Kurulum',n7:'İletişim',flag:'Geri döndük',kick:'DEVUAN SYSVINIT TABANI, AYAZ MASAÜSTÜ',h1a:'Bizim masaüstümüz.',h1b:'Ayaz ile 2.0.',lead:'Ankora Linux, systemd yerine SysVinit kullanan Devuan üzerine kurulu bir dağıtımdır ve kendi masaüstü ortamı Ayaz ile gelir. <b>Kaynak kodunun tamamı açık, lisans GPL-3.0, güncel sürüm 2.0.</b>',cta1:'Kurulumu gör',cta2:'Kaynak kodu aç',sp1:'SÜRÜM',sp2:'MASAÜSTÜ',sp3:'SERVİS YÖNETİMİ',sp4:'LİSANS',hcap:'AYAZ MASAÜSTÜ, GERÇEK GÖRÜNTÜ',i01:'Duyuru',rtitle:'Ara bitti, Ayaz ile dönüyoruz.',rsub:'2.0 güncel.',rdesc:'Eski 01.0 ve 02.0 Zümrüt geride kaldı. Çekirdek ekip yeniden kuruldu, <b>güncel sürüm 2.0 Ayaz masaüstü ortamıyla geliyor.</b> Kod açık kalacak, forum aktif olacak.',rdesc2:'Panel, tema motoru ve ayarlar bize ait. Pencere yönetiminde denenmiş açık bileşenleri kullanırız, yeniden icat etmeyiz.',st1:'Yabancı masaüstlerine tema giydirmeyi bıraktık, <span>kendi ortamımızı kurduk.</span>',i02:'Sürüm',ptitle:'Tek sürüm, net iş.',psub:'Liste yok. Güncel sürüm 2.0, Ayaz ile günlük kullanım içindir.',pr1:'Devuan SysVinit tabanı, Ayaz masaüstü ortamı, Debian paket deposu ve Türkçe arayüz. Günlük kullanım için indirilebilir kararlı sürüm.',cta3:'Forumda konuş',nx1:'01.0 ve 02.0 Zümrüt önceki sürümlerdir.',rorb:'GÜNCEL',i03:'Servis yönetimi',svtitle:'Neden SysVinit.',svd1:'Servis yöneticisi olarak systemd değil, klasik SysVinit kullanılıyor. Sistem açılırken hangi servisin ne zaman başladığını gösteren <b>numaralandırılmış betikler sırayla çalışır.</b> <code>/etc/rc2.d</code> gibi dizinlere bakıp neyin ayakta olduğunu görebilir, bir servisi tek satırla durdurabilirsiniz.',svd2:'Arkada dönen, kendiliğinden yeniden başlatılan, dosya sisteminin kök dizinini yönetmeye soyunan görünmez bir katman yok. <b>Sürprizleri sevmeyenler için doğrusu bu.</b>',svd3:'Debian paket deposu olduğu gibi duruyor. Devuan paketleri, apt komutları, yapılandırma alışkanlıkları hep tanıdık. Ankora bunların üstüne kendi arayüzünü ve kendi araçlarını ekliyor.',atitle:'Tema değil, ortam: Ayaz.',asub:'Ayaz, Ankora\u2019nın kendi masaüstü ortamı. Aşağıdaki görüntü gerçek sistemden alınmıştır.',azd1:'Çekirdeği <b>Rust ile yazılmış, Tauri 1.5 üzerinde çalışıyor;</b> arayüz katmanı WebKitGTK ile çiziliyor. Pencere yöneticisi olarak <b>openbox</b> görev yapıyor: açık pencere sayısı arttıkça RAM erimeyen, efekt peşinde koşmayan bir yönetici.',azd2:'Kabuk tek parça: <b>başlat menüsü, açık pencerelerin listesi, sistem tepsisi, bildirimler ve ayarlar</b> aynı arayüzün içinde. Monokrom cam tasarım sistemi kullanılıyor ve üç tema arasında geçiş yapılabiliyor. Sistem durumu neredeyse kontroller de orada.',azd3:'Arayüz Türkçe. Menülerden hata mesajlarına, güncelleyiciden görev yöneticisine kadar <b>kullanıcıyla konuşan her metin Türkçe</b> yazılmış.',i05:'Dürüstlük',nmtitle:'Ekrandaki her sayı gerçek.',nmsub:'Sahte gösterge yok. Her bilgi ya sistemden geliyor ya da yok yazıyor.',nm1t:'Yöneticisi sistemden okur',nm1d:'Hangi program çalışıyor, kim ne kadar CPU alıyor, bellek nasıl paylaşılmış, disk doluluğu ne seviyede: hepsi doğrudan sistem kaynaklarından geliyor. Listeden bir süreci sonlandırabilirsiniz; yetkiniz olmayan bir hedefe dokunmaya kalkarsanız sistem reddediyor, arayüz bunu da dürüstçe yazıyor.',nm2t:'Yoksa gizlenir',nm2d:'Pil göstergesi makinede pil varsa açılıyor, yoksa ikonu ve alt yazısı kendini gizliyor. Yerine sabit bir yüzde ve uydurma bir süre yazmıyor.',nm3t:'Canlı değerler',nm3d:'Ağ panosu IP adresinizi, gateway\u2019i ve DNS sunucunuzu canlı gösteriyor. Kablosuz arayüz sistemde yoksa bunu da olduğu gibi bildiriyor, boş liste üretmiyor.',nm4t:'Gerçek tarama',nm4d:'Bluetooth ve Wi-Fi yönetimi nmcli üzerinden yürüyor: ağ taranıyor, bağlanılıyor, bağlantı kesiliyor. Arayüzde gördüğünüz ağ, makinenizin gerçekten gördüğü ağ.',i06:'Güven',gvtitle:'Kontrol sende.',gv1t:'Kapanmadan önce kaydeder',gv1d:'Ayaz, kapanma anındaki masaüstü durumunu kaydediyor ve bir sonraki açılışta pencerelerinizi geri getiriyor. Makine beklenmedik biçimde kapandıysa bunu bir sayaçla sayıyor. Aynı şey iki kez üst üste olursa bir sonraki açılışta güvenli kip soruyor ve seçeneğinize göre oturumu ya eski haliyle sürdürüyor ya da tertemiz başlatıyor. Kullanıcı verisine dokunmadan hatayı tespit ediyor.',gv2t:'Yarım iş kalmıyor',gv2d:'Sistem güncelleme işlemi atomik adımlarla yürüyor: önce yeni paket hazırlanıyor ve doğrulanıyor, sonra uygulanıyor, her adımın kendi durum kaydı var. Süreç yarıda kesilirse betik durumundan nerede kaldığını okuyup ya kaldığı yerden devam ediyor ya da bir önceki çalışan duruma geri dönüyor.',gv3t:'Kafasına göre komut yok',gv3d:'Gömülü yapay zeka ajanının çalıştırabileceği komutlar önceden belirlenmiş bir izin listesine bağlı; listede olmayan hiçbir komut geçmiyor. Tarayıcı köprüsü token ile korumalı, sayfanın dışına giden her istek güvenlik politikasından geçiyor, gömülü çerçeveler sandbox içinde tutuluyor. XDG ayarları sistemden okunuyor: bağlantılar varsayılan tarayıcınızla açılıyor.',i07:'Kurulum',intitle:'Önce deneyin, sonra karar verin.',in1t:'Canlı ISO.',in1d:'Ankora hibrit canlı ISO olarak dağıtılıyor. İmajı USB\u2019ye yazdırıp makineyi açtığınızda kurmadan kullanmaya başlıyorsunuz; beğendiyseniz aynı ortamdan kuruluma geçiyorsunuz.',in2d:'Aynı sistemin .deb paketi de mevcut, mevcut bir sisteme üzerine kurmak isteyenler için. İmaj dosyasının SHA256 özeti yanında yayımlanıyor, indirdikten sonra doğrulayabiliyorsunuz.',w1:'<b>Sistemin arkasında ne döndüğünü</b> bilmek isteyenler için.',w2:'<b>Açılışta yalnız ihtiyaç duyulan servislerin</b> çalışmasını isteyenler için.',w3:'<b>Animasyonsuz, Türkçe</b> bir masaüstü isteyenler için.',w4:'<b>Eski donanıma ikinci bir hayat</b> vermek isteyenler için.',i08:'Yol',tltitle:'Mola verdik, dağıtmadık.',t2d:'İlk kararlı sürüm yayınlandı, sade ve telemetrisiz çizgiyi koydu.',t3d:'Önceki büyük sürüm. Masaüstü entegrasyonları güncellendi.',t4t:'Güncel: Ayaz dönemi',t4d:'Ekip yeniden kuruldu. Kendi masaüstü ortamımız Ayaz ile 2.0 güncel sürüm oldu.',i09:'SSS',qtitle:'Sorulanlar, dürüst yanıtlar.',q1:'Neden systemd değil de SysVinit?',a1:'Numaralandırılmış betikler sırayla çalışır, neyin ne zaman başladığı bellidir. Tek satırla servis durdurulur, arkada kendiliğinden yeniden başlayan görünmez bir katman yoktur.',q2:'Eski bilgisayarda çalışır mı?',a2:'Openbox efekt peşinde koşmaz, açılışta yalnız gerekli servisler çalışır, masaüstü animasyonla vakit kaybettirmez. Eski donanıma ikinci hayat için uygun bir başlangıçtır.',q3:'Güncelleme yarıda kesilirse ne olur?',a3:'Hiçbir şey kaybolmaz. Betik durum kaydından nerede kaldığını okur, ya kaldığı yerden devam eder ya da bir önceki çalışan duruma geri döner.',q4:'Yapay zeka istediği komutu çalıştırır mı?',a4:'Hayır. İzin listesinde olmayan hiçbir komut geçmiyor. Köprü token korumalı, dış istekler güvenlik politikasından geçiyor, çerçeveler sandbox içinde.',q5:'Ekibe nasıl katılırım?',a5:'Kaynak kod GitHub\u2019da, Ankora-Linux/Ayaz deposunda. Sorun bildirimi, çeviri ve paketleme yardımı kabul ediliyor. Forumdan veya e-posta ile de ulaşabilirsiniz.',i10:'İletişim',ctitle:'Dönüşün parçası ol.',cMain:'Kod açık, katkı açık',cSub:'GPL-3.0 lisansıyla GitHub\u2019da. İncele, çatalla, katkı ver.',cBtn:'Kodu gör',c1:'Ayaz kaynak kodu',ftag:'Özgür, sade ve bize ait. 2.0 güncel, Ayaz ile.',fs:'Durum: geri döndük, 2.0 güncel'},
+en:{n1:'Release',n2:'Why SysVinit',n3:'Ayaz',n4:'Numbers',n5:'Trust',n6:'Install',n7:'Contact',flag:'We are back',kick:'DEVUAN SYSVINIT BASE, AYAZ DESKTOP',h1a:'Our own desktop.',h1b:'Ayaz with 2.0.',lead:'Ankora Linux is built on Devuan with SysVinit instead of systemd, and ships its own Ayaz desktop environment. <b>Fully open source, GPL-3.0 licensed, current release 2.0.</b>',cta1:'See installation',cta2:'Open the source',sp1:'RELEASE',sp2:'DESKTOP',sp3:'SERVICE MANAGER',sp4:'LICENSE',hcap:'AYAZ DESKTOP, REAL SCREENSHOT',i01:'Notice',rtitle:'Back with Ayaz.',rsub:'2.0 is current.',rdesc:'Old 01.0 and 02.0 Zumrut are behind us. The core team regrouped, and <b>current release 2.0 ships the Ayaz desktop.</b> Code stays open, forum stays active.',rdesc2:'Panel, theme engine, and settings are ours. We reuse proven open components for window management.',st1:'We stopped theming foreign desktops, <span>we built our own environment.</span>',i02:'Release',ptitle:'One release, clear job.',psub:'No list. Current release 2.0 with Ayaz is for daily use.',pr1:'Devuan SysVinit base, Ayaz desktop environment, Debian package archive, and a Turkish interface. A stable release for daily use.',cta3:'Discuss on the forum',nx1:'01.0 and 02.0 Zumrut are previous releases.',rorb:'CURRENT',i03:'Service manager',svtitle:'Why SysVinit.',svd1:'The service manager is classic SysVinit, not systemd. <b>Numbered scripts run in order at boot,</b> so you can see what starts when. Look into directories like <code>/etc/rc2.d</code> to see what runs, stop a service with a single line.',svd2:'No invisible layer that restarts itself behind your back and manages the filesystem root. <b>For those who dislike surprises, this is the right call.</b>',svd3:'The Debian package archive stays as is. Devuan packages, apt commands, configuration habits, all familiar. Ankora adds its own interface and tools on top.',atitle:'Not a theme, an environment: Ayaz.',asub:'Ayaz is Ankora\u2019s own desktop environment. The image below is from the real system.',azd1:'Its core is <b>written in Rust and runs on Tauri 1.5;</b> the interface layer draws with WebKitGTK. The window manager is <b>openbox</b>: RAM does not melt as windows pile up, it chases no effects.',azd2:'One-piece shell: <b>start menu, open window list, system tray, notifications, and settings</b> inside the same interface. A monochrome glass design system is used, switchable across three themes. System state is near, so are the controls.',azd3:'The interface is Turkish. <b>Every text that talks to the user, from menus to error messages,</b> from updater to task manager, is written in Turkish.',i05:'Honesty',nmtitle:'Every number on screen is real.',nmsub:'No fake indicators. Every fact comes from the system or reads absent.',nm1t:'Its manager reads the system',nm1d:'Which program runs, who takes how much CPU, how memory is shared, disk fullness: all straight from system sources. You can end a process from the list; touch a target beyond your rights and the system refuses, and the interface honestly says so.',nm2t:'Absent means hidden',nm2d:'The battery indicator opens if the machine has a battery, hides its icon and caption if not. No fixed percent and invented duration in its place.',nm3t:'Live values',nm3d:'The network panel shows your IP address, gateway, and DNS servers live. No wireless interface on the system means it reports exactly that, it produces no empty list.',nm4t:'Real scanning',nm4d:'Bluetooth and Wi-Fi run over nmcli: networks get scanned, joined, dropped. The network you see is the network your machine truly sees.',i06:'Trust',gvtitle:'You hold control.',gv1t:'Saves before closing',gv1d:'Ayaz records the desktop state at shutdown and brings your windows back on next boot. An unexpected shutdown gets counted. Twice in a row brings the safe mode question at next boot: continue as before or start clean. It detects the fault without touching user data.',gv2t:'No half done jobs',gv2d:'System updates run in atomic steps: the new package is prepared and verified first, then applied, each step with its own state record. Cut the process midway and the script reads where it stopped, then either resumes or returns to the last working state.',gv3t:'No rogue commands',gv3d:'The embedded AI agent runs only commands from a predefined allow list; anything off the list never passes. The browser bridge is token protected, every off page request passes the security policy, embedded frames stay sandboxed. XDG settings come from the system: links open in your default browser.',i07:'Install',intitle:'Try first, decide later.',in1t:'Live ISO.',in1d:'Ankora ships as a hybrid live ISO. Flash the image to USB, boot the machine, and start using it without installing; switch to installation from the same environment if you like it.',in2d:'A .deb package of the same system exists too, for installing on top of a current system. The image SHA256 digest ships alongside, verifiable after download.',w1:'For those who want to know <b>what runs behind the system.</b>',w2:'For those who want <b>only needed services</b> running at boot.',w3:'For those who want an <b>animation free, Turkish</b> desktop.',w4:'For those who want to give <b>old hardware a second life.</b>',i08:'Path',tltitle:'We paused, we did not scatter.',t2d:'First stable release set the lean, telemetry free line.',t3d:'Previous major release. Desktop integrations updated.',t4t:'Current: the Ayaz era',t4d:'Team regrouped. Release 2.0 with our own Ayaz desktop is current.',i09:'FAQ',qtitle:'Asked, answered honestly.',q1:'Why SysVinit instead of systemd?',a1:'Numbered scripts run in order, it is clear what starts when. One line stops a service, no invisible self restarting layer behind.',q2:'Does it run on old computers?',a2:'Openbox chases no effects, only needed services run at boot, the desktop wastes no time on animation. A fitting start for old hardware.',q3:'What if an update gets cut midway?',a3:'Nothing is lost. The script reads where it stopped from the state record, then either resumes or returns to the last working state.',q4:'Can the AI run any command it wants?',a4:'No. Nothing off the allow list passes. Bridge token protected, outside requests pass the policy, frames sandboxed.',q5:'How do I join the team?',a5:'Source on GitHub, in the Ankora-Linux/Ayaz repo. Issue reports, translation, and packaging help are welcome. Reach us via forum or email too.',i10:'Contact',ctitle:'Be part of the return.',cMain:'Code open, contributions open',cSub:'GPL-3.0 on GitHub. Read, fork, contribute.',cBtn:'See the code',c1:'Ayaz source code',ftag:'Free, lean, and ours. 2.0 current, with Ayaz.',fs:'Status: back, 2.0 current'}};
+let lang=localStorage.getItem('ankora_lang')||'tr';
+function apply(){const t=T[lang];document.querySelectorAll('[data-i]').forEach(el=>{const k=el.getAttribute('data-i');if(t[k]!=null)el.innerHTML=t[k];});document.documentElement.lang=lang;document.title=lang==='tr'?'Ankora Linux 2.0 ve Ayaz, geri döndük':'Ankora Linux 2.0 and Ayaz, we are back';document.getElementById('btr').classList.toggle('on',lang==='tr');document.getElementById('ben').classList.toggle('on',lang==='en');}
+document.getElementById('btr').onclick=()=>{lang='tr';localStorage.setItem('ankora_lang',lang);apply();};
+document.getElementById('ben').onclick=()=>{lang='en';localStorage.setItem('ankora_lang',lang);apply();};
+const root=document.documentElement,themeBtn=document.getElementById('themeBtn');
+function setTheme(m){root.setAttribute('data-theme',m);localStorage.setItem('ankora_theme',m);themeBtn.textContent=m==='dark'?'Koyu':'Açık';}
+setTheme(localStorage.getItem('ankora_theme')||'dark');
+themeBtn.onclick=()=>setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark');
+const tt=document.getElementById('totop');
+const pb=document.getElementById('pbar');
+addEventListener('scroll',()=>{
+  tt.classList.toggle('show',scrollY>700);
+  const h=document.documentElement;
+  const k=h.scrollHeight-h.clientHeight;
+  pb.style.width=(k>0?(scrollY/k)*100:0)+'%';
+},{passive:true});
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const pxEls=[...document.querySelectorAll('[data-para]')];
+document.querySelectorAll('.secnum').forEach(el=>el.setAttribute('data-para','.05'));
+document.querySelector('.giant').setAttribute('data-para','.08');
+pxEls.push(...[...document.querySelectorAll('[data-para]')].filter(el=>pxEls.indexOf(el)<0));
+if(!reduced&&matchMedia('(pointer:fine)').matches){
+  document.querySelectorAll('.row,.ticket,.mani,.tl .it').forEach(el=>{
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect();
+      el.style.setProperty('--mx',(e.clientX-r.left)+'px');
+      el.style.setProperty('--my',(e.clientY-r.top)+'px');
+    });
+  });
+}
+if(!reduced&&pxEls.length){
+  let tick=false;
+  addEventListener('scroll',()=>{
+    if(tick)return;tick=true;
+    requestAnimationFrame(()=>{
+      tick=false;
+      const vh=innerHeight;
+      pxEls.forEach(el=>{
+        const r=el.getBoundingClientRect();
+        if(r.bottom>0&&r.top<vh){
+          const s=parseFloat(el.getAttribute('data-para')||'.08');
+          el.style.transform='translateY('+((r.top+r.height/2-vh/2)*s).toFixed(1)+'px)';
+        }
+      });
+    });
+  },{passive:true});
+}
+const spy=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.links a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));
+    }
+  });
+},{rootMargin:'-40% 0px -55% 0px'});
+['surum','neden','ayaz','sayilar','guven','kurulum','iletisim'].forEach(id=>{const s=document.getElementById(id);if(s)spy.observe(s);});
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+apply();
+</script>
+</body>
+</html>
