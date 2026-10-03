@@ -1,0 +1,31 @@
+# Ankora Linux - arama motoru botlari icin erisim kurallari
+# Bu dosya hangi sayfalarin taranacagini degil, neyin hangi bota acik oldugunu belirtir.
+# Mantik: sunucudaki butun sayfalar herkese acik, hicbir sey engelli degil.
+# NOT: RFC 9309'a gore her bot icin sadece bir grup yazilir, ayni bot iki grupta olamaz.
+
+User-agent: *
+Allow: /
+Disallow:
+Crawl-delay: 1
+
+# Google arama botlari (genel kural yukarida zaten acik, burada acikca yazildi)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+# Bing / Microsoft
+User-agent: Bingbot
+Allow: /
+
+# Reklam botlari: bu sitede reklam sayfasi yok
+User-agent: AdsBot-Google
+Disallow: /
+
+# Yeni sayfalar ve degisiklikler: Google ve Bing bunu otomatik ogrenir.
+# Ancak Search Console'a sitemap'i elle de bildirmek daha hizli sonuc verir.
+Sitemap: https://ankora-linux.github.io/sitemap.xml

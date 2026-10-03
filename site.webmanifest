@@ -1,0 +1,29 @@
+{
+  "name": "Ankora Linux 2.0",
+  "short_name": "Ankora",
+  "description": "Devuan SysVinit tabanlı Türkçe Linux dağıtımı ve kendi masaüstü ortamı Ayaz.",
+  "lang": "tr",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "id": "./",
+  "display": "browser",
+  "orientation": "any",
+  "background_color": "#070B12",
+  "theme_color": "#070B12",
+  "categories": ["os", "utilities"],
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
