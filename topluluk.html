@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topluluk — Ankora Linux</title>
+<meta name="description" content="Ankora Linux topluluğu: AnkaLab Forum, GitHub kaynak kodu, SSS ve iletişim. Sorun bildirin, çeviriye katılın.">
+<link rel="canonical" href="https://ankora-linux.github.io/topluluk.html">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#14161A">
+<meta name="geo.region" content="TR">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ankora Linux">
+<meta property="og:title" content="Topluluk — Ankora Linux">
+<meta property="og:description" content="Forum, kaynak kodu ve SSS: dönüşün parçası olun.">
+<meta property="og:url" content="https://ankora-linux.github.io/topluluk.html">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="logo.png">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"tr","url":"https://ankora-linux.github.io/topluluk.html","mainEntity":[{"@type":"Question","name":"Neden systemd değil de SysVinit?","acceptedAnswer":{"@type":"Answer","text":"Numaralı betikler sırayla çalışır; neyin ne zaman başladığı bellidir."}},{"@type":"Question","name":"Ayaz hangi teknolojilerle yazıldı?","acceptedAnswer":{"@type":"Answer","text":"Çekirdek Rust, çatı Tauri 1.5, arayüz WebKitGTK, pencere yöneticisi openbox."}}]}</script>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><span><b>Kod açık, katkı açık</b> — GPL-3.0.</span><a href="https://github.com/Ankora-Linux/Ayaz">Koda bakın</a></div></div>
+<header class="site"><nav class="nav">
+<a class="brand" href="index.html"><img class="mark-img" src="logo.png" width="38" height="38" alt="Ankora Linux logosu"><span><b>Ankora Linux</b><small>2.0 AyazDE</small></span></a>
+<button class="navtoggle" aria-expanded="false" aria-controls="menu">Menü</button>
+<div class="navlinks" id="menu"><a href="index.html">Genel Bakış</a><a href="surum.html">Sürüm</a><a href="ayaz.html">Ayaz</a><a href="mimari.html">Mimari</a><a href="okul.html">Okul</a><a href="topluluk.html" class="active">Topluluk</a></div>
+<div class="navtools"><button id="langToggle" class="toolbtn" title="Türkçe / English">EN</button><button id="themeToggle" class="toolbtn" title="Karanlık / aydınlık tema" aria-label="Karanlık / aydınlık tema"></button></div>
+<a class="btn small navcta" href="indir.html">İndir</a>
+</nav></header>
+<div class="wrap">
+<section class="block">
+<div class="kicker">Topluluk</div>
+<h2>Dönüşün parçası olun.</h2>
+<p class="sub">Sorun bildirimi, çeviri ve paketleme yardımı kabul ediliyor. Forumda konuşun, kodu çatallayın, e-postayla yazın.</p>
+<div class="grid g3">
+<div class="card"><div class="icon">◈</div><h3>AnkaLab Forum</h3><p>Sorular, kurulum yardımı, öneriler. Ekip forumda aktif.</p><a class="more" href="https://ankalab.flarum.cloud">Foruma git →</a></div>
+<div class="card"><div class="icon">❖</div><h3>Kaynak kodu</h3><p>Ayaz ve sürüm dosyaları GitHub'da, GPL-3.0 ile. İnceleyin, çatallayın.</p><a class="more" href="https://github.com/Ankora-Linux/Ayaz">Ankora-Linux/Ayaz →</a></div>
+<div class="card"><div class="icon amber">✦</div><h3>E-posta</h3><p>Forum dışı konular için doğrudan yazın.</p><a class="more" href="mailto:linuxankora@gmail.com">linuxankora@gmail.com →</a></div>
+</div>
+</section>
+<section class="block tight">
+<div class="center"><div class="kicker">SSS</div><h2>Sorulanlar, dürüst yanıtlar.</h2></div>
+<div class="faq">
+<details open><summary>Neden systemd değil de SysVinit?</summary><p>Numaralı betikler sırayla çalışır; neyin ne zaman başladığı bellidir. Tek satırla servis durdurulur, arkada kendiliğinden canlanan görünmez bir katman yoktur.</p></details>
+<details><summary>Eski bilgisayarda çalışır mı?</summary><p>openbox efekt peşinde koşmaz, açılışta yalnız gerekli servisler çalışır. Eski donanıma ikinci hayat için uygun bir başlangıçtır.</p></details>
+<details><summary>Hangi dağıtımın üzerine kurulu?</summary><p>Devuan'ın üzerine. Paket deposu Debian ailesinden; apt komutları ve yapılandırma alışkanlıkları aynen durur.</p></details>
+<details><summary>Ayaz hangi teknolojilerle yazıldı?</summary><p>Çekirdek Rust, çatı Tauri 1.5, arayüz WebKitGTK, pencere yöneticisi openbox, ağ yönetimi nmcli üzerinden.</p></details>
+<details><summary>Güncelleme yarıda kesilirse ne olur?</summary><p>Hiçbir şey kaybolmaz. Betik durum kaydından nerede kaldığını okur; ya devam eder ya da önceki çalışan duruma döner.</p></details>
+<details><summary>Yapay zekâ istediği komutu çalıştırır mı?</summary><p>Hayır. İzin listesi dışına çıkamaz; köprü token korumalı, çerçeveler sandbox içinde tutulur.</p></details>
+<details><summary>Ekibe nasıl katılırım?</summary><p>GitHub'da Ankora-Linux/Ayaz deposundan başlayın; forumdan veya e-postayla da ulaşabilirsiniz.</p></details>
+</div>
+</section>
+<div class="cta"><h2>Önce foruma uğrayın.</h2><p>Kurulumdan önce aklınızdaki soruyu sorun; kurulumdan sonra deneyiminizi anlatın.</p><div class="btnrow" style="justify-content:center"><a class="btn" href="https://ankalab.flarum.cloud">Foruma git</a><a class="btn ghost" href="indir.html">İndirme sayfası</a></div></div>
+<footer class="site" style="margin-top:0;border-top:0"><div class="foot">
+<div><a class="brand" href="index.html" style="margin-bottom:12px"><img class="mark-img" src="logo.png" width="38" height="38" alt="Ankora Linux logosu"><span><b>Ankora Linux</b><small>Özgür, sade ve bize ait</small></span></a></div>
+<div><h5>Keşfet</h5><a href="index.html">Genel bakış</a><a href="surum.html">Sürüm</a><a href="ayaz.html">Ayaz</a><a href="okul.html">Okul sürümü</a></div>
+<div><h5>Edin</h5><a href="indir.html">Canlı ISO</a><a href="indir.html">.deb paketi</a></div>
+<div><h5>Katıl</h5><a href="https://github.com/Ankora-Linux/Ayaz">Kaynak kodu</a><a href="https://ankalab.flarum.cloud">AnkaLab Forum</a></div>
+</div><div class="base">© 2026 Ankora Linux • GPL-3.0</div></footer>
+</div>
+<button id="toTop" aria-label="Yukarı dön">↑</button>
+<script src="script.js"></script>
+<script src="lang.js"></script>
+</body>
+</html>
