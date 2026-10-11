@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayaz Masaüstü — Ankora Linux</title>
+<meta name="description" content="Ayaz: Ankora Linux'un kendi masaüstü ortamı. Rust + Tauri 1.5, openbox pencere yönetimi, Dosyalar, Mağaza, AI asistanı ve Türkçe arayüz.">
+<link rel="canonical" href="https://ankora-linux.github.io/ayaz.html">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#14161A">
+<meta name="geo.region" content="TR">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ankora Linux">
+<meta property="og:title" content="Ayaz Masaüstü — Ankora Linux">
+<meta property="og:description" content="Tema değil, ortam: Rust + Tauri ile yazılmış Türkçe masaüstü.">
+<meta property="og:url" content="https://ankora-linux.github.io/ayaz.html">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="logo.png">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Ayaz Masaüstü — Ankora Linux","inLanguage":"tr","url":"https://ankora-linux.github.io/ayaz.html","isPartOf":{"@type":"WebSite","name":"Ankora Linux","url":"https://ankora-linux.github.io/"}}</script>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><span><b>Ayaz</b> — Ankora'nın kendi masaüstü ortamı.</span><a href="indir.html">Deneyin</a></div></div>
+<header class="site"><nav class="nav">
+<a class="brand" href="index.html"><img class="mark-img" src="logo.png" width="38" height="38" alt="Ankora Linux logosu"><span><b>Ankora Linux</b><small>2.0 AyazDE</small></span></a>
+<button class="navtoggle" aria-expanded="false" aria-controls="menu">Menü</button>
+<div class="navlinks" id="menu"><a href="index.html">Genel Bakış</a><a href="surum.html">Sürüm</a><a href="ayaz.html" class="active">Ayaz</a><a href="mimari.html">Mimari</a><a href="okul.html">Okul</a><a href="topluluk.html">Topluluk</a></div>
+<div class="navtools"><button id="langToggle" class="toolbtn" title="Türkçe / English">EN</button><button id="themeToggle" class="toolbtn" title="Karanlık / aydınlık tema" aria-label="Karanlık / aydınlık tema"></button></div>
+<a class="btn small navcta" href="indir.html">İndir</a>
+</nav></header>
+<div class="wrap">
+<section class="block">
+<div class="center"><div class="kicker">Ayaz masaüstü ortamı</div>
+<h2>Tema değil, ortam.</h2>
+<p class="sub">Yabancı masaüstlerine tema giydirmeyi bıraktık, kendi ortamımızı kurduk. Panel, tema motoru ve ayarlar bize ait; pencere yönetiminde denenmiş açık bileşenleri kullanıyoruz, yeniden icat etmiyoruz.</p></div>
+<div class="stage"><div class="showcase">
+<div class="tour" style="margin-top:0">
+<div class="tcard"><div class="mini"><div class="chiprow"><span>▤ Dosyalar</span><span>Masaüstü</span></div></div><div class="tbody"><h3>Dosyalar</h3><p>Hızlı erişim kenar çubuğu, ızgara görünüm, SMB/SFTP ağ paylaşımları. Ne arıyorsanız iki tık ötede.</p></div></div>
+<div class="tcard"><div class="mini"><div class="store-row"><div><b>Aria2</b><span>APT DEPO</span></div><div><b>Nmap</b><span>APT DEPO</span></div><div><b>Wireshark</b><span>APT DEPO</span></div></div></div><div class="tbody"><h3>Evrensel Yazılım Mağazası</h3><p>APT ve Flathub depolarından 2.000+ uygulama tek tıkla. "Flathub Hazır / APT Hazır" rozetleriyle neyin nereden geldiği belli.</p></div></div>
+<div class="tcard"><div class="mini"><div class="ai-chips"><span class="ok">Bağlı / Hazır</span><span>Ollama (Yerel)</span><span>API Ayarları</span></div></div><div class="tbody"><h3>AI Sistem Asistanı</h3><p>Otonom ajan: önbellek temizliği, disk &amp; RAM raporu, ağ durumu. Yerel Ollama ile çevrimdışı, API anahtarınızla çoklu model.</p></div></div>
+</div>
+<p class="fine" style="color:#9aa1ad;text-align:center;margin:18px 0 0">Gerçek AyazDE pencerelerinden çizimle uyarlandı.</p>
+</div></div>
+</section>
+<section class="block tight">
+<div class="kicker">Nasıl çalışır</div>
+<h2>Az parça, çok iş.</h2>
+<div class="grid g3">
+<div class="card"><div class="icon">◈</div><h3>Tek parça kabuk</h3><p>Başlat menüsü, açık pencereler, sistem tepsisi, bildirimler ve ayarlar aynı arayüzde. Eklenti avı yok.</p></div>
+<div class="card"><div class="icon">❖</div><h3>Hafif pencere yönetimi</h3><p>openbox efekt peşinde koşmaz. Pencere sayısı arttıkça bellek erimez; eski donanım nefes alır.</p></div>
+<div class="card"><div class="icon amber">✦</div><h3>Gerçek veriler</h3><p>Görev yöneticisi CPU ve belleği sistemden okur. Ağ panosu IP, gateway ve DNS'i canlı gösterir; olmayan donanım için masal anlatmaz.</p></div>
+</div>
+<h2 style="margin-top:56px">Dock'ta ne var?</h2>
+<p class="sub">Gerçek AyazDE masasındaki uygulamalar — hepsi Türkçe, hepsi tek tık uzakta.</p>
+<div class="apps">
+<div class="appcard"><div class="icon">▦</div><h3>Sistemi Kur</h3><p>Canlı ortamdan diske kurulum sihirbazı.</p></div>
+<div class="appcard"><div class="icon">⚓</div><h3>Karşılayıcı</h3><p>İlk açılışta sistemi tanıtan karşılama ekranı.</p></div>
+<div class="appcard"><div class="icon">▤</div><h3>Dosyalar</h3><p>Hızlı erişim, ağ paylaşımları (SMB/SFTP).</p></div>
+<div class="appcard"><div class="icon">›_</div><h3>Ayaz Uçbirim</h3><p>Sistemle aynı dili konuşan terminal.</p></div>
+<div class="appcard"><div class="icon">◉</div><h3>Yazılım Mağazası</h3><p>APT + Flathub, 2.000+ uygulama.</p></div>
+<div class="appcard"><div class="icon">◍</div><h3>Web Tarayıcı</h3><p>Varsayılan tarayıcınızla açılan bağlantılar.</p></div>
+<div class="appcard"><div class="icon">▨</div><h3>Ankora Ofis</h3><p>Günlük ofis işleri için hazır set.</p></div>
+<div class="appcard"><div class="icon">▞</div><h3>Widget Merkezi</h3><p>Saat, bellek ve sistem widget'ları.</p></div>
+<div class="appcard"><div class="icon">✦</div><h3>AI Sistem Asistanı</h3><p>Yerel Ollama + çoklu model desteği.</p></div>
+<div class="appcard"><div class="icon">⎙</div><h3>USB &amp; ISO Yazıcı</h3><p>ISO'yu USB'ye güvenli yazma, sistem diski korumalı.</p></div>
+<div class="appcard"><div class="icon">⚙</div><h3>Ayarlar</h3><p>Ağ, ekran, donanım ve masaüstü tercihleri.</p></div>
+<div class="appcard"><div class="icon">✓</div><h3>Ayaz Güncelleyici</h3><p>Atomik sistem yamaları, kayıtlı adımlar.</p></div>
+</div>
+<div class="btnrow"><a class="btn light small" href="indir.html">Ayaz'ı canlı deneyin</a><a class="btn ghost small" href="okul.html">Okul sürümü (XFCE)</a><a class="btn ghost small" href="https://github.com/Ankora-Linux/Ayaz">Kaynak kodu</a></div>
+</section>
+<div class="cta"><h2>Üç tema, sıfır yorgunluk.</h2><p>Monokrom cam tasarım; açık, koyu ve ara ton. Tek tıkla geçin, işinize dönün.</p><div class="btnrow" style="justify-content:center"><a class="btn" href="indir.html">İndirin</a></div></div>
+<footer class="site" style="margin-top:0;border-top:0"><div class="foot">
+<div><a class="brand" href="index.html" style="margin-bottom:12px"><img class="mark-img" src="logo.png" width="38" height="38" alt="Ankora Linux logosu"><span><b>Ankora Linux</b><small>Özgür, sade ve bize ait</small></span></a></div>
+<div><h5>Keşfet</h5><a href="index.html">Genel bakış</a><a href="surum.html">Sürüm</a><a href="okul.html">Okul sürümü</a><a href="mimari.html">Mimari</a></div>
+<div><h5>Edin</h5><a href="indir.html">Canlı ISO</a><a href="indir.html">.deb paketi</a></div>
+<div><h5>Katıl</h5><a href="https://github.com/Ankora-Linux/Ayaz">Kaynak kodu</a><a href="https://ankalab.flarum.cloud">AnkaLab Forum</a></div>
+</div><div class="base">© 2026 Ankora Linux • GPL-3.0 • Prototip</div></footer>
+</div>
+<button id="toTop" aria-label="Yukarı dön">↑</button>
+<script src="script.js"></script>
+<script src="lang.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+# Ankora Linux
+
+> Devuan tabanlı, SysVinit kullanan Türkçe Linux dağıtımı. Kendi masaüstü ortamı: Ayaz (AyazDE). Lisans: GPL-3.0. AyazDE 2.0 test sürümündedir (kararlı sürüm değil); Okul sürümü yakında çıkacak.
+
+- Resmî site: https://ankora-linux.github.io/
+- Sürümler: https://github.com/Ankora-Linux/Ankora-Linux/releases
+- Ayaz kaynak kodu: https://github.com/Ankora-Linux/Ayaz
+- Forum: https://ankalab.flarum.cloud
+- E-posta: linuxankora@gmail.com
+
+## Hızlı gerçekler
+
+- Taban: Devuan (Debian paket deposu, apt ile uyumlu). Servis yönetimi: SysVinit (systemd yok).
+- Masaüstü: Ayaz — çekirdek Rust, çatı Tauri 1.5, arayüz WebKitGTK, pencere yöneticisi openbox, ağ yönetimi nmcli.
+- Arayüz dili: Türkçe. Tema: 3 adet monokrom cam teması.
+- Öne çıkan uygulamalar: Dosyalar, Ayaz Uçbirim, Evrensel Yazılım Mağazası (APT + Flathub), Ankora USB & ISO Yazıcı, Paket Yöneticisi, Ankora AI Sistem Asistanı (yerel Ollama + OpenAI/Gemini/Groq/OpenRouter API desteği), Widget Merkezi, Ankora Ofis, Ankora Karşılayıcı.
+- Güvenlik: atomik güncelleme, oturum kaydetme + güvenli kip, izin listeli yapay zekâ ajanı.
+- Kurulum: hibrit canlı ISO (kurmadan deneme) veya .deb paketi. Her imajın yanında SHA256 özeti.
+- Tarihçe: 01.0 (ilk kararlı) → 02.0 Zümrüt (önceki büyük sürüm) → 2.0 AyazDE (güncel).
+
+## Sayfalar
+
+- / : Genel bakış
+- /surum.html : Sürüm 2.0 AyazDE ve tarihçe
+- /ayaz.html : Ayaz masaüstü ortamı ve uygulamalar
+- /mimari.html : Neden SysVinit + güven mühendisliği
+- /okul.html : Okul Sürümü (BT sınıfları ve Faz tahtalar için XFCE tabanlı)
+- /indir.html : Canlı ISO ve .deb indirme
+- /topluluk.html : Forum, kaynak kodu, SSS
+- /404.html : Bulunamadı sayfası
+
+## Site özellikleri
+
+- Tema: aydınlık/karanlık seçimi (sağ üstteki ay simgesi, tercih saklanır)
+- Dil: Türkçe/İngilizce seçimi (sağ üstteki EN/TR düğmesi, tercih saklanır)
+- Logo: logo.png (512px, üst bilgi + alt bilgi + favicon yedeği)
+
+## Sürümler
+
+- Son Kullanıcı: 2.0 AyazDE test sürümü (kararlı değil; Ayaz masaüstü). Ekran görüntüsü: ayazdemas.png
+- Okul: yakında çıkacak XFCE tabanlı sınıf sistemi (BT laboratuvarları, Faz etkileşimli tahtalar, kilitli öğrenci profili, toplu kurulum). Ekran görüntüsü: ayazdeokul.png

@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="Ankora Linux logosu">
-  <rect width="48" height="48" rx="11" fill="#070B12"/>
-  <circle cx="24" cy="24" r="17" fill="none" stroke="#2E9BEB" stroke-width="3"/>
-  <path d="M12 33 L24 12 L36 33 L30 33 L24 20 L22 24 L19 22 L16 28 L13 26 Z" fill="#2E9BEB"/>
-  <path d="M17 33 L22 25 L26 29 L24 33 Z M27 33 L30 27 L34 33 Z" fill="#2E9BEB"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#14161A"/><text x="32" y="44" font-family="Arial, sans-serif" font-size="36" font-weight="800" fill="#FBFAF6" text-anchor="middle">A</text><circle cx="46" cy="18" r="5" fill="#0B6B5C"/></svg>

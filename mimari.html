@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mimari: Neden SysVinit — Ankora Linux</title>
+<meta name="description" content="Ankora Linux neden systemd yerine SysVinit kullanıyor? Şeffaf açılış, atomik güncelleme ve izin listeli yapay zekâ ajanı.">
+<link rel="canonical" href="https://ankora-linux.github.io/mimari.html">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#14161A">
+<meta name="geo.region" content="TR">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ankora Linux">
+<meta property="og:title" content="Mimari: Neden SysVinit — Ankora Linux">
+<meta property="og:description" content="Açılışta ne oluyorsa onu görürsünüz: SysVinit mimarisi.">
+<meta property="og:url" content="https://ankora-linux.github.io/mimari.html">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="logo.png">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Mimari: Neden SysVinit — Ankora Linux","inLanguage":"tr","url":"https://ankora-linux.github.io/mimari.html","isPartOf":{"@type":"WebSite","name":"Ankora Linux","url":"https://ankora-linux.github.io/"}}</script>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><span><b>SysVinit</b> — sürprizleri sevmeyenler için.</span><a href="indir.html">İndirin</a></div></div>
+<header class="site"><nav class="nav">
+<a class="brand" href="index.html"><img class="mark-img" src="logo.png" width="38" height="38" alt="Ankora Linux logosu"><span><b>Ankora Linux</b><small>2.0 AyazDE</small></span></a>
+<button class="navtoggle" aria-expanded="false" aria-controls="menu">Menü</button>
+<div class="navlinks" id="menu"><a href="index.html">Genel Bakış</a><a href="surum.html">Sürüm</a><a href="ayaz.html">Ayaz</a><a href="mimari.html" class="active">Mimari</a><a href="okul.html">Okul</a><a href="topluluk.html">Topluluk</a></div>
+<div class="navtools"><button id="langToggle" class="toolbtn" title="Türkçe / English">EN</button><button id="themeToggle" class="toolbtn" title="Karanlık / aydınlık tema" aria-label="Karanlık / aydınlık tema"></button></div>
+<a class="btn small navcta" href="indir.html">İndir</a>
+</nav></header>
+<div class="wrap">
+<section class="block">
+<div class="kicker">Servis yönetimi</div>
+<h2>Açılışta ne oluyorsa onu görürsünüz.</h2>
+<p class="sub">Ankora servis yöneticisi olarak systemd değil, klasik <b>SysVinit</b> kullanır. Hangi servisin ne zaman başladığını gösteren numaralı betikler sırayla çalışır. Arkada kendiliğinden yeniden başlayan görünmez bir katman yok.</p>
+<div class="row">
+<div class="shot"><div class="term"><b>$</b> ls /etc/rc2.d<br>S01udev &nbsp; S02networking &nbsp; S03dbus &nbsp; S04ayaz-panel<br><br><b>$</b> sudo service networking stop<br>[ok] networking durduruldu.<br><br><b>$</b> apt update &amp;&amp; sudo apt upgrade<br>Debian deposu — her zamanki komutlar.</div></div>
+<div>
+<ul class="check">
+<li><b>Okunabilir açılış:</b> betik sırası dosya isimlerinde yazar</li>
+<li><b>Tek satırlık müdahale:</b> servisi durdurmak bir komut</li>
+<li><b>Tanıdık depo:</b> Debian paketleri, <code class="k">apt</code> alışkanlıkları aynen</li>
+<li><b>Az yük:</b> açılışta yalnız gereken servisler</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="block tight">
+<div class="kicker">Güven mühendisliği</div>
+<h2>Kontrol sizde kalır.</h2>
+<div class="grid g3">
+<div class="card"><div class="icon">❖</div><h3>Oturum kaydı</h3><p>Ayaz kapanıştaki masaüstünü kaydeder, açılışta pencereleri geri getirir. İki üst üste beklenmedik kapanışta güvenli kipi sorar.</p></div>
+<div class="card"><div class="icon">◈</div><h3>Yarım kalmayan güncelleme</h3><p>Önce hazırla ve doğrula, sonra uygula; her adım kayıtlı. Yarıda kesilirse kaldığı yerden devam eder ya da önceki çalışan duruma döner.</p></div>
+<div class="card"><div class="icon amber">✦</div><h3>Uslu yapay zekâ</h3><p>Gömülü ajan yalnız izin listesindeki komutları çalıştırır. Köprü token korumalı, çerçeveler sandbox içinde, bağlantılar varsayılan tarayıcınızla açılır.</p></div>
+</div>
+<div class="btnrow"><a class="btn small" href="indir.html">Kurulum sayfası</a><a class="btn ghost small" href="topluluk.html">Sorular ve yanıtlar</a></div>
+</section>
+<div class="cta"><h2>Merak edenler için sistem.</h2><p>Arka planda ne döndüğünü bilmek isteyenlerin dağıtımı.</p><div class="btnrow" style="justify-content:center"><a class="btn" href="indir.html">İndirin</a></div></div>
+<footer class="site" style="margin-top:0;border-top:0"><div class="foot">
+<div><a class="brand" href="index.html" style="margin-bottom:12px"><img class="mark-img" src="logo.png" width="38" height="38" alt="Ankora Linux logosu"><span><b>Ankora Linux</b><small>Özgür, sade ve bize ait</small></span></a></div>
+<div><h5>Keşfet</h5><a href="index.html">Genel bakış</a><a href="surum.html">Sürüm</a><a href="ayaz.html">Ayaz</a><a href="okul.html">Okul sürümü</a></div>
+<div><h5>Edin</h5><a href="indir.html">Canlı ISO</a><a href="indir.html">.deb paketi</a></div>
+<div><h5>Katıl</h5><a href="https://github.com/Ankora-Linux/Ayaz">Kaynak kodu</a><a href="https://ankalab.flarum.cloud">AnkaLab Forum</a></div>
+</div><div class="base">© 2026 Ankora Linux • GPL-3.0 • Prototip</div></footer>
+</div>
+<button id="toTop" aria-label="Yukarı dön">↑</button>
+<script src="script.js"></script>
+<script src="lang.js"></script>
+</body>
+</html>
