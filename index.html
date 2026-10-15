@@ -1,7 +1,941 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, init<!DOCTYPE html>
+                        <html lang="tr">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title data-i18n="meta.title">Ankora Linux 2.0 AyazDE – Sade. Hızlı. Size ait.</title>title>
+      <meta name="description" content="Ankora Linux 2.0 AyazDE: Devuan tabanlı, SysVinit kullanan, kendi Ayaz masaüstü ortamıyla gelen Türkçe Linux dağıtımı." data-i18n="meta.desc">
+      <link rel="icon" type="image/png" href="logo.png">
+      <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+      <div class="topbar">
+            <div class="wrap">
+                    <span data-i18n="topbar.text"><b>Ankora 2.0 AyazDE</b> test sürümü yayında – deneyin, forumda bildirin!</span>span>
+                  <a href="indir.html" data-i18n="topbar.link">ndirin &rarr;</a>a>
+            </div>div>
+      </div>div>
+  
+    <header class="site">
+        <nav class="nav wrap" aria-label="Ana Menü">
+              <a class="brand" href="index.html">
+                      <img class="mark-img" src="logo.png" width="38" height="38" alt="Ankora Linux logosu">
+                      <span><b>Ankora Linux</b>b> <small>2.0 AyazDE</small></span>
+              </a>a>
+        
+              <div class="navlinks" id="menu">
+                      <a href="#genel" data-i18n="nav.overview">Genel Bakış</a>a>
+                      <a href="#surum" data-i18n="nav.editions">Sürüm</a>a>
+                      <a href="#ayaz" data-i18n="nav.ayaz">AyazDE</a>a>
+                      <a href="#mimari" data-i18n="nav.architecture">Mimari</a>a>
+                      <a href="#topluluk" data-i18n="nav.community">Topluluk</a>a>
+                      <div class="mobile-only-controls">
+                                <select class="lang-select" aria-label="Dil Seçimi">
+                                            <option value="tr">Türkçe (TR)</option>option>
+                                            <option value="en">English (EN)</option>option>
+                                            <option value="de">Deutsch (DE)</option>option>
+                                            <option value="fr">Français (FR)</option>option>
+                                            <option value="es">Español (ES)</option>option>
+                                            <option value="ru">Русский (RU)</option>option>
+                                            <option value="az">Azərbaycan (AZ)</option>option>
+                                </select>select>
+                                <button type="button" class="theme-toggle mobile-theme-btn" aria-label="Tema Değiştir" data-i18n-aria="theme.toggle">
+                                            <span class="theme-icon">🌙</span>
+                                </button>button>
+                      </div>div>
+              </div>div>
+        
+              <div class="nav-actions">
+                      <select class="lang-select desktop-only" aria-label="Dil Seimi">
+                                <option value="tr">TR</option>option>
+                                <option value="en">EN</option>option>
+                                <option value="de">DE</option>option>
+                                <option value="fr">FR</option>option>
+                                <option value="es">ES</option>option>
+                                <option value="ru">RU</option>option>
+                                <option value="az">AZ</option>option>
+                      </select>select>
+              
+                      <button type="button" class="theme-toggle desktop-only" aria-label="Tema Değiştir" data-i18n-aria="theme.toggle">
+                                <span class="theme-icon">🌙</span>
+                      </button>button>
+              
+                      <a class="btn primary small desktop-only" href="indir.html" data-i18n="nav.download">İndir</a>a>
+              
+                      <button class="navtoggle" aria-expanded="false" aria-controls="menu" aria-label="Menüyü Aç/Kapat" data-i18n-aria="nav.toggle">
+                                <span class="burger-bar"></span>
+                                <span class="burger-bar"></span>
+                                <span class="burger-bar"></span>
+                      </button>button>
+              </div>div>
+        </nav>nav>
+    </header>header>
+  
+    <main>
+          <section class="hero wrap" id="genel">
+                  <div class="hero-text">
+                            <span class="badge" data-i18n="hero.badge">özgür ve Bağımsız Dağıtım</span>
+                            <h1 data-i18n="hero.title">Sade. Hızlı.<br>Size ait.</h1>h1>
+                            <p class="lead" data-i18n="hero.desc">Ankora Linux, açılışta yalnızca mecburi servisleri alıştıran, tamamı Türkçe konuşan ve kendi Ayaz masaüstü ortamıyla gelen hafif sistemdir.</p>p>
+                            <div class="hero-btns">
+                                        <a class="btn primary" href="indir.html" data-i18n="hero.btn1">Ankora 2.0'ı İndirin</a>a>
+                                        <a class="btn secondary" href="#ayaz" data-i18n="hero.btn2">AyazDE'yi nceleyin</a>a>
+                            </div>div>
+                            <p class="subtext" data-i18n="hero.subtext">ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor</p>p>
+                  </div>div>
+                  <div class="hero-media">
+                            <img src="ayazdemas.png" alt="Ankora Linux AyazDE Masaüstü Görünümü" class="hero-img">
+                  </div>div>
+          </section>section>
+
+          <section class="wrap section-block">
+                  <span class="section-kicker" data-i18n="why.kicker">Neden Ankora?</span>
+                  <h2 data-i18n="why.title">Bilgisayar dediğin, ne yaptğını anlatır.</h2>h2>
+                  <p class="section-desc" data-i18n="why.desc">üç karar verdik ve üçünde de ısrarcıyız: açılış şeffaf olacak, masaüstü bize ait olacak, dil sorunu yaşanmayacak.</p>p>
+
+                  <div class="grid-3">
+                            <div class="card">
+                                        <div class="card-icon">⚡</div>div>
+                                        <h3 data-i18n="why.card1.title">Şeffaf Açılış</h3>h3>
+                                        <p data-i18n="why.card1.desc">Systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne çalıştığını bilir, gereksiz servis yükü taşımazsınız.</p>p>
+                            </div>div>
+                            <div class="card">
+                                        <div class="card-icon">💻</div>div>
+                                        <h3 data-i18n="why.card2.title">Bize Ait Masaüstü</h3>h3>
+                                        <p data-i18n="why.card2.desc">Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur.</p>p>
+                            </div>div>
+                            <div class="card">
+                                        <div class="card-icon">🌐</div>div>
+                                        <h3 data-i18n="why.card3.title">Sıfır Yabancı Dil</h3>h3>
+                                        <p data-i18n="why.card3.desc">Sistem iletilerinden masaüstü uygulamalarna kadar her şey yerli metinlerle kurulur. Terim karmaşası yoktur.</p>p>
+                            </div>div>
+                  </div>div>
+          </section>section>
+
+          <section class="wrap section-block" id="surum">
+                  <span class="section-kicker" data-i18n="editions.kicker">SüRüMLER</span>
+                  <h2 data-i18n="editions.title">Ankora Linux 2.0 AyazDE</h2>h2>
+                  <p class="section-desc" data-i18n="editions.desc">Ev, ofis ve günlük kullanım için hafif, hızlı ve özelleştirilebilir tek kararlı srüm. Taban: Devuan + SysVinit.</p>p>
+
+                  <div class="single-edition-wrap">
+                            <div class="card edition-card featured">
+                                        <span class="card-badge" data-i18n="editions.card.badge">Kararl Sürm</span>
+                                        <h3 data-i18n="editions.card.title">Ankora Linux 2.0 AyazDE</h3>h3>
+                                        <p data-i18n="editions.card.desc">Ev ve ofis kullanıcıları için tasarlanan Ayaz masaüstü ortamlı hafif dağıtım. Düşk kaynak tüketimi ve yüksek performans.</p>p>
+                                        <ul class="edition-specs">
+                                                      <li data-i18n="editions.spec1"><b>Masaüstü:</b> AyazDE (Rust + Tauri + WebKitGTK)</li>li>
+                                                      <li data-i18n="editions.spec2"><b>Açılış Sistemi:</b> SysVinit (Devuan Daedalus)</li>li>
+                                                      <li data-i18n="editions.spec3"><b>çekirdek:</b> Linux Kernel 6.1 LTS</li>li>
+                                                      <li data-i18n="editions.spec4"><b>RAM Kullanımı:</b> Boşta ~350 MB</li>li>
+                                        </ul>ul>
+                                        <a href="indir.html" class="btn primary full-width" data-i18n="editions.card.btn">ISO İndir (64-bit)</a>a>
+                            </div>div>
+                  </div>div>
+          </section>section>
+
+          <section class="wrap section-block" id="ayaz">
+                  <span class="section-kicker" data-i18n="ayaz.kicker">MASAüSTü ORTAMI</span>
+                  <h2 data-i18n="ayaz.title">AyazDE – Yeni Nesil Hafif Masaüstü</h2>h2>
+                  <p class="section-desc" data-i18n="ayaz.desc">Modern web teknolojileri ve sistem seviyesinde Rust performansı ile geliştirilmiş özgün masaüstü deneyimi.</p>p>
+
+                  <div class="grid-2">
+                            <div class="feature-box">
+                                        <h3 data-i18n="ayaz.f1.title">Modüler Panel & Balat Menüsü</h3>h3>
+                                        <p data-i18n="ayaz.f1.desc">Hızlı arama, favori uygulamalar ve sistem bildirim paneli tek elden yönetilir.</p>p>
+                            </div>div>
+                            <div class="feature-box">
+                                        <h3 data-i18n="ayaz.f2.title">Kontrol Merkezi</h3>h3>
+                                        <p data-i18n="ayaz.f2.desc">Ağ, ses, ekran ve tema ayarlarn karmaşık menüler arasında kaybolmadan kolayca yapılandırın.</p>p>
+                            </div>div>
+                  </div>div>
+          </section>section>
+
+          <section class="wrap section-block" id="mimari">
+                  <span class="section-kicker" data-i18n="arch.kicker">MİMARİ VE SİSTEM</span>
+                  <h2 data-i18n="arch.title">Devuan Tabanı & SysVinit Gücü</h2>h2>
+                  <p class="section-desc" data-i18n="arch.desc">Kararlı Debian/Devuan paket deposu desteği ile SysVinit'in sadeliği bir arada.</p>p>
+
+                  <div class="specs-table-wrap">
+                            <table class="specs-table">
+                                        <thead>
+                                                      <tr>
+                                                                      <th data-i18n="arch.th1">Bileşen</th>th>
+                                                                      <th data-i18n="arch.th2">Detay</th>th>
+                                                      </tr>
+                                        </thead>
+                                        <tbody>
+                                                      <tr>
+                                                                      <td data-i18n="arch.row1.label">Taban Dağıtım</td>td>
+                                                                      <td data-i18n="arch.row1.val">Devuan Linux 5 (Daedalus)</td>td>
+                                                      </tr>
+                                                      <tr>
+                                                                      <td data-i18n="arch.row2.label">Başlatma Yöneticisi</td>td>
+                                                                      <td data-i18n="arch.row2.val">SysVinit + OpenRC Seçeneği</td>td>
+                                                      </tr>
+                                                      <tr>
+                                                                      <td data-i18n="arch.row3.label">Paket Yöneticisi</td>td>
+                                                                      <td data-i18n="arch.row3.val">APT (Debian Uyumlu)</td>td>
+                                                      </tr>
+                                                      <tr>
+                                                                      <td data-i18n="arch.row4.label">Masaüstü Ortamı</td>td>
+                                                                      <td data-i18n="arch.row4.val">AyazDE (Rust/Tauri)</td>td>
+                                                      </tr>
+                                        </tbody>
+                            </table>table>
+                  </div>div>
+          </section>section>
+
+          <section class="wrap section-block" id="topluluk">
+                  <span class="section-kicker" data-i18n="community.kicker">TOPLULUK VE DESTEK</span>
+                  <h2 data-i18n="community.title">Geliştirmeye Katılın</h2>h2>
+                  <p class="section-desc" data-i18n="community.desc">Ankora Linux açık kaynaklı bir projedir. Kod yazarak, çeviri yaparak veya geri bildirim vererek projeye katkıda bulunabilirsiniz.</p>p>
+
+                  <div class="community-links">
+                            <a href="https://github.com/Ankora-Linux" target="_blank" rel="noopener" class="card comm-card">
+                                        <span class="card-icon">🐙</span>
+                                        <h3 data-i18n="community.gh.title">GitHu<!DOCTYPE html>
+                                          <html lang="tr">
+                                            <head>
+                                                <meta charset="UTF-8">
+                                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                                <title data-i18n="meta.title">Ankora Linux 2.0 AyazDE – Sade. Hızlı. Size ait.</title>title>
+                                                <meta name="description" content="Ankora Linux 2.0 AyazDE: Devuan tabanlı, SysVinit kullanan, kendi Ayaz masaüstü ortamıyla gelen Türkçe Linux dağıtımı." data-i18n="meta.desc">
+                                                <link rel="icon" type="image/png" href="logo.png">
+                                                <link rel="stylesheet" href="styles.css">
+                                            </head>
+                                            <body>
+                                                <div class="topbar">
+                                                      <div class="wrap">
+                                                              <span data-i18n="topbar.text"><b>Ankora 2.0 AyazDE</b> test sürümü yayında – deneyin, forumda bildirin!</span>span>
+                                                            <a href="indir.html" data-i18n="topbar.link">İndirin &rarr;</a>
+                                                      </div>
+                                                </div>
+                                            
+                                              <header class="site">
+                                                  <nav class="nav wrap" aria-label="Ana Menü">
+                                                        <a class="brand" href="index.html">
+                                                                <img class="mark-img" src="logo.png" width="38" height="38" alt="Ankora Linux logosu">
+                                                                <span><b>Ankora Linux</b>b> <small>2.0 AyazDE</small></span>
+                                                        </a>
+                                                  
+                                                        <div class="navlinks" id="menu">
+                                                                <a href="#genel" data-i18n="nav.overview">Genel Bakış</a>
+                                                                <a href="#surum" data-i18n="nav.editions">Srüm</a>
+                                                                <a href="#ayaz" data-i18n="nav.ayaz">AyazDE</a>
+                                                                <a href="#mimari" data-i18n="nav.architecture">Mimari</a>
+                                                                <a href="#topluluk" data-i18n="nav.community">Topluluk</a>
+                                                                <div class="mobile-only-controls">
+                                                                          <select class="lang-select" aria-label="Dil Seçimi">
+                                                                                      <option value="tr">Türkçe (TR)</option>option>
+                                                                                      <option value="en">English (EN)</option>option>
+                                                                                      <option value="de">Deutsch (DE)</option>option>
+                                                                                      <option value="fr">Français (FR)</option>option>
+                                                                                      <option value="es">Español (ES)</option>option>
+                                                                                      <option value="ru">Русский (RU)</option>option>
+                                                                                      <option value="az">Azərbaycan (AZ)</option>option>
+                                                                          </select>select>
+                                                                          <button type="button" class="theme-toggle mobile-theme-btn" aria-label="Tema Değiştir" data-i18n-aria="theme.toggle">
+                                                                                      <span class="theme-icon">🌙</span>
+                                                                          </button>button>
+                                                                </div>
+                                                        </div>
+                                                  
+                                                        <div class="nav-actions">
+                                                                <select class="lang-select desktop-only" aria-label="Dil Seçimi">
+                                                                          <option value="tr">TR</option>option>
+                                                                          <option value="en">EN</option>option>
+                                                                          <option value="de">DE</option>option>
+                                                                          <option value="fr">FR</option>option>
+                                                                          <option value="es">ES</option>option>
+                                                                          <option value="ru">RU</option>option>
+                                                                          <option value="az">AZ</option>option>
+                                                                </select>select>
+                                                        
+                                                                <button type="button" class="theme-toggle desktop-only" aria-label="Tema Değiştir" data-i18n-aria="theme.toggle">
+                                                                          <span class="theme-icon">🌙</span>
+                                                                </button>button>
+                                                        
+                                                                <a class="btn primary small desktop-only" href="indir.html" data-i18n="nav.download">İndir</a>
+                                                        
+                                                                <button class="navtoggle" aria-expanded="false" aria-controls="menu" aria-label="Menüyü Aç/Kapat" data-i18n-aria="nav.toggle">
+                                                                          <span class="burger-bar"></span>
+                                                                          <span class="burger-bar"></span>
+                                                                          <span class="burger-bar"></span>
+                                                                </button>button>
+                                                        </div>
+                                                  </nav>nav>
+                                              </header>header>
+                                            
+                                              <main>
+                                                    <section class="hero wrap" id="genel">
+                                                            <div class="hero-text">
+                                                                      <span class="badge" data-i18n="hero.badge">özgür ve Baımsız Dağıtım</span>
+                                                                      <h1 data-i18n="hero.title">Sade. Hızlı.<br>Size ait.</h1>
+                                                                      <p class="lead" data-i18n="hero.desc">Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türkçe konuşan ve kendi Ayaz masaüstü ortamıyla gelen hafif sistemdir.</p>p>
+                                                                      <div class="hero-btns">
+                                                                                  <a class="btn primary" href="indir.html" data-i18n="hero.btn1">Ankora 2.0'ı İndirin</a>
+                                                                                  <a class="btn secondary" href="#ayaz" data-i18n="hero.btn2">AyazDE'yi İnceleyin</a>
+                                                                      </div>
+                                                                      <p class="subtext" data-i18n="hero.subtext">ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor</p>p>
+                                                            </div>
+                                                            <div class="hero-media">
+                                                                      <img src="ayazdemas.png" alt="Ankora Linux AyazDE Masaüstü Görünümü" class="hero-img">
+                                                            </div>
+                                                    </section>
+
+                                                    <section class="wrap section-block">
+                                                            <span class="section-kicker" data-i18n="why.kicker">Neden Ankora?</span>
+                                                            <h2 data-i18n="why.title">Bilgisayar dediğin, ne yaptığını anlatır.</h2>
+                                                            <p class="section-desc" data-i18n="why.desc">üç karar verdik ve üçünde de ısrarcıyız: açılış effaf olacak, masaüstü bize ait olacak, dil sorunu yaşanmayacak.</p>p>
+
+                                                            <div class="grid-3">
+                                                                      <div class="card">
+                                                                                  <div class="card-icon">⚡</div>
+                                                                                  <h3 data-i18n="why.card1.title">Şeffaf Açılış</h3>
+                                                                                  <p data-i18n="why.card1.desc">Systemd yok. Numaralı SysVinit betikleri sırayla alışır. Ne çalıştığını bilir, gereksiz servis yükü taşımazsınız.</p>p>
+                                                                      </div>
+                                                                      <div class="card">
+                                                                                  <div class="card-icon">💻</div>
+                                                                                  <h3 data-i18n="why.card2.title">Bize Ait Masaüstü</h3>
+                                                                                  <p data-i18n="why.card2.desc">Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur.</p>p>
+                                                                      </div>
+                                                                      <div class="card">
+                                                                                  <div class="card-icon">🌐</div>
+                                                                                  <h3 data-i18n="why.card3.title">Sıfır Yabancı Dil</h3>
+                                                                                  <p data-i18n="why.card3.desc">Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terim karmaası yoktur.</p>p>
+                                                                      </div>
+                                                            </div>
+                                                    </section>
+
+                                                    <section class="wrap section-block" id="surum">
+                                                            <span class="section-kicker" data-i18n="editions.kicker">SüRüMLER</span>
+                                                            <h2 data-i18n="editions.title">Ankora Linux 2.0 AyazDE</h2>
+                                                            <p class="section-desc" data-i18n="editions.desc">Ev, ofis ve günlük kullanım için hafif, hızlı ve özelleştirilebilir tek kararlı sürüm. Taban: Devuan + SysVinit.</p>p>
+
+                                                            <div class="single-edition-wrap">
+                                                                      <div class="card edition-card featured">
+                                                                                  <span class="card-badge" data-i18n="editions.card.badge">Kararlı Sürüm</span>
+                                                                                  <h3 data-i18n="editions.card.title">Ankora Linux 2.0 AyazDE</h3>
+                                                                                  <p data-i18n="editions.card.desc">Ev ve ofis kullanıcıları için tasarlanan Ayaz masaüst ortamlı hafif dağıtım. Düşük kaynak tüketimi ve yüksek performans.</p>p>
+                                                                                  <ul class="edition-specs">
+                                                                                                <li data-i18n="editions.spec1"><b>Masaüstü:</b> AyazDE (Rust + Tauri + WebKitGTK)</li>li>
+                                                                                                <li data-i18n="editions.spec2"><b>Açılış Sistemi:</b> SysVinit (Devuan Daedalus)</li>li>
+                                                                                                <li data-i18n="editions.spec3"><b>çekirdek:</b> Linux Kernel 6.1 LTS</li>li>
+                                                                                                <li data-i18n="editions.spec4"><b>RAM Kullanımı:</b> Boşta ~350 MB</li>li>
+                                                                                  </ul>ul>
+                                                                                  <a href="indir.html" class="btn primary full-width" data-i18n="editions.card.btn">ISO İndir (64-bit)</a>
+                                                                      </div>
+                                                            </div>
+                                                    </section>
+
+                                                    <section class="wrap section-block" id="ayaz">
+                                                            <span class="section-kicker" data-i18n="ayaz.kicker">MASAüSTü ORTAMI</span>
+                                                            <h2 data-i18n="ayaz.title">AyazDE – Yeni Nesil Hafif Masaüstü</h2>
+                                                            <p class="section-desc" data-i18n="ayaz.desc">Modern web teknolojileri ve sistem seviyesinde Rust performansı ile geliştirilmiş özgün masaüst deneyimi.</p>p>
+
+                                                            <div class="grid-2">
+                                                                      <div class="feature-box">
+                                                                                  <h3 data-i18n="ayaz.f1.title">Modüler Panel & Başlat Menüsü</h3>
+                                                                                  <p data-i18n="ayaz.f1.desc">Hızlı arama, favori uygulamalar ve sistem bildirim paneli tek elden ynetilir.</p>p>
+                                                                      </div>
+                                                                      <div class="feature-box">
+                                                                                  <h3 data-i18n="ayaz.f2.title">Kontrol Merkezi</h3>
+                                                                                  <p data-i18n="ayaz.f2.desc">Ağ, ses, ekran ve tema ayarlarını karmaşık menüler arasında kaybolmadan kolayca yapılandırın.</p>p>
+                                                                      </div>
+                                                            </div>
+                                                    </section>
+
+                                                    <section class="wrap section-block" id="mimari">
+                                                            <span class="section-kicker" data-i18n="arch.kicker">MİMARİ VE SİSTEM</span>
+                                                            <h2 data-i18n="arch.title">Devuan Tabanı & SysVinit Gücü</h2>
+                                                            <p class="section-desc" data-i18n="arch.desc">Kararl Debian/Devuan paket deposu destei ile SysVinit'in sadeliği bir arada.</p>p>
+
+                                                            <div class="specs-table-wrap">
+                                                                      <table class="specs-table">
+                                                                                  <thead>
+                                                                                                <tr>
+                                                                                                                <th data-i18n="arch.th1">Bileen</th>th>
+                                                                                                                <th data-i18n="arch.th2">Detay</th>th>
+                                                                                                  </tr>
+                                                                                  </thead>
+                                                                                  <tbody>
+                                                                                                <tr>
+                                                                                                                <td data-i18n="arch.row1.label">Taban Dağıtım</td>td>
+                                                                                                                <td data-i18n="arch.row1.val">Devuan Linux 5 (Daedalus)</td>td>
+                                                                                                  </tr>
+                                                                                                <tr>
+                                                                                                                <td data-i18n="arch.row2.label">Başlatma Yöneticisi</td>td>
+                                                                                                                <td data-i18n="arch.row2.val">SysVinit + OpenRC Seçeneği</td>td>
+                                                                                                  </tr>
+                                                                                                <tr>
+                                                                                                                <td data-i18n="arch.row3.label">Paket Yöneticisi</td>td>
+                                                                                                                <td data-i18n="arch.row3.val">APT (Debian Uyumlu)</td>td>
+                                                                                                  </tr>
+                                                                                                <tr>
+                                                                                                                <td data-i18n="arch.row4.label">Masaüstü Ortamı</td>td>
+                                                                                                                <td data-i18n="arch.row4.val">AyazDE (Rust/Tauri)</td>td>
+                                                                                                  </tr>
+                                                                                  </tbody>
+                                                                      </table>table>
+                                                            </div>
+                                                    </section>
+
+                                                    <section class="wrap section-block" id="topluluk">
+                                                            <span class="section-kicker" data-i18n="community.kicker">TOPLULUK VE DESTEK</span>
+                                                            <h2 data-i18n="community.title">Gelitirmeye Katılın</h2>
+                                                            <p class="section-desc" data-i18n="community.desc">Ankora Linux açık kaynaklı bir projedir. Kod yazarak, çeviri yaparak veya geri bildirim vererek projeye katkıda bulunabilirsiniz.</p>p>
+
+                                                            <div class="community-links">
+                                                                      <a href="https://github.com/Ankora-Linux" target="_blank" rel="noopener" class="card comm-card">
+                                                                                  <span class="card-icon">🐙</span>
+                                                                                  <h3 data-i18n="community.gh.title">GitHu<!DOCTYPE html>
+                                                                                    <html lang="tr">
+                                                                                      <head>
+                                                                                          <meta charset="UTF-8">
+                                                                                          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                                                                          <title data-i18n="meta.title">Ankora Linux 2.0 AyazDE – Sade. Hızlı. Size ait.</title>title>
+                                                                                          <meta name="description" content="Ankora Linux 2.0 AyazDE: Devuan tabanlı, SysVinit kullanan, kendi Ayaz masaüstü ortamıyla gelen Türkçe Linux dağıtımı." data-i18n="meta.desc">
+                                                                                          <link rel="icon" type="image/png" href="logo.png">
+                                                                                          <link rel="stylesheet" href="styles.css">
+                                                                                      </head>
+                                                                                      <body>
+                                                                                          <div class="topbar">
+                                                                                                <div class="wrap">
+                                                                                                        <span data-i18n="topbar.text"><b>Ankora 2.0 AyazDE</b> test sürümü yayında – deneyin, forumda bildirin!</span>span>
+                                                                                                      <a href="indir.html" data-i18n="topbar.link">İndirin &rarr;</a>
+                                                                                                  </div>
+                                                                                          </div>
+                                                                                      
+                                                                                        <header class="site">
+                                                                                            <nav class="nav wrap" aria-label="Ana Menü">
+                                                                                                  <a class="brand" href="index.html">
+                                                                                                          <img class="mark-img" src="logo.png" width="38" height="38" alt="Ankora Linux logosu">
+                                                                                                          <span><b>Ankora Linux</b>b> <small>2.0 AyazDE</small></span>
+                                                                                                    </a>
+                                                                                            
+                                                                                                  <div class="navlinks" id="menu">
+                                                                                                          <a href="#genel" data-i18n="nav.overview">Genel Bakış</a>
+                                                                                                          <a href="#surum" data-i18n="nav.editions">Sürüm</a>
+                                                                                                          <a href="#ayaz" data-i18n="nav.ayaz">AyazDE</a>
+                                                                                                          <a href="#mimari" data-i18n="nav.architecture">Mimari</a>
+                                                                                                          <a href="#topluluk" data-i18n="nav.community">Topluluk</a>
+                                                                                                          <div class="mobile-only-controls">
+                                                                                                                    <select class="lang-select" aria-label="Dil Seçimi">
+                                                                                                                                <option value="tr">Türkçe (TR)</option>option>
+                                                                                                                                <option value="en">English (EN)</option>option>
+                                                                                                                                <option value="de">Deutsch (DE)</option>option>
+                                                                                                                                <option value="fr">Français (FR)</option>option>
+                                                                                                                                <option value="es">Español (ES)</option>option>
+                                                                                                                                <option value="ru">Рукий (RU)</option>option>
+                                                                                                                                <option value="az">Azərbaycan (AZ)</option>option>
+                                                                                                                      </select>select>
+                                                                                                                    <button type="button" class="theme-toggle mobile-theme-btn" aria-label="Tema Değiştir" data-i18n-aria="theme.toggle">
+                                                                                                                                <span class="theme-icon">🌙</span>
+                                                                                                                      </button>button>
+                                                                                                            </div>
+                                                                                                    </div>
+                                                                                            
+                                                                                                  <div class="nav-actions">
+                                                                                                          <select class="lang-select desktop-only" aria-label="Dil Seçimi">
+                                                                                                                    <option value="tr">TR</option>option>
+                                                                                                                    <option value="en">EN</option>option>
+                                                                                                                    <option value="de">DE</option>option>
+                                                                                                                    <option value="fr">FR</option>option>
+                                                                                                                    <option value="es">ES</option>option>
+                                                                                                                    <option value="ru">RU</option>option>
+                                                                                                                    <option value="az">AZ</option>option>
+                                                                                                            </select>select>
+                                                                                                  
+                                                                                                          <button type="button" class="theme-toggle desktop-only" aria-label="Tema Değiştir" data-i18n-aria="theme.toggle">
+                                                                                                                    <span class="theme-icon">🌙</span>
+                                                                                                            </button>button>
+                                                                                                  
+                                                                                                          <a class="btn primary small desktop-only" href="indir.html" data-i18n="nav.download">İndir</a>
+                                                                                                  
+                                                                                                          <button class="navtoggle" aria-expanded="false" aria-controls="menu" aria-label="Menüyü Aç/Kapat" data-i18n-aria="nav.toggle">
+                                                                                                                    <span class="burger-bar"></span>
+                                                                                                                    <span class="burger-bar"></span>
+                                                                                                                    <span class="burger-bar"></span>
+                                                                                                            </button>button>
+                                                                                                    </div>
+                                                                                            </nav>nav>
+                                                                                        </header>header>
+                                                                                      
+                                                                                        <main>
+                                                                                              <section class="hero wrap" id="genel">
+                                                                                                      <div class="hero-text">
+                                                                                                                <span class="badge" data-i18n="hero.badge">özgür ve Bağımsız Dağıtım</span>
+                                                                                                                <h1 data-i18n="hero.title">Sade. Hızlı.<br>Size ait.</h1>
+                                                                                                                <p class="lead" data-i18n="hero.desc">Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türkçe konuşan ve kendi Ayaz masaüstü ortamıyla gelen hafif sistemdir.</p>p>
+                                                                                                                <div class="hero-btns">
+                                                                                                                            <a class="btn primary" href="indir.html" data-i18n="hero.btn1">Ankora 2.0'ı ndirin</a>
+                                                                                                                            <a class="btn secondary" href="#ayaz" data-i18n="hero.btn2">AyazDE'yi İnceleyin</a>
+                                                                                                                  </div>
+                                                                                                                <p class="subtext" data-i18n="hero.subtext">ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor</p>p>
+                                                                                                        </div>
+                                                                                                      <div class="hero-media">
+                                                                                                                <img src="ayazdemas.png" alt="Ankora Linux AyazDE Masaüst Görünümü" class="hero-img">
+                                                                                                        </div>
+                                                                                                </section>
+
+                                                                                              <section class="wrap section-block">
+                                                                                                      <span class="section-kicker" data-i18n="why.kicker">Neden Ankora?</span>
+                                                                                                      <h2 data-i18n="why.title">Bilgisayar dediğin, ne yaptığını anlatır.</h2>
+                                                                                                      <p class="section-desc" data-i18n="why.desc">üç karar verdik ve üçünde de ısrarcıyız: açılış şeffaf olacak, masaüstü bize ait olacak, dil sorunu yaşanmayacak.</p>p>
+
+                                                                                                      <div class="grid-3">
+                                                                                                                <div class="card">
+                                                                                                                            <div class="card-icon">⚡</div>
+                                                                                                                            <h3 data-i18n="why.card1.title">Şeffaf Açılış</h3>
+                                                                                                                            <p data-i18n="why.card1.desc">Systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne çalştığını bilir, gereksiz servis yük taşımazsınız.</p>p>
+                                                                                                                  </div>
+                                                                                                                <div class="card">
+                                                                                                                            <div class="card-icon">💻</div>
+                                                                                                                            <h3 data-i18n="why.card2.title">Bize Ait Masaüstü</h3>
+                                                                                                                            <p data-i18n="why.card2.desc">Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur.</p>p>
+                                                                                                                  </div>
+                                                                                                                <div class="card">
+                                                                                                                            <div class="card-icon"></div>
+                                                                                                                            <h3 data-i18n="why.card3.title">Sıfr Yabancı Dil</h3>
+                                                                                                                            <p data-i18n="why.card3.desc">Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terim karmaşası yoktur.</p>p>
+                                                                                                                  </div>
+                                                                                                        </div>
+                                                                                                </section>
+
+                                                                                              <section class="wrap section-block" id="surum">
+                                                                                                      <span class="section-kicker" data-i18n="editions.kicker">SüRüMLER</span>
+                                                                                                      <h2 data-i18n="editions.title">Ankora Linux 2.0 AyazDE</h2>
+                                                                                                      <p class="section-desc" data-i18n="editions.desc">Ev, ofis ve günlk kullanım için hafif, hızlı ve özelleştirilebilir tek kararlı sürüm. Taban: Devuan + SysVinit.</p>p>
+
+                                                                                                      <div class="single-edition-wrap">
+                                                                                                                <div class="card edition-card featured">
+                                                                                                                            <span class="card-badge" data-i18n="editions.card.badge">Kararlı Sürüm</span>
+                                                                                                                            <h3 data-i18n="editions.card.title">Ankora Linux 2.0 AyazDE</h3>
+                                                                                                                            <p data-i18n="editions.card.desc">Ev ve ofis kullanıcıları iin tasarlanan Ayaz masaüstü ortamlı hafif dağıtım. Düşük kaynak tüketimi ve yüksek performans.</p>p>
+                                                                                                                            <ul class="edition-specs">
+                                                                                                                                          <li data-i18n="editions.spec1"><b>Masaüstü:</b> AyazDE (Rust + Tauri + WebKitGTK)</li>li>
+                                                                                                                                          <li data-i18n="editions.spec2"><b>Açılış Sistemi:</b> SysVinit (Devuan Daedalus)</li>li>
+                                                                                                                                          <li data-i18n="editions.spec3"><b>çekirdek:</b> Linux Kernel 6.1 LTS</li>li>
+                                                                                                                                          <li data-i18n="editions.spec4"><b>RAM Kullanımı:</b> Boşta ~350 MB</li>li>
+                                                                                                                              </ul>ul>
+                                                                                                                            <a href="indir.html" class="btn primary full-width" data-i18n="editions.card.btn">ISO İndir (64-bit)</a>
+                                                                                                                  </div>
+                                                                                                        </div>
+                                                                                                </section>
+
+                                                                                              <section class="wrap section-block" id="ayaz">
+                                                                                                      <span class="section-kicker" data-i18n="ayaz.kicker">MASAüSTü ORTAMI</span>
+                                                                                                      <h2 data-i18n="ayaz.title">AyazDE – Yeni Nesil Hafif Masastü</h2>
+                                                                                                      <p class="section-desc" data-i18n="ayaz.desc">Modern web teknolojileri ve sistem seviyesinde Rust performansı ile geliştirilmiş özgün masaüstü deneyimi.</p>p>
+
+                                                                                                      <div class="grid-2">
+                                                                                                                <div class="feature-box">
+                                                                                                                            <h3 data-i18n="ayaz.f1.title">Modüler Panel & Başlat Menüsü</h3>
+                                                                                                                            <p data-i18n="ayaz.f1.desc">Hızlı arama, favori uygulamalar ve sistem bildirim paneli tek elden yönetilir.</p>p>
+                                                                                                                  </div>
+                                                                                                                <div class="feature-box">
+                                                                                                                            <h3 data-i18n="ayaz.f2.title">Kontrol Merkezi</h3>
+                                                                                                                            <p data-i18n="ayaz.f2.desc">Ağ, ses, ekran ve tema ayarlarını karmaşık menüler arasında kaybolmadan kolayca yapılandırın.</p>p>
+                                                                                                                  </div>
+                                                                                                        </div>
+                                                                                                </section>
+
+                                                                                              <section class="wrap section-block" id="mimari">
+                                                                                                      <span class="section-kicker" data-i18n="arch.kicker">MİMARİ VE SİSTEM</span>
+                                                                                                      <h2 data-i18n="arch.title">Devuan Tabanı & SysVinit Gücü</h2>
+                                                                                                      <p class="section-desc" data-i18n="arch.desc">Kararlı Debian/Devuan paket deposu desteği ile SysVinit'in sadeliği bir arada.</p>p>
+
+                                                                                                      <div class="specs-table-wrap">
+                                                                                                                <table class="specs-table">
+                                                                                                                            <thead>
+                                                                                                                                          <tr>
+                                                                                                                                                          <th data-i18n="arch.th1">Bileşen</th>th>
+                                                                                                                                                          <th data-i18n="arch.th2">Detay</th>th>
+                                                                                                                                            </tr>
+                                                                                                                              </thead>
+                                                                                                                            <tbody>
+                                                                                                                                          <tr>
+                                                                                                                                                          <td data-i18n="arch.row1.label">Taban Dağıtım</td>td>
+                                                                                                                                                          <td data-i18n="arch.row1.val">Devuan Linux 5 (Daedalus)</td>td>
+                                                                                                                                            </tr>
+                                                                                                                                          <tr>
+                                                                                                                                                          <td data-i18n="arch.row2.label">Başlatma Yneticisi</td>td>
+                                                                                                                                                          <td data-i18n="arch.row2.val">SysVinit + OpenRC Seçeneği</td>td>
+                                                                                                                                            </tr>
+                                                                                                                                          <tr>
+                                                                                                                                                          <td data-i18n="arch.row3.label">Paket Yneticisi</td>td>
+                                                                                                                                                          <td data-i18n="arch.row3.val">APT (Debian Uyumlu)</td>td>
+                                                                                                                                            </tr>
+                                                                                                                                          <tr>
+                                                                                                                                                          <td data-i18n="arch.row4.label">Masaüstü Ortamı</td>td>
+                                                                                                                                                          <td data-i18n="arch.row4.val">AyazDE (Rust/Tauri)</td>td>
+                                                                                                                                            </tr>
+                                                                                                                              </tbody>tbody>
+                                                                                                                  </table>table>
+                                                                                                        </div>div>
+                                                                                                </section>section>
+
+                                                                                              <section class="wrap section-block" id="topluluk">
+                                                                                                      <span class="section-kicker" data-i18n="community.kicker">TOPLULUK VE DESTEK</span>
+                                                                                                      <h2 data-i18n="community.title">Geliştirmeye Katılın</h2>
+                                                                                                      <p class="section-desc" data-i18n="community.desc">Ankora Linux açık kaynaklı bir projedir. Kod yazarak, çeviri yaparak veya geri bildirim vererek projeye katkıda bulunabilirsiniz.</p>p>
+
+                                                                                                      <div class="community-links">
+                                                                                                                <a href="https://github.com/Ankora-Linux" target="_blank" rel="noopener" class="card comm-card">
+                                                                                                                            <span class="card-icon">🐙</span>
+                                                                                                                            <h3 data-i18n="community.gh.title">GitHu<!DOCTYPE html>
+                                                                                                                              <html lang="tr">
+                                                                                                                                <head>
+                                                                                                                                    <meta charset="UTF-8">
+                                                                                                                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                                                                                                                    <title data-i18n="meta.title">Ankora Linux 2.0 AyazDE – Sade. Hzlı. Size ait.</title>title>
+                                                                                                                                    <meta name="description" content="Ankora Linux 2.0 AyazDE: Devuan tabanlı, SysVinit kullanan, kendi Ayaz masaüstü ortamıyla gelen Türke Linux dağıtımı." data-i18n="meta.desc">
+                                                                                                                                    <link rel="icon" type="image/png" href="logo.png">
+                                                                                                                                    <link rel="stylesheet" href="styles.css">
+                                                                                                                                  </head>
+                                                                                                                                <body>
+                                                                                                                                    <div class="topbar">
+                                                                                                                                          <div class="wrap">
+                                                                                                                                                  <span data-i18n="topbar.text"><b>Ankora 2.0 AyazDE</b> test sürümü yayında – deneyin, forumda bildirin!</span>span>
+                                                                                                                                                <a href="indir.html" data-i18n="topbar.link">İndirin &rarr;</a>
+                                                                                                                                            </div>
+                                                                                                                                      </div>
+                                                                                                                                
+                                                                                                                                  <header class="site">
+                                                                                                                                      <nav class="nav wrap" aria-label="Ana Menü">
+                                                                                                                                            <a class="brand" href="index.html">
+                                                                                                                                                    <img class="mark-img" src="logo.png" width="38" height="38" alt="Ankora Linux logosu">
+                                                                                                                                                    <span><b>Ankora Linux</b>b> <small>2.0 AyazDE</small></span>
+                                                                                                                                              </a>
+                                                                                                                                      
+                                                                                                                                            <div class="navlinks" id="menu">
+                                                                                                                                                    <a href="#genel" data-i18n="nav.overview">Genel Bakış</a>
+                                                                                                                                                    <a href="#surum" data-i18n="nav.editions">Sürüm</a>
+                                                                                                                                                    <a href="#ayaz" data-i18n="nav.ayaz">AyazDE</a>
+                                                                                                                                                    <a href="#mimari" data-i18n="nav.architecture">Mimari</a>
+                                                                                                                                                    <a href="#topluluk" data-i18n="nav.community">Topluluk</a>
+                                                                                                                                                    <div class="mobile-only-controls">
+                                                                                                                                                              <select class="lang-select" aria-label="Dil Seçimi">
+                                                                                                                                                                          <option value="tr">Türkçe (TR)</option>option>
+                                                                                                                                                                          <option value="en">English (EN)</option>option>
+                                                                                                                                                                          <option value="de">Deutsch (DE)</option>option>
+                                                                                                                                                                          <option value="fr">Français (FR)</option>option>
+                                                                                                                                                                          <option value="es">Español (ES)</option>option>
+                                                                                                                                                                          <option value="ru">Русский (RU)</option>option>
+                                                                                                                                                                          <option value="az">Azərbaycan (AZ)</option>option>
+                                                                                                                                                                </select>select>
+                                                                                                                                                              <button type="button" class="theme-toggle mobile-theme-btn" aria-label="Tema Değiştir" data-i18n-aria="theme.toggle">
+                                                                                                                                                                          <span class="theme-icon">🌙</span>
+                                                                                                                                                                </button>button>
+                                                                                                                                                      </div>
+                                                                                                                                              </div>
+                                                                                                                                      
+                                                                                                                                            <div class="nav-actions">
+                                                                                                                                                    <select class="lang-select desktop-only" aria-label="Dil Seçimi">
+                                                                                                                                                              <option value="tr">TR</option>option>
+                                                                                                                                                              <option value="en">EN</option>option>
+                                                                                                                                                              <option value="de">DE</option>option>
+                                                                                                                                                              <option value="fr">FR</option>option>
+                                                                                                                                                              <option value="es">ES</option>option>
+                                                                                                                                                              <option value="ru">RU</option>option>
+                                                                                                                                                              <option value="az">AZ</option>option>
+                                                                                                                                                      </select>select>
+                                                                                                                                            
+                                                                                                                                                    <button type="button" class="theme-toggle desktop-only" aria-label="Tema Değiştir" data-i18n-aria="theme.toggle">
+                                                                                                                                                              <span class="theme-icon">🌙</span>
+                                                                                                                                                      </button>button>
+                                                                                                                                            
+                                                                                                                                                    <a class="btn primary small desktop-only" href="indir.html" data-i18n="nav.download">İndir</a>
+                                                                                                                                            
+                                                                                                                                                    <button class="navtoggle" aria-expanded="false" aria-controls="menu" aria-label="Menüyü Aç/Kapat" data-i18n-aria="nav.toggle">
+                                                                                                                                                              <span class="burger-bar"></span>
+                                                                                                                                                              <span class="burger-bar"></span>
+                                                                                                                                                              <span class="burger-bar"></span>
+                                                                                                                                                      </button>button>
+                                                                                                                                              </div>
+                                                                                                                                        </nav>nav>
+                                                                                                                                    </header>header>
+                                                                                                                                
+                                                                                                                                  <main>
+                                                                                                                                        <section class="hero wrap" id="genel">
+                                                                                                                                                <div class="hero-text">
+                                                                                                                                                          <span class="badge" data-i18n="hero.badge">özgür ve Baımsız Dağıtım</span>
+                                                                                                                                                          <h1 data-i18n="hero.title">Sade. Hızlı.<br>Size ait.</h1>
+                                                                                                                                                          <p class="lead" data-i18n="hero.desc">Ankora Linux, açılta yalnızca mecburi servisleri alştıran, tamamı Türkçe konuşan ve kendi Ayaz masaüstü ortamıyla gelen hafif sistemdir.</p>p>
+                                                                                                                                                          <div class="hero-btns">
+                                                                                                                                                                      <a class="btn primary" href="indir.html" data-i18n="hero.btn1">Ankora 2.0'ı İndirin</a>
+                                                                                                                                                                      <a class="btn secondary" href="#ayaz" data-i18n="hero.btn2">AyazDE'yi İnceleyin</a>
+                                                                                                                                                            </div>
+                                                                                                                                                          <p class="subtext" data-i18n="hero.subtext">ücretsiz  GPL-3.0 açık kaynak • Test sürüm – geri bildirimlerinizle gelişiyor</p>p>
+                                                                                                                                                  </div>
+                                                                                                                                                <div class="hero-media">
+                                                                                                                                                          <img src="ayazdemas.png" alt="Ankora Linux AyazDE Masaüstü Görünümü" class="hero-img">
+                                                                                                                                                  </div>
+                                                                                                                                          </section>
+                                                                                                                                    
+                                                                                                                                        <section class="wrap section-block">
+                                                                                                                                                <span class="section-kicker" data-i18n="why.kicker">Neden Ankora?</span>
+                                                                                                                                                <h2 data-i18n="why.title">Bilgisayar dediğin, ne yaptığını anlatır.</h2>
+                                                                                                                                                <p class="section-desc" data-i18n="why.desc">üç karar verdik ve üçünde de ısrarcıyız: açılış şeffaf olacak, masaüstü bize ait olacak, dil sorunu yaşanmayacak.</p>p>
+                                                                                                                                          
+                                                                                                                                                <div class="grid-3">
+                                                                                                                                                          <div class="card">
+                                                                                                                                                                      <div class="card-icon">⚡</div>
+                                                                                                                                                                      <h3 data-i18n="why.card1.title">Şeffaf Açılış</h3>
+                                                                                                                                                                      <p data-i18n="why.card1.desc">Systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne çalıştıını bilir, gereksiz servis yükü taşımazsınız.</p>p>
+                                                                                                                                                            </div>
+                                                                                                                                                          <div class="card">
+                                                                                                                                                                      <div class="card-icon">💻</div>
+                                                                                                                                                                      <h3 data-i18n="why.card2.title">Bize Ait Masaüstü</h3>
+                                                                                                                                                                      <p data-i18n="why.card2.desc">Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur.</p>p>
+                                                                                                                                                            </div>
+                                                                                                                                                          <div class="card">
+                                                                                                                                                                      <div class="card-icon">🌐</div>
+                                                                                                                                                                      <h3 data-i18n="why.card3.title">Sıfır Yabanc Dil</h3>
+                                                                                                                                                                      <p data-i18n="why.card3.desc">Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terim karmaşası yoktur.</p>p>
+                                                                                                                                                            </div>
+                                                                                                                                                  </div>
+                                                                                                                                          </section>
+                                                                                                                                    
+                                                                                                                                        <section class="wrap section-block" id="surum">
+                                                                                                                                                <span class="section-kicker" data-i18n="editions.kicker">SüRüMLER</span>
+                                                                                                                                                <h2 data-i18n="editions.title">Ankora Linux 2.0 AyazDE</h2>
+                                                                                                                                                <p class="section-desc" data-i18n="editions.desc">Ev, ofis ve günlük kullanım için hafif, hızlı ve özelleştirilebilir tek kararlı sürüm. Taban: Devuan + SysVinit.</p>p>
+                                                                                                                                          
+                                                                                                                                                <div class="single-edition-wrap">
+                                                                                                                                                          <div class="card edition-card featured">
+                                                                                                                                                                      <span class="card-badge" data-i18n="editions.card.badge">Kararlı Sürüm</span>
+                                                                                                                                                                      <h3 data-i18n="editions.card.title">Ankora Linux 2.0 AyazDE</h3>
+                                                                                                                                                                      <p data-i18n="editions.card.desc">Ev ve ofis kullanıcıları için tasarlanan Ayaz masaüstü ortamlı hafif dağıtım. Düşük kaynak tüketimi ve yüksek performans.</p>p>
+                                                                                                                                                                      <ul class="edition-specs">
+                                                                                                                                                                                    <li data-i18n="editions.spec1"><b>Masaüstü:</b> AyazDE (Rust + Tauri + WebKitGTK)</li>li>
+                                                                                                                                                                                    <li data-i18n="editions.spec2"><b>Açılış Sistemi:</b> SysVinit (Devuan Daedalus)</li>li>
+                                                                                                                                                                                    <li data-i18n="editions.spec3"><b>çekirdek:</b> Linux Kernel 6.1 LTS</li>li>
+                                                                                                                                                                                    <li data-i18n="editions.spec4"><b>RAM Kullanımı:</b> Boşta ~350 MB</li>li>
+                                                                                                                                                                        </ul>ul>
+                                                                                                                                                                      <a href="indir.html" class="btn primary full-width" data-i18n="editions.card.btn">ISO İndir (64-bit)</a>
+                                                                                                                                                            </div>
+                                                                                                                                                  </div>
+                                                                                                                                          </section>
+                                                                                                                                    
+                                                                                                                                        <section class="wrap section-block" id="ayaz">
+                                                                                                                                                <span class="section-kicker" data-i18n="ayaz.kicker">MASAüSTü ORTAMI</span>
+                                                                                                                                                <h2 data-i18n="ayaz.title">AyazDE – Yeni Nesil Hafif Masaüst</h2>
+                                                                                                                                                <p class="section-desc" data-i18n="ayaz.desc">Modern web teknolojileri ve sistem seviyesinde Rust performansı ile geliştirilmiş özgün masastü deneyimi.</p>p>
+                                                                                                                                          
+                                                                                                                                                <div class="grid-2">
+                                                                                                                                                          <div class="feature-box">
+                                                                                                                                                                      <h3 data-i18n="ayaz.f1.title">Modüler Panel & Başlat Menüsü</h3>
+                                                                                                                                                                      <p data-i18n="ayaz.f1.desc">Hızlı arama, favori uygulamalar ve sistem bildirim paneli tek elden yönetilir.</p>p>
+                                                                                                                                                            </div>
+                                                                                                                                                          <div class="feature-box">
+                                                                                                                                                                      <h3 data-i18n="ayaz.f2.title">Kontrol Merkezi</h3>
+                                                                                                                                                                      <p data-i18n="ayaz.f2.desc">Ağ, ses, ekran ve tema ayarlarını karmaşık menüler arasında kaybolmadan kolayca yapılandırın.</p>p>
+                                                                                                                                                            </div>
+                                                                                                                                                  </div>
+                                                                                                                                          </section>
+                                                                                                                                    
+                                                                                                                                        <section class="wrap section-block" id="mimari">
+                                                                                                                                                <span class="section-kicker" data-i18n="arch.kicker">MİMARİ VE SİSTEM</span>
+                                                                                                                                                <h2 data-i18n="arch.title">Devuan Tabanı & SysVinit Gücü</h2>
+                                                                                                                                                <p class="section-desc" data-i18n="arch.desc">Kararlı Debian/Devuan paket deposu desteği ile SysVinit'in sadeliği bir arada.</p>p>
+                                                                                                                                          
+                                                                                                                                                <div class="specs-table-wrap">
+                                                                                                                                                          <table class="specs-table">
+                                                                                                                                                                      <thead>
+                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                    <th data-i18n="arch.th1">Bileşen</th>th>
+                                                                                                                                                                                                    <th data-i18n="arch.th2">Detay</th>th>
+                                                                                                                                                                                      </tr>
+                                                                                                                                                                        </thead>
+                                                                                                                                                                      <tbody>
+                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                    <td data-i18n="arch.row1.label">Taban Dağıtım</td>td>
+                                                                                                                                                                                                    <td data-i18n="arch.row1.val">Devuan Linux 5 (Daedalus)</td>td>
+                                                                                                                                                                                      </tr>
+                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                    <td data-i18n="arch.row2.label">Başlatma Yöneticisi</td>td>
+                                                                                                                                                                                                    <td data-i18n="arch.row2.val">SysVinit + OpenRC Seçeneği</td>td>
+                                                                                                                                                                                      </tr>
+                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                    <td data-i18n="arch.row3.label">Paket Yöneticisi</td>td>
+                                                                                                                                                                                                    <td data-i18n="arch.row3.val">APT (Debian Uyumlu)</td>td>
+                                                                                                                                                                                      </tr>
+                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                    <td data-i18n="arch.row4.label">Masaüstü Ortamı</td>td>
+                                                                                                                                                                                                    <td data-i18n="arch.row4.val">AyazDE (Rust/Tauri)</td>td>
+                                                                                                                                                                                      </tr>
+                                                                                                                                                                        </tbody>
+                                                                                                                                                            </table>table>
+                                                                                                                                                  </div>div>
+                                                                                                                                          </section>section>
+                                                                                                                                    
+                                                                                                                                        <section class="wrap section-block" id="topluluk">
+                                                                                                                                                <span class="section-kicker" data-i18n="community.kicker">TOPLULUK VE DESTEK</span>
+                                                                                                                                                <h2 data-i18n="community.title">Geliştirmeye Katılın</h2>
+                                                                                                                                                <p class="section-desc" data-i18n="community.desc">Ankora Linux ak kaynaklı bir projedir. Kod yazarak, çeviri yaparak veya geri bildirim vererek projeye katkıda bulunabilirsiniz.</p>p>
+                                                                                                                                          
+                                                                                                                                                <div class="community-links">
+                                                                                                                                                          <a href="https://github.com/Ankora-Linux" target="_blank" rel="noopener" class="card comm-card">
+                                                                                                                                                                      <span class="card-icon">🐙</span>
+                                                                                                                                                                      <h3 data-i18n="community.gh.title">GitHub</h3>
+                                                                                                                                                                      <p data-i18n="community.gh.desc">Kaynak kodlar inceleyin ve katkıda bulunun.</p>p>
+                                                                                                                                                            </a>
+                                                                                                                                                  </div>
+                                                                                                                                          </section>
+                                                                                                                                    </main>
+                                                                                                                                  
+                                                                                                                                    <footer class="site-footer">
+                                                                                                                                          <div class="wrap footer-content">
+                                                                                                                                                  <div class="footer-brand">
+                                                                                                                                                            <b data-i18n="footer.title">Ankora Linux</b>
+                                                                                                                                                            <p data-i18n="footer.desc">Devuan tabanlı, bağımsız ve Türkçe odaklı Linux dağıtım.</p>p>
+                                                                                                                                                    </div>
+                                                                                                                                                  <div class="footer-links">
+                                                                                                                                                            <a href="#genel" data-i18n="nav.overview">Genel Bakış</a>
+                                                                                                                                                            <a href="#surum" data-i18n="nav.editions">Sürüm</a>
+                                                                                                                                                            <a href="#ayaz" data-i18n="nav.ayaz">AyazDE</a>
+                                                                                                                                                            <a href="#mimari" data-i18n="nav.architecture">Mimari</a>
+                                                                                                                                                            <a href="#topluluk" data-i18n="nav.community">Topluluk</a>
+                                                                                                                                                            <a href="indir.html" data-i18n="nav.download">İndir</a>
+                                                                                                                                                    </div>
+                                                                                                                                            </div>
+                                                                                                                                          <div class="wrap footer-bottom">
+                                                                                                                                                  <p data-i18n="footer.copy">&copy; 2026 Ankora Linux Projesi. GPL-3.0 Lisansı ile korunmaktadır.</p>p>
+                                                                                                                                            </div>
+                                                                                                                                      </footer>footer>
+                                                                                                                                  
+                                                                                                                                    <script src="lang.js" defer></script>
+                                                                                                                                    <script src="script.js" defer></script>
+                                                                                                                                  </body>
+                                                                                                                                </html>html>
+                                                                                                                                                                                    </tr>
+                                                                                                                                                                                    </tr>
+                                                                                                                                                                      </tbody>
+                                                                                                                                                                                    </tr>
+                                                                                                                                                                      </thead>
+                                                                                                                                  </main></small></span></b>
+                                                                                                                                </body>
+                                                                                                                                </head>b</h3>
+                                                                                                                            <p data-i18n="community.gh.desc">Kaynak kodları inceleyin ve katkıda bulunun.</p>p>
+                                                                                                                  </a>
+                                                                                                        </div>
+                                                                                                </section>
+                                                                                        </main>
+
+                                                                                          <footer class="site-footer">
+                                                                                                <div class="wrap footer-content">
+                                                                                                        <div class="footer-brand">
+                                                                                                                  <b data-i18n="footer.title">Ankora Linux</b>
+                                                                                                                  <p data-i18n="footer.desc">Devuan tabanlı, bağımsız ve Türkçe odaklı Linux dağıtımı.</p>p>
+                                                                                                          </div>
+                                                                                                        <div class="footer-links">
+                                                                                                                  <a href="#genel" data-i18n="nav.overview">Genel Bakış</a>
+                                                                                                                  <a href="#surum" data-i18n="nav.editions">Srüm</a>
+                                                                                                                  <a href="#ayaz" data-i18n="nav.ayaz">AyazDE</a>
+                                                                                                                  <a href="#mimari" data-i18n="nav.architecture">Mimari</a>
+                                                                                                                  <a href="#topluluk" data-i18n="nav.community">Topluluk</a>
+                                                                                                                  <a href="indir.html" data-i18n="nav.download">İndir</a>
+                                                                                                          </div>
+                                                                                                  </div>
+                                                                                                <div class="wrap footer-bottom">
+                                                                                                        <p data-i18n="footer.copy">&copy; 2026 Ankora Linux Projesi. GPL-3.0 Lisansı ile korunmaktadır.</p>p>
+                                                                                                  </div>
+                                                                                          </footer>footer>
+
+                                                                                          <script src="lang.js" defer></script>
+                                                                                          <script src="script.js" defer></script>
+                                                                                      </body>
+                                                                                    </html>
+                                                                                                                                          </tr>
+                                                                                                                                          </tr>
+                                                                                                                                          </tr>
+                                                                                                                                          </tr>
+                                                                                                                            </tbody>
+                                                                                                                                          </tr>
+                                                                                                                            </thead>
+                                                                                        </main></small></span></b>
+                                                                                      </body>
+                                                                                      </head>b</h3>
+                                                                                  <p data-i18n="community.gh.desc">Kaynak kodları inceleyin ve katkıda bulunun.</p>p>
+                                                                      </a>
+                                                            </div>
+                                                    </section>
+                                              </main>
+
+                                                <footer class="site-footer">
+                                                      <div class="wrap footer-content">
+                                                              <div class="footer-brand">
+                                                                        <b data-i18n="footer.title">Ankora Linux</b>
+                                                                        <p data-i18n="footer.desc">Devuan tabanlı, bağmsız ve Türkçe odaklı Linux dağıtımı.</p>p>
+                                                              </div>
+                                                              <div class="footer-links">
+                                                                        <a href="#genel" data-i18n="nav.overview">Genel Bakı</a>
+                                                                        <a href="#surum" data-i18n="nav.editions">Sürüm</a>
+                                                                        <a href="#ayaz" data-i18n="nav.ayaz">AyazDE</a>
+                                                                        <a href="#mimari" data-i18n="nav.architecture">Mimari</a>
+                                                                        <a href="#topluluk" data-i18n="nav.community">Topluluk</a>
+                                                                        <a href="indir.html" data-i18n="nav.download">İndir</a>
+                                                              </div>
+                                                      </div>
+                                                      <div class="wrap footer-bottom">
+                                                              <p data-i18n="footer.copy">&copy; 2026 Ankora Linux Projesi. GPL-3.0 Lisansı ile korunmaktadır.</p>p>
+                                                      </div>
+                                                </footer>footer>
+
+                                                <script src="lang.js" defer></script>
+                                                <script src="script.js" defer></script>
+                                            </body>
+                                          </html>
+                                                                                                </tr>
+                                                                                                </tr>
+                                                                                  </tbody>
+                                                                                                </tr>
+                                                                                  </thead>
+                                              </main></small></span></b>
+                                            </body>
+                                            </head>b</h3>h3>
+                                        <p data-i18n="community.gh.desc">Kaynak kodları inceleyin ve katkıda bulunun.</p>p>
+                            </a>a>
+                  </div>div>
+          </section>section>
+    </main>
+
+      <footer class="site-footer">
+            <div class="wrap footer-content">
+                    <div class="footer-brand">
+                              <b data-i18n="footer.title">Ankora Linux</b>
+                              <p data-i18n="footer.desc">Devuan tabanlı, bağımsız ve Türkçe odaklı Linux dağıtımı.</p>p>
+                    </div>div>
+                    <div class="footer-links">
+                              <a href="#genel" data-i18n="nav.overview">Genel Bakış</a>a>
+                              <a href="#surum" data-i18n="nav.editions">Sürüm</a>a>
+                              <a href="#ayaz" data-i18n="nav.ayaz">AyazDE</a>a>
+                              <a href="#mimari" data-i18n="nav.architecture">Mimari</a>a>
+                              <a href="#topluluk" data-i18n="nav.community">Topluluk</a>a>
+                              <a href="indir.html" data-i18n="nav.download">İndir</a>a>
+                    </div>div>
+            </div>div>
+            <div class="wrap footer-bottom">
+                    <p data-i18n="footer.copy">&copy; 2026 Ankora Linux Projesi. GPL-3.0 Lisansı ile korunmaktadır.</p>p>
+            </div>div>
+      </footer>footer>
+
+      <script src="lang.js" defer></script>
+      <script src="script.js" defer></script>
+  </body>
+</html>
+                                                      </tr>
+                                                      </tr>
+                                        </tbody>
+                                                      </tr>
+                                        </thead>
+    </main></small></span></b>
+  </body>
+  </head>ial-scale=1">
 <title>Ankora Linux 2.0 AyazDE — Sade. Hızlı. Size ait.</title>
 <meta name="description" content="Ankora Linux 2.0 AyazDE: Devuan tabanlı, SysVinit kullanan, kendi Ayaz masaüstü ortamıyla gelen Türkçe Linux dağıtımı. Canlı ISO'yu ücretsiz indirin.">
 <link rel="canonical" href="https://ankora-linux.github.io/">
