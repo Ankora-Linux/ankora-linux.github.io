@@ -1,7 +1,811 @@
 /* Ankora site dili: TR/EN.anahtar = sayfadaki birebir Türkçe metin, değer = İngilizce karşılığı (HTML olabilir). */
 (function () {
   var EN = {
-    "Menü": "Menu",
+    "Menü": "Menu",/* Ankora Linux - Coklu Dil (i18n) Sozlugu ve Yonetim Sistemi */
+    (function () {
+        var T = {
+              tr: {
+                      "Menü": "Menü",
+                      "Genel Bakış": "Genel Bakış",
+                      "Sürüm": "Sürüm",
+                      "AyazDE": "AyazDE",
+                      "İndir": "İndir",
+                      "Topluluk": "Topluluk",
+                      "Mimari": "Mimari",
+                      "Karanlık": "Karanlık",
+                      "Aydınlık": "Aydınlık",
+                      "Tema Değiştir": "Tema Değiştir",
+                      "Ankora 2.0 AyazDE test sürümü yayında – deneyin, forumda bildirin!": "Ankora 2.0 AyazDE test sürümü yayında – deneyin, forumda bildirin!",
+                      "Ankora Linux 2.0 AyazDE": "Ankora Linux 2.0 AyazDE",
+                      "Sade. Hızlı. Size ait.": "Sade. Hızlı. Size ait.",
+                      "Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.": "Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.",
+                      "Ankora 2.0'ı indirin": "Ankora 2.0'ı indirin",
+                      "AyazDE'yi inceleyin": "AyazDE'yi inceleyin",
+                      "ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor": "ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor",
+                      "Neden Ankora": "Neden Ankora",
+                      "Bilgisayar dediğin, ne yaptığnı anlatır.": "Bilgisayar dediğin, ne yaptığını anlatır.",
+                      "üç karar verdik ve üçünde de ısrarcıyız: açılış şeffaf olacak, masaüstü bize ait olacak, ekrandaki her şey Türkçe ve hızlı olacak.": "üç karar verdik ve üçünde de ısrarcıyız: açılış şeffaf olacak, masaüstü bize ait olacak, ekrandaki her şey Türkçe ve hızlı olacak.",
+                      "Şeffaf açılış": "Şeffaf açılış",
+                      "systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne çalıştığını bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.": "systemd yok. Numaralı SysVinit betikleri sırayla çalşır. Ne çalıştığını bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.",
+                      "Bize ait masaüstü": "Bize ait masaüstü",
+                      "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüs ve kontrol merkezinden oluşur. Ağır fanteziler içermez.": "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmı hafif panel, başlat menüsü ve kontrol merkezinden oluşur. Ağır fanteziler içermez.",
+                      "Sıfır yabancı dil": "Sıfr yabancı dil",
+                      "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşılırdr.": "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşlırdır.",
+                      "Ayaz masaüstü": "Ayaz masaüstü",
+                      "Tema değil, ortam.": "Tema değil, ortam.",
+                      "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajına kadar her şey aynı dilden konuşur.": "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajına kadar her şey aynı dilden konuşur.",
+                      "Sürümler": "Sürümler",
+                      "Tek masaüstü, net performans.": "Tek masaüstü, net performans.",
+                      "Son kullanıcı ve günlük kullanım için entegre AyazDE masaüstü ortamı ile hızl ve hafif Linux deneyimi.": "Son kullanıcı ve günlük kullanım için entegre AyazDE masaüstü ortamı ile hızlı ve hafif Linux deneyimi.",
+                      "AyazDE Masaüstü": "AyazDE Masaüstü",
+                      "Son Kullanıcı": "Son Kullanıcı",
+                      "Ev ve ofis kullanımı için tam donanımlı Ayaz masaüstü sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.": "Ev ve ofis kullanımı için tam donanımlı Ayaz masaüstü sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.",
+                      "İndir (ISO)": "İndir (ISO)",
+                      "Mimari & İlkeler": "Mimari & İlkeler",
+                      "Katkı verin": "Katkı verin",
+                      "Ankora'yı birlikte büyütelim.": "Ankora'yı birlikte büyütelim.",
+                      "Kod, paket veya belge; her türlü katkıya açığız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.": "Kod, paket veya belge; her türlü katkıya açığız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.",
+                      "GitHub Organizasyonu": "GitHub Organizasyonu",
+                      "Matrix Sohbet Odası": "Matrix Sohbet Odası",
+                      "Tüm Haklar Saklıdr.": "Tüm Hakları Sakldır."
+              },
+              en: {
+                      "Menü": "Menu",
+                      "Genel Bakış": "Overview",
+                      "Sürüm": "Release",
+                      "AyazDE": "AyazDE",
+                      "İndir": "Download",
+                      "Topluluk": "Community",
+                      "Mimari": "Architecture",
+                      "Karanlık": "Dark",
+                      "Aydınlık": "Light",
+                      "Tema Değiştir": "Toggle Theme",
+                      "Ankora 2.0 AyazDE test sürümü yayında – deneyin, forumda bildirin!": "Ankora 2.0 AyazDE test release is live – try it out and report on the forum!",
+                      "Ankora Linux 2.0 AyazDE": "Ankora Linux 2.0 AyazDE",
+                      "Sade. Hızlı. Size ait.": "Simple. Fast. Yours.",
+                      "Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.": "Ankora Linux is a lightweight independent distribution running essential services at boot, fully localized and featuring native AyazDE desktop environment.",
+                      "Ankora 2.0'ı indirin": "Download Ankora 2.0",
+                      "AyazDE'yi inceleyin": "Explore AyazDE",
+                      "ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor": "Free • GPL-3.0 Open Source • Test release – evolving with your feedback",
+                      "Neden Ankora": "Why Ankora",
+                      "Bilgisayar dediğin, ne yaptığını anlatır.": "A computer should tell you what it is doing.",
+                      "üç karar verdik ve üçünde de ısrarcıyız: açılış şeffaf olacak, masaüstü bize ait olacak, ekrandaki her şey Türkçe ve hızlı olacak.": "We made three core decisions: transparent boot, native desktop, and clear localized performance.",
+                      "Şeffaf açılış": "Transparent Boot",
+                      "systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne çalıştığnı bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.": "No systemd. Numbered SysVinit scripts run sequentially to save memory.",
+                      "Bize ait masaüstü": "Native Desktop",
+                      "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur. Ağır fanteziler içermez.": "Ayaz consists of a lightweight panel, start menu, and control center built with Rust + Tauri 1.5 + WebKitGTK.",
+                      "Sıfır yabancı dil": "Fully Localized",
+                      "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşılırdır.": "From system messages to desktop apps, everything is clearly structured.",
+                      "Ayaz masaüstü": "Ayaz Desktop",
+                      "Tema değil, ortam.": "An environment, not just a theme.",
+                      "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajına kadar her şey aynı dilden konuşur.": "Panel, start menu, system tray, notifications, and settings in one seamless piece.",
+                      "Sürümler": "Releases",
+                      "Tek masaüstü, net performans.": "Single desktop, crisp performance.",
+                      "Son kullanıcı ve günlük kullanım için entegre AyazDE masaüstü ortamı ile hızlı ve hafif Linux deneyimi.": "A fast and lightweight Linux experience for everyday users powered by AyazDE.",
+                      "AyazDE Masaüstü": "AyazDE Desktop",
+                      "Son Kullanıcı": "End User",
+                      "Ev ve ofis kullanımı için tam donanımlı Ayaz masaüstü sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.": "Full-featured Ayaz desktop release for home and office with Firefox, VLC, and core tools.",
+                      "İndir (ISO)": "Download (ISO)",
+                      "Mimari & İlkeler": "Architecture & Principles",
+                      "Katkı verin": "Contribute",
+                      "Ankora'yı birlikte büyütelim.": "Let's grow Ankora together.",
+                      "Kod, paket veya belge; her türlü katkıya açığız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.": "Code, packages, or documentation – all contributions welcome via GitHub or Matrix.",
+                      "GitHub Organizasyonu": "GitHub Organization",
+                      "Matrix Sohbet Odası": "Matrix Chat Room",
+                      "Tüm Hakları Saklıdır.": "All Rights Reserved."
+              },
+              de: {
+                      "Menü": "Menü",
+                      "Genel Bakış": "übersicht",
+                      "Sürüm": "Version",
+                      "AyazDE": "AyazDE",
+                      "İndir": "Herunterladen",
+                      "Topluluk": "Gemeinschaft",
+                      "Mimari": "Architektur",
+                      "Karanlık": "Dunkel",
+                      "Aydınlık": "Hell",
+                      "Tema Değiştir": "Design wechseln",
+                      "Ankora 2.0 AyazDE test sürümü yayında – deneyin, forumda bildirin!": "Ankora 2.0 AyazDE Testversion ist live – ausprobieren und im Forum berichten!",
+                      "Ankora Linux 2.0 AyazDE": "Ankora Linux 2.0 AyazDE",
+                      "Sade. Hızlı. Size ait.": "Einfach. Schnell. Deins.",
+                      "Ankora Linux, açılışta yalnızca mecburi servisleri çalıtıran, tamamı Türkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.": "Ankora Linux ist eine leichte, unabhängige Distribution mit eigener AyazDE-Desktop-Umgebung.",
+                      "Ankora 2.0'ı indirin": "Ankora 2.0 herunterladen",
+                      "AyazDE'yi inceleyin": "AyazDE entdecken",
+                      "ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor": "Kostenlos • GPL-3.0 Open Source • Testversion – wächst mit Ihrem Feedback",
+                      "Neden Ankora": "Warum Ankora",
+                      "Bilgisayar dediğin, ne yaptığını anlatır.": "Ein Computer sollte transparent sein.",
+                      "üç karar verdik ve üçünde de ısrarcıyız: açılış şeffaf olacak, masastü bize ait olacak, ekrandaki her şey Türkçe ve hızlı olacak.": "Drei Prinzipien: transparenter Bootvorgang, eigener Desktop, schnelle Bedienung.",
+                      "Şeffaf açılış": "Transparenter Boot",
+                      "systemd yok. Numaral SysVinit betikleri sırayla çalışır. Ne çalıştığını bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.": "Kein systemd. Sequentielle SysVinit-Skripte sparen Arbeitsspeicher.",
+                      "Bize ait masaüstü": "Eigener Desktop",
+                      "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur. Ağr fanteziler iermez.": "Ayaz besteht aus Panel, Startmenü und Kontrollzentrum mit Rust + Tauri 1.5 + WebKitGTK.",
+                      "Sıfır yabancı dil": "Vollstndig lokalisiert",
+                      "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşılırdır.": "Von Systemmeldungen bis zu Apps: Klar strukturierte Menüs.",
+                      "Ayaz masaüstü": "Ayaz Desktop",
+                      "Tema değil, ortam.": "Eine komplette Umgebung, kein bloßes Theme.",
+                      "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajına kadar her şey aynı dilden konuşur.": "Panel, Startmenü, System-Tray und Einstellungen aus einem Guss.",
+                      "Sürümler": "Versionen",
+                      "Tek masaüstü, net performans.": "Ein Desktop, klare Leistung.",
+                      "Son kullanıcı ve günlük kullanım için entegre AyazDE masaüstü ortamı ile hızlı ve hafif Linux deneyimi.": "Ein schnelles Linux-Erlebnis für den täglichen Gebrauch mit AyazDE.",
+                      "AyazDE Masaüstü": "AyazDE Desktop",
+                      "Son Kullanıcı": "Endbenutzer",
+                      "Ev ve ofis kullanımı için tam donanımlı Ayaz masaüstü sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.": "Voll ausgestattete Desktop-Edition mit Firefox, VLC und Kernwerkzeugen.",
+                      "İndir (ISO)": "Herunterladen (ISO)",
+                      "Mimari & İlkeler": "Architektur & Prinzipien",
+                      "Katkı verin": "Mitmachen",
+                      "Ankora'yı birlikte büyütelim.": "Lassen Sie uns Ankora gemeinsam gestalten.",
+                      "Kod, paket veya belge; her türlü katkıya aığız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.": "Code, Pakete oder Doku – jeder Beitrag ist willkommen via GitHub oder Matrix.",
+                      "GitHub Organizasyonu": "GitHub-Organisation",
+                      "Matrix Sohbet Odası": "Matrix-Chatraum",
+                      "Tüm Hakları Saklıdır.": "Alle Rechte vorbehalten."
+              },
+              fr: {
+                      "Menü": "Menu",
+                      "Genel Bakış": "Aperçu",
+                      "Sürüm": "Version",
+                      "AyazDE": "AyazDE",
+                      "İndir": "Télécharger",
+                      "Topluluk": "Communauté",
+                      "Mimari": "Architecture",
+                      "Karanlık": "Sombre",
+                      "Aydınlık": "Clair",
+                      "Tema Değiştir": "Changer le thème",
+                      "Ankora 2.0 AyazDE test sürümü yayında – deneyin, forumda bildirin!": "Ankora 2.0 AyazDE version de test disponible – essayez-la et partagez vos retours !",
+                      "Ankora Linux 2.0 AyazDE": "Ankora Linux 2.0 AyazDE",
+                      "Sade. Hızlı. Size ait.": "Simple. Rapide. Le vôtre.",
+                      "Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.": "Ankora Linux est une distribution indépendante légère avec l'environnement AyazDE.",
+                      "Ankora 2.0'ı indirin": "Télécharger Ankora 2.0",
+                      "AyazDE'yi inceleyin": "Découvrir AyazDE",
+                      "ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor": "Gratuit • Open Source GPL-3.0 • Version de test en constante évolution",
+                      "Neden Ankora": "Pourquoi Ankora",
+                      "Bilgisayar dediğin, ne yaptığını anlatır.": "Un ordinateur doit être transparent.",
+                      "üç karar verdik ve üçünde de ısrarcıyız: açılış şeffaf olacak, masaüstü bize ait olacak, ekrandaki her şey Türke ve hızlı olacak.": "Démarrage transparent, bureau natif, expérience rapide et claire.",
+                      "Şeffaf açılış": "Démarrage transparent",
+                      "systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne çalıştığını bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.": "Pas de systemd. Scripts SysVinit séquentiels pour préserver la mémoire.",
+                      "Bize ait masaüstü": "Bureau natif",
+                      "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur. Ağır fanteziler içermez.": "Panneau léger, menu démarrer et centre de contrôle en Rust + Tauri 1.5 + WebKitGTK.",
+                      "Sıfr yabancı dil": "Entièrement traduit",
+                      "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşılırdır.": "Des messages système aux applications, tout est clair et compréhensible.",
+                      "Ayaz masaüstü": "Bureau Ayaz",
+                      "Tema değil, ortam.": "Un vrai environnement, pas un simple thème.",
+                      "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajına kadar her şey aynı dilden konuşur.": "Panneau, menu démarrer, notifications et paramètres parfaitement intégrés.",
+                      "Sürümler": "Versions",
+                      "Tek masaüstü, net performans.": "Un bureau unique, des performances pures.",
+                      "Son kullanıcı ve günlük kullanm için entegre AyazDE masaüstü ortam ile hızlı ve hafif Linux deneyimi.": "Une expérience Linux rapide et légère au quotidien avec AyazDE.",
+                      "AyazDE Masaüstü": "Bureau AyazDE",
+                      "Son Kullanıcı": "Utilisateur final",
+                      "Ev ve ofis kullanımı için tam donanımlı Ayaz masaüstü sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.": "édition complète pour la maison et le bureau avec Firefox, VLC et outils essentiels.",
+                      "İndir (ISO)": "Télécharger (ISO)",
+                      "Mimari & İlkeler": "Architecture & Principes",
+                      "Katkı verin": "Contribuer",
+                      "Ankora'yı birlikte büytelim.": "Développons Ankora ensemble.",
+                      "Kod, paket veya belge; her türlü katkıya açığız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.": "Toutes les contributions sont les bienvenues via GitHub ou Matrix.",
+                      "GitHub Organizasyonu": "Organisation GitHub",
+                      "Matrix Sohbet Odası": "Salon Matrix",
+                      "Tüm Hakları Saklıdır.": "Tous droits réservés."
+              },
+              es: {
+                      "Menü": "Menú",
+                      "Genel Bakış": "Resumen",
+                      "Sürüm": "Versión",
+                      "AyazDE": "AyazDE",
+                      "İndir": "Descargar",
+                      "Topluluk": "Comunidad",
+                      "Mimari": "Arquitectura",
+                      "Karanlık": "Oscuro",
+                      "Aydınlık": "Claro",
+                      "Tema Değiştir": "Cambiar tema",
+                      "Ankora 2.0 AyazDE test sürümü yayında – deneyin, forumda bildirin!": "¡Ankora 2.0 AyazDE versión de prueba ya disponible!",
+                      "Ankora Linux 2.0 AyazDE": "Ankora Linux 2.0 AyazDE",
+                      "Sade. Hızlı. Size ait.": "Simple. Rápido. Tuyo.",
+                      "Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.": "Ankora Linux es una distribución ligera e independiente con escritorio AyazDE.",
+                      "Ankora 2.0'ı indirin": "Descargar Ankora 2.0",
+                      "AyazDE'yi inceleyin": "Explorar AyazDE",
+                      "ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor": "Gratuito • Código abierto GPL-3.0 • Versión de prueba",
+                      "Neden Ankora": "Por qué Ankora",
+                      "Bilgisayar dediğin, ne yaptığını anlatır.": "Un ordenador debe ser transparente.",
+                      "üç karar verdik ve üçünde de srarcıyız: açılış şeffaf olacak, masaüst bize ait olacak, ekrandaki her şey Türkçe ve hızlı olacak.": "Inicio transparente, escritorio propio y experiencia clara.",
+                      "effaf açılış": "Inicio transparente",
+                      "systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne çalıştığını bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.": "Sin systemd. Scripts SysVinit para optimizar la memoria.",
+                      "Bize ait masaüstü": "Escritorio propio",
+                      "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur. Ağır fanteziler içermez.": "Panel ligero, menú de inicio y centro de control en Rust + Tauri 1.5 + WebKitGTK.",
+                      "Sıfır yabancı dil": "Totalmente localizado",
+                      "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşılırdır.": "Términos claros e interfaz intuitiva.",
+                      "Ayaz masaüstü": "Escritorio Ayaz",
+                      "Tema değil, ortam.": "Un verdadero entorno, no solo un tema.",
+                      "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajına kadar her şey aynı dilden konuşur.": "Panel, menú de inicio, notificaciones y ajustes integrados.",
+                      "Sürümler": "Versiones",
+                      "Tek masaüstü, net performans.": "Un solo escritorio, rendimiento puro.",
+                      "Son kullanıcı ve günlük kullanım için entegre AyazDE masaüstü ortamı ile hızlı ve hafif Linux deneyimi.": "Una experiencia Linux rápida y ligera con AyazDE.",
+                      "AyazDE Masaüstü": "Escritorio AyazDE",
+                      "Son Kullanıcı": "Usuario final",
+                      "Ev ve ofis kullanımı için tam donanımlı Ayaz masaüstü sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.": "Edición completa para hogar y oficina con Firefox, VLC y herramientas básicas.",
+                      "İndir (ISO)": "Descargar (ISO)",
+                      "Mimari & İlkeler": "Arquitectura y Principios",
+                      "Katkı verin": "Colaborar",
+                      "Ankora'yı birlikte büyütelim.": "Hagamos crecer Ankora juntos.",
+                      "Kod, paket veya belge; her türlü katkıya açığız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.": "Toda contribucin es bienvenida en GitHub o Matrix.",
+                      "GitHub Organizasyonu": "Organización en GitHub",
+                      "Matrix Sohbet Odası": "Sala de chat en Matrix",
+                      "Tüm Hakları Saklıdır.": "Todos los derechos reservados."
+              },
+              ru: {
+                      "Menü": "Меню",
+                      "Genel Bakış": "Обзор",
+                      "Sürüm": "Релиз",
+                      "AyazDE": "AyazDE",
+                      "İndir": "Скачать",
+                      "Topluluk": "Сообщество",
+                      "Mimari": "Ахитектура",
+                      "Karanlık": "Темная",
+                      "Aydınlık": "Светлая",
+                      "Tema Deiştir": "Сменить тему",
+                      "Ankora 2.0 AyazDE test sürümü yayında – deneyin, forumda bildirin!": "Тестовая версия Ankora 2.0 AyazDE уж доступна!",
+                      "Ankora Linux 2.0 AyazDE": "Ankora Linux 2.0 AyazDE",
+                      "Sade. Hızl. Size ait.": "Простая. Бстрая. Ваша.",
+                      "Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.": "Легкий независиы дистрибутив Ankora Linux со средой AyazDE.",
+                      "Ankora 2.0'ı indirin": "Скачать Ankora 2.0",
+                      "AyazDE'yi inceleyin": "Обзор AyazDE",
+                      "ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor": "Бесплатно • GPL-3.0 • Тестая верия",
+                      "Neden Ankora": "Почему Ankora",
+                      "Bilgisayar dediğin, ne yaptığını anlatır.": "Компьтер должен ыт понятным.",
+                      "üç karar verdik ve üçünde de ısrarcıyız: açılış şeffaf olacak, masaüstü bize ait olacak, ekrandaki her şey Türkçe ve hızlı olacak.": "Прорачня загрузка, собственное окружение, быстродействие.",
+                      "Şeffaf açılış": "Прозрачная агрузка",
+                      "systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne çalıştığın bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.": "Бз systemd. Скрипты SysVinit экономят памяь.",
+                      "Bize ait masaüstü": "Собственне окружение",
+                      "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur. Ağır fanteziler içermez.": "Панель, меню пуск и центр управления на Rust + Tauri 1.5 + WebKitGTK.",
+                      "Sıfır yabancı dil": "Поная локалзация",
+                      "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşılırdır.": "Потные меню и четкая терминология.",
+                      "Ayaz masaüstü": "Рабочий тол Ayaz",
+                      "Tema değil, ortam.": "Полноценная среда, а  просто тема.",
+                      "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek para. Menüden hata mesajına kadar her şey aynı dilden konuşur.": "Панель, тей, уведомления и настройки в едином иле.",
+                      "Sürümler": "Релизы",
+                      "Tek masaüstü, net performans.": "Единый рабочий стол, чистая производитльнсть.",
+                      "Son kullanıcı ve günlük kullanım için entegre AyazDE masaüstü ortamı ile hızlı ve hafif Linux deneyimi.": "Быстрая и легкая ОС Linux с AyazDE.",
+                      "AyazDE Masaüstü": "Рабочий стол AyazDE",
+                      "Son Kullanıcı": "Половательская",
+                      "Ev ve ofis kullanımı için tam donanımlı Ayaz masaüstü sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.": "Полнфункциональая версия для дома и офиса с Firefox и VLC.",
+                      "İndir (ISO)": "Скачат (ISO)",
+                      "Mimari & İlkeler": "Архиттуа и Принципы",
+                      "Katkı verin": "Участовать",
+                      "Ankora'yı birlikte büyütelim.": "Развиваем Ankora вместе.",
+                      "Kod, paket veya belge; her türlü katkıya açığız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.": "Приветсвуется любой вклад ерез GitHub или Matrix.",
+                      "GitHub Organizasyonu": "Организация на GitHub",
+                      "Matrix Sohbet Odası": "Чат-комната Matrix",
+                      "Tüm Hakları Saklıdır.": "Все праа защищены."
+              },
+              az: {
+                      "Menü": "Menyu",
+                      "Genel Bakış": "ümumi Baxış",
+                      "Sürüm": "Buraxılış",
+                      "AyazDE": "AyazDE",
+                      "İndir": "Yüklə",
+                      "Topluluk": "İcma",
+                      "Mimari": "Memarlıq",
+                      "Karanlık": "Qaranlıq",
+                      "Aydınlık": "Işıqlı",
+                      "Tema Değiştir": "Temanı Dəyiş",
+                      "Ankora 2.0 AyazDE test sürümü yayında – deneyin, forumda bildirin!": "Ankora 2.0 AyazDE sınaq versiyası yayımlandı!",
+                      "Ankora Linux 2.0 AyazDE": "Ankora Linux 2.0 AyazDE",
+                      "Sade. Hızlı. Size ait.": "Sadə. Sürətli. Sizə məxsus.",
+                      "Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türke konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.": "Ankora Linux, öz AyazDE iş masası mühiti ilə gələn yüngül əməliyyat sistemidir.",
+                      "Ankora 2.0'ı indirin": "Ankora 2.0-ı yükləyin",
+                      "AyazDE'yi inceleyin": "AyazDE-ni araşdırın",
+                      "cretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor": "Pulsuz • GPL-3.0 • Sınaq versiyası",
+                      "Neden Ankora": "Niyə Ankora",
+                      "Bilgisayar dediğin, ne yaptığın anlatır.": "Kompüter nə etdiyini aydın göstərməlidir.",
+                      "üç karar verdik ve üçnde de ısrarcıyız: açılış şeffaf olacak, masaüstü bize ait olacak, ekrandaki her şey Türkçe ve hızlı olacak.": "Şəffaf açılış, z iş masamız, srətli mühit.",
+                      "Şeffaf açılış": "əffaf açılış",
+                      "systemd yok. Numaralı SysVinit betikleri sırayla çalıır. Ne çalıştığını bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.": "SysVinit skriptlri işləyir, RAM qənaəti təmin edilir.",
+                      "Bize ait masaüstü": "öz iş masamız",
+                      "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat mensü ve kontrol merkezinden oluşur. Ağır fanteziler içermez.": "Rust + Tauri 1.5 + WebKitGTK ilə yazılmış yüngül panel və idarəetmə mərkəzi.",
+                      "Sıfır yabancı dil": "Tam yerli dil",
+                      "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşılrdır.": "Aydın terminlərlə qurulmuş sistem və proqramlar.",
+                      "Ayaz masaüstü": "Ayaz iş masası",
+                      "Tema değil, ortam.": "Tema deyil, tam mühit.",
+                      "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajına kadar her şey aynı dilden konuşur.": "Panel, başlat menyusu və tənzimləmələr vahid harmoniyadadır.",
+                      "Sürümler": "Sürümlər",
+                      "Tek masaüstü, net performans.": "Tək iş masası, dəqiq məhsuldarlıq.",
+                      "Son kullanıcı ve gnlük kullanım için entegre AyazDE masaüstü ortamı ile hızlı ve hafif Linux deneyimi.": "AyazDE ilə sürətli və yüngül Linux təcrübəsi.",
+                      "AyazDE Masaüstü": "AyazDE İş Masas",
+                      "Son Kullanıcı": "Son İstifadəçi",
+                      "Ev ve ofis kullanımı için tam donanımlı Ayaz masaüst sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.": "Ev və ofis üçün tam təchiz olunmuş Ayaz iş masası versiyası.",
+                      "İndir (ISO)": "Yüklə (ISO)",
+                      "Mimari & İlkeler": "Memarlıq və Prinsiplər",
+                      "Katkı verin": "Töhfə verin",
+                      "Ankora'yı birlikte büyütelim.": "Ankora-nı birlikdə böyüdək.",
+                      "Kod, paket veya belge; her türlü katkıya açığız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.": "Hər türlü töhfəyə aığıq.",
+                      "GitHub Organizasyonu": "GitHub Təşkilatı",
+                      "Matrix Sohbet Odası": "Matrix çat Otağı",
+                      "Tüm Hakları Saklıdır.": "Bütün Hüquqlar Qorunur."
+              }
+        };
+
+        function applyLang(lang) {
+              if (!lang || !T[lang]) {
+                      lang = localStorage.getItem('ankora-lang') || 'tr';
+              }
+              if (!T[lang]) lang = 'tr';
+
+              localStorage.setItem('ankora-lang', lang);
+              document.documentElement.setAttribute('lang', lang);
+
+              var selects = document.querySelectorAll('.lang-select');
+              for (var i = 0; i < selects.length; i++) {
+                      selects[i].value = lang;
+              }
+
+              var sel = 'a, button, span, p, h1, h2, h3, h4, div.kicker, div.ph, [data-i18n], [aria-label], [title], [alt]';
+              var els = document.querySelectorAll(sel);
+
+              els.forEach(function (el) {
+                      var directText = el.getAttribute('data-i18n');
+                      if (!directText && el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+                                directText = el.childNodes[0].nodeValue.trim();
+                      }
+
+                      if (directText) {
+                                if (!el.hasAttribute('data-i18n-orig')) {
+                                            el.setAttribute('data-i18n-orig', directText);
+                                }
+                                var origKey = el.getAttribute('data-i18n-orig');
+
+                                if (lang !== 'tr' && T[lang] && T[lang][origKey]) {
+                                            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+                                                          el.childNodes[0].nodeValue = T[lang][origKey];
+                                            } else if (el.hasAttribute('data-i18n')) {
+                                                          el.innerHTML = T[lang][origKey];
+                                            }
+                                } else if (lang === 'tr') {
+                                            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+                                                          el.childNodes[0].nodeValue = origKey;
+                                            } else if (el.hasAttribute('data-i18n')) {
+                                                          el.innerHTML = origKey;
+                                            }
+                                }
+                      }
+
+                      ['aria-label', 'title', 'alt', 'placeholder'].forEach(function (attr) {
+                                if (el.hasAttribute(attr)) {
+                                            var origAttrVal = el.getAttribute('data-i18n-' + attr);
+                                            if (!origAttrVal) {
+                                                          origAttrVal = el.getAttribute(attr).trim();
+                                                          el.setAttribute('data-i18n-' + attr, origAttrVal);
+                                            }
+
+                                            i/* Ankora Linux - Coklu Dil (i18n) Sozlugu ve Yonetim Sistemi */
+                                              (function () {
+                                                  var T = {
+                                                        tr: {
+                                                                "Menü": "Menü",
+                                                                "Genel Bakış": "Genel Bakış",
+                                                                "Sürüm": "Sürüm",
+                                                                "AyazDE": "AyazDE",
+                                                                "İndir": "İndir",
+                                                                "Topluluk": "Topluluk",
+                                                                "Mimari": "Mimari",
+                                                                "Karanlık": "Karanlık",
+                                                                "Aydınlık": "Aydınlık",
+                                                                "Tema Değiştir": "Tema Değiştir",
+                                                                "Ankora 2.0 AyazDE test srmü yayında – deneyin, forumda bildirin!": "Ankora 2.0 AyazDE test sürüm yayında – deneyin, forumda bildirin!",
+                                                                "Ankora Linux 2.0 AyazDE": "Ankora Linux 2.0 AyazDE",
+                                                                "Sade. Hızlı. Size ait.": "Sade. Hızlı. Size ait.",
+                                                                "Ankora Linux, açılışta yalnızca mecburi servisleri çalştıran, tamamı Trkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.": "Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.",
+                                                                "Ankora 2.0'ı indirin": "Ankora 2.0'ı indirin",
+                                                                "AyazDE'yi inceleyin": "AyazDE'yi inceleyin",
+                                                                "cretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor": "ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor",
+                                                                "Neden Ankora": "Neden Ankora",
+                                                                "Bilgisayar dediğin, ne yaptığını anlatır.": "Bilgisayar dediğin, ne yaptığını anlatır.",
+                                                                "üç karar verdik ve üçünde de ısrarcıyz: açılış şeffaf olacak, masaüstü bize ait olacak, ekrandaki her şey Türkçe ve hızlı olacak.": "üç karar verdik ve üçünde de srarcıyız: açılış şeffaf olacak, masaüstü bize ait olacak, ekrandaki her şey Türkçe ve hızlı olacak.",
+                                                                "Şeffaf açılış": "Şeffaf açılış",
+                                                                "systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne çalıştığını bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.": "systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne çalıştığını bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.",
+                                                                "Bize ait masaüstü": "Bize ait masaüstü",
+                                                                "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur. Ağır fanteziler içermez.": "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur. Ağır fanteziler içermez.",
+                                                                "Sıfır yabancı dil": "Sıfır yabancı dil",
+                                                                "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşılrdır.": "Sistem iletilerinden masaüstü uygulamalarna kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşılırdır.",
+                                                                "Ayaz masaüstü": "Ayaz masaüstü",
+                                                                "Tema değil, ortam.": "Tema değil, ortam.",
+                                                                "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajına kadar her şey aynı dilden konuşur.": "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajına kadar her şey aynı dilden konuşur.",
+                                                                "Sürümler": "Sürümler",
+                                                                "Tek masastü, net performans.": "Tek masaüstü, net performans.",
+                                                                "Son kullanıcı ve günlük kullanım için entegre AyazDE masaüstü ortamı ile hızlı ve hafif Linux deneyimi.": "Son kullanıcı ve günlük kullanım için entegre AyazDE masaüstü ortamı ile hızlı ve hafif Linux deneyimi.",
+                                                                "AyazDE Masaüstü": "AyazDE Masaüstü",
+                                                                "Son Kullanıcı": "Son Kullanıcı",
+                                                                "Ev ve ofis kullanımı için tam donanıml Ayaz masaüstü sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.": "Ev ve ofis kullanımı için tam donanımlı Ayaz masaüstü sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.",
+                                                                "İndir (ISO)": "İndir (ISO)",
+                                                                "Mimari & İlkeler": "Mimari & İlkeler",
+                                                                "Katkı verin": "Katkı verin",
+                                                                "Ankora'yı birlikte büyütelim.": "Ankora'yı birlikte büyütelim.",
+                                                                "Kod, paket veya belge; her türlü katkıya açğz. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.": "Kod, paket veya belge; her trlü katkıya açığız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.",
+                                                                "GitHub Organizasyonu": "GitHub Organizasyonu",
+                                                                "Matrix Sohbet Odası": "Matrix Sohbet Odası",
+                                                                "Tüm Hakları Saklıdır.": "Tüm Hakları Saklıdır."
+                                                        },
+                                                        en: {
+                                                                "Menü": "Menu",
+                                                                "Genel Bakış": "Overview",
+                                                                "Sürüm": "Release",
+                                                                "AyazDE": "AyazDE",
+                                                                "İndir": "Download",
+                                                                "Topluluk": "Community",
+                                                                "Mimari": "Architecture",
+                                                                "Karanlık": "Dark",
+                                                                "Aydınlık": "Light",
+                                                                "Tema Değiştir": "Toggle Theme",
+                                                                "Ankora 2.0 AyazDE test sürmü yayında – deneyin, forumda bildirin!": "Ankora 2.0 AyazDE test release is live – try it out and report on the forum!",
+                                                                "Ankora Linux 2.0 AyazDE": "Ankora Linux 2.0 AyazDE",
+                                                                "Sade. Hızlı. Size ait.": "Simple. Fast. Yours.",
+                                                                "Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.": "Ankora Linux is a lightweight independent distribution running essential services at boot, fully localized and featuring native AyazDE desktop environment.",
+                                                                "Ankora 2.0'ı indirin": "Download Ankora 2.0",
+                                                                "AyazDE'yi inceleyin": "Explore AyazDE",
+                                                                "ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor": "Free • GPL-3.0 Open Source • Test release – evolving with your feedback",
+                                                                "Neden Ankora": "Why Ankora",
+                                                                "Bilgisayar dediğin, ne yaptığını anlatır.": "A computer should tell you what it is doing.",
+                                                                "üç karar verdik ve üçünde de ısrarcıyız: aılış şeffaf olacak, masaüstü bize ait olacak, ekrandaki her şey Türkçe ve hızlı olacak.": "We made three core decisions: transparent boot, native desktop, and clear localized performance.",
+                                                                "Şeffaf açılış": "Transparent Boot",
+                                                                "systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne çalıtığını bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.": "No systemd. Numbered SysVinit scripts run sequentially to save memory.",
+                                                                "Bize ait masaüstü": "Native Desktop",
+                                                                "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur. Ağır fanteziler içermez.": "Ayaz consists of a lightweight panel, start menu, and control center built with Rust + Tauri 1.5 + WebKitGTK.",
+                                                                "Sıfır yabancı dil": "Fully Localized",
+                                                                "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşılırdır.": "From system messages to desktop apps, everything is clearly structured.",
+                                                                "Ayaz masaüstü": "Ayaz Desktop",
+                                                                "Tema değil, ortam.": "An environment, not just a theme.",
+                                                                "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajına kadar her şey aynı dilden konuşur.": "Panel, start menu, system tray, notifications, and settings in one seamless piece.",
+                                                                "Sürümler": "Releases",
+                                                                "Tek masaüstü, net performans.": "Single desktop, crisp performance.",
+                                                                "Son kullanıcı ve günlük kullanım için entegre AyazDE masaüstü ortamı ile hızlı ve hafif Linux deneyimi.": "A fast and lightweight Linux experience for everyday users powered by AyazDE.",
+                                                                "AyazDE Masaüstü": "AyazDE Desktop",
+                                                                "Son Kullanıcı": "End User",
+                                                                "Ev ve ofis kullanımı için tam donanımlı Ayaz masaüstü sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.": "Full-featured Ayaz desktop release for home and office with Firefox, VLC, and core tools.",
+                                                                "İndir (ISO)": "Download (ISO)",
+                                                                "Mimari & İlkeler": "Architecture & Principles",
+                                                                "Katkı verin": "Contribute",
+                                                                "Ankora'yı birlikte büyütelim.": "Let's grow Ankora together.",
+                                                                "Kod, paket veya belge; her türlü katkıya açığız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.": "Code, packages, or documentation – all contributions welcome via GitHub or Matrix.",
+                                                                "GitHub Organizasyonu": "GitHub Organization",
+                                                                "Matrix Sohbet Odası": "Matrix Chat Room",
+                                                                "Tüm Hakları Saklıdır.": "All Rights Reserved."
+                                                        },
+                                                        de: {
+                                                                "Menü": "Menü",
+                                                                "Genel Bakış": "übersicht",
+                                                                "Sürüm": "Version",
+                                                                "AyazDE": "AyazDE",
+                                                                "İndir": "Herunterladen",
+                                                                "Topluluk": "Gemeinschaft",
+                                                                "Mimari": "Architektur",
+                                                                "Karanlık": "Dunkel",
+                                                                "Aydınlık": "Hell",
+                                                                "Tema Değiştir": "Design wechseln",
+                                                                "Ankora 2.0 AyazDE test sürümü yayında – deneyin, forumda bildirin!": "Ankora 2.0 AyazDE Testversion ist live – ausprobieren und im Forum berichten!",
+                                                                "Ankora Linux 2.0 AyazDE": "Ankora Linux 2.0 AyazDE",
+                                                                "Sade. Hızlı. Size ait.": "Einfach. Schnell. Deins.",
+                                                                "Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.": "Ankora Linux ist eine leichte, unabhängige Distribution mit eigener AyazDE-Desktop-Umgebung.",
+                                                                "Ankora 2.0'ı indirin": "Ankora 2.0 herunterladen",
+                                                                "AyazDE'yi inceleyin": "AyazDE entdecken",
+                                                                "ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor": "Kostenlos • GPL-3.0 Open Source • Testversion – wächst mit Ihrem Feedback",
+                                                                "Neden Ankora": "Warum Ankora",
+                                                                "Bilgisayar dediğin, ne yaptığını anlatır.": "Ein Computer sollte transparent sein.",
+                                                                "üç karar verdik ve üçünde de ısrarcıyız: açılış şeffaf olacak, masaüstü bize ait olacak, ekrandaki her şey Türkçe ve hızlı olacak.": "Drei Prinzipien: transparenter Bootvorgang, eigener Desktop, schnelle Bedienung.",
+                                                                "Şeffaf açılı": "Transparenter Boot",
+                                                                "systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne alıştğını bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.": "Kein systemd. Sequentielle SysVinit-Skripte sparen Arbeitsspeicher.",
+                                                                "Bize ait masaüstü": "Eigener Desktop",
+                                                                "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur. Ağır fanteziler içermez.": "Ayaz besteht aus Panel, Startmenü und Kontrollzentrum mit Rust + Tauri 1.5 + WebKitGTK.",
+                                                                "Sıfır yabanc dil": "Vollständig lokalisiert",
+                                                                "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşılırdır.": "Von Systemmeldungen bis zu Apps: Klar strukturierte Menüs.",
+                                                                "Ayaz masaüstü": "Ayaz Desktop",
+                                                                "Tema değil, ortam.": "Eine komplette Umgebung, kein bloßes Theme.",
+                                                                "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajına kadar her şey aynı dilden konuşur.": "Panel, Startmenü, System-Tray und Einstellungen aus einem Guss.",
+                                                                "Sürümler": "Versionen",
+                                                                "Tek masaüstü, net performans.": "Ein Desktop, klare Leistung.",
+                                                                "Son kullanıc ve günlük kullanım için entegre AyazDE masaüstü ortam ile hızlı ve hafif Linux deneyimi.": "Ein schnelles Linux-Erlebnis für den täglichen Gebrauch mit AyazDE.",
+                                                                "AyazDE Masaüstü": "AyazDE Desktop",
+                                                                "Son Kullanıcı": "Endbenutzer",
+                                                                "Ev ve ofis kullanımı için tam donanmlı Ayaz masastü sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.": "Voll ausgestattete Desktop-Edition mit Firefox, VLC und Kernwerkzeugen.",
+                                                                "İndir (ISO)": "Herunterladen (ISO)",
+                                                                "Mimari & İlkeler": "Architektur & Prinzipien",
+                                                                "Katkı verin": "Mitmachen",
+                                                                "Ankora'yı birlikte büyütelim.": "Lassen Sie uns Ankora gemeinsam gestalten.",
+                                                                "Kod, paket veya belge; her türlü katkıya açığız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.": "Code, Pakete oder Doku – jeder Beitrag ist willkommen via GitHub oder Matrix.",
+                                                                "GitHub Organizasyonu": "GitHub-Organisation",
+                                                                "Matrix Sohbet Odası": "Matrix-Chatraum",
+                                                                "Tüm Hakları Saklıdır.": "Alle Rechte vorbehalten."
+                                                        },
+                                                        fr: {
+                                                                "Menü": "Menu",
+                                                                "Genel Bakış": "Aperçu",
+                                                                "Sürüm": "Version",
+                                                                "AyazDE": "AyazDE",
+                                                                "İndir": "Télécharger",
+                                                                "Topluluk": "Communauté",
+                                                                "Mimari": "Architecture",
+                                                                "Karanlık": "Sombre",
+                                                                "Aydınlık": "Clair",
+                                                                "Tema Değiştir": "Changer le thème",
+                                                                "Ankora 2.0 AyazDE test sürümü yayında – deneyin, forumda bildirin!": "Ankora 2.0 AyazDE version de test disponible – essayez-la et partagez vos retours !",
+                                                                "Ankora Linux 2.0 AyazDE": "Ankora Linux 2.0 AyazDE",
+                                                                "Sade. Hızlı. Size ait.": "Simple. Rapide. Le vôtre.",
+                                                                "Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.": "Ankora Linux est une distribution indpendante légère avec l'environnement AyazDE.",
+                                                                "Ankora 2.0'ı indirin": "Télécharger Ankora 2.0",
+                                                                "AyazDE'yi inceleyin": "Découvrir AyazDE",
+                                                                "ücretsiz • GPL-3.0 açık kaynak • Test srümü – geri bildirimlerinizle gelişiyor": "Gratuit • Open Source GPL-3.0 • Version de test en constante évolution",
+                                                                "Neden Ankora": "Pourquoi Ankora",
+                                                                "Bilgisayar dediğin, ne yaptığını anlatır.": "Un ordinateur doit être transparent.",
+                                                                "üç karar verdik ve üçünde de ısrarcıyız: açılış effaf olacak, masaüstü bize ait olacak, ekrandaki her şey Türkçe ve hızlı olacak.": "Démarrage transparent, bureau natif, expérience rapide et claire.",
+                                                                "Şeffaf açılış": "Démarrage transparent",
+                                                                "systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne çalıştığnı bilir, gereksiz arka plan servisleriyle RAM harcamazsınz.": "Pas de systemd. Scripts SysVinit séquentiels pour préserver la mémoire.",
+                                                                "Bize ait masaüstü": "Bureau natif",
+                                                                "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmş hafif panel, başlat menüsü ve kontrol merkezinden oluşur. Ağır fanteziler içermez.": "Panneau léger, menu démarrer et centre de contrôle en Rust + Tauri 1.5 + WebKitGTK.",
+                                                                "Sıfır yabancı dil": "Entièrement traduit",
+                                                                "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşlırdır.": "Des messages système aux applications, tout est clair et compréhensible.",
+                                                                "Ayaz masaüstü": "Bureau Ayaz",
+                                                                "Tema değil, ortam.": "Un vrai environnement, pas un simple thème.",
+                                                                "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajna kadar her şey ayn dilden konuşur.": "Panneau, menu démarrer, notifications et paramètres parfaitement intégrés.",
+                                                                "Sürümler": "Versions",
+                                                                "Tek masaüstü, net performans.": "Un bureau unique, des performances pures.",
+                                                                "Son kullanıc ve günlük kullanm için entegre AyazDE masaüstü ortamı ile hızlı ve hafif Linux deneyimi.": "Une expérience Linux rapide et légère au quotidien avec AyazDE.",
+                                                                "AyazDE Masaüstü": "Bureau AyazDE",
+                                                                "Son Kullanıcı": "Utilisateur final",
+                                                                "Ev ve ofis kullanımı için tam donanımlı Ayaz masaüstü srüm. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.": "édition complète pour la maison et le bureau avec Firefox, VLC et outils essentiels.",
+                                                                "İndir (ISO)": "Télécharger (ISO)",
+                                                                "Mimari & İlkeler": "Architecture & Principes",
+                                                                "Katkı verin": "Contribuer",
+                                                                "Ankora'yı birlikte büyütelim.": "Développons Ankora ensemble.",
+                                                                "Kod, paket veya belge; her türlü katkıya açığız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.": "Toutes les contributions sont les bienvenues via GitHub ou Matrix.",
+                                                                "GitHub Organizasyonu": "Organisation GitHub",
+                                                                "Matrix Sohbet Odası": "Salon Matrix",
+                                                                "Tüm Hakları Saklıdır.": "Tous droits réservés."
+                                                        },
+                                                        es: {
+                                                                "Men": "Menú",
+                                                                "Genel Bakış": "Resumen",
+                                                                "Sürm": "Versión",
+                                                                "AyazDE": "AyazDE",
+                                                                "İndir": "Descargar",
+                                                                "Topluluk": "Comunidad",
+                                                                "Mimari": "Arquitectura",
+                                                                "Karanlık": "Oscuro",
+                                                                "Aydınlık": "Claro",
+                                                                "Tema Değitir": "Cambiar tema",
+                                                                "Ankora 2.0 AyazDE test sürümü yayında – deneyin, forumda bildirin!": "¡Ankora 2.0 AyazDE versin de prueba ya disponible!",
+                                                                "Ankora Linux 2.0 AyazDE": "Ankora Linux 2.0 AyazDE",
+                                                                "Sade. Hızlı. Size ait.": "Simple. Rpido. Tuyo.",
+                                                                "Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.": "Ankora Linux es una distribución ligera e independiente con escritorio AyazDE.",
+                                                                "Ankora 2.0'ı indirin": "Descargar Ankora 2.0",
+                                                                "AyazDE'yi inceleyin": "Explorar AyazDE",
+                                                                "ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor": "Gratuito • Código abierto GPL-3.0 • Versión de prueba",
+                                                                "Neden Ankora": "Por qué Ankora",
+                                                                "Bilgisayar dediğin, ne yaptığını anlatr.": "Un ordenador debe ser transparente.",
+                                                                "ç karar verdik ve üçünde de ısrarcıyız: açılş şeffaf olacak, masaüstü bize ait olacak, ekrandaki her şey Türkçe ve hızlı olacak.": "Inicio transparente, escritorio propio y experiencia clara.",
+                                                                "Şeffaf açılış": "Inicio transparente",
+                                                                "systemd yok. Numaralı SysVinit betikleri sırayla çalıır. Ne çalıştığını bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.": "Sin systemd. Scripts SysVinit para optimizar la memoria.",
+                                                                "Bize ait masaüstü": "Escritorio propio",
+                                                                "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur. Ağır fanteziler içermez.": "Panel ligero, menú de inicio y centro de control en Rust + Tauri 1.5 + WebKitGTK.",
+                                                                "Sıfır yabancı dil": "Totalmente localizado",
+                                                                "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşılırdır.": "Términos claros e interfaz intuitiva.",
+                                                                "Ayaz masaüstü": "Escritorio Ayaz",
+                                                                "Tema değil, ortam.": "Un verdadero entorno, no solo un tema.",
+                                                                "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajına kadar her şey aynı dilden konuşur.": "Panel, menú de inicio, notificaciones y ajustes integrados.",
+                                                                "Sürümler": "Versiones",
+                                                                "Tek masaüstü, net performans.": "Un solo escritorio, rendimiento puro.",
+                                                                "Son kullancı ve günlük kullanım için entegre AyazDE masaüstü ortamı ile hızlı ve hafif Linux deneyimi.": "Una experiencia Linux rápida y ligera con AyazDE.",
+                                                                "AyazDE Masaüstü": "Escritorio AyazDE",
+                                                                "Son Kullanıcı": "Usuario final",
+                                                                "Ev ve ofis kullanımı için tam donanımlı Ayaz masaüstü sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.": "Edición completa para hogar y oficina con Firefox, VLC y herramientas básicas.",
+                                                                "İndir (ISO)": "Descargar (ISO)",
+                                                                "Mimari & İlkeler": "Arquitectura y Principios",
+                                                                "Katkı verin": "Colaborar",
+                                                                "Ankora'yı birlikte büyütelim.": "Hagamos crecer Ankora juntos.",
+                                                                "Kod, paket veya belge; her türlü katkıya açığız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.": "Toda contribución es bienvenida en GitHub o Matrix.",
+                                                                "GitHub Organizasyonu": "Organización en GitHub",
+                                                                "Matrix Sohbet Odası": "Sala de chat en Matrix",
+                                                                "Tüm Hakları Saklıdır.": "Todos los derechos reservados."
+                                                        },
+                                                        ru: {
+                                                                "Menü": "Меню",
+                                                                "Genel Bakış": "Обзор",
+                                                                "Sürüm": "Релиз",
+                                                                "AyazDE": "AyazDE",
+                                                                "İndir": "Скачаь",
+                                                                "Topluluk": "Сообщесто",
+                                                                "Mimari": "Архтектура",
+                                                                "Karanlık": "Темная",
+                                                                "Aydınlık": "Светлая",
+                                                                "Tema Değiştir": "Смниь тму",
+                                                                "Ankora 2.0 AyazDE test sürümü yayında – deneyin, forumda bildirin!": "Тестовая версия Ankora 2.0 AyazDE уже дотупна!",
+                                                                "Ankora Linux 2.0 AyazDE": "Ankora Linux 2.0 AyazDE",
+                                                                "Sade. Hızlı. Size ait.": "Простя. Быстрая. Ваша.",
+                                                                "Ankora Linux, açılışta yalnızca mecburi servisleri çalıştıran, tamamı Türkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.": "Легкий независимый дистрибтив Ankora Linux со средой AyazDE.",
+                                                                "Ankora 2.0' indirin": "Скачаь Ankora 2.0",
+                                                                "AyazDE'yi inceleyin": "Обзор AyazDE",
+                                                                "ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor": "Бесплатно • GPL-3.0 • Тестовая версия",
+                                                                "Neden Ankora": "Почему Ankora",
+                                                                "Bilgisayar dediğin, ne yaptığnı anlatır.": "Компьютер должен быть понятным.",
+                                                                "üç karar verdik ve üçünde de ısrarcıyız: açılış şeffaf olacak, masaüstü bize ait olacak, ekrandaki her şey Türkçe ve hızlı olacak.": "Прозраная загрузка, собственное окружение, быстродействие.",
+                                                                "Şeffaf açılış": "Прозрачная загрузка",
+                                                                "systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne çalıştığını bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.": "Без systemd. Скрипы SysVinit экономят память.",
+                                                                "Bize ait masaüstü": "Собственое окружени",
+                                                                "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur. Ağır fanteziler içermez.": "анель, меню пуск и центр управления на Rust + Tauri 1.5 + WebKitGTK.",
+                                                                "Sıfır yabancı dil": "Полня локализация",
+                                                                "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşılırdır.": "Понятные меню и четка терминология.",
+                                                                "Ayaz masaüstü": "Рабочий стол Ayaz",
+                                                                "Tema değil, ortam.": "Полноценная среда,   посто тема.",
+                                                                "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajına kadar her şey aynı dilden konuşur.": "Панль, трей, уведомления и настрой в едином стиле.",
+                                                                "Sürümler": "Релизы",
+                                                                "Tek masaüstü, net performans.": "Единый раочий стол, чистая произвдительность.",
+                                                                "Son kullanıcı ve günlük kullanım için entegre AyazDE masaüstü ortamı ile hızlı ve hafif Linux deneyimi.": "Быстрая и легкая ОС Linux  AyazDE.",
+                                                                "AyazDE Masaüstü": "Рачий стол AyazDE",
+                                                                "Son Kullanıcı": "Пользовательская",
+                                                                "Ev ve ofis kullanımı için tam donanml Ayaz masastü sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.": "Полнофунцонаьная врси для дома и офиса с Firefox и VLC.",
+                                                                "İndir (ISO)": "Скачать (ISO)",
+                                                                "Mimari & İlkeler": "Архитектура и Принципы",
+                                                                "Katkı verin": "Участвовать",
+                                                                "Ankora'yı birlikte büyütelim.": "Развиваем Ankora вмест.",
+                                                                "Kod, paket veya belge; her türlü katkıya açığız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.": "Приветствуется любой вклад через GitHub или Matrix.",
+                                                                "GitHub Organizasyonu": "Организация на GitHub",
+                                                                "Matrix Sohbet Odası": "Чат-комната Matrix",
+                                                                "Tüm Hakları Saklıdır.": "Все пава щищены."
+                                                        },
+                                                        az: {
+                                                                "Menü": "Menyu",
+                                                                "Genel Bakış": "ümumi Baxış",
+                                                                "Sürüm": "Buraxılış",
+                                                                "AyazDE": "AyazDE",
+                                                                "İndir": "Yüklə",
+                                                                "Topluluk": "İcma",
+                                                                "Mimari": "Memarlıq",
+                                                                "Karanlık": "Qaranlıq",
+                                                                "Aydınlık": "Işıqlı",
+                                                                "Tema Değiştir": "Teman Dəyiş",
+                                                                "Ankora 2.0 AyazDE test srmü yayında – deneyin, forumda bildirin!": "Ankora 2.0 AyazDE sınaq versiyası yayımlandı!",
+                                                                "Ankora Linux 2.0 AyazDE": "Ankora Linux 2.0 AyazDE",
+                                                                "Sade. Hızlı. Size ait.": "Sad. Sürətli. Sizə məxsus.",
+                                                                "Ankora Linux, açlışta yalnızca mecburi servisleri çalıştıran, tamam Türkçe konuşan ve kendi masaüstü ortamı AyazDE ile gelen hafif bağımsız bir dağıtımdır.": "Ankora Linux, öz AyazDE iş masası mühiti ilə gələn yüngül əməliyyat sistemidir.",
+                                                                "Ankora 2.0'ı indirin": "Ankora 2.0-ı yüklyin",
+                                                                "AyazDE'yi inceleyin": "AyazDE-ni araşdrın",
+                                                                "ücretsiz • GPL-3.0 açık kaynak • Test sürümü – geri bildirimlerinizle gelişiyor": "Pulsuz • GPL-3.0 • Sınaq versiyası",
+                                                                "Neden Ankora": "Niyə Ankora",
+                                                                "Bilgisayar dediğin, ne yaptığını anlatır.": "Kompüter nə etdiyini aydın göstərməlidir.",
+                                                                "üç karar verdik ve üçünde de ısrarcıyız: açılış şeffaf olacak, masaüstü bize ait olacak, ekrandaki her ey Türkçe ve hızlı olacak.": "Şəffaf açılış, öz iş masamız, sürətli mühit.",
+                                                                "Şeffaf açılış": "Şəffaf açılış",
+                                                                "systemd yok. Numaralı SysVinit betikleri sırayla çalışır. Ne çalıştığını bilir, gereksiz arka plan servisleriyle RAM harcamazsınız.": "SysVinit skriptləri işləyir, RAM qənaəti təmin edilir.",
+                                                                "Bize ait masaüstü": "öz iş masamz",
+                                                                "Ayaz; Rust + Tauri 1.5 + WebKitGTK ile yazılmış hafif panel, başlat menüsü ve kontrol merkezinden oluşur. Ağır fanteziler içermez.": "Rust + Tauri 1.5 + WebKitGTK ilə yazılmış yüngül panel və idarəetmə mərkəzi.",
+                                                                "Sıfır yabancı dil": "Tam yerli dil",
+                                                                "Sistem iletilerinden masaüstü uygulamalarına kadar her şey yerli metinlerle kurulur. Terimler net, menüler anlaşılırdır.": "Aydın terminlərlə qurulmuş sistem və proqramlar.",
+                                                                "Ayaz masaüstü": "Ayaz iş masası",
+                                                                "Tema değil, ortam.": "Tema deyil, tam mühit.",
+                                                                "Panel, başlat menüsü, sistem tepsisi, bildirimler ve ayarlar tek parça. Menüden hata mesajına kadar her şey aynı dilden konuşur.": "Panel, başlat menyusu və tənzimləmələr vahid harmoniyadadır.",
+                                                                "Sürümler": "Sürümlər",
+                                                                "Tek masaüstü, net performans.": "Tək iş masası, dəqiq məhsuldarlıq.",
+                                                                "Son kullanıcı ve günlük kullanım için entegre AyazDE masaüstü ortamı ile hızlı ve hafif Linux deneyimi.": "AyazDE ilə sürtli və yüngül Linux təcrübəsi.",
+                                                                "AyazDE Masastü": "AyazDE İş Masası",
+                                                                "Son Kullanıcı": "Son İstifadəçi",
+                                                                "Ev ve ofis kullanımı için tam donanımlı Ayaz masaüstü sürümü. AJ-Panel, Tauri kontrol paneli, Firefox, VLC ve temel araçlar dahil.": "Ev və ofis üçün tam təchiz olunmuş Ayaz iş masası versiyası.",
+                                                                "İndir (ISO)": "Yüklə (ISO)",
+                                                                "Mimari & İlkeler": "Memarlıq və Prinsiplər",
+                                                                "Katkı verin": "Töhfə verin",
+                                                                "Ankora'yı birlikte büytelim.": "Ankora-nı birlikdə böyüdək.",
+                                                                "Kod, paket veya belge; her türlü katkıya açıız. GitHub veya Matrix üzerinden ekibe ulaşabilirsiniz.": "Hr türlü töhfəyə açığıq.",
+                                                                "GitHub Organizasyonu": "GitHub Təşkilatı",
+                                                                "Matrix Sohbet Odası": "Matrix çat Otağı",
+                                                                "Tüm Hakları Saklıdır.": "Bütün Hüquqlar Qorunur."
+                                                        }
+                                                  };
+                                                
+                                                  function applyLang(lang) {
+                                                        if (!lang || !T[lang]) {
+                                                                lang = localStorage.getItem('ankora-lang') || 'tr';
+                                                        }
+                                                        if (!T[lang]) lang = 'tr';
+                                                    
+                                                        localStorage.setItem('ankora-lang', lang);
+                                                        document.documentElement.setAttribute('lang', lang);
+                                                    
+                                                        var selects = document.querySelectorAll('.lang-select');
+                                                        for (var i = 0; i < selects.length; i++) {
+                                                                selects[i].value = lang;
+                                                        }
+                                                    
+                                                        var sel = 'a, button, span, p, h1, h2, h3, h4, div.kicker, div.ph, [data-i18n], [aria-label], [title], [alt]';
+                                                        var els = document.querySelectorAll(sel);
+                                                    
+                                                        els.forEach(function (el) {
+                                                                var directText = el.getAttribute('data-i18n');
+                                                                if (!directText && el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+                                                                          directText = el.childNodes[0].nodeValue.trim();
+                                                                }
+                                                          
+                                                                if (directText) {
+                                                                          if (!el.hasAttribute('data-i18n-orig')) {
+                                                                                      el.setAttribute('data-i18n-orig', directText);
+                                                                          }
+                                                                          var origKey = el.getAttribute('data-i18n-orig');
+                                                                  
+                                                                          if (lang !== 'tr' && T[lang] && T[lang][origKey]) {
+                                                                                      if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+                                                                                                    el.childNodes[0].nodeValue = T[lang][origKey];
+                                                                                      } else if (el.hasAttribute('data-i18n')) {
+                                                                                                    el.innerHTML = T[lang][origKey];
+                                                                                      }
+                                                                          } else if (lang === 'tr') {
+                                                                                      if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+                                                                                                    el.childNodes[0].nodeValue = origKey;
+                                                                                      } else if (el.hasAttribute('data-i18n')) {
+                                                                                                    el.innerHTML = origKey;
+                                                                                      }
+                                                                          }
+                                                                }
+                                                          
+                                                                ['aria-label', 'title', 'alt', 'placeholder'].forEach(function (attr) {
+                                                                          if (el.hasAttribute(attr)) {
+                                                                                      var origAttrVal = el.getAttribute('data-i18n-' + attr);
+                                                                                      if (!origAttrVal) {
+                                                                                                    origAttrVal = el.getAttribute(attr).trim();
+                                                                                                    el.setAttribute('data-i18n-' + attr, origAttrVal);
+                                                                                      }
+                                                                            
+                                                                                      if (lang !== 'tr' && T[lang] && T[lang][origAttrVal]) {
+                                                                                                    el.setAttribute(attr, T[lang][origAttrVal]);
+                                                                                      } else if (lang === 'tr') {
+                                                                                                    el.setAttribute(attr, origAttrVal);
+                                                                                      }
+                                                                          }
+                                                                });
+                                                        });
+                                                  }
+                                                
+                                                  window.T = T;
+                                                  window.applyLang = applyLang;
+                                                  window.setLanguage = applyLang;
+                                                
+                                                  document.addEventListener('DOMContentLoaded', function () {
+                                                        var saved = localStorage.getItem('ankora-lang') || 'tr';
+                                                        applyLang(saved);
+                                                    
+                                                        document.addEventListener('change', function (e) {
+                                                                if (e.target && e.target.classList.contains('lang-select')) {
+                                                                          applyLang(e.target.value);
+                                                                }
+                                                        });
+                                                  });
+                                                
+                                                  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+                                                        var saved = localStorage.getItem('ankora-lang') || 'tr';
+                                                        applyLang(saved);
+                                                  }
+                                              })();
+                                  f (lang !== 'tr' && T[lang] && T[lang][origAttrVal]) {
+                                                          el.setAttribute(attr, T[lang][origAttrVal]);
+                                            } else if (lang === 'tr') {
+                                                          el.setAttribute(attr, origAttrVal);
+                                            }
+                                }
+                      });
+              });
+        }
+
+        window.T = T;
+        window.applyLang = applyLang;
+        window.setLanguage = applyLang;
+
+        document.addEventListener('DOMContentLoaded', function () {
+              var saved = localStorage.getItem('ankora-lang') || 'tr';
+              applyLang(saved);
+
+              document.addEventListener('change', function (e) {
+                      if (e.target && e.target.classList.contains('lang-select')) {
+                                applyLang(e.target.value);
+                      }
+              });
+        });
+
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {
+              var saved = localStorage.getItem('ankora-lang') || 'tr';
+              applyLang(saved);
+        }
+    })();
+  
     "Genel Bakış": "Overview",
     "Sürüm": "Release",
     "Mimari": "Architecture",
