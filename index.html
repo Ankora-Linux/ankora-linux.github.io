@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="tr" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ankora Linux: Eski bilgisayarınızı yeniden kullanın</title>
+<meta name="description" content="Ankora Linux, son kullanıcı için sade ve Türkçe bir işletim sistemidir. Hafiftir, kurulumu kolaydır ve günlük işleriniz için gereken her şeyle gelir.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Ankora Linux Projesi">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1420" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://ankora-linux.github.io/">
+<link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/">
+<link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/">
+<link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/">
+<link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/">
+<link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/">
+<link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/">
+<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'auto';if(['light','dark','auto'].indexOf(t)<0)t='auto';var a=g('ankora-accent')||'blue';if(['blue','green','purple'].indexOf(a)<0)a='blue';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t);r.dataset.accent=a;})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.classList.remove('no-js');</script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ankora Linux">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:title" content="Ankora Linux: Eski bilgisayarınızı yeniden kullanın">
+<meta property="og:description" content="Ankora Linux, son kullanıcı için sade ve Türkçe bir işletim sistemidir. Hafiftir, kurulumu kolaydır ve günlük işleriniz için gereken her şeyle gelir.">
+<meta property="og:url" content="https://ankora-linux.github.io/">
+<meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
+<meta property="og:image:width" content="1400">
+<meta property="og:image:height" content="875">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ankora Linux: Eski bilgisayarınızı yeniden kullanın">
+<meta name="twitter:description" content="Ankora Linux, son kullanıcı için sade ve Türkçe bir işletim sistemidir. Hafiftir, kurulumu kolaydır ve günlük işleriniz için gereken her şeyle gelir.">
+<meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://ankora-linux.github.io/#website",
+  "url": "https://ankora-linux.github.io/",
+  "name": "Ankora Linux",
+  "inLanguage": [
+    "tr-TR",
+    "en-US",
+    "de-DE",
+    "es-ES",
+    "ru-RU"
+  ],
+  "publisher": {
+    "@id": "https://ankora-linux.github.io/#org"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://ankora-linux.github.io/#org",
+  "name": "Ankora Linux Projesi",
+  "url": "https://ankora-linux.github.io/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://ankora-linux.github.io/assets/img/logo-512.png"
+  },
+  "email": "linuxankora@gmail.com",
+  "sameAs": [
+    "https://github.com/Ankora-Linux/Ankora",
+    "https://ankalab.flarum.cloud"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Ankora Linux",
+  "applicationCategory": "OperatingSystem",
+  "operatingSystem": "Linux",
+  "softwareVersion": "3.0",
+  "inLanguage": "tr-TR",
+  "isAccessibleForFree": true,
+  "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "downloadUrl": "https://github.com/Ankora-Linux/Ankora/releases",
+  "codeRepository": "https://github.com/Ankora-Linux/Ankora",
+  "author": {
+    "@id": "https://ankora-linux.github.io/#org"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "tr-TR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Ankora Linux nedir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ücretsiz ve Türkçe bir işletim sistemidir. Devuan üzerine kuruludur ve kendi masaüstü ortamı Ayaz DE ile birlikte gelir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Eski bir bilgisayarda çalışır mı?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet. Boştayken yaklaşık 750 MB bellek kullanır ve arka planda gereksiz program çalıştırmaz. 2 GB bellekli dizüstü bilgisayarlarda rahat çalışır; 1 GB bellekli çok eski makineler için önerilmez."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Diskimi silmeden deneyebilir miyim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet. ISO'yu USB belleğe yazıp açtığınızda diskteki sisteminize dokunulmaz. Denemek için güvenli bir yoldur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Nasıl kurulur?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ISO dosyasını bir USB belleğe yazıp bilgisayarı ondan başlatın. Kurulum sihirbazı adım adım yönlendirir. Ayrıntılar indir sayfasında."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ücretli mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hayır, tamamen ücretsizdir. Kaynak kodu açıktır, dilediğiniz gibi inceleyip değiştirebilirsiniz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Güncellemeler nasıl geliyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Güncellemeler yalnızca Ankora depolarından gelir. Her paketin doğruluğu indirilirken kontrol edilir; bozuksa kurulmaz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Arayüz dili nedir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Arayüz tamamen Türkçedir. Klavye düzeni olarak Türkçe, İngilizce, Almanca, Fransızca ve İngiliz (GB) arasından seçim yapabilirsiniz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Nasıl katkı yapabilirim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GitHub deposunu çatallayıp çekme isteği gönderebilir, ya da forumda soru ve öneri paylaşabilirsiniz."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo-128.png" width="30" height="30" alt="Ankora Linux">
+      <span>Ankora Linux</span>
+    </a>
+    <nav class="nav" aria-label="Ana gezinme">
+      <ul>
+          <li><a href="index.html" aria-current="page">Ana sayfa</a></li>
+          <li><a href="ozellikler.html">Özellikler</a></li>
+          <li><a href="guvenlik.html">Güvenlik</a></li>
+          <li><a href="surum-gecmisi.html">Sürümler</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-1 head-cta" href="kurulum.html">İndir</a>
+    <details class="langmenu">
+      <summary aria-label="Dil" title="Dil">
+        <svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-globe"></use></svg>
+        <span>TR</span>
+      </summary>
+      <ul class="menu">
+            <li><a href="index.html" hreflang="tr" lang="tr" aria-current="true">Türkçe</a></li>
+            <li><a href="en/index.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="de/index.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="es/index.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="ru/index.html" hreflang="ru" lang="ru">Русский</a></li>
+      </ul>
+    </details>
+    <div class="tools">
+      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Görünüm" title="Görünüm">
+        <svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-moon"></use></svg>
+      </button>
+      <div class="tpanel" id="theme-panel" hidden>
+        <div class="grp">
+          <h4>Tema</h4>
+          <div class="trow"><button class="tset" type="button" data-set-theme="light" aria-pressed="false">Açık</button><button class="tset" type="button" data-set-theme="dark" aria-pressed="false">Koyu</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">Sistem</button></div>
+        </div>
+        <div class="grp">
+          <h4>Vurgu rengi</h4>
+          <div class="trow"><button class="swatch swatch-blue" type="button" data-set-accent="blue" aria-pressed="false" aria-label="Mavi" title="Mavi"></button><button class="swatch swatch-green" type="button" data-set-accent="green" aria-pressed="false" aria-label="Yeşil" title="Yeşil"></button><button class="swatch swatch-purple" type="button" data-set-accent="purple" aria-pressed="false" aria-label="Mor" title="Mor"></button></div>
+        </div>
+      </div>
+    </div>
+    <button class="menu-btn" type="button" data-menu-btn aria-expanded="false"
+            aria-controls="menu-sheet" aria-label="Menüyü aç">
+      <svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-menu"></use></svg>
+    </button>
+  </div>
+  <div class="sheet" id="menu-sheet">
+    <nav class="wrap" aria-label="Ana gezinme (mobil)">
+      <ul>
+          <li><a href="index.html">Ana sayfa</a></li>
+          <li><a href="ozellikler.html">Özellikler</a></li>
+          <li><a href="guvenlik.html">Güvenlik</a></li>
+          <li><a href="surum-gecmisi.html">Sürümler</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="kurulum.html">İndir</a></li>
+          <li><a href="sss.html">SSS</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head center">
+        <h1>Eski bilgisayarınızı yeniden kullanın</h1>
+        <p class="lede" style="margin-inline:auto">Ankora Linux, son kullanıcı için sade ve Türkçe bir işletim sistemidir. Hafiftir, kurulumu kolaydır ve günlük işleriniz için gereken her şeyle gelir.</p>
+        <div class="btn-row" style="justify-content:center;margin-top:30px">
+          <a class="btn btn-1" href="kurulum.html">İndir</a>
+          <a class="btn btn-2" href="ozellikler.html">Özellikler</a>
+        </div>
+      </div>
+      <figure class="shot"><img src="assets/img/ayaz-masaustu.png" width="1400" height="875" alt="Ayaz DE masaüstü: solda uygulama simgeleri, altta ortalanmış görev çubuğu, sağda saat ve bellek paneli"></figure>
+    </div>
+  </section>
+
+  <section class="section panel">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Neden Ankora</span>
+        <h2>Üç sade sebep</h2>
+      </div>
+      <div class="grid">
+        <div class="card"><h3>Hafif</h3><p>Boştayken yaklaşık 750 MB bellek kullanır. Karşılaştırma tablosu ana sayfada.</p></div>
+        <div class="card"><h3>Türkçe</h3><p>Kurulumdan masaüstüne kadar her şey Türkçedir. İngilizce terim aramak zorunda kalmazsınız.</p></div>
+        <div class="card"><h3>Kolay kurulur</h3><p>USB belleğe yazıp başlatmanız yeterli. Sihirbaz adım adım yönlendirir, terminal gerekmez.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <span class="eyebrow">İçinde neler var</span>
+          <h2>Kurduğunuz anda kullanmaya başlarsınız</h2>
+          <p class="lede">Ayrı ayrı program kurmanız gerekmez. Günlük işleriniz için gereken araçlar hazır gelir.</p>
+          <ul class="checklist" style="margin-top:26px">
+            <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Web tarayıcı</span></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Dosya yöneticisi</span></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Belge ve fotoğraf görüntüleyici</span></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Not defteri ve hesap makinesi</span></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Uygulama mağazası</span></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Tek düğmeli güncelleyici</span></li>
+          </ul>
+        </div>
+        <figure class="shot"><img src="assets/img/ankora-karsilayici.jpg" width="1360" height="759" loading="lazy" alt="Ankora Karşılayıcı penceresi: tema seçici ve paket kurucu seçenekleri"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Boşta bellek</span>
+        <h2>Popüler dağıtımlarla karşılaştırma</h2>
+        <p class="lede">Masaüstü boştaki bellek kullanımı. Ankora ölçümü kurulu sistemde free -m ile alındı; diğer değerler sitede belirtilen kaynaklardan.</p>
+      </div>
+      <table class="cmp">
+        <thead>
+          <tr><th scope="col">Dağıtım</th><th scope="col">Boşta bellek</th></tr>
+        </thead>
+        <tbody>
+        <tr data-self="true"><td>Ankora Linux 3.0</td><td>~750 MB</td></tr>
+        <tr><td>Ubuntu 24.04 (GNOME)</td><td>830 MB</td></tr>
+        <tr><td>Linux Mint 22.1 (Cinnamon)</td><td>888 MB</td></tr>
+        <tr><td>Xubuntu 24.04 (Xfce)</td><td>668 MB</td></tr>
+        <tr><td>Lubuntu 24.04 (LXQt)</td><td>464 MB</td></tr>
+        <tr><td>Debian 12 (GNOME)</td><td>1 GB'nin üzerinde</td></tr>
+        </tbody>
+      </table>
+      <p class="cmp-note">Ankora: kurulu sistemde, masaüstüne giriş sonrası free -m çıktısı (Ekim 2026). Diğer: Android Authority, Ekim 2024 ölçümleri; Mint için bağımsız inceleme (888 MB). Donanım, sürüm ve yöntem farklıdır; değerler yaklaşıktır.</p>
+    </div>
+  </section>
+
+  <section class="section panel">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Kurulum</span>
+        <h2>Üç adımda hazır</h2>
+      </div>
+      <ol class="steps">
+        <li><div><h3>İndirin</h3><p>ISO dosyasını indirin. Yanında doğrulama dosyası da bulunur.</p></div></li>
+        <li><div><h3>USB belleğe yazın</h3><p>Ücretsiz bir programla ISO'yu boş bir USB belleğe yazın.</p></div></li>
+        <li><div><h3>Başlatın ve kurun</h3><p>Bilgisayarı USB'den açın, kurulum sihirbazı gerisini anlatır.</p></div></li>
+      </ol>
+      <div class="btn-row" style="margin-top:48px"><a class="btn btn-1" href="kurulum.html">İndir</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Sık sorulan sorular</span>
+        <h2>Merak edilenler</h2>
+      </div>
+      <div class="faq" style="margin-inline:auto">
+        <details open><summary>Ankora Linux nedir?</summary><div class="answer"><p>Ücretsiz ve Türkçe bir işletim sistemidir. Devuan üzerine kuruludur ve kendi masaüstü ortamı Ayaz DE ile birlikte gelir.</p></div></details>
+        <details><summary>Eski bir bilgisayarda çalışır mı?</summary><div class="answer"><p>Evet. Boştayken yaklaşık 750 MB bellek kullanır. 2 GB bellekli dizüstü bilgisayarlarda rahat çalışır; 1 GB bellekli çok eski makineler için önerilmez.</p></div></details>
+        <details><summary>Ücretli mi?</summary><div class="answer"><p>Hayır, tamamen ücretsizdir. Kaynak kodu açıktır.</p></div></details>
+        <details><summary>Nasıl kurulur?</summary><div class="answer"><p>ISO dosyasını bir USB belleğe yazıp bilgisayarı ondan başlatın. Kurulum sihirbazı adım adım yönlendirir.</p></div></details>
+      </div>
+      <p style="text-align:center;margin-top:40px"><a class="btn btn-2" href="sss.html">Tüm sorular</a></p>
+    </div>
+  </section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-cols">
+      <div class="foot-about">
+        <a class="brand" href="index.html">
+          <img src="assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
+          <span>Ankora Linux</span>
+        </a>
+        <p>Son kullanıcı için sade, Devuan tabanlı ve Türkçe bir işletim sistemi.</p>
+      </div>
+      <div>
+        <h2>Dağıtım</h2>
+        <ul>
+          <li><a href="ozellikler.html">Özellikler</a></li>
+          <li><a href="kurulum.html">İndir</a></li>
+          <li><a href="guvenlik.html">Güvenlik</a></li>
+          <li><a href="surum-gecmisi.html">Sürümler</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Yardım</h2>
+        <ul>
+          <li><a href="sss.html">SSS</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="https://ankalab.flarum.cloud" rel="noopener">Ankora Lab forumu</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Kaynak</h2>
+        <ul>
+          <li><a href="https://github.com/Ankora-Linux/Ankora" rel="noopener">GitHub deposu</a></li>
+          <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener">Sürümler</a></li>
+          <li><a href="https://github.com/Ankora-Linux/Ankora/blob/main/LICENSE" rel="noopener">GPL-3.0 lisansı</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <span>Ankora Linux 3.0 · GPL-3.0</span>
+      <span><a href="sitemap.xml">Site haritası</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>
