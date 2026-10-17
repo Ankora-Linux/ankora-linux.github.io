@@ -1,0 +1,56 @@
+# Ankora Linux
+
+> Ankora Linux, son kullanıcı için sade, Devuan tabanlı ve ücretsiz bir
+> Türkçe işletim sistemidir. Kendi masaüstü ortamı Ayaz DE ile birlikte
+> gelir. GPL-3.0 lisanslıdır.
+> Depo: https://github.com/Ankora-Linux/Ankora
+> Sürümler: https://github.com/Ankora-Linux/Ankora/releases
+> Forum: https://ankalab.flarum.cloud
+> Güvenlik: linuxankora@gmail.com
+> Diller: TR, EN, DE, ES, RU
+> Tema: açık ve koyu; üç vurgu rengi (mavi, yeşil, mor).
+
+## Ne işe yarar
+
+Hedef, son kullanıcı için sade bir dağıtım: hazır uygulamalar, kolay
+kurulum ve arayüz dili Türkçe. Eski ya da yavaşlamış bilgisayarlar da
+hedeflenir; kurulum USB bellek üzerinden yapılır ve terminal gerekmez. Kurulu sistemde
+masaüstü boştayken yaklaşık 750 MB bellek kullanır. Arayüz tamamen Türkçedir.
+
+## Kurulum
+
+1. https://github.com/Ankora-Linux/Ankora/releases adresinden ISO dosyasını ve yanındaki doğrulama dosyasını indirin.
+2. ISO'yu boş bir USB belleğe yazın.
+3. Bilgisayarı USB bellekten başlatıp kurulum sihirbazını izleyin.
+
+## Sürümler
+
+- 01.0 (2024): ilk kararlı sürüm
+- 02.0 Zümrüt (2025): masaüstü entegrasyonları ve ayarlar yenilendi
+- 2.0 (2026): masaüstü ortamı Ayaz DE
+- 3.0 (2026): güncel sürüm
+
+## Sayfalar (Türkçe)
+
+- [Ankora Linux: Eski bilgisayarınızı yeniden kullanın](https://ankora-linux.github.io/)
+- [Özellikler · Ankora Linux](https://ankora-linux.github.io/ozellikler.html)
+- [İndir ve kur · Ankora Linux](https://ankora-linux.github.io/kurulum.html)
+- [Güvenlik · Ankora Linux](https://ankora-linux.github.io/guvenlik.html)
+- [Sürümler · Ankora Linux](https://ankora-linux.github.io/surum-gecmisi.html)
+- [Sık sorulan sorular · Ankora Linux](https://ankora-linux.github.io/sss.html)
+- [İletişim · Ankora Linux](https://ankora-linux.github.io/iletisim.html)
+
+## Pages (English)
+
+- [Ankora Linux: Bring your old computer back to life](https://ankora-linux.github.io/en/)
+- [Features · Ankora Linux](https://ankora-linux.github.io/en/features.html)
+- [Download and install · Ankora Linux](https://ankora-linux.github.io/en/install.html)
+- [Security · Ankora Linux](https://ankora-linux.github.io/en/security.html)
+- [Releases · Ankora Linux](https://ankora-linux.github.io/en/changelog.html)
+- [Frequently asked questions · Ankora Linux](https://ankora-linux.github.io/en/faq.html)
+- [Contact · Ankora Linux](https://ankora-linux.github.io/en/contact.html)
+
+## Lisans
+
+GNU General Public License v3.0. Değiştirilmiş sürümler aynı lisansla
+dağıtılmalıdır. Tam metin depodaki LICENSE dosyasındadır.

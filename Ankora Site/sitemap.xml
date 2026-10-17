@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://ankora-linux.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/en/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/de/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/es/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/ru/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/ozellikler.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/ozellikler.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/features.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/funktionen.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/funciones.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/vozmozhnosti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/ozellikler.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/en/features.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/ozellikler.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/features.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/funktionen.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/funciones.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/vozmozhnosti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/ozellikler.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/de/funktionen.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/ozellikler.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/features.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/funktionen.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/funciones.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/vozmozhnosti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/ozellikler.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/es/funciones.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/ozellikler.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/features.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/funktionen.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/funciones.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/vozmozhnosti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/ozellikler.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/ru/vozmozhnosti.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/ozellikler.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/features.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/funktionen.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/funciones.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/vozmozhnosti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/ozellikler.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/kurulum.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/kurulum.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/install.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/installieren.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/instalar.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/ustanovka.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/kurulum.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/en/install.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/kurulum.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/install.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/installieren.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/instalar.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/ustanovka.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/kurulum.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/de/installieren.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/kurulum.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/install.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/installieren.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/instalar.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/ustanovka.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/kurulum.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/es/instalar.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/kurulum.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/install.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/installieren.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/instalar.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/ustanovka.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/kurulum.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/ru/ustanovka.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/kurulum.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/install.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/installieren.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/instalar.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/ustanovka.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/kurulum.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/guvenlik.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/guvenlik.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/security.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/sicherheit.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/seguridad.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/bezopasnost.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/guvenlik.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/en/security.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/guvenlik.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/security.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/sicherheit.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/seguridad.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/bezopasnost.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/guvenlik.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/de/sicherheit.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/guvenlik.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/security.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/sicherheit.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/seguridad.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/bezopasnost.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/guvenlik.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/es/seguridad.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/guvenlik.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/security.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/sicherheit.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/seguridad.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/bezopasnost.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/guvenlik.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/ru/bezopasnost.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/guvenlik.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/security.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/sicherheit.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/seguridad.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/bezopasnost.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/guvenlik.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/surum-gecmisi.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/surum-gecmisi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/versionen.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/versiones.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/versii.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/surum-gecmisi.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/en/changelog.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/surum-gecmisi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/versionen.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/versiones.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/versii.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/surum-gecmisi.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/de/versionen.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/surum-gecmisi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/versionen.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/versiones.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/versii.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/surum-gecmisi.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/es/versiones.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/surum-gecmisi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/versionen.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/versiones.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/versii.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/surum-gecmisi.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/ru/versii.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/surum-gecmisi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/versionen.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/versiones.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/versii.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/surum-gecmisi.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/sss.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/sss.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/sss.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/en/faq.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/sss.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/sss.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/de/faq.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/sss.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/sss.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/es/faq.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/sss.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/sss.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/ru/faq.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/sss.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/sss.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/iletisim.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/iletisim.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/kontakty.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/iletisim.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/en/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/iletisim.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/kontakty.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/iletisim.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/de/kontakt.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/iletisim.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/kontakty.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/iletisim.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/es/contacto.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/iletisim.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/kontakty.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/iletisim.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ankora-linux.github.io/ru/kontakty.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/iletisim.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ankora-linux.github.io/de/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/kontakty.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/iletisim.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
