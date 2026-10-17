@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://ankora-linux.github.io/sitemap.xml
