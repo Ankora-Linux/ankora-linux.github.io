@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Security · Ankora Linux</title>
-<meta name="description" content="How Ankora Linux protects you: programs do only what they are allowed to, updates are verified, and your personal files stay safe.">
+<title>Security · Ankora Linux 3.6</title>
+<meta name="description" content="How Ankora Linux 3.6 protects you: 31 allowed terminal commands, 59 blocked binaries, 15 one-time-token AI actions, and verified updates.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
@@ -30,15 +30,15 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="ru_RU">
-<meta property="og:title" content="Security · Ankora Linux">
-<meta property="og:description" content="How Ankora Linux protects you: programs do only what they are allowed to, updates are verified, and your personal files stay safe.">
+<meta property="og:title" content="Security · Ankora Linux 3.6">
+<meta property="og:description" content="How Ankora Linux 3.6 protects you: 31 allowed terminal commands, 59 blocked binaries, 15 one-time-token AI actions, and verified updates.">
 <meta property="og:url" content="https://ankora-linux.github.io/en/security.html">
 <meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <meta property="og:image:width" content="1400">
 <meta property="og:image:height" content="875">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Security · Ankora Linux">
-<meta name="twitter:description" content="How Ankora Linux protects you: programs do only what they are allowed to, updates are verified, and your personal files stay safe.">
+<meta name="twitter:title" content="Security · Ankora Linux 3.6">
+<meta name="twitter:description" content="How Ankora Linux 3.6 protects you: 31 allowed terminal commands, 59 blocked binaries, 15 one-time-token AI actions, and verified updates.">
 <meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
@@ -70,7 +70,7 @@
 <header class="site-head">
   <div class="wrap head-in">
     <a class="brand" href="index.html">
-      <img src="../assets/img/logo-128.png" width="30" height="30" alt="Ankora Linux">
+      <img src="../assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
       <span>Ankora Linux</span>
     </a>
     <nav class="nav" aria-label="Main navigation">
@@ -133,8 +133,8 @@
 <main id="main">
   <div class="wrap">
     <div class="page-top">
-      <h1>Security</h1>
-      <p class="lede">Ankora Linux protects you from programs that act without you knowing. Here is what that means, in plain language.</p>
+      <h1>Ankora Linux 3.6 security architecture</h1>
+      <p class="lede">Ankora Linux 3.6 strictly separates the user interface from the system core: 137 Rust Tauri IPC commands validate every operation against fixed allowlists.</p>
     </div>
   </div>
 
@@ -145,9 +145,9 @@
         <h2>What does this mean for you?</h2>
       </div>
       <div class="grid">
-        <div class="card"><h3>Programs cannot act on their own</h3><p>Apps run only the operations they are allowed to. Anything else is refused.</p></div>
-        <div class="card"><h3>Updates are verified</h3><p>Every update is checked while it downloads. If it is broken, it will not install.</p></div>
-        <div class="card"><h3>Your personal files are protected</h3><p>System files, passwords and secret keys cannot be read by apps.</p></div>
+        <div class="card"><span class="card-tag">01</span><h3>Strict command allowlists</h3><p>The built-in terminal permits exactly 31 verified commands and 26 utilities, while 59 dangerous binaries are blocked from direct launch.</p></div>
+        <div class="card"><span class="card-tag">02</span><h3>Verified updates &amp; AI actions</h3><p>System updates run through isolated helper scripts, and the AI agent's 15 permitted actions require a one-time security token.</p></div>
+        <div class="card"><span class="card-tag">03</span><h3>Protected personal files</h3><p>The document viewer accepts only 20 safe file extensions and blocks 17 sensitive file patterns including keys and password files.</p></div>
       </div>
     </div>
   </section>
@@ -155,13 +155,15 @@
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Technical note</span>
-        <h2>What happens behind the scenes?</h2>
+        <span class="eyebrow">Verifiable in source code</span>
+        <h2>Guardrails enforced in the Rust core (main.rs)</h2>
       </div>
       <ul class="checklist">
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>The terminal runs only a fixed set of commands.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Passwordless administrator access is given only to a few helper scripts.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Network requests go only to Ankora storage addresses.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>The built-in terminal executes only 31 fixed commands and 26 diagnostic utilities without command-chaining operators.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>59 system and network binaries are blocked on the application launch denylist.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>The Ankora AI agent is restricted to 15 defined system actions and requires one-time security token confirmation before execution.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>The document viewer validates 20 permitted extensions and denies access to 17 sensitive path patterns.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>137 Tauri IPC commands and 13 automated Rust unit tests guard the bridge between the interface and the operating system.</span></li>
       </ul>
       <p style="margin-top:36px">Found a vulnerability? Write to <a href="mailto:linuxankora@gmail.com">linuxankora@gmail.com</a> without opening a public issue. Reports are answered within 48 hours.</p>
     </div>
@@ -204,7 +206,7 @@
       </div>
     </div>
     <div class="foot-bar">
-      <span>Ankora Linux 3.0 · GPL-3.0</span>
+      <span>Ankora Linux 3.6 · GPL-3.0</span>
       <span><a href="../sitemap.xml">Sitemap</a></span>
     </div>
   </div>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Download and install · Ankora Linux</title>
-<meta name="description" content="Download and install Ankora Linux. Write it to a USB stick and boot, or switch with one command if you already use Linux.">
+<title>Download and install · Ankora Linux 3.6</title>
+<meta name="description" content="Download and install Ankora Linux 3.6. Write it to a USB stick and boot, or verify and flash from the terminal.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
@@ -30,15 +30,15 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="ru_RU">
-<meta property="og:title" content="Download and install · Ankora Linux">
-<meta property="og:description" content="Download and install Ankora Linux. Write it to a USB stick and boot, or switch with one command if you already use Linux.">
+<meta property="og:title" content="Download and install · Ankora Linux 3.6">
+<meta property="og:description" content="Download and install Ankora Linux 3.6. Write it to a USB stick and boot, or verify and flash from the terminal.">
 <meta property="og:url" content="https://ankora-linux.github.io/en/install.html">
 <meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <meta property="og:image:width" content="1400">
 <meta property="og:image:height" content="875">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Download and install · Ankora Linux">
-<meta name="twitter:description" content="Download and install Ankora Linux. Write it to a USB stick and boot, or switch with one command if you already use Linux.">
+<meta name="twitter:title" content="Download and install · Ankora Linux 3.6">
+<meta name="twitter:description" content="Download and install Ankora Linux 3.6. Write it to a USB stick and boot, or verify and flash from the terminal.">
 <meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
@@ -70,7 +70,7 @@
 <header class="site-head">
   <div class="wrap head-in">
     <a class="brand" href="index.html">
-      <img src="../assets/img/logo-128.png" width="30" height="30" alt="Ankora Linux">
+      <img src="../assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
       <span>Ankora Linux</span>
     </a>
     <nav class="nav" aria-label="Main navigation">
@@ -134,9 +134,9 @@
   <div class="wrap">
     <div class="page-top">
       <h1>Download and install</h1>
-      <p class="lede">A USB stick and a few minutes are enough. If you already use Linux, you can switch with one command.</p>
+      <p class="lede">A USB stick and a few minutes are enough. If you already use Linux, you can also verify and write the ISO from the terminal.</p>
       <div class="btn-row" style="margin-top:30px">
-        <a class="btn btn-1" href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener">Open the Ankora Linux 3.0 releases</a>
+        <a class="btn btn-1" href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener">Open the Ankora Linux 3.6 releases</a>
         <a class="btn btn-2" href="https://github.com/Ankora-Linux/Ankora" rel="noopener">Source code</a>
       </div>
     </div>
@@ -150,8 +150,8 @@
       </div>
       <ul class="checklist">
         <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>A 64-bit (amd64) processor</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>At least 2 GB of memory (4 GB is comfortable)</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>An empty USB stick for the ISO</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>At least 2 GB of memory (Eco RAM mode activates automatically under 4 GB)</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>An empty USB stick (at least 4 GB) for the ISO</span></li>
         <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>An internet connection (for the download)</span></li>
       </ul>
     </div>
@@ -164,8 +164,8 @@
         <h2>Ready in three steps</h2>
       </div>
       <ol class="steps">
-        <li><div><h3>Download</h3><p>Get the ISO file and its verification file from the releases page.</p></div></li>
-        <li><div><h3>Write it to a USB stick</h3><p>Write the ISO to an empty USB stick with a free tool such as BalenaEtcher or Rufus.</p></div></li>
+        <li><div><h3>Download</h3><p>Get the ISO file and its SHA-256 verification file from the releases page.</p></div></li>
+        <li><div><h3>Write it to a USB stick</h3><p>Write the ISO to an empty USB stick with Ankora USB Flasher, BalenaEtcher, or Rufus.</p></div></li>
         <li><div><h3>Boot and install</h3><p>Start the computer from the USB stick. The installer runs step by step and the system restarts at the end.</p></div></li>
       </ol>
     </div>
@@ -231,7 +231,7 @@ sudo dd if=ankora-linux.iso of=/dev/sdX bs=4M status=progress conv=fsync</code><
       </div>
     </div>
     <div class="foot-bar">
-      <span>Ankora Linux 3.0 · GPL-3.0</span>
+      <span>Ankora Linux 3.6 · GPL-3.0</span>
       <span><a href="../sitemap.xml">Sitemap</a></span>
     </div>
   </div>

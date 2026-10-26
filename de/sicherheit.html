@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sicherheit · Ankora Linux</title>
-<meta name="description" content="Wie Ankora Linux Sie schützt: Programme tun nur Erlaubtes, Aktualisierungen werden geprüft, Ihre persönlichen Dateien bleiben sicher.">
+<title>Sicherheit · Ankora Linux 3.6</title>
+<meta name="description" content="Wie Ankora Linux 3.6 Sie schützt: 31 erlaubte Terminal-Befehle, 59 gesperrte Binärdateien, 15 KI-Aktionen mit Einmal-Token und geprüfte Updates.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
@@ -30,15 +30,15 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="ru_RU">
-<meta property="og:title" content="Sicherheit · Ankora Linux">
-<meta property="og:description" content="Wie Ankora Linux Sie schützt: Programme tun nur Erlaubtes, Aktualisierungen werden geprüft, Ihre persönlichen Dateien bleiben sicher.">
+<meta property="og:title" content="Sicherheit · Ankora Linux 3.6">
+<meta property="og:description" content="Wie Ankora Linux 3.6 Sie schützt: 31 erlaubte Terminal-Befehle, 59 gesperrte Binärdateien, 15 KI-Aktionen mit Einmal-Token und geprüfte Updates.">
 <meta property="og:url" content="https://ankora-linux.github.io/de/sicherheit.html">
 <meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <meta property="og:image:width" content="1400">
 <meta property="og:image:height" content="875">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sicherheit · Ankora Linux">
-<meta name="twitter:description" content="Wie Ankora Linux Sie schützt: Programme tun nur Erlaubtes, Aktualisierungen werden geprüft, Ihre persönlichen Dateien bleiben sicher.">
+<meta name="twitter:title" content="Sicherheit · Ankora Linux 3.6">
+<meta name="twitter:description" content="Wie Ankora Linux 3.6 Sie schützt: 31 erlaubte Terminal-Befehle, 59 gesperrte Binärdateien, 15 KI-Aktionen mit Einmal-Token und geprüfte Updates.">
 <meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
@@ -70,7 +70,7 @@
 <header class="site-head">
   <div class="wrap head-in">
     <a class="brand" href="index.html">
-      <img src="../assets/img/logo-128.png" width="30" height="30" alt="Ankora Linux">
+      <img src="../assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
       <span>Ankora Linux</span>
     </a>
     <nav class="nav" aria-label="Hauptnavigation">
@@ -133,8 +133,8 @@
 <main id="main">
   <div class="wrap">
     <div class="page-top">
-      <h1>Sicherheit</h1>
-      <p class="lede">Ankora Linux schützt Sie vor Programmen, die ohne Ihr Wissen handeln. Hier steht in einfachen Worten, was das bedeutet.</p>
+      <h1>Sicherheit in Ankora Linux 3.6</h1>
+      <p class="lede">Ankora Linux 3.6 trennt die Oberfläche strikt vom Systemkern: 137 Tauri-IPC-Befehle in Rust prüfen jede Aktion gegen feste Positivlisten.</p>
     </div>
   </div>
 
@@ -145,9 +145,9 @@
         <h2>Was bedeutet das für Sie?</h2>
       </div>
       <div class="grid">
-        <div class="card"><h3>Programme handeln nicht eigenmächtig</h3><p>Apps führen nur erlaubte Vorgänge aus. Alles andere wird abgelehnt.</p></div>
-        <div class="card"><h3>Aktualisierungen werden geprüft</h3><p>Jede Aktualisierung wird beim Herunterladen geprüft. Ist sie fehlerhaft, wird sie nicht installiert.</p></div>
-        <div class="card"><h3>Ihre persönlichen Dateien sind geschützt</h3><p>Systemdateien, Passwörter und geheime Schlüssel können von Apps nicht gelesen werden.</p></div>
+        <div class="card"><span class="card-tag">01</span><h3>Strikte Befehls-Positivlisten</h3><p>Das eingebaute Terminal erlaubt genau 31 geprüfte Befehle und 26 Hilfswerkzeuge; 59 gefährliche Binärdateien sind für den Direktstart gesperrt.</p></div>
+        <div class="card"><span class="card-tag">02</span><h3>Geprüfte Aktualisierungen</h3><p>Jedes Paket und jedes System-Update wird über den passwortlosen Helper geprüft, bevor es installiert wird.</p></div>
+        <div class="card"><span class="card-tag">03</span><h3>Geschützte persönliche Dateien</h3><p>Der Dateibetrachter akzeptiert nur 20 Dokument-Endungen und blockiert 17 sensible Dateimuster wie Schlüssel und Passwortdateien.</p></div>
       </div>
     </div>
   </section>
@@ -155,13 +155,15 @@
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Technische Anmerkung</span>
-        <h2>Was geschieht im Hintergrund?</h2>
+        <span class="eyebrow">Im Quellcode überprüfbar</span>
+        <h2>Kennzahlen aus dem Rust-Kern (main.rs)</h2>
       </div>
       <ul class="checklist">
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Das Terminal führt nur eine feste Menge von Befehlen aus.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Passwortloser Administratorzugriff gilt nur für wenige Hilfsskripte.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Netzwerkanfragen gehen nur an Ankora-Speicheradressen.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Das integrierte Terminal führt nur 31 exakt definierte Befehle und 26 Diagnose-Werkzeuge ohne Verkettungszeichen aus.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>59 System- und Netzwerk-Binärdateien stehen auf der Sperrliste für den Anwendungsstart.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Der Ankora-KI-Agent darf nur 15 definierte Systemaktionen ausführen und verlangt zuvor ein Einmal-Sicherheits-Token.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Der Dokumentbetrachter prüft 20 erlaubte Dateiendungen und verweigert den Zugriff auf 17 sensible Pfadmuster.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>137 Tauri-Befehle und 13 automatisierte Rust-Modultests sichern die Schnittstelle zwischen Oberfläche und Betriebssystem ab.</span></li>
       </ul>
       <p style="margin-top:36px">Eine Schwachstelle gefunden? Schreiben Sie an <a href="mailto:linuxankora@gmail.com">linuxankora@gmail.com</a>, ohne ein öffentliches Ticket zu öffnen. Antwort innerhalb von 48 Stunden.</p>
     </div>
@@ -204,7 +206,7 @@
       </div>
     </div>
     <div class="foot-bar">
-      <span>Ankora Linux 3.0 · GPL-3.0</span>
+      <span>Ankora Linux 3.6 · GPL-3.0</span>
       <span><a href="../sitemap.xml">Sitemap</a></span>
     </div>
   </div>

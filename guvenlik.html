@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Güvenlik · Ankora Linux</title>
-<meta name="description" content="Ankora Linux sizi nasıl korur: programlar yalnızca izin verilen işleri yapar, güncellemeler doğrulanır, kişisel dosyalarınız güvende kalır.">
+<title>Güvenlik · Ankora Linux 3.6</title>
+<meta name="description" content="Ankora Linux 3.6 sizi nasıl korur: 31 izinli uçbirim komutu, 59 yasaklı ikili dosya, tek kullanımlık jetonlu 15 AI eylemi ve doğrulanmış güncellemeler.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
@@ -30,15 +30,15 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="ru_RU">
-<meta property="og:title" content="Güvenlik · Ankora Linux">
-<meta property="og:description" content="Ankora Linux sizi nasıl korur: programlar yalnızca izin verilen işleri yapar, güncellemeler doğrulanır, kişisel dosyalarınız güvende kalır.">
+<meta property="og:title" content="Güvenlik · Ankora Linux 3.6">
+<meta property="og:description" content="Ankora Linux 3.6 sizi nasıl korur: 31 izinli uçbirim komutu, 59 yasaklı ikili dosya, tek kullanımlık jetonlu 15 AI eylemi ve doğrulanmış güncellemeler.">
 <meta property="og:url" content="https://ankora-linux.github.io/guvenlik.html">
 <meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <meta property="og:image:width" content="1400">
 <meta property="og:image:height" content="875">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Güvenlik · Ankora Linux">
-<meta name="twitter:description" content="Ankora Linux sizi nasıl korur: programlar yalnızca izin verilen işleri yapar, güncellemeler doğrulanır, kişisel dosyalarınız güvende kalır.">
+<meta name="twitter:title" content="Güvenlik · Ankora Linux 3.6">
+<meta name="twitter:description" content="Ankora Linux 3.6 sizi nasıl korur: 31 izinli uçbirim komutu, 59 yasaklı ikili dosya, tek kullanımlık jetonlu 15 AI eylemi ve doğrulanmış güncellemeler.">
 <meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -70,7 +70,7 @@
 <header class="site-head">
   <div class="wrap head-in">
     <a class="brand" href="index.html">
-      <img src="assets/img/logo-128.png" width="30" height="30" alt="Ankora Linux">
+      <img src="assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
       <span>Ankora Linux</span>
     </a>
     <nav class="nav" aria-label="Ana gezinme">
@@ -133,8 +133,8 @@
 <main id="main">
   <div class="wrap">
     <div class="page-top">
-      <h1>Güvenlik</h1>
-      <p class="lede">Ankora Linux, sizi ne yaptığını bilmediğiniz programlardan korur. Aşağıda bunun ne anlama geldiğini sade biçimde anlatıyoruz.</p>
+      <h1>Ankora Linux 3.6 güvenlik mimarisi</h1>
+      <p class="lede">Ankora Linux 3.6, arayüz ile sistem çekirdeğini birbirinden ayırır. Rust ile yazılmış 137 Tauri IPC komutu her işlemi sabit izin listelerine göre denetler.</p>
     </div>
   </div>
 
@@ -145,9 +145,9 @@
         <h2>Bu, sizin için ne anlama geliyor?</h2>
       </div>
       <div class="grid">
-        <div class="card"><h3>Programlar kafasına göre iş yapamaz</h3><p>Uygulamalar yalnızca izin verilen işlemleri çalıştırır. Bunun dışındaki komutlar reddedilir.</p></div>
-        <div class="card"><h3>Güncellemeler doğrulanır</h3><p>Her güncellemenin doğruluğu indirilirken kontrol edilir. Bozuksa kurulmaz.</p></div>
-        <div class="card"><h3>Kişisel dosyalarınız korunur</h3><p>Sistem dosyaları, parolalar ve gizli anahtarlar uygulamalar tarafından okunamaz.</p></div>
+        <div class="card"><span class="card-tag">01</span><h3>Programlar kafasına göre iş yapamaz</h3><p>Yerleşik uçbirim yalnızca izin verilen 31 komutu ve 26 yardımcı aracı çalıştırır; 59 tehlikeli ikili dosyanın doğrudan başlatılması engellenir.</p></div>
+        <div class="card"><span class="card-tag">02</span><h3>Güncellemeler ve AI eylemleri doğrulanır</h3><p>Paket ve sistem güncellemeleri izole yardımcı betiklerle kontrol edilir; AI ajanının 15 sistem eylemi tek kullanımlık güvenlik jetonu olmadan çalışmaz.</p></div>
+        <div class="card"><span class="card-tag">03</span><h3>Kişisel dosyalarınız korunur</h3><p>Belge görüntüleyici yalnızca 20 güvenli dosya uzantısını kabul eder; parola, anahtar ve gölge dosyaları içeren 17 hassas dosya deseni engellenir.</p></div>
       </div>
     </div>
   </section>
@@ -155,13 +155,15 @@
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Teknik not</span>
-        <h2>Arka planda ne yapılıyor?</h2>
+        <span class="eyebrow">Kaynak kodda doğrulanabilir</span>
+        <h2>Rust çekirdeğinde (main.rs) uygulanan sınırlar</h2>
       </div>
       <ul class="checklist">
-        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Terminal yalnızca önceden belirlenmiş komutları çalıştırır.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Parolasız yönetici erişimi yalnızca birkaç yardımcı betiğe verilir.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Ağ istekleri yalnızca Ankora depolama adreslerine yapılır.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Yerleşik uçbirim yalnızca önceden tanımlı 31 tam komutu ve 26 sistem aracını zincirleme operatörleri olmadan çalıştırır.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Uygulama başlatıcıda 59 sistem ve ağ ikili dosyası yasaklı listesindedir.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Ankora AI asistanı yalnızca 15 tanımlı sistem eylemini yürütebilir ve her eylem öncesinde tek kullanımlık güvenlik jetonu doğrulaması ister.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Belge görüntüleyici yalnızca 20 belge uzantısını açar ve 17 hassas dosya desenine erişimi reddeder.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Arayüz ile sistem arasındaki köprü 137 Tauri IPC komutu ve 13 otomatik Rust birim testi ile denetlenir.</span></li>
       </ul>
       <p style="margin-top:36px">Bir açık mı buldunuz? Herkese açık kayıt açmadan <a href="mailto:linuxankora@gmail.com">linuxankora@gmail.com</a> adresine yazın. Raporlar 48 saat içinde yanıtlanır.</p>
     </div>
@@ -204,7 +206,7 @@
       </div>
     </div>
     <div class="foot-bar">
-      <span>Ankora Linux 3.0 · GPL-3.0</span>
+      <span>Ankora Linux 3.6 · GPL-3.0</span>
       <span><a href="sitemap.xml">Site haritası</a></span>
     </div>
   </div>

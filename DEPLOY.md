@@ -119,15 +119,14 @@ Görsel yön `DESIGN.md` dosyasındadır ve bu sitenin kaynak gerçeğidir.
   her zaman görünen dil açılır listesi (dünya simgesi + dil kodu, beş dil),
   ayar düğmesi (tema, vurgu) ve mobil menü düğmesi. Dar ekranda gezinme
   katlanır menüye döner.
-- **Sade hero:** ortalanmış tek başlık, kısa açıklama ve iki düğme. Altında
-  tek ekran görüntüsü.
-- Gradyan ve cam yok. Kartlar çerçevesiz, yalnızca başlık ve metinden oluşur.
-- **Ferah ölçek:** bölüm dikey boşluğu `clamp(88px, 9.5vw, 168px)`, gövde
-  satır yüksekliği 1,8, ölçü genişliği `62ch`, kabuk `1120px`.
-- Giriş animasyonu ve bölüm numarası yok; içerik doğrudan görünür.
+- **Sade hero ve etkileşimli vitrin:** ortalanmış üst bilgi rozeti (`3.6.0`), tek başlık, kısa açıklama ve iki düğme. Altında Ayaz DE 3.6'nın 5 gerçek ekran görüntüsü (`ayaz-masaustu.png`, `ankora-temalar.jpg`, `ankora-karsilayici.jpg`, `ankora-duvar.jpg`, `ankora-ai.jpg`) arasında geçiş sağlayan sekme vitrini.
+- Gradyan ve cam yok. Kartlar açık/koyu yüzey çerçevesi, monospace sıra etiketi, başlık ve metinden oluşur.
+- **Ferah ölçek:** bölüm dikey boşluğu `clamp(96px, 10.5vw, 176px)`, gövde
+  satır yüksekliği 1,75, ölçü genişliği `64ch`, kabuk `1160px`.
+- Giriş animasyonu yok; içerik doğrudan görünür.
 - Yazı tipleri: Sora (başlık), IBM Plex Sans (gövde), IBM Plex Mono (etiket/kod).
-- Kontrast alt sınırı 4,5; altı tema/vurgu bileşiminde ölçülen en düşük oran 4,94.
-- Duyarlı kırılımlar: 1080px (gezinme katlanır), 860px, 560px.
+- Kontrast alt sınırı 4,5; altı tema/vurgu bileşiminde ölçülen en düşük oran 4,76.
+- Duyarlı kırılımlar: 1080px (gezinme katlanır), 860px, 560px. All etkileşimli öğeler en az 44×44px dokunma alanına sahiptir.
 
 ## Metin kuralları
 

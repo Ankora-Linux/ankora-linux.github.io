@@ -1,8 +1,8 @@
 # Ankora Linux
 
-> Ankora Linux, son kullanıcı için sade, Devuan tabanlı ve ücretsiz bir
-> Türkçe işletim sistemidir. Kendi masaüstü ortamı Ayaz DE ile birlikte
-> gelir. GPL-3.0 lisanslıdır.
+> Ankora Linux 3.6, son kullanıcı ve eğitim kurumları için sade, Devuan 5.0 Daedalus
+> (SysVinit) tabanlı ve ücretsiz bir Türkçe işletim sistemidir. Kendi masaüstü ortamı
+> Ayaz DE 3.6 ile birlikte gelir. GPL-3.0 lisanslıdır.
 > Depo: https://github.com/Ankora-Linux/Ankora
 > Sürümler: https://github.com/Ankora-Linux/Ankora/releases
 > Forum: https://ankalab.flarum.cloud
@@ -12,14 +12,15 @@
 
 ## Ne işe yarar
 
-Hedef, son kullanıcı için sade bir dağıtım: hazır uygulamalar, kolay
-kurulum ve arayüz dili Türkçe. Eski ya da yavaşlamış bilgisayarlar da
-hedeflenir; kurulum USB bellek üzerinden yapılır ve terminal gerekmez. Kurulu sistemde
-masaüstü boştayken yaklaşık 750 MB bellek kullanır. Arayüz tamamen Türkçedir.
+Hedef, son kullanıcı için sade bir dağıtım: 18 yerleşik pencere, 176 paketli
+yazılım mağazası (ETAP akıllı tahta araçları dahil), 13 tam sistem teması,
+4 GB altı makineler için otomatik Eco RAM kipi, yerel Ollama destekli Ankora AI
+asistanı ve Türkçe arayüz. Kurulu sistemde masaüstü boştayken yaklaşık 750 MB
+bellek kullanır.
 
 ## Kurulum
 
-1. https://github.com/Ankora-Linux/Ankora/releases adresinden ISO dosyasını ve yanındaki doğrulama dosyasını indirin.
+1. https://github.com/Ankora-Linux/Ankora/releases adresinden ISO dosyasını ve yanındaki SHA-256 doğrulama dosyasını indirin.
 2. ISO'yu boş bir USB belleğe yazın.
 3. Bilgisayarı USB bellekten başlatıp kurulum sihirbazını izleyin.
 
@@ -28,26 +29,28 @@ masaüstü boştayken yaklaşık 750 MB bellek kullanır. Arayüz tamamen Türk�
 - 01.0 (2024): ilk kararlı sürüm
 - 02.0 Zümrüt (2025): masaüstü entegrasyonları ve ayarlar yenilendi
 - 2.0 (2026): masaüstü ortamı Ayaz DE
-- 3.0 (2026): güncel sürüm
+- 3.0 (2026): Tauri 1.5 ve Rust çekirdeği
+- 3.5 (2026): Eco RAM kipi ve otomatik USB bağlama
+- 3.6 (2026): 13 tam sistem teması, 176 mağaza paketi, gelişmiş Dosyalar yöneticisi, USB/ISO yazıcı ve ETAP desteği
 
 ## Sayfalar (Türkçe)
 
-- [Ankora Linux: Eski bilgisayarınızı yeniden kullanın](https://ankora-linux.github.io/)
-- [Özellikler · Ankora Linux](https://ankora-linux.github.io/ozellikler.html)
-- [İndir ve kur · Ankora Linux](https://ankora-linux.github.io/kurulum.html)
-- [Güvenlik · Ankora Linux](https://ankora-linux.github.io/guvenlik.html)
-- [Sürümler · Ankora Linux](https://ankora-linux.github.io/surum-gecmisi.html)
-- [Sık sorulan sorular · Ankora Linux](https://ankora-linux.github.io/sss.html)
+- [Ankora Linux 3.6: Eski bilgisayarınızı yeniden kullanın](https://ankora-linux.github.io/)
+- [Özellikler · Ankora Linux 3.6](https://ankora-linux.github.io/ozellikler.html)
+- [İndir ve kur · Ankora Linux 3.6](https://ankora-linux.github.io/kurulum.html)
+- [Güvenlik · Ankora Linux 3.6](https://ankora-linux.github.io/guvenlik.html)
+- [Sürümler · Ankora Linux 3.6](https://ankora-linux.github.io/surum-gecmisi.html)
+- [Sık sorulan sorular · Ankora Linux 3.6](https://ankora-linux.github.io/sss.html)
 - [İletişim · Ankora Linux](https://ankora-linux.github.io/iletisim.html)
 
 ## Pages (English)
 
-- [Ankora Linux: Bring your old computer back to life](https://ankora-linux.github.io/en/)
-- [Features · Ankora Linux](https://ankora-linux.github.io/en/features.html)
-- [Download and install · Ankora Linux](https://ankora-linux.github.io/en/install.html)
-- [Security · Ankora Linux](https://ankora-linux.github.io/en/security.html)
-- [Releases · Ankora Linux](https://ankora-linux.github.io/en/changelog.html)
-- [Frequently asked questions · Ankora Linux](https://ankora-linux.github.io/en/faq.html)
+- [Ankora Linux 3.6: Bring your old computer back to life](https://ankora-linux.github.io/en/)
+- [Features · Ankora Linux 3.6](https://ankora-linux.github.io/en/features.html)
+- [Download and install · Ankora Linux 3.6](https://ankora-linux.github.io/en/install.html)
+- [Security · Ankora Linux 3.6](https://ankora-linux.github.io/en/security.html)
+- [Releases · Ankora Linux 3.6](https://ankora-linux.github.io/en/changelog.html)
+- [Frequently asked questions · Ankora Linux 3.6](https://ankora-linux.github.io/en/faq.html)
 - [Contact · Ankora Linux](https://ankora-linux.github.io/en/contact.html)
 
 ## Lisans

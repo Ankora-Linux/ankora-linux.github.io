@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Безопасность · Ankora Linux</title>
-<meta name="description" content="Как Ankora Linux защищает вас: программы делают только разрешённое, обновления проверяются, личные файлы в безопасности.">
+<title>Безопасность · Ankora Linux 3.6</title>
+<meta name="description" content="Как Ankora Linux 3.6 защищает вас: 31 разрешённая команда терминала, 59 заблокированных бинарных файлов, 15 действий ИИ с одноразовым токеном и проверка обновлений.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
@@ -30,15 +30,15 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="es_ES">
-<meta property="og:title" content="Безопасность · Ankora Linux">
-<meta property="og:description" content="Как Ankora Linux защищает вас: программы делают только разрешённое, обновления проверяются, личные файлы в безопасности.">
+<meta property="og:title" content="Безопасность · Ankora Linux 3.6">
+<meta property="og:description" content="Как Ankora Linux 3.6 защищает вас: 31 разрешённая команда терминала, 59 заблокированных бинарных файлов, 15 действий ИИ с одноразовым токеном и проверка обновлений.">
 <meta property="og:url" content="https://ankora-linux.github.io/ru/bezopasnost.html">
 <meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <meta property="og:image:width" content="1400">
 <meta property="og:image:height" content="875">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Безопасность · Ankora Linux">
-<meta name="twitter:description" content="Как Ankora Linux защищает вас: программы делают только разрешённое, обновления проверяются, личные файлы в безопасности.">
+<meta name="twitter:title" content="Безопасность · Ankora Linux 3.6">
+<meta name="twitter:description" content="Как Ankora Linux 3.6 защищает вас: 31 разрешённая команда терминала, 59 заблокированных бинарных файлов, 15 действий ИИ с одноразовым токеном и проверка обновлений.">
 <meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
@@ -70,7 +70,7 @@
 <header class="site-head">
   <div class="wrap head-in">
     <a class="brand" href="index.html">
-      <img src="../assets/img/logo-128.png" width="30" height="30" alt="Ankora Linux">
+      <img src="../assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
       <span>Ankora Linux</span>
     </a>
     <nav class="nav" aria-label="Основная навигация">
@@ -133,8 +133,8 @@
 <main id="main">
   <div class="wrap">
     <div class="page-top">
-      <h1>Безопасность</h1>
-      <p class="lede">Ankora Linux защищает вас от программ, которые действуют без вашего ведома. Вот что это значит, простыми словами.</p>
+      <h1>Безопасность в Ankora Linux 3.6</h1>
+      <p class="lede">Ankora Linux 3.6 строго отделяет интерфейс от системного ядра: 137 IPC-команд Tauri на Rust проверяют каждый запрос по фиксированным белым спискам.</p>
     </div>
   </div>
 
@@ -145,9 +145,9 @@
         <h2>Что это значит для вас?</h2>
       </div>
       <div class="grid">
-        <div class="card"><h3>Программы не действуют самовольно</h3><p>Приложения выполняют только разрешённые операции. Всё остальное отклоняется.</p></div>
-        <div class="card"><h3>Обновления проверяются</h3><p>Каждое обновление проверяется при загрузке. Повреждённое не устанавливается.</p></div>
-        <div class="card"><h3>Ваши личные файлы защищены</h3><p>Системные файлы, пароли и секретные ключи не могут быть прочитаны приложениями.</p></div>
+        <div class="card"><span class="card-tag">01</span><h3>Строгие белые списки команд</h3><p>Встроенный терминал разрешает ровно 31 проверенную команду и 26 утилит, а 59 опасных бинарных файлов заблокированы для прямого запуска.</p></div>
+        <div class="card"><span class="card-tag">02</span><h3>Проверка обновлений</h3><p>Каждый пакет и системное обновление проверяется изолированным помощником перед установкой.</p></div>
+        <div class="card"><span class="card-tag">03</span><h3>Защита личных файлов</h3><p>Просмотрщик документов принимает только 20 разрешённых расширений и блокирует 17 шаблонов чувствительных файлов, включая ключи и пароли.</p></div>
       </div>
     </div>
   </section>
@@ -155,13 +155,15 @@
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Техническое замечание</span>
-        <h2>Что происходит в фоне?</h2>
+        <span class="eyebrow">Проверяется по исходному коду</span>
+        <h2>Показатели ядра Rust (main.rs)</h2>
       </div>
       <ul class="checklist">
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Терминал выполняет только фиксированный набор команд.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Доступ администратора без пароля дан лишь нескольким вспомогательным скриптам.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Сетевые запросы идут только на адреса хранилищ Ankora.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Встроенный терминал выполняет только 31 фиксированную команду и 26 диагностических утилит без операторов склейки.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>59 системных и сетевых бинарных файлов внесены в чёрный список прямого запуска.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>ИИ-агент Ankora может выполнять только 15 заданных действий и требует подтверждения одноразовым токеном безопасности.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Просмотрщик документов проверяет 20 разрешённых расширений и блокирует 17 шаблонов секретных путей.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>137 команд Tauri и 13 модульных тестов Rust защищают мост между интерфейсом и операционной системой.</span></li>
       </ul>
       <p style="margin-top:36px">Нашли уязвимость? Напишите на <a href="mailto:linuxankora@gmail.com">linuxankora@gmail.com</a>, не открывая публичный отчёт. Ответ в течение 48 часов.</p>
     </div>
@@ -204,7 +206,7 @@
       </div>
     </div>
     <div class="foot-bar">
-      <span>Ankora Linux 3.0 · GPL-3.0</span>
+      <span>Ankora Linux 3.6 · GPL-3.0</span>
       <span><a href="../sitemap.xml">Карта сайта</a></span>
     </div>
   </div>

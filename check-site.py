@@ -385,18 +385,16 @@ if DUMP.exists():
     }
 
     claims = [
-        ("kesin terminal komutu", "exact terminal commands", "EXACT_ALLOWED_COMMANDS"),
-        ("Yirmi sekiz komut", "Twenty-eight commands", "EXACT_ALLOWED_COMMANDS"),
-        ("Yirmi altı ikili", "twenty-six binaries", "ALLOWED_UTILITIES"),
-        ("elli dokuz", "fifty-nine", "FORBIDDEN_LAUNCH_BINARIES"),
-        ("Sekiz izinli", "Eight permitted", "ALLOWED_AGENT_ACTIONS"),
-        ("Yirmi uzantı", "Twenty extensions", "ALLOWED_DOC_EXTENSIONS"),
-        ("On yedi hassas", "Seventeen sensitive", "SENSITIVE_FILE_PATTERNS"),
-        ("On yedi klavye", "Seventeen default shortcuts", "KISAYOL"),
-        ("On üç Rust", "Thirteen Rust unit tests", "RUST_TEST"),
-        ("Yüz on dört", "One hundred and fourteen", "TAURI"),
-        ("On yedi uygulama", "Seventeen application", "PENCERE"),
-        ("yüz on sekiz", "118 records", "MAGAZA"),
+        ("31 tam komutu", "31 fixed commands", "EXACT_ALLOWED_COMMANDS"),
+        ("26 sistem aracını", "26 diagnostic utilities", "ALLOWED_UTILITIES"),
+        ("59 sistem ve ağ ikili", "59 system and network binaries", "FORBIDDEN_LAUNCH_BINARIES"),
+        ("15 tanımlı sistem eylemini", "15 defined system actions", "ALLOWED_AGENT_ACTIONS"),
+        ("20 belge uzantısını", "20 permitted extensions", "ALLOWED_DOC_EXTENSIONS"),
+        ("17 hassas dosya desenine", "17 sensitive path patterns", "SENSITIVE_FILE_PATTERNS"),
+        ("13 otomatik Rust birim testi", "13 automated Rust unit tests", "RUST_TEST"),
+        ("137 Tauri IPC komutu", "137 Tauri IPC commands", "TAURI"),
+        ("18 yerleşik pencere", "18 built-in windows", "PENCERE"),
+        ("176 paketli", "176-package", "MAGAZA"),
     ]
 
     corpus = "\n".join((ROOT / p).read_text("utf-8") for p in ALL_PAGES)
@@ -407,7 +405,7 @@ if DUMP.exists():
             if str(truth[key_]) not in corpus:
                 fail("check-site.py",
                      f"sayi tutarsiz: '{tr}' / '{en}' icin kaynak {truth[key_]} diyor")
-    for stale in ("Yirmi yedi komut", "Twenty-seven commands", "111 Tauri",
+    for stale in ("Yirmi yedi komut", "Twenty-seven commands", "111 Tauri", "114 Tauri",
                   "24 ikili", "22 belge", "80 ile 120", "80 and 120",
                   "80 bis 120", "80 a 120", "80\u2013120"):
         if stale in corpus:

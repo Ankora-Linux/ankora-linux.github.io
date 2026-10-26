@@ -1,4 +1,4 @@
-/* Ankora Linux web sitesi. Tema, vurgu rengi, mobil menu ve kopyalama. */
+/* Ankora Linux web sitesi. Tema, vurgu rengi, mobil menu, ekran vitrini ve kopyalama. */
 (function () {
   "use strict";
 
@@ -137,6 +137,42 @@
     });
     doc.addEventListener("keydown", function (event) {
       if (event.key === "Escape") setMenu(false);
+    });
+  }
+
+  /* ------------------------------------------------ ekran goruntusu sekmeleri */
+  var shotTabs = Array.prototype.slice.call(doc.querySelectorAll("[data-shot-tab]"));
+  var shotPanels = Array.prototype.slice.call(doc.querySelectorAll("[data-shot-panel]"));
+
+  function activateShot(id, focusTab) {
+    shotTabs.forEach(function (tab) {
+      var active = tab.getAttribute("data-shot-tab") === id;
+      tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.setAttribute("tabindex", active ? "0" : "-1");
+      if (active && focusTab) tab.focus();
+    });
+    shotPanels.forEach(function (panel) {
+      var active = panel.getAttribute("data-shot-panel") === id;
+      panel.hidden = !active;
+    });
+  }
+
+  if (shotTabs.length && shotPanels.length) {
+    shotTabs.forEach(function (tab, index) {
+      tab.addEventListener("click", function () {
+        activateShot(tab.getAttribute("data-shot-tab"), false);
+      });
+      tab.addEventListener("keydown", function (event) {
+        var nextIndex = -1;
+        if (event.key === "ArrowRight") nextIndex = (index + 1) % shotTabs.length;
+        else if (event.key === "ArrowLeft") nextIndex = (index - 1 + shotTabs.length) % shotTabs.length;
+        else if (event.key === "Home") nextIndex = 0;
+        else if (event.key === "End") nextIndex = shotTabs.length - 1;
+        if (nextIndex >= 0) {
+          event.preventDefault();
+          activateShot(shotTabs[nextIndex].getAttribute("data-shot-tab"), true);
+        }
+      });
     });
   }
 
