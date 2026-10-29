@@ -71,7 +71,8 @@ U = {
            "about": "Son kullanıcı için sade, Devuan tabanlı ve Türkçe bir işletim sistemi.",
            "c1": "Dağıtım", "c2": "Yardım", "c3": "Kaynak",
            "short": "Ankora Linux 4.0 · GPL-3.0", "sitemap": "Site haritası",
-           "col_link": "Kaynak kod"},
+           "col_link": "Kaynak kod",
+           "bayram": "29 Ekim Cumhuriyet Bayramı'nız kutlu olsun"},
     "en": {"settings": "Appearance", "language": "Language", "theme": "Theme",
            "tLight": "Light", "tDark": "Dark", "tAuto": "System",
            "accent": "Accent colour", "aBlue": "Blue", "aGreen": "Green", "aPurple": "Purple",
@@ -81,7 +82,8 @@ U = {
            "about": "A simple, Turkish operating system built on Devuan.",
            "c1": "Distribution", "c2": "Help", "c3": "Source",
            "short": "Ankora Linux 4.0 · GPL-3.0", "sitemap": "Sitemap",
-           "col_link": "Source code"},
+           "col_link": "Source code",
+           "bayram": "Happy Republic Day of Türkiye (29 October)"},
     "de": {"settings": "Darstellung", "language": "Sprache", "theme": "Design",
            "tLight": "Hell", "tDark": "Dunkel", "tAuto": "System",
            "accent": "Akzentfarbe", "aBlue": "Blau", "aGreen": "Grün", "aPurple": "Violett",
@@ -91,7 +93,8 @@ U = {
            "about": "Ein schlichtes türkisches Betriebssystem auf Devuan-Basis.",
            "c1": "Distribution", "c2": "Hilfe", "c3": "Quellcode",
            "short": "Ankora Linux 4.0 · GPL-3.0", "sitemap": "Sitemap",
-           "col_link": "Quellcode"},
+           "col_link": "Quellcode",
+           "bayram": "Frohen Tag der Republik der Türkei (29. Oktober)"},
     "es": {"settings": "Apariencia", "language": "Idioma", "theme": "Tema",
            "tLight": "Claro", "tDark": "Oscuro", "tAuto": "Sistema",
            "accent": "Color de acento", "aBlue": "Azul", "aGreen": "Verde", "aPurple": "Morado",
@@ -101,7 +104,8 @@ U = {
            "about": "Un sistema operativo turco, sencillo y basado en Devuan.",
            "c1": "Distribución", "c2": "Ayuda", "c3": "Código",
            "short": "Ankora Linux 4.0 · GPL-3.0", "sitemap": "Mapa del sitio",
-           "col_link": "Código fuente"},
+           "col_link": "Código fuente",
+           "bayram": "Feliz Día de la República de Turquía (29 de octubre)"},
     "ru": {"settings": "Оформление", "language": "Язык", "theme": "Тема",
            "tLight": "Светлая", "tDark": "Тёмная", "tAuto": "Системная",
            "accent": "Акцентный цвет", "aBlue": "Синий", "aGreen": "Зелёный", "aPurple": "Фиолетовый",
@@ -111,7 +115,8 @@ U = {
            "about": "Простая турецкая операционная система на базе Devuan.",
            "c1": "Дистрибутив", "c2": "Помощь", "c3": "Код",
            "short": "Ankora Linux 4.0 · GPL-3.0", "sitemap": "Карта сайта",
-           "col_link": "Исходный код"},
+           "col_link": "Исходный код",
+           "bayram": "С Днём Республики Турции (29 октября)"},
 }
 
 NAVL = {
@@ -779,6 +784,8 @@ def header(lang, key):
     return f"""
 <a class="skip" href="#main">{e(u["skip"])}</a>
 
+<div class="bayram">{e(u["bayram"])}</div>
+
 <header class="site-head">
   <div class="wrap head-in">
     <a class="brand" href="{local(lang, "home")}">
@@ -814,6 +821,11 @@ def footer(lang):
              (FORUM, f["forum"])]
     src = [(REPO, f["repo"]), (REL, f["rel"]), (LICENSE, f["lic"])]
 
+    icons = asset(lang, "assets/img/icons.svg")
+    soc = [("https://www.instagram.com/ankoralinux/", "Instagram", "i-instagram"),
+           ("https://x.com/ankoralinux", "X", "i-x"),
+           ("https://www.youtube.com/@AnkoraLinux", "YouTube", "i-youtube")]
+
     def col(title, items):
         li = "".join(
             f'\n          <li><a href="{href}"{" rel=\"noopener\"" if href.startswith("http") else ""}>{e(lbl)}</a></li>'
@@ -830,6 +842,11 @@ def footer(lang):
           <span>{e(u["brand"])}</span>
         </a>
         <p>{e(u["about"])}</p>
+        <div class="soc">{"\n          ".join(
+            f'<a href="{href}" rel="noopener" aria-label="{lbl}" title="{lbl}">'
+            f'<svg aria-hidden="true" focusable="false"><use href="{icons}#{sym}"></use></svg></a>'
+            for href, lbl, sym in soc)}
+        </div>
       </div>{col(u["c1"], dist)}{col(u["c2"], help_)}{col(u["c3"], src)}
     </div>
     <div class="foot-bar">
