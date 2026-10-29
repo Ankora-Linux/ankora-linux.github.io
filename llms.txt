@@ -1,8 +1,8 @@
 # Ankora Linux
 
-> Ankora Linux 3.7, son kullanıcı ve eğitim kurumları için sade, Devuan 5.0 Daedalus
+> Ankora Linux 4.0, son kullanıcı ve eğitim kurumları için sade, Devuan 5.0 Daedalus
 > (SysVinit) tabanlı ve ücretsiz bir Türkçe işletim sistemidir. Kendi masaüstü ortamı
-> Ayaz DE 3.7 ile birlikte gelir. GPL-3.0 lisanslıdır.
+> Ayaz DE 4.0 ile birlikte gelir. GPL-3.0 lisanslıdır.
 > Depo: https://github.com/Ankora-Linux/Ankora
 > Sürümler: https://github.com/Ankora-Linux/Ankora/releases
 > Forum: https://ankalab.flarum.cloud
@@ -12,8 +12,8 @@
 
 ## Ne işe yarar
 
-Hedef, son kullanıcı için sade bir dağıtım: 18 yerleşik pencere, 176 paketli
-yazılım mağazası (ETAP akıllı tahta araçları dahil), 13 tam sistem teması,
+Hedef, son kullanıcı için sade bir dağıtım: 18 yerleşik pencere, 278 paketli
+yazılım mağazası (ETAP akıllı tahta araçları dahil), 14 tam sistem teması,
 4 GB altı makineler için otomatik Eco RAM kipi, yerel Ollama destekli Ankora AI
 asistanı ve Türkçe arayüz. Kurulu sistemde masaüstü boştayken yaklaşık 750 MB
 bellek kullanır.
@@ -31,26 +31,26 @@ bellek kullanır.
 - 2.0 (2026): masaüstü ortamı Ayaz DE
 - 3.0 (2026): Tauri 1.5 ve Rust çekirdeği
 - 3.5 (2026): Eco RAM kipi ve otomatik USB bağlama
-- 3.6 (2026): 13 tam sistem teması, 176 mağaza paketi, gelişmiş Dosyalar yöneticisi, USB/ISO yazıcı ve ETAP desteği
+- 3.6 (2026): 14 tam sistem teması, 278 mağaza paketi, gelişmiş Dosyalar yöneticisi, USB/ISO yazıcı ve ETAP desteği
 
 ## Sayfalar (Türkçe)
 
-- [Ankora Linux 3.7: Eski bilgisayarınızı yeniden kullanın](https://ankora-linux.github.io/)
-- [Özellikler · Ankora Linux 3.7](https://ankora-linux.github.io/ozellikler.html)
-- [İndir ve kur · Ankora Linux 3.7](https://ankora-linux.github.io/kurulum.html)
-- [Güvenlik · Ankora Linux 3.7](https://ankora-linux.github.io/guvenlik.html)
-- [Sürümler · Ankora Linux 3.7](https://ankora-linux.github.io/surum-gecmisi.html)
-- [Sık sorulan sorular · Ankora Linux 3.7](https://ankora-linux.github.io/sss.html)
+- [Ankora Linux 4.0: Eski bilgisayarınızı yeniden kullanın](https://ankora-linux.github.io/)
+- [Özellikler · Ankora Linux 4.0](https://ankora-linux.github.io/ozellikler.html)
+- [İndir ve kur · Ankora Linux 4.0](https://ankora-linux.github.io/kurulum.html)
+- [Güvenlik · Ankora Linux 4.0](https://ankora-linux.github.io/guvenlik.html)
+- [Sürümler · Ankora Linux 4.0](https://ankora-linux.github.io/surum-gecmisi.html)
+- [Sık sorulan sorular · Ankora Linux 4.0](https://ankora-linux.github.io/sss.html)
 - [İletişim · Ankora Linux](https://ankora-linux.github.io/iletisim.html)
 
 ## Pages (English)
 
-- [Ankora Linux 3.7: Bring your old computer back to life](https://ankora-linux.github.io/en/)
-- [Features · Ankora Linux 3.7](https://ankora-linux.github.io/en/features.html)
-- [Download and install · Ankora Linux 3.7](https://ankora-linux.github.io/en/install.html)
-- [Security · Ankora Linux 3.7](https://ankora-linux.github.io/en/security.html)
-- [Releases · Ankora Linux 3.7](https://ankora-linux.github.io/en/changelog.html)
-- [Frequently asked questions · Ankora Linux 3.7](https://ankora-linux.github.io/en/faq.html)
+- [Ankora Linux 4.0: Bring your old computer back to life](https://ankora-linux.github.io/en/)
+- [Features · Ankora Linux 4.0](https://ankora-linux.github.io/en/features.html)
+- [Download and install · Ankora Linux 4.0](https://ankora-linux.github.io/en/install.html)
+- [Security · Ankora Linux 4.0](https://ankora-linux.github.io/en/security.html)
+- [Releases · Ankora Linux 4.0](https://ankora-linux.github.io/en/changelog.html)
+- [Frequently asked questions · Ankora Linux 4.0](https://ankora-linux.github.io/en/faq.html)
 - [Contact · Ankora Linux](https://ankora-linux.github.io/en/contact.html)
 
 ## Lisans
