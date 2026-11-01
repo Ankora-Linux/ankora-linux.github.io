@@ -173,21 +173,21 @@ T = {
         "lede": "Ankora Linux 4.0, son kullanıcı ve eğitim kurumları için geliştirilmiş sade, Devuan tabanlı ve Türkçe bir işletim sistemidir. 4 GB altı bilgisayarlarda otomatik devreye giren Eco RAM kipi, 14 tam sistem teması ve 278 paketli mağazasıyla kurulduğu anda çalışmaya hazırdır. Bu sürüm 29 Ekim Cumhuriyet Bayramı için özel olarak hazırlanmış bayrak kırmızısı Cumhuriyet temasıyla gelir.",
         "shot_alt": "Ayaz DE 4.0 masaüstü: solda masaüstü simgeleri ve açık Başlat menüsü, sağda Ankora Karşılayıcı penceresi ile saat ve bellek göstergesi",
         "shot_tabs": [
-            ("01", "Masaüstü ve Başlat", "ayaz-masaustu.png",
-             "Ayaz DE 4.0 masaüstü: açık Başlat menüsü, Ankora Karşılayıcı penceresi, ortalanmış görev çubuğu ve 748 MB bellek kullanımı",
-             "Ayaz DE 4.0 masaüstü ve Başlat menüsü", "Modern Grafit · 748 MB / 8.0 GB RAM"),
-            ("02", "14 Sistem Teması", "ankora-temalar.jpg",
-             "Ankora Linux 4.0 Sistem Ayarları: Nordik Açık'tan Cumhuriyet'e kadar 14 tam sistem tema paketi",
-             "14 tam sistem tema paketi", "Pencere, alt panel, simge seti ve duvar kağıdı tek tıkla değişir"),
-            ("03", "Mağaza ve Sistem", "ankora-karsilayici.jpg",
-             "Solda 278 paketli Ankora Yazılım Mağazası, sağda Devuan 5 ve Ayaz DE 4.0 sistem bilgileri",
-             "Yazılım Mağazası ve Sistem Bilgisi", "278 seçilmiş paket · Devuan 5.0 Daedalus"),
-            ("04", "Dosyalar ve Güncelleyici", "ankora-duvar.jpg",
-             "Solda üst menü çubuklu Dosyalar yöneticisi, sağda Ayaz Güncelleyici v4.0.0 penceresi",
-             "Dosyalar yöneticisi ve Ayaz Güncelleyici", "Otomatik USB bağlama · Ayaz Güncelleyici v4.0.0"),
-            ("05", "Ankora AI ve Uçbirim", "ankora-ai.jpg",
-             "Çınar temasında solda yerel Ollama destekli Ankora AI Sistem Asistanı, sağda yerleşik Linux uçbirimi",
-             "Ankora AI Sistem Asistanı ve Uçbirim", "Yerel Ollama ve çoklu model · Çınar teması"),
+            ("01", "Modern Cam", "ayaz-masaustu.png",
+             "Ayaz DE 4.0 masaüstü: açık Başlat menüsü, unboxed masaüstü simgeleri ve koyu cam görev çubuğu",
+             "Ayaz DE 4.0 Modern Cam Mimarisi", "Modern Grafit · ~750 MB RAM · Unboxed Simgeler"),
+            ("02", "Yüz 2 · Bakır", "ayaz-bakir.jpg",
+             "Ayaz DE Yüz 2 Bakır: IBM Plex Sans ve Mono, üst durum paneli (çalışma alanları ve kapsül saat), altta yüzen bakır dock",
+             "Yüz 2 · Bakır Mimarisi", "IBM Plex · Üst durum paneli ve yüzen bakır dock"),
+            ("03", "Yüz 3 · Bostan", "ayaz-bostan.jpg",
+             "Ayaz DE Yüz 3 Bostan: Newsreader ve Figtree, sağ üstte dev serif saat, solda dikey simgeler ve yeşil kapsül dock",
+             "Yüz 3 · Bostan Mimarisi", "Newsreader & Figtree · 92px dev serif saat ve sıcak kart pencereler"),
+            ("04", "Yüz 8 · Cıvata", "ayaz-civata.jpg",
+             "Ayaz DE Yüz 8 Cıvata: Bricolage Grotesque ve Instrument Sans, limon aksanlı 30px üst siyah çubuk ve docksız mimari",
+             "Yüz 8 · Cıvata Mimarisi", "Bricolage Grotesque · 120px display saat ve limon aksanlı teknik panel"),
+            ("05", "Arayüz Yüzü & Ayarlar", "ankora-temalar.jpg",
+             "Sistem Ayarları: Varsayılan Cam, Bakır, Bostan ve Cıvata arayüz mimarileri arasında tek tıkla geçiş",
+             "Arayüz Mimarisi ve Tema Seçici", "4 arayüz mimarisi ve 14 sistem teması tek tıkla değişir"),
         ],
         "specs": [
             ("~750 MB", "Boşta bellek kullanımı (Eco RAM kipi)"),
@@ -331,21 +331,21 @@ T = {
         "lede": "Ankora Linux 4.0 is a clean, Devuan-based Turkish operating system built for everyday users and classrooms. With Eco RAM mode enabled automatically under 4 GB of RAM, 14 full-system themes, and a 278-package software store, it is ready the moment you boot. This release marks Republic Day (29 October) with the flag-red Cumhuriyet theme.",
         "shot_alt": "Ayaz DE 4.0 desktop: desktop icons and open Start menu on the left, Ankora Welcome window on the right, clock and memory widgets at top right",
         "shot_tabs": [
-            ("01", "Desktop & Start Menu", "ayaz-masaustu.png",
-             "Ayaz DE 4.0 desktop with open Start menu, Welcome window, centred taskbar, and 748 MB RAM usage",
-             "Ayaz DE 4.0 desktop and Start menu", "Modern Grafit · 748 MB / 8.0 GB RAM"),
-            ("02", "14 System Themes", "ankora-temalar.jpg",
-             "Ankora Linux 4.0 System Settings showing all 14 full-system theme packs from Nordik Açık to Ayna",
-             "14 full-system theme packs", "Windows, taskbar, icon pack, and wallpaper switch together"),
-            ("03", "Store & System Info", "ankora-karsilayici.jpg",
-             "Ankora Software Store with 278 packages on the left and System Settings with Devuan 5 and Ayaz DE 4.0 details on the right",
-             "Software Store and System Overview", "278 curated packages · Devuan 5.0 Daedalus"),
-            ("04", "Files & Updater", "ankora-duvar.jpg",
-             "Ayaz File Manager with menu bar on the left and Ayaz Updater v4.0.0 on the right",
-             "File Manager and One-Button Updater", "Automatic USB mounting · Ayaz Updater v4.0.0"),
-            ("05", "Ankora AI & Terminal", "ankora-ai.jpg",
-             "Ankora AI System Assistant with local Ollama mode on the left and native Linux terminal on the right on the Çınar theme",
-             "Ankora AI Assistant and Terminal", "Local Ollama & multi-model · Çınar theme"),
+            ("01", "Modern Glass", "ayaz-masaustu.png",
+             "Ayaz DE 4.0 desktop with open Start menu, unboxed desktop icons, and dark glass taskbar",
+             "Ayaz DE 4.0 Modern Glass Architecture", "Modern Graphite · ~750 MB RAM · Unboxed Icons"),
+            ("02", "Face 2 · Copper", "ayaz-bakir.jpg",
+             "Ayaz DE Face 2 Copper: IBM Plex Sans and Mono, top status panel with workspaces and capsule clock, floating copper dock",
+             "Face 2 · Copper Architecture", "IBM Plex · Top status panel and floating copper dock"),
+            ("03", "Face 3 · Bostan", "ayaz-bostan.jpg",
+             "Ayaz DE Face 3 Bostan: Newsreader and Figtree, giant serif clock, vertical left icons, and green capsule dock",
+             "Face 3 · Bostan Architecture", "Newsreader & Figtree · 92px serif clock and warm paper cards"),
+            ("04", "Face 8 · Bolt", "ayaz-civata.jpg",
+             "Ayaz DE Face 8 Bolt: Bricolage Grotesque and Instrument Sans, lime-accented 30px black top bar, dockless architecture",
+             "Face 8 · Bolt Architecture", "Bricolage Grotesque · 120px display clock and technical panel"),
+            ("05", "Architecture & Themes", "ankora-temalar.jpg",
+             "System Settings: one-click switching between Default Glass, Copper, Bostan, and Bolt desktop architectures",
+             "Desktop Architecture & Theme Picker", "4 architectural faces and 14 system theme bundles"),
         ],
         "specs": [
             ("~750 MB", "Idle memory usage (Eco RAM mode)"),
@@ -353,7 +353,7 @@ T = {
             ("13", "Full-system theme bundles"),
             ("278", "Curated store packages & ETAP tools"),
         ],
-        "why_eyebrow": "Why Ankora 3.6", "why_h2": "Engineered for modest hardware and daily reliability",
+        "why_eyebrow": "Why Ankora 4.0", "why_h2": "Engineered for modest hardware and daily reliability",
         "cards3": [
             ("Light & Eco RAM mode", "Uses about 750 MB of memory when idle. On machines with under 4 GB of RAM, Eco RAM mode turns on automatically and unmounts closed windows from memory after 30 seconds."),
             ("Turkish throughout", "From the installer to all 18 built-in windows and smartboard classroom packages (ETAP), everything is written in clear Turkish."),
@@ -918,7 +918,7 @@ def home(lang):
       <div class="arch-grid">
         <div class="arch-lead">
           <div>
-            <span class="card-tag">01 · AYAZ DE 3.6</span>
+            <span class="card-tag">Ayaz DE 4.0</span>
             <h3>{e(c0_title)}</h3>
             <p>{e(c0_desc)}</p>
           </div>
@@ -933,8 +933,8 @@ def home(lang):
           </div>
         </div>
         <div class="arch-side">
-          {card(c1_title, c1_desc, "02 · YEREL DENEYİM")}
-          {card(c2_title, c2_desc, "03 · KURULUM & BAKIM")}
+          {card(c1_title, c1_desc, "Yerel Deneyim")}
+          {card(c2_title, c2_desc, "Kurulum & Bakım")}
         </div>
       </div>
     </div>
