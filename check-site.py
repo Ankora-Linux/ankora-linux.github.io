@@ -412,13 +412,13 @@ if DUMP.exists():
             fail("check-site.py", f"eski sayi kalmis: {stale}")
 
     # Bostas bellek iddiasi: her dilde ana sayfada karsilastirma tablosu ve
-    # 750 MB degeri bulunmali (kaynaksiz rakam yazilmaz, eskisi kalmaz).
+    # 450 MB degeri bulunmali (kaynaksiz rakam yazilmaz, eskisi kalmaz).
     for Lg in LANGS:
         hpages = (ROOT / page_path(Lg, "home")).read_text("utf-8")
         if 'class="cmp"' not in hpages:
-            fail(hpages, f"ana sayfada karsilastirma tablosu yok: {Lg}")
-        if "750" not in hpages:
-            fail(hpages, f"ana sayfada 750 MB degeri yok: {Lg}")
+            fail(page_path(Lg, "home"), f"ana sayfada karsilastirma tablosu yok: {Lg}")
+        if "450" not in hpages:
+            fail(page_path(Lg, "home"), f"ana sayfada 450 MB degeri yok: {Lg}")
 
     print("Kaynak koddan okunan sayilar:")
     for k, v in truth.items():
