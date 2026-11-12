@@ -786,8 +786,6 @@ def header(lang, key):
     return f"""
 <a class="skip" href="#main">{e(u["skip"])}</a>
 
-<div class="bayram">{e(u["bayram"])}</div>
-
 <header class="site-head">
   <div class="wrap head-in">
     <a class="brand" href="{local(lang, "home")}">

@@ -245,16 +245,6 @@
     border-bottom: 1px solid var(--line);
   }
 
-  .bayram {
-    background: #7e1e25;
-    color: #f7f0e8;
-    font-size: 0.92rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    text-align: center;
-    padding: 9px 16px;
-  }
-
   .head-in {
     display: flex;
     align-items: center;
