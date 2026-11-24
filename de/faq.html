@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Häufige Fragen · Ankora Linux 4.7</title>
-<meta name="description" content="Häufige Fragen zu Ankora Linux 4.7: Installation, alte Computer, Eco-RAM-Modus, Aktualisierungen, Sprache und Mitarbeit.">
+<title>Häufige Fragen: Ankora Linux 5.0</title>
+<meta name="description" content="Antworten zu Ankora Linux 5.0: Installation, ältere Hardware, ZRAM, KI-Schutz, Updates und Mitwirkung.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1420" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#eef1e2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141519" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://ankora-linux.github.io/de/faq.html">
 <link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/sss.html">
 <link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/faq.html">
@@ -17,10 +17,10 @@
 <link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/faq.html">
 <link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/faq.html">
 <link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/sss.html">
-<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'auto';if(['light','dark','auto'].indexOf(t)<0)t='auto';var a=g('ankora-accent')||'blue';if(['blue','green','purple'].indexOf(a)<0)a='blue';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t);r.dataset.accent=a;})();</script>
+<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'bostan';if(t==='light')t='bostan';if(t==='dark')t='bakir';if(['bostan','bakir','civata','arduvaz','auto'].indexOf(t)<0)t='bostan';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'bakir':'bostan'):t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 <script>document.documentElement.classList.remove('no-js');</script>
 <meta property="og:type" content="website">
@@ -30,15 +30,15 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="ru_RU">
-<meta property="og:title" content="Häufige Fragen · Ankora Linux 4.7">
-<meta property="og:description" content="Häufige Fragen zu Ankora Linux 4.7: Installation, alte Computer, Eco-RAM-Modus, Aktualisierungen, Sprache und Mitarbeit.">
+<meta property="og:title" content="Häufige Fragen: Ankora Linux 5.0">
+<meta property="og:description" content="Antworten zu Ankora Linux 5.0: Installation, ältere Hardware, ZRAM, KI-Schutz, Updates und Mitwirkung.">
 <meta property="og:url" content="https://ankora-linux.github.io/de/faq.html">
 <meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
-<meta property="og:image:width" content="1400">
-<meta property="og:image:height" content="875">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Häufige Fragen · Ankora Linux 4.7">
-<meta name="twitter:description" content="Häufige Fragen zu Ankora Linux 4.7: Installation, alte Computer, Eco-RAM-Modus, Aktualisierungen, Sprache und Mitarbeit.">
+<meta name="twitter:title" content="Häufige Fragen: Ankora Linux 5.0">
+<meta name="twitter:description" content="Antworten zu Ankora Linux 5.0: Installation, ältere Hardware, ZRAM, KI-Schutz, Updates und Mitwirkung.">
 <meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
@@ -71,66 +71,50 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Was ist Ankora Linux?",
+      "name": "Was ist Ankora Linux 5.0?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ein schlichtes türkisches Betriebssystem für Alltagsnutzer. Es basiert auf Devuan 5.0 Daedalus und bringt eine eigene Desktop-Umgebung mit, Ayaz DE 4.7."
+        "text": "Eine freie, systemd-freie Desktop-Distribution auf Devuan 6 Excalibur und Linux 6.12 LTS mit der Rust-Umgebung AyazDE 5.0."
       }
     },
     {
       "@type": "Question",
-      "name": "Läuft es auf einem alten Computer?",
+      "name": "Funktioniert es auf älteren PCs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. Im Leerlauf nutzt es etwa 450 MB Arbeitsspeicher, und unter 4 GB RAM schaltet sich der Eco-RAM-Modus automatisch ein. Es läuft problemlos auf einem Laptop mit 2 GB Arbeitsspeicher; sehr alte Rechner mit 1 GB werden nicht empfohlen."
+        "text": "Ja. Mit ~750 MB Zielwert im Leerlauf und automatischem ZRAM (zstd/lz4) unter 4 GB läuft es stabil ab 2 GB RAM."
       }
     },
     {
       "@type": "Question",
-      "name": "Kann ich es testen, ohne meine Festplatte zu löschen?",
+      "name": "Kann ich ohne Risiko testen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. Wenn Sie die ISO auf einen USB-Stick schreiben und davon starten, wird das System auf der Festplatte nicht berührt."
+        "text": "Ja. Über den USB-Live-Start bleibt Ihre vorhandene Festplatte vollständig unberührt."
       }
     },
     {
       "@type": "Question",
-      "name": "Wie installiere ich es?",
+      "name": "Wie installiere oder aktualisiere ich?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Schreiben Sie die ISO auf einen USB-Stick und starten Sie den Computer davon. Der Installer führt Sie Schritt für Schritt. Details stehen auf der Download-Seite."
+        "text": "Neuinstallation über das ISO von GitHub Releases; bestehende 4.7.x-Systeme wechseln über ayaz-de-latest-amd64.deb."
       }
     },
     {
       "@type": "Question",
-      "name": "Was kostet es?",
+      "name": "Welche Tastaturen werden unterstützt?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nichts, es ist völlig kostenlos. Der Quellcode ist unter der GPL-3.0 offen, Sie können ihn studieren und ändern."
+        "text": "Türkisch, Englisch, Deutsch, Französisch und Britisch (GB); die Systemoberfläche ist Türkisch."
       }
     },
     {
       "@type": "Question",
-      "name": "Wie kommen Aktualisierungen?",
+      "name": "Darf Ankora KI beliebige Befehle ausführen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Aktualisierungen kommen über den Ayaz-Updater aus den geprüften Ankora- und Devuan-Repositorys."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Welche Sprache hat die Oberfläche?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Die Oberfläche ist vollständig auf Türkisch. Für die Tastatur können Sie Türkisch, Englisch, Deutsch, Französisch oder Britisch (GB) wählen."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wie kann ich beitragen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Forken Sie das GitHub-Repository und senden Sie einen Pull-Request, oder teilen Sie Fragen und Vorschläge im Forum."
+        "text": "Nein. Nur 18 vordefinierte Aktionen und 33 exakte Diagnosebefehle nach manueller Token-Bestätigung."
       }
     }
   ]
@@ -170,18 +154,13 @@
       </ul>
     </details>
     <div class="tools">
-      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Darstellung" title="Darstellung">
+      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Design / Fläche" title="Design / Fläche">
         <svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-moon"></use></svg>
+        <span data-theme-label>Bostan</span>
       </button>
       <div class="tpanel" id="theme-panel" hidden>
-        <div class="grp">
-          <h4>Design</h4>
-          <div class="trow"><button class="tset" type="button" data-set-theme="light" aria-pressed="false">Hell</button><button class="tset" type="button" data-set-theme="dark" aria-pressed="false">Dunkel</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">System</button></div>
-        </div>
-        <div class="grp">
-          <h4>Akzentfarbe</h4>
-          <div class="trow"><button class="swatch swatch-blue" type="button" data-set-accent="blue" aria-pressed="false" aria-label="Blau" title="Blau"></button><button class="swatch swatch-green" type="button" data-set-accent="green" aria-pressed="false" aria-label="Grün" title="Grün"></button><button class="swatch swatch-purple" type="button" data-set-accent="purple" aria-pressed="false" aria-label="Violett" title="Violett"></button></div>
-        </div>
+        <h4>Site- &amp; Desktop-Fläche</h4>
+        <div class="trow"><button class="tset" type="button" data-set-theme="bostan" aria-pressed="false">Bostan</button><button class="tset" type="button" data-set-theme="bakir" aria-pressed="false">Bakır</button><button class="tset" type="button" data-set-theme="civata" aria-pressed="false">Cıvata</button><button class="tset" type="button" data-set-theme="arduvaz" aria-pressed="false">Arduvaz</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">System</button></div>
       </div>
     </div>
     <button class="menu-btn" type="button" data-menu-btn aria-expanded="false"
@@ -206,24 +185,22 @@
 <main id="main">
   <div class="wrap">
     <div class="page-top">
-      <h1>Häufig gestellte Fragen</h1>
-      <p class="lede">Wenn Sie Ihre Antwort nicht finden, sehen Sie die Kontaktseite. <a href="kontakt.html">Kontakt</a>.</p>
+      <h1>Häufige Fragen</h1>
+      <p class="lede">Nichts gefunden? Nutzen Sie das Forum auf unserer Kontaktseite: <a href="kontakt.html">Kontakt</a>.</p>
     </div>
   </div>
 
   <section class="section">
     <div class="wrap">
       <div class="faq">
-        <details open><summary>Was ist Ankora Linux?</summary><div class="answer"><p>Ein schlichtes türkisches Betriebssystem für Alltagsnutzer. Es basiert auf Devuan 5.0 Daedalus und bringt eine eigene Desktop-Umgebung mit, Ayaz DE 4.7.</p></div></details>
-        <details><summary>Läuft es auf einem alten Computer?</summary><div class="answer"><p>Ja. Im Leerlauf nutzt es etwa 450 MB Arbeitsspeicher, und unter 4 GB RAM schaltet sich der Eco-RAM-Modus automatisch ein. Es läuft problemlos auf einem Laptop mit 2 GB Arbeitsspeicher; sehr alte Rechner mit 1 GB werden nicht empfohlen.</p></div></details>
-        <details><summary>Kann ich es testen, ohne meine Festplatte zu löschen?</summary><div class="answer"><p>Ja. Wenn Sie die ISO auf einen USB-Stick schreiben und davon starten, wird das System auf der Festplatte nicht berührt.</p></div></details>
-        <details><summary>Wie installiere ich es?</summary><div class="answer"><p>Schreiben Sie die ISO auf einen USB-Stick und starten Sie den Computer davon. Der Installer führt Sie Schritt für Schritt. Details stehen auf der Download-Seite.</p></div></details>
-        <details><summary>Was kostet es?</summary><div class="answer"><p>Nichts, es ist völlig kostenlos. Der Quellcode ist unter der GPL-3.0 offen, Sie können ihn studieren und ändern.</p></div></details>
-        <details><summary>Wie kommen Aktualisierungen?</summary><div class="answer"><p>Aktualisierungen kommen über den Ayaz-Updater aus den geprüften Ankora- und Devuan-Repositorys.</p></div></details>
-        <details><summary>Welche Sprache hat die Oberfläche?</summary><div class="answer"><p>Die Oberfläche ist vollständig auf Türkisch. Für die Tastatur können Sie Türkisch, Englisch, Deutsch, Französisch oder Britisch (GB) wählen.</p></div></details>
-        <details><summary>Wie kann ich beitragen?</summary><div class="answer"><p>Forken Sie das GitHub-Repository und senden Sie einen Pull-Request, oder teilen Sie Fragen und Vorschläge im Forum.</p></div></details>
+        <details open><summary>Was ist Ankora Linux 5.0?</summary><div class="answer"><p>Eine freie, systemd-freie Desktop-Distribution auf Devuan 6 Excalibur und Linux 6.12 LTS mit der Rust-Umgebung AyazDE 5.0.</p></div></details>
+        <details><summary>Funktioniert es auf älteren PCs?</summary><div class="answer"><p>Ja. Mit ~750 MB Zielwert im Leerlauf und automatischem ZRAM (zstd/lz4) unter 4 GB läuft es stabil ab 2 GB RAM.</p></div></details>
+        <details><summary>Kann ich ohne Risiko testen?</summary><div class="answer"><p>Ja. Über den USB-Live-Start bleibt Ihre vorhandene Festplatte vollständig unberührt.</p></div></details>
+        <details><summary>Wie installiere oder aktualisiere ich?</summary><div class="answer"><p>Neuinstallation über das ISO von GitHub Releases; bestehende 4.7.x-Systeme wechseln über ayaz-de-latest-amd64.deb.</p></div></details>
+        <details><summary>Welche Tastaturen werden unterstützt?</summary><div class="answer"><p>Türkisch, Englisch, Deutsch, Französisch und Britisch (GB); die Systemoberfläche ist Türkisch.</p></div></details>
+        <details><summary>Darf Ankora KI beliebige Befehle ausführen?</summary><div class="answer"><p>Nein. Nur 18 vordefinierte Aktionen und 33 exakte Diagnosebefehle nach manueller Token-Bestätigung.</p></div></details>
       </div>
-      <div class="btn-row" style="margin-top:48px">
+      <div class="btn-row" style="margin-top:32px">
         <a class="btn btn-1" href="https://ankalab.flarum.cloud" rel="noopener">Im Forum fragen</a>
         <a class="btn btn-2" href="kontakt.html">Kontakt</a>
       </div>
@@ -238,7 +215,7 @@
           <img src="../assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
           <span>Ankora Linux</span>
         </a>
-        <p>Ein schlichtes türkisches Betriebssystem auf Devuan-Basis.</p>
+        <p>Türkische Desktop-Distribution auf Devuan 6 Excalibur, Linux 6.12 LTS und AyazDE 5.0.</p>
         <div class="soc"><a href="https://www.instagram.com/ankoralinux/" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-instagram"></use></svg></a>
           <a href="https://x.com/ankoralinux" rel="noopener" aria-label="X" title="X"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-x"></use></svg></a>
           <a href="https://www.youtube.com/@AnkoraLinux" rel="noopener" aria-label="YouTube" title="YouTube"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-youtube"></use></svg></a>
@@ -271,7 +248,7 @@
       </div>
     </div>
     <div class="foot-bar">
-      <span>Ankora Linux 4.7 · GPL-3.0</span>
+      <span>Ankora Linux 5.0 (GPL-3.0)</span>
       <span><a href="../sitemap.xml">Sitemap</a></span>
     </div>
   </div>

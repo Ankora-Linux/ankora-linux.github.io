@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Download and install · Ankora Linux 4.7</title>
-<meta name="description" content="Download and install Ankora Linux 4.7. Write it to a USB stick and boot, or verify and flash from the terminal.">
+<title>Download and install: Ankora Linux 5.0</title>
+<meta name="description" content="Install Ankora Linux 5.0 via clean ISO, upgrade in-place from 4.7.x using .deb, or set up local Ollama AI.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1420" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#eef1e2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141519" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://ankora-linux.github.io/en/install.html">
 <link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/kurulum.html">
 <link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/install.html">
@@ -17,10 +17,10 @@
 <link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/instalar.html">
 <link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/ustanovka.html">
 <link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/kurulum.html">
-<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'auto';if(['light','dark','auto'].indexOf(t)<0)t='auto';var a=g('ankora-accent')||'blue';if(['blue','green','purple'].indexOf(a)<0)a='blue';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t);r.dataset.accent=a;})();</script>
+<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'bostan';if(t==='light')t='bostan';if(t==='dark')t='bakir';if(['bostan','bakir','civata','arduvaz','auto'].indexOf(t)<0)t='bostan';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'bakir':'bostan'):t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 <script>document.documentElement.classList.remove('no-js');</script>
 <meta property="og:type" content="website">
@@ -30,15 +30,15 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="ru_RU">
-<meta property="og:title" content="Download and install · Ankora Linux 4.7">
-<meta property="og:description" content="Download and install Ankora Linux 4.7. Write it to a USB stick and boot, or verify and flash from the terminal.">
+<meta property="og:title" content="Download and install: Ankora Linux 5.0">
+<meta property="og:description" content="Install Ankora Linux 5.0 via clean ISO, upgrade in-place from 4.7.x using .deb, or set up local Ollama AI.">
 <meta property="og:url" content="https://ankora-linux.github.io/en/install.html">
 <meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
-<meta property="og:image:width" content="1400">
-<meta property="og:image:height" content="875">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Download and install · Ankora Linux 4.7">
-<meta name="twitter:description" content="Download and install Ankora Linux 4.7. Write it to a USB stick and boot, or verify and flash from the terminal.">
+<meta name="twitter:title" content="Download and install: Ankora Linux 5.0">
+<meta name="twitter:description" content="Install Ankora Linux 5.0 via clean ISO, upgrade in-place from 4.7.x using .deb, or set up local Ollama AI.">
 <meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
@@ -97,18 +97,13 @@
       </ul>
     </details>
     <div class="tools">
-      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Appearance" title="Appearance">
+      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Face / Theme" title="Face / Theme">
         <svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-moon"></use></svg>
+        <span data-theme-label>Bostan</span>
       </button>
       <div class="tpanel" id="theme-panel" hidden>
-        <div class="grp">
-          <h4>Theme</h4>
-          <div class="trow"><button class="tset" type="button" data-set-theme="light" aria-pressed="false">Light</button><button class="tset" type="button" data-set-theme="dark" aria-pressed="false">Dark</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">System</button></div>
-        </div>
-        <div class="grp">
-          <h4>Accent colour</h4>
-          <div class="trow"><button class="swatch swatch-blue" type="button" data-set-accent="blue" aria-pressed="false" aria-label="Blue" title="Blue"></button><button class="swatch swatch-green" type="button" data-set-accent="green" aria-pressed="false" aria-label="Green" title="Green"></button><button class="swatch swatch-purple" type="button" data-set-accent="purple" aria-pressed="false" aria-label="Purple" title="Purple"></button></div>
-        </div>
+        <h4>Site &amp; Desktop Face</h4>
+        <div class="trow"><button class="tset" type="button" data-set-theme="bostan" aria-pressed="false">Bostan</button><button class="tset" type="button" data-set-theme="bakir" aria-pressed="false">Bakır</button><button class="tset" type="button" data-set-theme="civata" aria-pressed="false">Cıvata</button><button class="tset" type="button" data-set-theme="arduvaz" aria-pressed="false">Arduvaz</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">System</button></div>
       </div>
     </div>
     <button class="menu-btn" type="button" data-menu-btn aria-expanded="false"
@@ -133,11 +128,11 @@
 <main id="main">
   <div class="wrap">
     <div class="page-top">
-      <h1>Download and install</h1>
-      <p class="lede">A USB stick and a few minutes are enough. If you already use Linux, you can also verify and write the ISO from the terminal.</p>
-      <div class="btn-row" style="margin-top:30px">
-        <a class="btn btn-1" href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener">Open the Ankora Linux 4.7 releases</a>
-        <a class="btn btn-2" href="https://github.com/Ankora-Linux/Ankora" rel="noopener">Source code</a>
+      <h1>Download and Install</h1>
+      <p class="lede">Use a clean ISO for new setups or 4.6.x upgrades, the .deb package for 4.7.x systems, or install local Ollama AI.</p>
+      <div class="btn-row" style="margin-top:24px">
+        <a class="btn btn-1" href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener">Open GitHub Releases</a>
+        <a class="btn btn-2" href="https://github.com/Ankora-Linux/Ankora" rel="noopener">Browse Source Code</a>
       </div>
     </div>
   </div>
@@ -145,14 +140,13 @@
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Requirements</span>
-        <h2>What you need</h2>
+        <h2>System Requirements</h2>
       </div>
       <ul class="checklist">
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>A 64-bit (amd64) processor</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>At least 2 GB of memory (Eco RAM mode activates automatically under 4 GB)</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>An empty USB stick (at least 4 GB) for the ISO</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>An internet connection (for the download)</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>64-bit (amd64) processor with UEFI or legacy BIOS</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>2 GB RAM minimum live (4 GB recommended daily, 8 GB+ for local Ollama)</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>16 GB+ disk space and 4 GB+ USB flash drive</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Open-source Mesa graphics with verified AMD/Intel firmware</span></li>
       </ul>
     </div>
   </section>
@@ -160,13 +154,12 @@
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Install</span>
-        <h2>Ready in three steps</h2>
+        <h2>Three clear steps</h2>
       </div>
       <ol class="steps">
-        <li><div><h3>Download</h3><p>Get the ISO file and its SHA-256 verification file from the releases page.</p></div></li>
-        <li><div><h3>Write it to a USB stick</h3><p>Write the ISO to an empty USB stick with Ankora USB Flasher, BalenaEtcher, or Rufus.</p></div></li>
-        <li><div><h3>Boot and install</h3><p>Start the computer from the USB stick. The installer runs step by step and the system restarts at the end.</p></div></li>
+        <li><h3>Download Verified Release</h3><p>Fetch the ISO image and SHA256SUMS from GitHub Releases.</p></li>
+        <li><h3>Flash Safely</h3><p>Check SHA-256 sums and write only to a removable USB flash device.</p></li>
+        <li><h3>Boot &amp; Install</h3><p>Start from USB and follow the guided Turkish installer.</p></li>
       </ol>
     </div>
   </section>
@@ -174,22 +167,28 @@
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Command line</span>
-        <h2>If you prefer the terminal</h2>
+        <h2>Commands by installation path</h2>
+      </div>
+      <div class="chip-row" role="group" aria-label="Commands by installation path">
+        <button type="button" class="chip" data-dl-tab="iso" aria-pressed="true" data-cmd="# Download ISO and SHA256SUMS from GitHub Releases and verify:
+sha256sum -c SHA256SUMS --ignore-missing
+lsblk -o NAME,SIZE,TRAN,RM" data-note="Required for fresh hardware and upgrades from 4.6.x (Daedalus).">ISO Clean Install</button>
+        <button type="button" class="chip" data-dl-tab="deb" aria-pressed="false" data-cmd="# Upgrade existing 4.7.x installs with the official .deb package:
+sha256sum -c ayaz-de-latest-amd64.deb.sha256
+sudo apt install ./ayaz-de-latest-amd64.deb" data-note="If an install fails, ayaz-update-helper automatically rolls back to the prior binary.">4.7.x -&gt; 5.0 Upgrade</button>
+        <button type="button" class="chip" data-dl-tab="ai" aria-pressed="false" data-cmd="# Install Ollama runtime and lightweight model support (8 GB+ RAM recommended):
+sudo /usr/local/bin/ankora-ollama-install" data-note="Connects the AyazDE bottom-right Ankora AI bubble to 127.0.0.1:11434.">Local AI (Ollama)</button>
       </div>
       <div class="code">
-        <pre><code>gh release download --repo Ankora-Linux/Ankora \
-  --pattern '*.iso*'
-
-sha256sum -c *.iso.sha256
-
-lsblk -d -o NAME,SIZE,MODEL
-sudo dd if=ankora-linux.iso of=/dev/sdX bs=4M status=progress conv=fsync</code></pre>
+        <pre id="dl-cmd"><code># Download ISO and SHA256SUMS from GitHub Releases and verify:
+sha256sum -c SHA256SUMS --ignore-missing
+lsblk -o NAME,SIZE,TRAN,RM</code></pre>
         <button class="copy" type="button" data-copy data-done="Copied">Copy</button>
       </div>
+      <p id="dl-note" style="margin-top:12px;font-size:14px;color:var(--ink-2)">Required for fresh hardware and upgrades from 4.6.x (Daedalus).</p>
       <div class="note">
-        <b>Careful</b>
-        <p>Check the /dev/sdX path yourself. If you pick the wrong drive, the contents of that disk are erased.</p>
+        <b>Upgrade Policy</b>
+        <p>Upgrading from 4.6.x (Daedalus) requires a fresh ISO install due to the Devuan 6 / Tauri 2.0 ABI shift.</p>
       </div>
     </div>
   </section>
@@ -202,7 +201,7 @@ sudo dd if=ankora-linux.iso of=/dev/sdX bs=4M status=progress conv=fsync</code><
           <img src="../assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
           <span>Ankora Linux</span>
         </a>
-        <p>A simple, Turkish operating system built on Devuan.</p>
+        <p>Turkish desktop distribution built on Devuan 6 Excalibur, Linux 6.12 LTS, and AyazDE 5.0.</p>
         <div class="soc"><a href="https://www.instagram.com/ankoralinux/" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-instagram"></use></svg></a>
           <a href="https://x.com/ankoralinux" rel="noopener" aria-label="X" title="X"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-x"></use></svg></a>
           <a href="https://www.youtube.com/@AnkoraLinux" rel="noopener" aria-label="YouTube" title="YouTube"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-youtube"></use></svg></a>
@@ -235,7 +234,7 @@ sudo dd if=ankora-linux.iso of=/dev/sdX bs=4M status=progress conv=fsync</code><
       </div>
     </div>
     <div class="foot-bar">
-      <span>Ankora Linux 4.7 · GPL-3.0</span>
+      <span>Ankora Linux 5.0 (GPL-3.0)</span>
       <span><a href="../sitemap.xml">Sitemap</a></span>
     </div>
   </div>

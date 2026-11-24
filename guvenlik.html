@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Güvenlik · Ankora Linux 4.7</title>
-<meta name="description" content="Ankora Linux 4.7 sizi nasıl korur: 31 izinli uçbirim komutu, 59 yasaklı ikili dosya, tek kullanımlık jetonlu 15 AI eylemi ve doğrulanmış güncellemeler.">
+<title>Güvenlik: Ankora Linux 5.0</title>
+<meta name="description" content="Rust çekirdek güvenliği: 33 sabit izinli komut, 59 yasaklı ikili, tek kullanımlık jetonlu 18 AI eylemi, pkexec ve WebKit bwrap sandbox.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1420" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#eef1e2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141519" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://ankora-linux.github.io/guvenlik.html">
 <link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/guvenlik.html">
 <link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/security.html">
@@ -17,10 +17,10 @@
 <link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/seguridad.html">
 <link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/bezopasnost.html">
 <link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/guvenlik.html">
-<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'auto';if(['light','dark','auto'].indexOf(t)<0)t='auto';var a=g('ankora-accent')||'blue';if(['blue','green','purple'].indexOf(a)<0)a='blue';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t);r.dataset.accent=a;})();</script>
+<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'bostan';if(t==='light')t='bostan';if(t==='dark')t='bakir';if(['bostan','bakir','civata','arduvaz','auto'].indexOf(t)<0)t='bostan';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'bakir':'bostan'):t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 <script>document.documentElement.classList.remove('no-js');</script>
 <meta property="og:type" content="website">
@@ -30,15 +30,15 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="ru_RU">
-<meta property="og:title" content="Güvenlik · Ankora Linux 4.7">
-<meta property="og:description" content="Ankora Linux 4.7 sizi nasıl korur: 31 izinli uçbirim komutu, 59 yasaklı ikili dosya, tek kullanımlık jetonlu 15 AI eylemi ve doğrulanmış güncellemeler.">
+<meta property="og:title" content="Güvenlik: Ankora Linux 5.0">
+<meta property="og:description" content="Rust çekirdek güvenliği: 33 sabit izinli komut, 59 yasaklı ikili, tek kullanımlık jetonlu 18 AI eylemi, pkexec ve WebKit bwrap sandbox.">
 <meta property="og:url" content="https://ankora-linux.github.io/guvenlik.html">
 <meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
-<meta property="og:image:width" content="1400">
-<meta property="og:image:height" content="875">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Güvenlik · Ankora Linux 4.7">
-<meta name="twitter:description" content="Ankora Linux 4.7 sizi nasıl korur: 31 izinli uçbirim komutu, 59 yasaklı ikili dosya, tek kullanımlık jetonlu 15 AI eylemi ve doğrulanmış güncellemeler.">
+<meta name="twitter:title" content="Güvenlik: Ankora Linux 5.0">
+<meta name="twitter:description" content="Rust çekirdek güvenliği: 33 sabit izinli komut, 59 yasaklı ikili, tek kullanımlık jetonlu 18 AI eylemi, pkexec ve WebKit bwrap sandbox.">
 <meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -97,18 +97,13 @@
       </ul>
     </details>
     <div class="tools">
-      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Görünüm" title="Görünüm">
+      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Yüz / Tema" title="Yüz / Tema">
         <svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-moon"></use></svg>
+        <span data-theme-label>Bostan</span>
       </button>
       <div class="tpanel" id="theme-panel" hidden>
-        <div class="grp">
-          <h4>Tema</h4>
-          <div class="trow"><button class="tset" type="button" data-set-theme="light" aria-pressed="false">Açık</button><button class="tset" type="button" data-set-theme="dark" aria-pressed="false">Koyu</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">Sistem</button></div>
-        </div>
-        <div class="grp">
-          <h4>Vurgu rengi</h4>
-          <div class="trow"><button class="swatch swatch-blue" type="button" data-set-accent="blue" aria-pressed="false" aria-label="Mavi" title="Mavi"></button><button class="swatch swatch-green" type="button" data-set-accent="green" aria-pressed="false" aria-label="Yeşil" title="Yeşil"></button><button class="swatch swatch-purple" type="button" data-set-accent="purple" aria-pressed="false" aria-label="Mor" title="Mor"></button></div>
-        </div>
+        <h4>Site ve Masaüstü Yüzü</h4>
+        <div class="trow"><button class="tset" type="button" data-set-theme="bostan" aria-pressed="false">Bostan</button><button class="tset" type="button" data-set-theme="bakir" aria-pressed="false">Bakır</button><button class="tset" type="button" data-set-theme="civata" aria-pressed="false">Cıvata</button><button class="tset" type="button" data-set-theme="arduvaz" aria-pressed="false">Arduvaz</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">Sistem</button></div>
       </div>
     </div>
     <button class="menu-btn" type="button" data-menu-btn aria-expanded="false"
@@ -133,21 +128,20 @@
 <main id="main">
   <div class="wrap">
     <div class="page-top">
-      <h1>Ankora Linux 4.7 güvenlik mimarisi</h1>
-      <p class="lede">Ankora Linux 4.7, arayüz ile sistem çekirdeğini birbirinden ayırır. Rust ile yazılmış 137 Tauri IPC komutu her işlemi sabit izin listelerine göre denetler.</p>
+      <h1>Ankora Linux 5.0 Güvenlik Mimarisi</h1>
+      <p class="lede">148 Tauri IPC komutu arayüzle çekirdeği ayırır. AI ajanının önerdiği komutlar Rust beyaz listesi ve 60 saniyelik onay jetonuyla denetlenir.</p>
     </div>
   </div>
 
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Üç temel koruma</span>
-        <h2>Bu, sizin için ne anlama geliyor?</h2>
+        <h2>Güvenlik nasıl uygulanır?</h2>
       </div>
       <div class="grid">
-        <div class="card"><span class="card-tag">01</span><h3>Programlar kafasına göre iş yapamaz</h3><p>Yerleşik uçbirim yalnızca izin verilen 31 komutu ve 26 yardımcı aracı çalıştırır; 59 tehlikeli ikili dosyanın doğrudan başlatılması engellenir.</p></div>
-        <div class="card"><span class="card-tag">02</span><h3>Güncellemeler ve AI eylemleri doğrulanır</h3><p>Paket ve sistem güncellemeleri izole yardımcı betiklerle kontrol edilir; AI ajanının 15 sistem eylemi tek kullanımlık güvenlik jetonu olmadan çalışmaz.</p></div>
-        <div class="card"><span class="card-tag">03</span><h3>Kişisel dosyalarınız korunur</h3><p>Belge görüntüleyici yalnızca 20 güvenli dosya uzantısını kabul eder; parola, anahtar ve gölge dosyaları içeren 17 hassas dosya deseni engellenir.</p></div>
+        <div class="card"><h3>Beyaz Liste Denetimli Uçbirim</h3><p>Yerleşik uçbirim yalnızca 33 sabit komuta ve 26 tanı aracına izin verir; 59 tehlikeli sistem/ağ ikilisini engeller.</p></div>
+        <div class="card"><h3>60 Saniyelik Tek Kullanımlık AI Jetonu</h3><p>Ankora AI yalnızca önceden tanımlı 18 eylemi önerebilir ve yürütme öncesinde kullanıcı onaylı SHA-256 jetonu tüketir.</p></div>
+        <div class="card"><h3>Yalıtılmış Yetki ve Pinned GPG</h3><p>Güncelleme, paket kurma ve USB yazma pkexec onayı ister; vendor anahtarları sabitlenmiş GPG parmak iziyle doğrulanır.</p></div>
       </div>
     </div>
   </section>
@@ -155,17 +149,16 @@
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Kaynak kodda doğrulanabilir</span>
-        <h2>Rust çekirdeğinde (main.rs) uygulanan sınırlar</h2>
+        <h2>Kaynak kodda doğrulanabilir ölçüler</h2>
       </div>
       <ul class="checklist">
-        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Yerleşik uçbirim yalnızca önceden tanımlı 31 tam komutu ve 26 sistem aracını zincirleme operatörleri olmadan çalıştırır.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Uygulama başlatıcıda 59 sistem ve ağ ikili dosyası yasaklı listesindedir.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Ankora AI asistanı yalnızca 15 tanımlı sistem eylemini yürütebilir ve her eylem öncesinde tek kullanımlık güvenlik jetonu doğrulaması ister.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Belge görüntüleyici yalnızca 20 belge uzantısını açar ve 17 hassas dosya desenine erişimi reddeder.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Arayüz ile sistem arasındaki köprü 137 Tauri IPC komutu ve 13 otomatik Rust birim testi ile denetlenir.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>EXACT_ALLOWED_COMMANDS içinde 33 sabit komut ve ALLOWED_UTILITIES içinde 26 yardımcı araç izin listesinde tutulur.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>FORBIDDEN_LAUNCH_BINARIES listesi 59 ağ ve yönetim ikilisinin doğrudan başlatılmasını engeller.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>ALLOWED_AGENT_ACTIONS listesi 18 izinli AI eylemiyle sınırlıdır ve her biri 60 saniyelik tek kullanımlık jeton gerektirir.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Belge görüntüleyici 20 güvenli uzantıyı açar ve 19 hassas dosya desenine (.vault_secret dahil) erişimi reddeder.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>148 Tauri IPC komutu, 19 Rust birim testi ve bwrap WebKit sandbox’ı arayüz köprüsünü korur.</span></li>
       </ul>
-      <p style="margin-top:36px">Bir açık mı buldunuz? Herkese açık kayıt açmadan <a href="mailto:linuxankora@gmail.com">linuxankora@gmail.com</a> adresine yazın. Raporlar 48 saat içinde yanıtlanır.</p>
+      <p style="margin-top:28px">Güvenlik açığı bulursanız herkese açık kayıt açmadan <a href="mailto:linuxankora@gmail.com">linuxankora@gmail.com</a> adresine yazın (48 saat içinde yanıtlanır).</p>
     </div>
   </section>
 </main>
@@ -177,7 +170,7 @@
           <img src="assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
           <span>Ankora Linux</span>
         </a>
-        <p>Son kullanıcı için sade, Devuan tabanlı ve Türkçe bir işletim sistemi.</p>
+        <p>Devuan 6 Excalibur ve Linux 6.12 LTS üzerinde AyazDE 5.0 masaüstü ile gelen Türkçe dağıtım.</p>
         <div class="soc"><a href="https://www.instagram.com/ankoralinux/" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-instagram"></use></svg></a>
           <a href="https://x.com/ankoralinux" rel="noopener" aria-label="X" title="X"><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-x"></use></svg></a>
           <a href="https://www.youtube.com/@AnkoraLinux" rel="noopener" aria-label="YouTube" title="YouTube"><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-youtube"></use></svg></a>
@@ -210,7 +203,7 @@
       </div>
     </div>
     <div class="foot-bar">
-      <span>Ankora Linux 4.7 · GPL-3.0</span>
+      <span>Ankora Linux 5.0 (GPL-3.0)</span>
       <span><a href="sitemap.xml">Site haritası</a></span>
     </div>
   </div>

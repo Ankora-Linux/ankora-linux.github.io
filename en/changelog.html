@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Releases · Ankora Linux 4.7</title>
-<meta name="description" content="Every Ankora Linux release so far: 4.7, 4.7, 4.0, 3.7, 3.6, 3.5, 3.0, 2.0 AyazDE, 02.0 Zümrüt and 01.0. Download the newest release.">
+<title>Releases: Ankora Linux 5.0</title>
+<meta name="description" content="Complete release history of Ankora Linux from 01.0 through 5.0.0.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1420" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#eef1e2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141519" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://ankora-linux.github.io/en/changelog.html">
 <link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/surum-gecmisi.html">
 <link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/changelog.html">
@@ -17,10 +17,10 @@
 <link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/versiones.html">
 <link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/versii.html">
 <link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/surum-gecmisi.html">
-<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'auto';if(['light','dark','auto'].indexOf(t)<0)t='auto';var a=g('ankora-accent')||'blue';if(['blue','green','purple'].indexOf(a)<0)a='blue';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t);r.dataset.accent=a;})();</script>
+<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'bostan';if(t==='light')t='bostan';if(t==='dark')t='bakir';if(['bostan','bakir','civata','arduvaz','auto'].indexOf(t)<0)t='bostan';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'bakir':'bostan'):t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 <script>document.documentElement.classList.remove('no-js');</script>
 <meta property="og:type" content="website">
@@ -30,15 +30,15 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="ru_RU">
-<meta property="og:title" content="Releases · Ankora Linux 4.7">
-<meta property="og:description" content="Every Ankora Linux release so far: 4.7, 4.7, 4.0, 3.7, 3.6, 3.5, 3.0, 2.0 AyazDE, 02.0 Zümrüt and 01.0. Download the newest release.">
+<meta property="og:title" content="Releases: Ankora Linux 5.0">
+<meta property="og:description" content="Complete release history of Ankora Linux from 01.0 through 5.0.0.">
 <meta property="og:url" content="https://ankora-linux.github.io/en/changelog.html">
 <meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
-<meta property="og:image:width" content="1400">
-<meta property="og:image:height" content="875">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Releases · Ankora Linux 4.7">
-<meta name="twitter:description" content="Every Ankora Linux release so far: 4.7, 4.7, 4.0, 3.7, 3.6, 3.5, 3.0, 2.0 AyazDE, 02.0 Zümrüt and 01.0. Download the newest release.">
+<meta name="twitter:title" content="Releases: Ankora Linux 5.0">
+<meta name="twitter:description" content="Complete release history of Ankora Linux from 01.0 through 5.0.0.">
 <meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
@@ -97,18 +97,13 @@
       </ul>
     </details>
     <div class="tools">
-      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Appearance" title="Appearance">
+      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Face / Theme" title="Face / Theme">
         <svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-moon"></use></svg>
+        <span data-theme-label>Bostan</span>
       </button>
       <div class="tpanel" id="theme-panel" hidden>
-        <div class="grp">
-          <h4>Theme</h4>
-          <div class="trow"><button class="tset" type="button" data-set-theme="light" aria-pressed="false">Light</button><button class="tset" type="button" data-set-theme="dark" aria-pressed="false">Dark</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">System</button></div>
-        </div>
-        <div class="grp">
-          <h4>Accent colour</h4>
-          <div class="trow"><button class="swatch swatch-blue" type="button" data-set-accent="blue" aria-pressed="false" aria-label="Blue" title="Blue"></button><button class="swatch swatch-green" type="button" data-set-accent="green" aria-pressed="false" aria-label="Green" title="Green"></button><button class="swatch swatch-purple" type="button" data-set-accent="purple" aria-pressed="false" aria-label="Purple" title="Purple"></button></div>
-        </div>
+        <h4>Site &amp; Desktop Face</h4>
+        <div class="trow"><button class="tset" type="button" data-set-theme="bostan" aria-pressed="false">Bostan</button><button class="tset" type="button" data-set-theme="bakir" aria-pressed="false">Bakır</button><button class="tset" type="button" data-set-theme="civata" aria-pressed="false">Cıvata</button><button class="tset" type="button" data-set-theme="arduvaz" aria-pressed="false">Arduvaz</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">System</button></div>
       </div>
     </div>
     <button class="menu-btn" type="button" data-menu-btn aria-expanded="false"
@@ -133,10 +128,10 @@
 <main id="main">
   <div class="wrap">
     <div class="page-top">
-      <h1>Releases</h1>
-      <p class="lede">Every Ankora Linux release so far. Current release 4.7 is at the top.</p>
-      <div class="btn-row" style="margin-top:30px">
-        <a class="btn btn-1" href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener">Download 4.7</a>
+      <h1>Releases and Changelog</h1>
+      <p class="lede">Milestones from 01.0 to the latest Ankora Linux 5.0.0 release.</p>
+      <div class="btn-row" style="margin-top:24px">
+        <a class="btn btn-1" href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener">Download 5.0.0</a>
       </div>
     </div>
   </div>
@@ -144,18 +139,18 @@
   <section class="section">
     <div class="wrap">
       <ul class="rows">
-        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>4.7 · AyazDE</b><small>Current release: 559-package software store (Games and Utilities category, verified Devuan APT and Flathub catalog), 60 FPS smooth window dragging, APT and store polkit policy fixes, automatic .tar.zst Ollama installer, X11 VT session binding and verified one-click Ayaz Updater.</small></span><span class="go">download</span></a></li>
-        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>4.7 · AyazDE</b><small>Ultra-low RAM optimization (~450 MB idle with ZRAM &amp; service cleanup), __KEEP_559__-package Store and Ayaz Updater polkit root fixes, desktop clock sync, notification clear-all fix, theme dropdown contrast fix, and 4.6.0 system identity.</small></span><span class="go">download</span></a></li>
-        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>4.0 · AyazDE</b><small>Republic Day special (29 October). Security hardening (lock screen rate limiting, clipboard protection, IPC tokens), hybrid ISO verification for USB boot, h2 CVE fix, and the Cumhuriyet theme.</small></span><span class="go">download</span></a></li>
-        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>3.7 · AyazDE</b><small>Desktop category folders, live weather widget, redesigned glass Software Store, taskbar mini AI chat &amp; vision screen analysis, MEB certificate clean uninstall, and .deb update channel.</small></span><span class="go">download</span></a></li>
-        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>3.6 · AyazDE</b><small>Enhanced File Manager, USB/ISO flasher, and ETAP smartboard support.</small></span><span class="go">download</span></a></li>
-        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>3.5 · AyazDE</b><small>Eco RAM mode for systems under 4 GB RAM, automatic USB mounting via udisks, and 30-second lazy DOM unmounting for closed windows.</small></span><span class="go">download</span></a></li>
-        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>3.0 · AyazDE</b><small>New Rust and Tauri 1.5 desktop core on Devuan 5.0 Daedalus (SysVinit) with 17 built-in windows.</small></span><span class="go">download</span></a></li>
-        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>2.0 · AyazDE</b><small>The desktop environment became Ayaz DE and the system got lighter.</small></span><span class="go">download</span></a></li>
-        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>02.0 · Zümrüt</b><small>Desktop integrations were updated and the settings were refreshed.</small></span><span class="go">download</span></a></li>
-        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>01.0 · First release</b><small>The first stable release. A plain base with no telemetry.</small></span><span class="go">download</span></a></li>
+        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>5.0.0: AyazDE 5.0</b><small>Default Bostan face, four prototype-aligned Anti-Slop faces (Bostan, Bakır, Cıvata, Arduvaz) plus preserved 4.7 Classic; per-face Ankora AI chat bubble; 6-turn AI memory; full contrast and layout audit across all 20 windows on Devuan 6 and Linux 6.12 LTS.</small></span><span class="go">get</span></a></li>
+        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>4.7.0: Bora</b><small>Devuan 6.0 Excalibur and Tauri 2.0 (WebKitGTK 4.1) migration, unified /usr/bin/ayaz-de binary, rollback-safe hardened updater, 4 photographic wallpapers, pinned GPG checks, and QEMU CI smoke tests.</small></span><span class="go">get</span></a></li>
+        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>4.6.0: Karayel</b><small>ZRAM compression tuning, 559-package store growth, polkit privilege fixes, synced desktop clock, and light-theme contrast fixes.</small></span><span class="go">get</span></a></li>
+        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>4.0: AyazDE</b><small>Republic Day release: lock screen rate limiter, clipboard hardening, hybrid ISO check, and Cumhuriyet theme.</small></span><span class="go">get</span></a></li>
+        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>3.7: AyazDE</b><small>Desktop category folders, live weather, clean MEB cert removal, and .deb update channel.</small></span><span class="go">get</span></a></li>
+        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>3.6: AyazDE</b><small>Menu-bar File Manager, USB/ISO flasher, and ETAP smartboard support.</small></span><span class="go">get</span></a></li>
+        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>3.5: AyazDE</b><small>Eco RAM mode under 4 GB, udisks automount, and 30-second window DOM cleanup.</small></span><span class="go">get</span></a></li>
+        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>3.0: AyazDE</b><small>Initial Rust and Tauri 1.5 core on SysVinit.</small></span><span class="go">get</span></a></li>
+        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>2.0: AyazDE</b><small>Introduction of AyazDE desktop environment.</small></span><span class="go">get</span></a></li>
+        <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener"><span><b>01.0: First Release</b><small>Clean, telemetry-free foundation.</small></span><span class="go">get</span></a></li>
       </ul>
-      <p style="margin-top:36px">All release files live on the GitHub releases page. <a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener">GitHub</a>.</p>
+      <p style="margin-top:28px">Release archives and SHA256SUMS files are published on GitHub Releases. <a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener">GitHub Releases</a>.</p>
     </div>
   </section>
 </main>
@@ -167,7 +162,7 @@
           <img src="../assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
           <span>Ankora Linux</span>
         </a>
-        <p>A simple, Turkish operating system built on Devuan.</p>
+        <p>Turkish desktop distribution built on Devuan 6 Excalibur, Linux 6.12 LTS, and AyazDE 5.0.</p>
         <div class="soc"><a href="https://www.instagram.com/ankoralinux/" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-instagram"></use></svg></a>
           <a href="https://x.com/ankoralinux" rel="noopener" aria-label="X" title="X"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-x"></use></svg></a>
           <a href="https://www.youtube.com/@AnkoraLinux" rel="noopener" aria-label="YouTube" title="YouTube"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-youtube"></use></svg></a>
@@ -200,7 +195,7 @@
       </div>
     </div>
     <div class="foot-bar">
-      <span>Ankora Linux 4.7 · GPL-3.0</span>
+      <span>Ankora Linux 5.0 (GPL-3.0)</span>
       <span><a href="../sitemap.xml">Sitemap</a></span>
     </div>
   </div>

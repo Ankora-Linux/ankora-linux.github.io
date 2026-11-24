@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>İndir ve kur · Ankora Linux 4.7</title>
-<meta name="description" content="Ankora Linux 4.7 sürümünü indirin ve kurun. Bir USB belleğe yazıp başlatın ya da zaten Linux kullanıyorsanız uçbirimden doğrulayıp yazdırın.">
+<title>İndir ve kur: Ankora Linux 5.0</title>
+<meta name="description" content="Ankora Linux 5.0 kurulumu: temiz ISO yazdırma, 4.7.x sistemlerden .deb ile sürüm içi yükseltme ve yerel Ollama AI kurulumu.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1420" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#eef1e2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141519" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://ankora-linux.github.io/kurulum.html">
 <link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/kurulum.html">
 <link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/install.html">
@@ -17,10 +17,10 @@
 <link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/instalar.html">
 <link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/ustanovka.html">
 <link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/kurulum.html">
-<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'auto';if(['light','dark','auto'].indexOf(t)<0)t='auto';var a=g('ankora-accent')||'blue';if(['blue','green','purple'].indexOf(a)<0)a='blue';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t);r.dataset.accent=a;})();</script>
+<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'bostan';if(t==='light')t='bostan';if(t==='dark')t='bakir';if(['bostan','bakir','civata','arduvaz','auto'].indexOf(t)<0)t='bostan';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'bakir':'bostan'):t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 <script>document.documentElement.classList.remove('no-js');</script>
 <meta property="og:type" content="website">
@@ -30,15 +30,15 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="ru_RU">
-<meta property="og:title" content="İndir ve kur · Ankora Linux 4.7">
-<meta property="og:description" content="Ankora Linux 4.7 sürümünü indirin ve kurun. Bir USB belleğe yazıp başlatın ya da zaten Linux kullanıyorsanız uçbirimden doğrulayıp yazdırın.">
+<meta property="og:title" content="İndir ve kur: Ankora Linux 5.0">
+<meta property="og:description" content="Ankora Linux 5.0 kurulumu: temiz ISO yazdırma, 4.7.x sistemlerden .deb ile sürüm içi yükseltme ve yerel Ollama AI kurulumu.">
 <meta property="og:url" content="https://ankora-linux.github.io/kurulum.html">
 <meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
-<meta property="og:image:width" content="1400">
-<meta property="og:image:height" content="875">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="İndir ve kur · Ankora Linux 4.7">
-<meta name="twitter:description" content="Ankora Linux 4.7 sürümünü indirin ve kurun. Bir USB belleğe yazıp başlatın ya da zaten Linux kullanıyorsanız uçbirimden doğrulayıp yazdırın.">
+<meta name="twitter:title" content="İndir ve kur: Ankora Linux 5.0">
+<meta name="twitter:description" content="Ankora Linux 5.0 kurulumu: temiz ISO yazdırma, 4.7.x sistemlerden .deb ile sürüm içi yükseltme ve yerel Ollama AI kurulumu.">
 <meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -97,18 +97,13 @@
       </ul>
     </details>
     <div class="tools">
-      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Görünüm" title="Görünüm">
+      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Yüz / Tema" title="Yüz / Tema">
         <svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-moon"></use></svg>
+        <span data-theme-label>Bostan</span>
       </button>
       <div class="tpanel" id="theme-panel" hidden>
-        <div class="grp">
-          <h4>Tema</h4>
-          <div class="trow"><button class="tset" type="button" data-set-theme="light" aria-pressed="false">Açık</button><button class="tset" type="button" data-set-theme="dark" aria-pressed="false">Koyu</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">Sistem</button></div>
-        </div>
-        <div class="grp">
-          <h4>Vurgu rengi</h4>
-          <div class="trow"><button class="swatch swatch-blue" type="button" data-set-accent="blue" aria-pressed="false" aria-label="Mavi" title="Mavi"></button><button class="swatch swatch-green" type="button" data-set-accent="green" aria-pressed="false" aria-label="Yeşil" title="Yeşil"></button><button class="swatch swatch-purple" type="button" data-set-accent="purple" aria-pressed="false" aria-label="Mor" title="Mor"></button></div>
-        </div>
+        <h4>Site ve Masaüstü Yüzü</h4>
+        <div class="trow"><button class="tset" type="button" data-set-theme="bostan" aria-pressed="false">Bostan</button><button class="tset" type="button" data-set-theme="bakir" aria-pressed="false">Bakır</button><button class="tset" type="button" data-set-theme="civata" aria-pressed="false">Cıvata</button><button class="tset" type="button" data-set-theme="arduvaz" aria-pressed="false">Arduvaz</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">Sistem</button></div>
       </div>
     </div>
     <button class="menu-btn" type="button" data-menu-btn aria-expanded="false"
@@ -133,11 +128,11 @@
 <main id="main">
   <div class="wrap">
     <div class="page-top">
-      <h1>İndir ve kur</h1>
-      <p class="lede">Bir USB bellek ve birkaç dakika yeterli. Zaten Linux kullanıyorsanız uçbirimden doğrulayıp yazdırabilirsiniz.</p>
-      <div class="btn-row" style="margin-top:30px">
-        <a class="btn btn-1" href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener">Ankora Linux 4.7 sürümlerini aç</a>
-        <a class="btn btn-2" href="https://github.com/Ankora-Linux/Ankora" rel="noopener">Kaynak kodu</a>
+      <h1>İndir ve Kur</h1>
+      <p class="lede">Yeni kurulum için ISO imajı, mevcut 4.7.x sistemler için .deb yükseltmesi ve isteğe bağlı yerel Ollama kurulumu.</p>
+      <div class="btn-row" style="margin-top:24px">
+        <a class="btn btn-1" href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener">GitHub Sürümlerini Aç</a>
+        <a class="btn btn-2" href="https://github.com/Ankora-Linux/Ankora" rel="noopener">Kaynak Kodunu İncele</a>
       </div>
     </div>
   </div>
@@ -145,14 +140,13 @@
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Gereksinimler</span>
-        <h2>Neye ihtiyacınız var?</h2>
+        <h2>Sistem Gereksinimleri</h2>
       </div>
       <ul class="checklist">
-        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>64 bit (amd64) işlemci</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>En az 2 GB bellek (4 GB altı sistemlerde Eco RAM kipi otomatik açılır)</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>ISO için boş bir USB bellek (en az 4 GB)</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>İnternet bağlantısı (indirme için)</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>64 bit (amd64) işlemci, UEFI veya klasik BIOS desteği</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Canlı oturum için en az 2 GB RAM (günlük kullanım için 4 GB, yerel Ollama için 8 GB+)</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Kurulum için en az 16 GB disk ve USB bellek (4 GB+)</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-check"></use></svg><span>Açık kaynak Mesa ve doğrulanmış AMD/Intel çekirdek firmware’i</span></li>
       </ul>
     </div>
   </section>
@@ -160,13 +154,12 @@
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Kurulum</span>
-        <h2>Üç adımda hazır</h2>
+        <h2>Üç adımda tamamlanır</h2>
       </div>
       <ol class="steps">
-        <li><div><h3>İndirin</h3><p>Sürümler sayfasından ISO dosyasını ve yanındaki SHA-256 doğrulama dosyasını indirin.</p></div></li>
-        <li><div><h3>USB belleğe yazın</h3><p>Ankora USB Yazıcı, BalenaEtcher veya Rufus gibi ücretsiz bir programla ISO'yu boş bir USB belleğe yazın.</p></div></li>
-        <li><div><h3>Başlatın ve kurun</h3><p>Bilgisayarı USB'den başlatın. Kurulum sihirbazı adım adım ilerler ve sonunda sistem yeniden başlar.</p></div></li>
+        <li><h3>Doğrulanmış İmajı İndirin</h3><p>GitHub Releases sayfasından ISO ve SHA256SUMS dosyalarını alın.</p></li>
+        <li><h3>Güvenle Yazdırın</h3><p>sha256sum ile bütünlüğü kontrol edip yalnızca çıkarılabilir USB sürücüye yazın.</p></li>
+        <li><h3>Başlatın ve Kurun</h3><p>Bilgisayarı USB’den başlatıp Türkçe kurulum sihirbazını izleyin.</p></li>
       </ol>
     </div>
   </section>
@@ -174,22 +167,28 @@
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Komut satırı</span>
-        <h2>Terminalden yapmak isterseniz</h2>
+        <h2>Senaryoya göre kurulum komutları</h2>
+      </div>
+      <div class="chip-row" role="group" aria-label="Senaryoya göre kurulum komutları">
+        <button type="button" class="chip" data-dl-tab="iso" aria-pressed="true" data-cmd="# GitHub Releases sayfasından ISO ve SHA256SUMS indirip doğrulayın:
+sha256sum -c SHA256SUMS --ignore-missing
+lsblk -o NAME,SIZE,TRAN,RM" data-note="Yeni kurulumlar ve 4.6.x (Daedalus) tabanından geçiş için önerilir.">ISO Kurulum</button>
+        <button type="button" class="chip" data-dl-tab="deb" aria-pressed="false" data-cmd="# Mevcut 4.7.x sistemleri Resmî .deb paketiyle 5.0’a geçirin:
+sha256sum -c ayaz-de-latest-amd64.deb.sha256
+sudo apt install ./ayaz-de-latest-amd64.deb" data-note="Kurulum hatasında ayaz-update-helper önceki yedeğe otomatik döner.">4.7.x -&gt; 5.0 Yükseltme</button>
+        <button type="button" class="chip" data-dl-tab="ai" aria-pressed="false" data-cmd="# Yerel Ollama kurucusu (8 GB+ RAM önerilir):
+sudo /usr/local/bin/ankora-ollama-install" data-note="Kurulumdan sonra sağ alttaki Ankora AI balonu 127.0.0.1:11434 adresine bağlanır.">Yerel AI (Ollama)</button>
       </div>
       <div class="code">
-        <pre><code>gh release download --repo Ankora-Linux/Ankora \
-  --pattern '*.iso*'
-
-sha256sum -c *.iso.sha256
-
-lsblk -d -o NAME,SIZE,MODEL
-sudo dd if=ankora-linux.iso of=/dev/sdX bs=4M status=progress conv=fsync</code></pre>
+        <pre id="dl-cmd"><code># GitHub Releases sayfasından ISO ve SHA256SUMS indirip doğrulayın:
+sha256sum -c SHA256SUMS --ignore-missing
+lsblk -o NAME,SIZE,TRAN,RM</code></pre>
         <button class="copy" type="button" data-copy data-done="Kopyalandı">Kopyala</button>
       </div>
+      <p id="dl-note" style="margin-top:12px;font-size:14px;color:var(--ink-2)">Yeni kurulumlar ve 4.6.x (Daedalus) tabanından geçiş için önerilir.</p>
       <div class="note">
-        <b>Dikkat</b>
-        <p>/dev/sdX yolunu kendiniz doğrulayın. Yanlış sürücü seçilirse o diskin içeriği silinir.</p>
+        <b>Yükseltme Notu</b>
+        <p>4.6.x (Daedalus) tabanından Devuan 6 / Tauri 2.0 tabanlı 5.0 sürümüne geçişte temiz ISO kurulumu gerekir.</p>
       </div>
     </div>
   </section>
@@ -202,7 +201,7 @@ sudo dd if=ankora-linux.iso of=/dev/sdX bs=4M status=progress conv=fsync</code><
           <img src="assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
           <span>Ankora Linux</span>
         </a>
-        <p>Son kullanıcı için sade, Devuan tabanlı ve Türkçe bir işletim sistemi.</p>
+        <p>Devuan 6 Excalibur ve Linux 6.12 LTS üzerinde AyazDE 5.0 masaüstü ile gelen Türkçe dağıtım.</p>
         <div class="soc"><a href="https://www.instagram.com/ankoralinux/" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-instagram"></use></svg></a>
           <a href="https://x.com/ankoralinux" rel="noopener" aria-label="X" title="X"><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-x"></use></svg></a>
           <a href="https://www.youtube.com/@AnkoraLinux" rel="noopener" aria-label="YouTube" title="YouTube"><svg aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#i-youtube"></use></svg></a>
@@ -235,7 +234,7 @@ sudo dd if=ankora-linux.iso of=/dev/sdX bs=4M status=progress conv=fsync</code><
       </div>
     </div>
     <div class="foot-bar">
-      <span>Ankora Linux 4.7 · GPL-3.0</span>
+      <span>Ankora Linux 5.0 (GPL-3.0)</span>
       <span><a href="sitemap.xml">Site haritası</a></span>
     </div>
   </div>

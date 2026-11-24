@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sicherheit · Ankora Linux 4.7</title>
-<meta name="description" content="Wie Ankora Linux 4.7 Sie schützt: 31 erlaubte Terminal-Befehle, 59 gesperrte Binärdateien, 15 KI-Aktionen mit Einmal-Token und geprüfte Updates.">
+<title>Sicherheit: Ankora Linux 5.0</title>
+<meta name="description" content="Sicherheitsarchitektur in Rust: 33 erlaubte Terminal-Befehle, 59 gesperrte Binärdateien, 18 KI-Aktionen mit Einmal-Token und pkexec.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1420" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#eef1e2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141519" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://ankora-linux.github.io/de/sicherheit.html">
 <link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/guvenlik.html">
 <link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/security.html">
@@ -17,10 +17,10 @@
 <link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/seguridad.html">
 <link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/bezopasnost.html">
 <link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/guvenlik.html">
-<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'auto';if(['light','dark','auto'].indexOf(t)<0)t='auto';var a=g('ankora-accent')||'blue';if(['blue','green','purple'].indexOf(a)<0)a='blue';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t);r.dataset.accent=a;})();</script>
+<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'bostan';if(t==='light')t='bostan';if(t==='dark')t='bakir';if(['bostan','bakir','civata','arduvaz','auto'].indexOf(t)<0)t='bostan';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'bakir':'bostan'):t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 <script>document.documentElement.classList.remove('no-js');</script>
 <meta property="og:type" content="website">
@@ -30,15 +30,15 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="ru_RU">
-<meta property="og:title" content="Sicherheit · Ankora Linux 4.7">
-<meta property="og:description" content="Wie Ankora Linux 4.7 Sie schützt: 31 erlaubte Terminal-Befehle, 59 gesperrte Binärdateien, 15 KI-Aktionen mit Einmal-Token und geprüfte Updates.">
+<meta property="og:title" content="Sicherheit: Ankora Linux 5.0">
+<meta property="og:description" content="Sicherheitsarchitektur in Rust: 33 erlaubte Terminal-Befehle, 59 gesperrte Binärdateien, 18 KI-Aktionen mit Einmal-Token und pkexec.">
 <meta property="og:url" content="https://ankora-linux.github.io/de/sicherheit.html">
 <meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
-<meta property="og:image:width" content="1400">
-<meta property="og:image:height" content="875">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sicherheit · Ankora Linux 4.7">
-<meta name="twitter:description" content="Wie Ankora Linux 4.7 Sie schützt: 31 erlaubte Terminal-Befehle, 59 gesperrte Binärdateien, 15 KI-Aktionen mit Einmal-Token und geprüfte Updates.">
+<meta name="twitter:title" content="Sicherheit: Ankora Linux 5.0">
+<meta name="twitter:description" content="Sicherheitsarchitektur in Rust: 33 erlaubte Terminal-Befehle, 59 gesperrte Binärdateien, 18 KI-Aktionen mit Einmal-Token und pkexec.">
 <meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
@@ -97,18 +97,13 @@
       </ul>
     </details>
     <div class="tools">
-      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Darstellung" title="Darstellung">
+      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Design / Fläche" title="Design / Fläche">
         <svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-moon"></use></svg>
+        <span data-theme-label>Bostan</span>
       </button>
       <div class="tpanel" id="theme-panel" hidden>
-        <div class="grp">
-          <h4>Design</h4>
-          <div class="trow"><button class="tset" type="button" data-set-theme="light" aria-pressed="false">Hell</button><button class="tset" type="button" data-set-theme="dark" aria-pressed="false">Dunkel</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">System</button></div>
-        </div>
-        <div class="grp">
-          <h4>Akzentfarbe</h4>
-          <div class="trow"><button class="swatch swatch-blue" type="button" data-set-accent="blue" aria-pressed="false" aria-label="Blau" title="Blau"></button><button class="swatch swatch-green" type="button" data-set-accent="green" aria-pressed="false" aria-label="Grün" title="Grün"></button><button class="swatch swatch-purple" type="button" data-set-accent="purple" aria-pressed="false" aria-label="Violett" title="Violett"></button></div>
-        </div>
+        <h4>Site- &amp; Desktop-Fläche</h4>
+        <div class="trow"><button class="tset" type="button" data-set-theme="bostan" aria-pressed="false">Bostan</button><button class="tset" type="button" data-set-theme="bakir" aria-pressed="false">Bakır</button><button class="tset" type="button" data-set-theme="civata" aria-pressed="false">Cıvata</button><button class="tset" type="button" data-set-theme="arduvaz" aria-pressed="false">Arduvaz</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">System</button></div>
       </div>
     </div>
     <button class="menu-btn" type="button" data-menu-btn aria-expanded="false"
@@ -133,21 +128,20 @@
 <main id="main">
   <div class="wrap">
     <div class="page-top">
-      <h1>Sicherheit in Ankora Linux 4.7</h1>
-      <p class="lede">Ankora Linux 4.7 trennt die Oberfläche strikt vom Systemkern: 137 Tauri-IPC-Befehle in Rust prüfen jede Aktion gegen feste Positivlisten.</p>
+      <h1>Sicherheitsarchitektur in Ankora Linux 5.0</h1>
+      <p class="lede">148 Tauri-IPC-Befehle trennen Oberfläche und Systemkern strikt. KI-Aktionen laufen nur nach Positivlisten-Prüfung und Einmal-Token.</p>
     </div>
   </div>
 
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Drei Kernschutzmaßnahmen</span>
-        <h2>Was bedeutet das für Sie?</h2>
+        <h2>Konkrete Regeln im Rust-Kern</h2>
       </div>
       <div class="grid">
-        <div class="card"><span class="card-tag">01</span><h3>Strikte Befehls-Positivlisten</h3><p>Das eingebaute Terminal erlaubt genau 31 geprüfte Befehle und 26 Hilfswerkzeuge; 59 gefährliche Binärdateien sind für den Direktstart gesperrt.</p></div>
-        <div class="card"><span class="card-tag">02</span><h3>Geprüfte Aktualisierungen</h3><p>Jedes Paket und jedes System-Update wird über den passwortlosen Helper geprüft, bevor es installiert wird.</p></div>
-        <div class="card"><span class="card-tag">03</span><h3>Geschützte persönliche Dateien</h3><p>Der Dateibetrachter akzeptiert nur 20 Dokument-Endungen und blockiert 17 sensible Dateimuster wie Schlüssel und Passwortdateien.</p></div>
+        <div class="card"><h3>Positivlisten statt freier Shell</h3><p>Das Terminal prüft 33 exakte Befehle und 26 Werkzeuge; 59 kritische System-Binärdateien sind blockiert.</p></div>
+        <div class="card"><h3>60-Sekunden-Token für KI &amp; pkexec</h3><p>Die 18 erlaubten Agent-Aktionen verlangen ein flüchtiges Einmal-Token; Paket- und USB-Schreibvorgänge erfordern pkexec.</p></div>
+        <div class="card"><h3>Dateischutz &amp; Pinned GPG</h3><p>Der Betrachter prüft 20 Dokumentendungen, blockiert 19 sensible Pfadmuster und verifiziert Fremdschlüssel per Fingerabdruck.</p></div>
       </div>
     </div>
   </section>
@@ -155,17 +149,16 @@
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Im Quellcode überprüfbar</span>
-        <h2>Kennzahlen aus dem Rust-Kern (main.rs)</h2>
+        <h2>Überprüfbare Grenzen im Rust-Kern</h2>
       </div>
       <ul class="checklist">
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Das integrierte Terminal führt nur 31 exakt definierte Befehle und 26 Diagnose-Werkzeuge ohne Verkettungszeichen aus.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>59 System- und Netzwerk-Binärdateien stehen auf der Sperrliste für den Anwendungsstart.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Der Ankora-KI-Agent darf nur 15 definierte Systemaktionen ausführen und verlangt zuvor ein Einmal-Sicherheits-Token.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Der Dokumentbetrachter prüft 20 erlaubte Dateiendungen und verweigert den Zugriff auf 17 sensible Pfadmuster.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>137 Tauri-Befehle und 13 automatisierte Rust-Modultests sichern die Schnittstelle zwischen Oberfläche und Betriebssystem ab.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>EXACT_ALLOWED_COMMANDS umfasst 33 feste Diagnosebefehle plus 26 geprüfte Werkzeuge (ALLOWED_UTILITIES).</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>FORBIDDEN_LAUNCH_BINARIES sperrt 59 Netzwerk- und Systemwerkzeuge gegen direkten Aufruf.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>ALLOWED_AGENT_ACTIONS erlaubt genau 18 definierte KI-Aktionen mit 60-Sekunden-SHA-256-Token.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Der Dateischutz prüft 20 erlaubte Dokumentendungen und sperrt 19 sensible Muster wie .vault_secret.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>148 Tauri-IPC-Befehle und 19 automatisierte Rust-Modultests sichern die Schnittstelle ab; WebKit läuft unter bwrap-Sandbox.</span></li>
       </ul>
-      <p style="margin-top:36px">Eine Schwachstelle gefunden? Schreiben Sie an <a href="mailto:linuxankora@gmail.com">linuxankora@gmail.com</a>, ohne ein öffentliches Ticket zu öffnen. Antwort innerhalb von 48 Stunden.</p>
+      <p style="margin-top:28px">Sicherheitsproblem entdeckt? Bitte direkt an <a href="mailto:linuxankora@gmail.com">linuxankora@gmail.com</a> melden (Antwort binnen 48 Stunden).</p>
     </div>
   </section>
 </main>
@@ -177,7 +170,7 @@
           <img src="../assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
           <span>Ankora Linux</span>
         </a>
-        <p>Ein schlichtes türkisches Betriebssystem auf Devuan-Basis.</p>
+        <p>Türkische Desktop-Distribution auf Devuan 6 Excalibur, Linux 6.12 LTS und AyazDE 5.0.</p>
         <div class="soc"><a href="https://www.instagram.com/ankoralinux/" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-instagram"></use></svg></a>
           <a href="https://x.com/ankoralinux" rel="noopener" aria-label="X" title="X"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-x"></use></svg></a>
           <a href="https://www.youtube.com/@AnkoraLinux" rel="noopener" aria-label="YouTube" title="YouTube"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-youtube"></use></svg></a>
@@ -210,7 +203,7 @@
       </div>
     </div>
     <div class="foot-bar">
-      <span>Ankora Linux 4.7 · GPL-3.0</span>
+      <span>Ankora Linux 5.0 (GPL-3.0)</span>
       <span><a href="../sitemap.xml">Sitemap</a></span>
     </div>
   </div>

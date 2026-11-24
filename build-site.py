@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Ankora Linux sitesini sifirdan uretir.
+"""Ankora Linux 5.0 web sitesini uretir.
 
-Bes dil (tr, en, de, es, ru), iki tema (acik, koyu), uc vurgu rengi.
-Sayfa iskeletleri ve SEO dosyalari bu betikten uretilir.
+Bes dil (tr, en, de, es, ru), dort yuz temasi (Bostan, Bakir, Civata, Arduvaz)
+ve yedi ana sayfa ile SEO/denetim dosyalarini olusturur.
 """
 
 import json
@@ -20,13 +20,10 @@ SECMAIL = "linuxankora@gmail.com"
 
 LANGS = ["tr", "en", "de", "es", "ru"]
 FOLDER = {"tr": "", "en": "en", "de": "de", "es": "es", "ru": "ru"}
-OGLOCALE = {"tr": "tr_TR", "en": "en_US", "de": "de_DE",
-            "es": "es_ES", "ru": "ru_RU"}
-INLANG = {"tr": "tr-TR", "en": "en-US", "de": "de-DE",
-          "es": "es-ES", "ru": "ru-RU"}
+OGLOCALE = {"tr": "tr_TR", "en": "en_US", "de": "de_DE", "es": "es_ES", "ru": "ru_RU"}
+INLANG = {"tr": "tr-TR", "en": "en-US", "de": "de-DE", "es": "es-ES", "ru": "ru-RU"}
 CODELABEL = {"tr": "TR", "en": "EN", "de": "DE", "es": "ES", "ru": "RU"}
-LANGNAME = {"tr": "Türkçe", "en": "English", "de": "Deutsch",
-            "es": "Español", "ru": "Русский"}
+LANGNAME = {"tr": "Türkçe", "en": "English", "de": "Deutsch", "es": "Español", "ru": "Русский"}
 
 KEYS = ["home", "features", "install", "security", "changelog", "faq", "contact"]
 NAVORDER = ["home", "features", "security", "changelog", "contact"]
@@ -49,74 +46,66 @@ FILES = {
            "faq": "faq.html", "contact": "kontakty.html"},
 }
 
-THEME_SCRIPT = ("<script>(function(){var r=document.documentElement;"
-                "function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}"
-                "if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));"
-                "if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}"
-                "var t=g('ankora-theme')||'auto';"
-                "if(['light','dark','auto'].indexOf(t)<0)t='auto';"
-                "var a=g('ankora-accent')||'blue';"
-                "if(['blue','green','purple'].indexOf(a)<0)a='blue';"
-                "r.dataset.themePref=t;"
-                "r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t);"
-                "r.dataset.accent=a;})();</script>")
+FONT_CSS = (
+    "https://fonts.googleapis.com/css2?"
+    "family=Onest:wght@500;600;700&"
+    "family=IBM+Plex+Sans:wght@400;500;600&"
+    "family=IBM+Plex+Mono:wght@400;500&display=swap"
+)
+
+THEME_SCRIPT = (
+    "<script>(function(){var r=document.documentElement;"
+    "function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}"
+    "if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));"
+    "if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}"
+    "var t=g('ankora-theme')||'bostan';"
+    "if(t==='light')t='bostan';if(t==='dark')t='bakir';"
+    "if(['bostan','bakir','civata','arduvaz','auto'].indexOf(t)<0)t='bostan';"
+    "r.dataset.themePref=t;"
+    "r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'bakir':'bostan'):t);})();</script>"
+)
 
 U = {
-    "tr": {"settings": "Görünüm", "language": "Dil", "theme": "Tema",
-           "tLight": "Açık", "tDark": "Koyu", "tAuto": "Sistem",
-           "accent": "Vurgu rengi", "aBlue": "Mavi", "aGreen": "Yeşil", "aPurple": "Mor",
+    "tr": {"settings": "Yüz / Tema", "language": "Dil", "theme": "Site ve Masaüstü Yüzü",
+           "tBostan": "Bostan", "tBakir": "Bakır", "tCivata": "Cıvata", "tArduvaz": "Arduvaz", "tAuto": "Sistem",
            "download": "İndir", "skip": "İçeriğe geç", "menu": "Menüyü aç",
            "nav": "Ana gezinme", "navm": "Ana gezinme (mobil)", "brand": "Ankora Linux",
            "copy": "Kopyala", "copied": "Kopyalandı",
-           "about": "Son kullanıcı için sade, Devuan tabanlı ve Türkçe bir işletim sistemi.",
+           "about": "Devuan 6 Excalibur ve Linux 6.12 LTS üzerinde AyazDE 5.0 masaüstü ile gelen Türkçe dağıtım.",
            "c1": "Dağıtım", "c2": "Yardım", "c3": "Kaynak",
-           "short": "Ankora Linux 4.7 · GPL-3.0", "sitemap": "Site haritası",
-           "col_link": "Kaynak kod",
-           "bayram": "29 Ekim Cumhuriyet Bayramı'nız kutlu olsun"},
-    "en": {"settings": "Appearance", "language": "Language", "theme": "Theme",
-           "tLight": "Light", "tDark": "Dark", "tAuto": "System",
-           "accent": "Accent colour", "aBlue": "Blue", "aGreen": "Green", "aPurple": "Purple",
+           "short": "Ankora Linux 5.0 (GPL-3.0)", "sitemap": "Site haritası"},
+    "en": {"settings": "Face / Theme", "language": "Language", "theme": "Site & Desktop Face",
+           "tBostan": "Bostan", "tBakir": "Bakır", "tCivata": "Cıvata", "tArduvaz": "Arduvaz", "tAuto": "System",
            "download": "Download", "skip": "Skip to content", "menu": "Open menu",
            "nav": "Main navigation", "navm": "Main navigation (mobile)", "brand": "Ankora Linux",
            "copy": "Copy", "copied": "Copied",
-           "about": "A simple, Turkish operating system built on Devuan.",
+           "about": "Turkish desktop distribution built on Devuan 6 Excalibur, Linux 6.12 LTS, and AyazDE 5.0.",
            "c1": "Distribution", "c2": "Help", "c3": "Source",
-           "short": "Ankora Linux 4.7 · GPL-3.0", "sitemap": "Sitemap",
-           "col_link": "Source code",
-           "bayram": "Happy Republic Day of Türkiye (29 October)"},
-    "de": {"settings": "Darstellung", "language": "Sprache", "theme": "Design",
-           "tLight": "Hell", "tDark": "Dunkel", "tAuto": "System",
-           "accent": "Akzentfarbe", "aBlue": "Blau", "aGreen": "Grün", "aPurple": "Violett",
+           "short": "Ankora Linux 5.0 (GPL-3.0)", "sitemap": "Sitemap"},
+    "de": {"settings": "Design / Fläche", "language": "Sprache", "theme": "Site- & Desktop-Fläche",
+           "tBostan": "Bostan", "tBakir": "Bakır", "tCivata": "Cıvata", "tArduvaz": "Arduvaz", "tAuto": "System",
            "download": "Herunterladen", "skip": "Zum Inhalt springen", "menu": "Menü öffnen",
            "nav": "Hauptnavigation", "navm": "Hauptnavigation (mobil)", "brand": "Ankora Linux",
            "copy": "Kopieren", "copied": "Kopiert",
-           "about": "Ein schlichtes türkisches Betriebssystem auf Devuan-Basis.",
+           "about": "Türkische Desktop-Distribution auf Devuan 6 Excalibur, Linux 6.12 LTS und AyazDE 5.0.",
            "c1": "Distribution", "c2": "Hilfe", "c3": "Quellcode",
-           "short": "Ankora Linux 4.7 · GPL-3.0", "sitemap": "Sitemap",
-           "col_link": "Quellcode",
-           "bayram": "Frohen Tag der Republik der Türkei (29. Oktober)"},
-    "es": {"settings": "Apariencia", "language": "Idioma", "theme": "Tema",
-           "tLight": "Claro", "tDark": "Oscuro", "tAuto": "Sistema",
-           "accent": "Color de acento", "aBlue": "Azul", "aGreen": "Verde", "aPurple": "Morado",
+           "short": "Ankora Linux 5.0 (GPL-3.0)", "sitemap": "Sitemap"},
+    "es": {"settings": "Estilo / Tema", "language": "Idioma", "theme": "Estilo del sitio y escritorio",
+           "tBostan": "Bostan", "tBakir": "Bakır", "tCivata": "Cıvata", "tArduvaz": "Arduvaz", "tAuto": "Sistema",
            "download": "Descargar", "skip": "Ir al contenido", "menu": "Abrir el menú",
-           "nav": "Navegación principal", "navm": "Navegación principal (móvil)",
-           "brand": "Ankora Linux", "copy": "Copiar", "copied": "Copiado",
-           "about": "Un sistema operativo turco, sencillo y basado en Devuan.",
+           "nav": "Navegación principal", "navm": "Navegación principal (móvil)", "brand": "Ankora Linux",
+           "copy": "Copiar", "copied": "Copiado",
+           "about": "Distribución turca basada en Devuan 6 Excalibur, Linux 6.12 LTS y AyazDE 5.0.",
            "c1": "Distribución", "c2": "Ayuda", "c3": "Código",
-           "short": "Ankora Linux 4.7 · GPL-3.0", "sitemap": "Mapa del sitio",
-           "col_link": "Código fuente",
-           "bayram": "Feliz Día de la República de Turquía (29 de octubre)"},
-    "ru": {"settings": "Оформление", "language": "Язык", "theme": "Тема",
-           "tLight": "Светлая", "tDark": "Тёмная", "tAuto": "Системная",
-           "accent": "Акцентный цвет", "aBlue": "Синий", "aGreen": "Зелёный", "aPurple": "Фиолетовый",
+           "short": "Ankora Linux 5.0 (GPL-3.0)", "sitemap": "Mapa del sitio"},
+    "ru": {"settings": "Облик / Тема", "language": "Язык", "theme": "Облик сайта и среды",
+           "tBostan": "Bostan", "tBakir": "Bakır", "tCivata": "Cıvata", "tArduvaz": "Arduvaz", "tAuto": "Система",
            "download": "Скачать", "skip": "Перейти к содержимому", "menu": "Открыть меню",
-           "nav": "Основная навигация", "navm": "Основная навигация (мобильная)",
-           "brand": "Ankora Linux", "copy": "Копировать", "copied": "Скопировано",
-           "about": "Простая турецкая операционная система на базе Devuan.",
+           "nav": "Основная навигация", "navm": "Основная навигация (моб.)", "brand": "Ankora Linux",
+           "copy": "Копировать", "copied": "Скопировано",
+           "about": "Турецкий дистрибутив на Devuan 6 Excalibur, Linux 6.12 LTS и AyazDE 5.0.",
            "c1": "Дистрибутив", "c2": "Помощь", "c3": "Код",
-           "short": "Ankora Linux 4.7 · GPL-3.0", "sitemap": "Карта сайта",
-           "col_link": "Исходный код",
-           "bayram": "С Днём Республики Турции (29 октября)"},
+           "short": "Ankora Linux 5.0 (GPL-3.0)", "sitemap": "Карта сайта"},
 }
 
 NAVL = {
@@ -132,346 +121,387 @@ NAVL = {
            "changelog": "Версии", "contact": "Контакты", "faq": "FAQ"},
 }
 
-# Ayaz DE 4.0 sistem temalari (src/style.css ve src/index.html ile birebir)
-AYAZ_THEMES = [
-    ("Nordik Açık", "#f8fafc", "#2563eb", "Aydınlık gümüş ve beyaz", "Bright silver and white"),
-    ("Modern Grafit", "#12151e", "#3b82f6", "Dengeli antrasit koyu tema", "Balanced anthracite dark"),
-    ("Derin Gece", "#050811", "#6366f1", "OLED uyumlu lacivert gece kipi", "OLED navy night mode"),
-    ("Kuzey Fjordu", "#242933", "#88c0d0", "Nord esintili buz mavisi koyu", "Nord-inspired frost blue"),
-    ("Çam Ormanı", "#0f1914", "#10b981", "Göz yormayan derin yeşil", "Deep forest green"),
-    ("Kor Ateşi", "#180d10", "#f43f5e", "Sıcak bordo ve kızıl gece", "Warm crimson dark"),
-    ("Arktik Serinlik", "#eef6ff", "#0284c7", "Buz mavisi ferah açık tema", "Ice-blue light theme"),
-    ("Çınar", "#f4efe6", "#2f5d41", "Sıcak kağıt dokusu, yosun yeşili", "Warm paper, moss green"),
-    ("Meltem", "#edf2f6", "#0b6477", "Soğuk deniz grisi, petrol mavisi", "Sea grey, teal accent"),
-    ("Kor", "#16120e", "#d96b27", "Koyu kahve zemin, kor turuncusu", "Dark espresso, ember orange"),
-    ("Dem", "#17171a", "#c83e37", "Düz grafit, sert kırmızı vurgu", "Flat graphite, red accent"),
-    ("Boğaz", "#0e171b", "#d49b35", "Koyu deniz yeşili, pirinç sarısı", "Deep sea green, brass gold"),
-    ("Ayna", "#0c0e14", "#33ccff", "Keskin camgöbeği çerçeveli koyu", "Crisp cyan-bordered dark"),
-    ("Cumhuriyet", "#1d0e10", "#e23744", "29 Ekim özel: bayrak kırmızısı zemin, ay-yıldız beyazı", "Republic Day special: flag-red base, crescent white"),
+CORE_FACES = [
+    ("bostan", "Yüz 3: Bostan", "Varsayılan keten adaçayı", "Default sage linen palette", "sw-bostan"),
+    ("bakir", "Yüz 2: Bakır", "Koyu grafit ve sıcak bakır", "Warm graphite and copper", "sw-bakir"),
+    ("civata", "Yüz 8: Cıvata", "Teknik çizim kâğıdı, mavi vurgu", "Drafting paper and blueprint ink", "sw-civata"),
+    ("arduvaz", "Yüz 1: Arduvaz", "Sol hizalı koyu mat, terakota", "Left-dock slate with terracotta", "sw-arduvaz"),
 ]
 
-# --------------------------------------------------------------------- metinler
+THEME_NAMES_24 = [
+    "Nordik Açık", "Modern Grafit", "Derin Gece", "Kuzey Fjordu", "Çam Ormanı", "Kor Ateşi",
+    "Arktik Serinlik", "Çınar", "Meltem", "Kor", "Dem", "Boğaz", "Ayna", "Cumhuriyet",
+    "Matbaa", "Bakır", "Bostan", "Hat", "Konsol", "Kesit", "Fener", "Cıvata", "Mina", "Meridyen"
+]
+
+SAMPLE_PACKAGES = [
+    ("Fatih Kalem 2", "fatihkalem", "Eğitim", "Resmî Ankora"),
+    ("ETA Dokunmatik", "eta-touchdrv", "Tahta", "Resmî Ankora"),
+    ("MEB Sertifikası", "meb-cert", "Okul", "Resmî Ankora"),
+    ("LibreOffice", "libreoffice", "Ofis", "APT"),
+    ("VS Code", "com.visualstudio.code", "Geliştirici", "Flathub"),
+    ("VLC", "vlc", "Medya", "APT"),
+]
 
 T = {
     "tr": {
-        "m_home": ("Ankora Linux 4.7: Eski bilgisayarınızı yeniden kullanın",
-                   "Ankora Linux 4.7, Devuan 5.0 Daedalus ve Ayaz DE 4.7 üzerine kurulu sade ve Türkçe bir işletim sistemidir. ZRAM ve Eco RAM kipi, 14 sistem teması ve 559 mağaza paketiyle gelir."),
-        "m_features": ("Özellikler · Ankora Linux 4.7",
-                       "Ankora Linux 4.7 ile neler yapabilirsiniz: 18 yerleşik pencere, 14 tam sistem teması, Eco RAM ve ZRAM bellek yönetimi, yerel Ankora AI asistanı, 559 paketli mağaza ve tek düğmeli güncelleme."),
-        "m_install": ("İndir ve kur · Ankora Linux 4.7",
-                      "Ankora Linux 4.7 sürümünü indirin ve kurun. Bir USB belleğe yazıp başlatın ya da zaten Linux kullanıyorsanız uçbirimden doğrulayıp yazdırın."),
-        "m_security": ("Güvenlik · Ankora Linux 4.7",
-                       "Ankora Linux 4.7 sizi nasıl korur: 31 izinli uçbirim komutu, 59 yasaklı ikili dosya, tek kullanımlık jetonlu 15 AI eylemi ve doğrulanmış güncellemeler."),
-        "m_changelog": ("Sürümler · Ankora Linux 4.7",
-                        "Ankora Linux'un bugüne kadarki sürümleri: 4.7, 4.7, 4.0, 3.7, 3.6, 3.5, 3.0, 2.0 AyazDE, 02.0 Zümrüt ve 01.0. En yeni sürümü indirin."),
-        "m_faq": ("Sık sorulan sorular · Ankora Linux 4.7",
-                  "Ankora Linux 4.7 hakkında sık sorulan sorular: kurulum, eski bilgisayarlar, Eco RAM kipi, güncellemeler, dil ve katkı."),
-        "m_contact": ("İletişim · Ankora Linux",
-                      "Ankora Linux topluluğu: forum, proje e-postası, hata bildirimi ve güvenlik açığı bildirimi için kanallar."),
-        "hero_meta": ("Ankora Linux 4.7.0", "Ayaz DE 4.7", "Devuan 5.0 Daedalus", "SysVinit · ~450 MB RAM"),
-        "h1": "Eski bilgisayarınızı yeniden kullanın",
-        "lede": "Ankora Linux 4.7, son kullanıcı ve eğitim kurumları için geliştirilmiş sade, Devuan tabanlı ve Türkçe bir işletim sistemidir. ZRAM bellek sıkıştırma, 4 GB altı bilgisayarlarda otomatik devreye giren Eco RAM kipi, 14 tam sistem teması ve 559 paketli mağazasıyla kurulduğu anda çalışmaya hazırdır.",
-        "shot_alt": "Ayaz DE 4.7 masaüstü: solda masaüstü simgeleri ve açık Başlat menüsü, sağda Ankora Karşılayıcı penceresi ile saat ve bellek göstergesi",
+        "m_home": ("Ankora Linux 5.0: Sakin, systemd’siz Türkçe masaüstü",
+                   "Ankora Linux 5.0; Devuan 6 Excalibur ve Linux 6.12 LTS üzerinde AyazDE 5.0, dört masaüstü yüzü, beyaz liste denetimli Ankora AI ve 559 paketli mağaza ile gelir."),
+        "m_features": ("Özellikler: Ankora Linux 5.0",
+                       "AyazDE 5.0 özellikleri: Bostan, Bakır, Cıvata, Arduvaz yüzleri, her yüze uyumlu Ankora AI balonu, 559 paketli mağaza ve FAZ 1/2/3 okul desteği."),
+        "m_install": ("İndir ve kur: Ankora Linux 5.0",
+                      "Ankora Linux 5.0 kurulumu: temiz ISO yazdırma, 4.7.x sistemlerden .deb ile sürüm içi yükseltme ve yerel Ollama AI kurulumu."),
+        "m_security": ("Güvenlik: Ankora Linux 5.0",
+                       "Rust çekirdek güvenliği: 33 sabit izinli komut, 59 yasaklı ikili, tek kullanımlık jetonlu 18 AI eylemi, pkexec ve WebKit bwrap sandbox."),
+        "m_changelog": ("Sürümler: Ankora Linux 5.0",
+                        "Ankora Linux 01.0’dan 5.0.0’a kadar tüm sürümler ve yenilikler."),
+        "m_faq": ("Sık sorulan sorular: Ankora Linux 5.0",
+                  "Ankora Linux 5.0 hakkında sık sorulan sorular: donanım, ZRAM, 4.7’den yükseltme, AI güvenliği ve katkı."),
+        "m_contact": ("İletişim: Ankora Linux",
+                      "Ankora Linux topluluğu: Ankora Lab forumu, e-posta, GitHub hata bildirimi ve güvenlik kanalları."),
+        "hero_meta": ("Ankora Linux 5.0.0", "AyazDE 5.0", "Devuan 6 Excalibur", "Linux 6.12 LTS", "~750 MB RAM"),
+        "h1": "Sakin, systemd’siz Türkçe masaüstü.",
+        "lede": "Devuan 6 Excalibur ve Linux 6.12 LTS üzerinde çalışan AyazDE 5.0.",
         "shot_tabs": [
-            ("01", "Modern Cam", "ayaz-masaustu.png",
-             "Ayaz DE 4.7 masaüstü: açık Başlat menüsü, unboxed masaüstü simgeleri ve koyu cam görev çubuğu",
-             "Ayaz DE 4.7 Modern Cam Mimarisi", "Modern Grafit · ~450 MB RAM · Unboxed Simgeler"),
-            ("02", "Yüz 2 · Bakır", "ayaz-bakir.jpg",
-             "Ayaz DE Yüz 2 Bakır: IBM Plex Sans ve Mono, üst durum paneli (çalışma alanları ve kapsül saat), altta yüzen bakır dock",
-             "Yüz 2 · Bakır Mimarisi", "IBM Plex · Üst durum paneli ve yüzen bakır dock"),
-            ("03", "Yüz 3 · Bostan", "ayaz-bostan.jpg",
-             "Ayaz DE Yüz 3 Bostan: Newsreader ve Figtree, sağ üstte dev serif saat, solda dikey simgeler ve yeşil kapsül dock",
-             "Yüz 3 · Bostan Mimarisi", "Newsreader & Figtree · 92px dev serif saat ve sıcak kart pencereler"),
-            ("04", "Yüz 8 · Cıvata", "ayaz-civata.jpg",
-             "Ayaz DE Yüz 8 Cıvata: Bricolage Grotesque ve Instrument Sans, limon aksanlı 30px üst siyah çubuk ve docksız mimari",
-             "Yüz 8 · Cıvata Mimarisi", "Bricolage Grotesque · 120px display saat ve limon aksanlı teknik panel"),
-            ("05", "Arayüz Yüzü & Ayarlar", "ankora-temalar.jpg",
-             "Sistem Ayarları: Varsayılan Cam, Bakır, Bostan ve Cıvata arayüz mimarileri arasında tek tıkla geçiş",
-             "Arayüz Mimarisi ve Tema Seçici", "4 arayüz mimarisi ve 14 sistem teması tek tıkla değişir"),
+            ("01", "Yüz 3: Bostan", "bostan", "ayaz-bostan.png",
+             "AyazDE 5.0 varsayılan Bostan masaüstü, Ankora AI ve USB Yazıcı ekran görüntüsü",
+             "Yüz 3: Bostan (Varsayılan)", "Açık keten adaçayı yüzeyi, kapsül dock ve Ankora AI balonu"),
+            ("02", "Yüz 2: Bakır", "bakir", "ayaz-bakir.png",
+             "AyazDE 5.0 Bakır tema masaüstü, Yazılım Merkezi ve Ankora AI ekran görüntüsü",
+             "Yüz 2: Bakır", "Sıcak grafit zemin, bakır vurgu ve üst panel"),
+            ("03", "Yüz 8: Cıvata", "civata", "ayaz-civata.png",
+             "AyazDE 5.0 Cıvata tema masaüstü, Sistem Ayarları ve AI balonu ekran görüntüsü",
+             "Yüz 8: Cıvata", "Teknik çizim kâğıdı, siyah çerçeve ve alt şerit"),
+            ("04", "Yüz 1: Arduvaz", "arduvaz", "ayaz-arduvaz.png",
+             "AyazDE 5.0 Arduvaz tema masaüstü, Dosyalar ve Ankora Report ekran görüntüsü",
+             "Yüz 1: Arduvaz", "Sol hizalı 38 px bar, çalışma alanları ve terakota vurgu"),
+            ("05", "559 Paketli Mağaza", "bostan", "ankora-magaza.png",
+             "Ankora Yazılım Merkezi ve Sistem Kurulum aracı ekran görüntüsü",
+             "Yazılım Merkezi ve Kurulum", "Devuan APT, Flathub ve Resmî Ankora havuzu"),
         ],
         "specs": [
-            ("~450 MB", "Boşta bellek kullanımı (ZRAM + Eco RAM)"),
-            ("18", "Yerleşik Ayaz DE masaüstü penceresi"),
-            ("14", "Tam sistem tema paketi"),
-            ("559", "Yazılım mağazası paketi ve ETAP aracı"),
+            ("~750 MB", "Boşta bellek hedefi ve ZRAM"),
+            ("20", "Yerleşik Tauri 2.0 penceresi"),
+            ("24 + 4", "Tema ve dört çekirdek yüz"),
+            ("559", "Doğrulanmış mağaza paketi"),
         ],
-        "why_eyebrow": "Neden Ankora 4.7", "why_h2": "Düşük bellekli bilgisayarlar ve günlük kullanım için üretildi",
+        "why_eyebrow": "Ankora 5.0 Mimarisi", "why_h2": "Hafiflik, öngörülebilirlik ve bütüncül Türkçe tasarım",
         "cards3": [
-            ("Hafif, ZRAM ve Eco RAM kipi", "Masaüstü boştayken yaklaşık 450 MB bellek kullanır. ZRAM sıkıştırma ve 4 GB altı bilgisayarlarda otomatik açılan Eco RAM kipi sayesinde bellek baskısı minimumda kalır."),
-            ("Baştan sona Türkçe", "Kurulum sihirbazından 18 yerleşik pencereye, yerel AI sistem doktorundan ETAP akıllı tahta araçlarına kadar her yer Türkçedir. İngilizce terim aramak zorunda kalmazsınız."),
-            ("Kolay kurulum ve bakım", "ISO dosyasını USB belleğe yazıp başlatmanız yeterlidir. Yerleşik USB ve ISO yazıcı, Başlat menüsü düzenleyici ve tek düğmeli Ayaz Güncelleyici uçbirim ihtiyacını ortadan kaldırır."),
+            ("Tauri 2.0 + Rust (/usr/bin/ayaz-de)", "Panel, dosyalar ve mağaza tek ikilide çalışır; kapalı pencereler 30 sn sonra bellekten silinir."),
+            ("Dört yüz ve Ankora AI balonu", "Bostan açılışta gelir; tek tıkla Bakır, Cıvata, Arduvaz veya 4.7 Klasik seçilir."),
+            ("Okul tahtaları ve çevre birimleri", "Faz 1/2/3 tahtalar için eta-touchdrv, Meb sertifikası ve yazıcı/tarayıcı hazır gelir."),
         ],
-        "inside_eyebrow": "İçinde neler var", "inside_h2": "Kurduğunuz anda kullanmaya başlarsınız",
-        "inside_lede": "Ayrı ayrı program aramanız gerekmez. Günlük işler, okul tahtaları ve ofis belgeleri için gereken araçlar Ayaz DE 4.7 içinde hazır gelir.",
+        "inside_eyebrow": "Sistem İçeriği", "inside_h2": "Kurduğunuz anda günlük işe hazır",
+        "inside_lede": "Günlük işler, geliştirme ve sınıf donanımı AyazDE 5.0 içine entegredir.",
         "inside": [
-            "Web tarayıcı (Ayaz ve Brave) ile üst menü çubuklu, otomatik USB bağlamalı Dosyalar yöneticisi",
-            "559 paketli Yazılım Mağazası (MEB Sertifikası, Scratch, GCompris, GeoGebra ve ETAP araçları dahil)",
-            "14 tam sistem teması (Çınar, Meltem, Kor, Dem, Boğaz, Ayna dahil), 15 duvar kağıdı ve 8 ikon seti",
-            "Ankora AI Sistem Asistanı (yerel Ollama veya kendi API anahtarınızla, tek kullanımlık jeton onaylı)",
-            "Yerleşik USB ve ISO yazıcı, Başlat menüsü düzenleyici, PDF/belge görüntüleyici ve Ankora Ofis",
-            "Tek düğmeli Ayaz Güncelleyici, CUPS/SANE yazıcı-tarayıcı desteği ve ankora-doctor sağlık taraması",
+            "Dosyalar yöneticisi, grafik .deb/.AppImage kurucu ve tarayıcılar",
+            "Devuan APT, Flathub ve Resmî havuzlu 559 paketli Yazılım Merkezi",
+            "Yerel Ollama veya bulut uçlu beyaz liste denetimli Ankora AI",
+            "Geri dönüşlü güncelleyici, USB diski kilidi ve pkexec onayı",
         ],
-        "inside_alt": "Ankora Linux 4.7 Yazılım Mağazası ve Sistem Dağıtım Bilgisi pencereleri",
-        "step_eyebrow": "Kurulum", "step_h2": "Üç adımda hazır",
-        "steps3": [("İndirin", "ISO dosyasını indirin. Yanında doğrulama dosyası da bulunur."),
-                   ("USB belleğe yazın", "Ücretsiz bir programla ISO'yu boş bir USB belleğe yazın."),
-                   ("Başlatın ve kurun", "Bilgisayarı USB'den açın, kurulum sihirbazı gerisini anlatır.")],
-        "faq_eyebrow": "Sık sorulan sorular", "faq_h2": "Merak edilenler",
-        "faq4": [("Ankora Linux nedir?", "Ücretsiz ve Türkçe bir işletim sistemidir. Devuan 5.0 Daedalus (SysVinit) üzerine kuruludur ve kendi masaüstü ortamı Ayaz DE 4.7 ile birlikte gelir."),
-                 ("Eski bir bilgisayarda çalışır mı?", "Evet. Boştayken yaklaşık 450 MB bellek kullanır, ZRAM ve 4 GB altı bellekte Eco RAM kipini otomatik açar. 2 GB bellekli dizüstü bilgisayarlarda rahat çalışır."),
-                 ("Ücretli mi?", "Hayır, tamamen ücretsizdir. Kaynak kodu GPL-3.0 lisansıyla açıktır."),
-                 ("Nasıl kurulur?", "ISO dosyasını bir USB belleğe yazıp bilgisayarı ondan başlatın. Kurulum sihirbazı adım adım yönlendirir.")],
+        "inside_alt": "Ankora Linux 5.0 Yazılım Merkezi ve Sistem Kurulum sihirbazı",
+        "step_eyebrow": "Kurulum", "step_h2": "Üç adımda kullanıma hazır",
+        "steps3": [("İndirin", "GitHub Releases üzerinden ISO ve SHA256SUMS dosyalarını alın."),
+                   ("USB belleğe yazın", "Doğruladıktan sonra çıkarılabilir USB diske yazın."),
+                   ("Başlatın veya yükseltin", "USB’den kurun; 4.7.x sistemlerde .deb ile yükselir.")],
+        "faq_eyebrow": "Sık sorulan sorular", "faq_h2": "Temel sorular",
+        "faq4": [("Ankora Linux 5.0 nedir?", "Devuan 6 Excalibur (SysVinit) ve Linux 6.12 LTS üzerinde ücretsiz Türkçe masaüstü."),
+                 ("Eski bilgisayarlarda çalışır mı?", "Boşta ~750 MB hedefler; 4 GB altında zstd/lz4 ZRAM açar."),
+                 ("Ücretli midir?", "Hayır. GPL-3.0 lisansıyla tamamen ücretsiz ve açık kaynaklıdır."),
+                 ("4.7.x’ten yükselir mi?", "Evet, .deb paketiyle yükselir; 4.6.x için temiz ISO gerekir.")],
         "all_q": "Tüm sorular",
-        "cmp_eyebrow": "Boşta bellek",
-        "cmp_h2": "Popüler dağıtımlarla karşılaştırma",
-        "cmp_lede": "Masaüstü boştaki bellek kullanımı. Ankora ölçümü kurulu sistemde free -m ile alındı; diğer değerler sitede belirtilen kaynaklardan.",
-        "cmp_head": ("Dağıtım", "Boşta bellek"),
-        "cmp_rows": [("Ankora Linux 4.7 (Ayaz DE)", "~450 MB"),
+        "cmp_eyebrow": "Bellek karşılaştırması",
+        "cmp_h2": "Popüler dağıtımlarla boşta bellek hedefi",
+        "cmp_lede": "Ankora 5.0 systemd barındırmaz; SysVinit ve tembel DOM bellek temizliğiyle arka plan yükünü düşük tutar.",
+        "cmp_head": ("Dağıtım", "Boşta RAM"),
+        "cmp_rows": [("Ankora Linux 5.0 (AyazDE)", "~750 MB"),
                      ("Ubuntu 24.04 (GNOME)", "830 MB"),
                      ("Linux Mint 22.1 (Cinnamon)", "888 MB"),
                      ("Xubuntu 24.04 (Xfce)", "668 MB"),
-                     ("Lubuntu 24.04 (LXQt)", "464 MB"),
-                     ("Debian 12 (GNOME)", "1 GB'nin üzerinde")],
-        "cmp_note": "Ankora: 4.7.0 ZRAM ve servis optimizasyonu sonrası kurulu sistemde free -m çıktısı (Kasım 2026). Diğer: Android Authority, Ekim 2024 ölçümleri; Mint için bağımsız inceleme (888 MB). Donanım, sürüm ve yöntem farklıdır; değerler yaklaşıktır.",
-        "f_h1": "Ankora Linux 4.7 özellikleri",
-        "f_lede": "Ayaz DE 4.7; 18 yerleşik masaüstü penceresi, 14 tam sistem teması, 559 paketli yazılım mağazası, ZRAM ve Eco RAM kipini hafif bir WebKitGTK ve Rust Tauri çekirdeğinde birleştirir.",
-        "f_hl_eyebrow": "Bir bakışta", "f_hl_h2": "4.7 sürümünde öne çıkanlar",
-        "f_cards": [("ZRAM, Eco RAM kipi ve ~450 MB bellek", "Gereksiz servis yüklerini temizler, ZRAM sıkıştırma ile düşük RAM tüketimi sağlar ve 4 GB altı sistemlerde kapatılan pencereleri 30 saniye sonra DOM'dan ayırır."),
-                    ("Baştan sona Türkçe", "Kurulum sihirbazı, masaüstü, dosya yöneticisi, AI sistem asistanı ve tüm ayarlar tamamen Türkçedir."),
-                    ("18 yerleşik pencere", "Dosyalar, tarayıcı, Ankora Ofis, PDF görüntüleyici, hesap makinesi, USB/ISO yazıcı ve menü düzenleyici kurulu gelir."),
-                    ("559 paket, CUPS/SANE ve ETAP desteği", "Yazılım mağazasında günlük uygulamaların yanında MEB Sertifikası, Scratch, GCompris, GeoGebra, yazıcı/tarayıcı altyapısı ve akıllı tahta dokunmatik sürücüsü bulunur."),
-                    ("14 tam sistem teması", "Tek seçimle pencere yüzeyleri, görev çubuğu, duvar kağıdı, ikon seti ve vurgu rengi birlikte değişir."),
-                    ("Ankora AI ve tek tıkla güncelleme", "Yerel Ollama veya çoklu model API desteğiyle sistem teşhisi yapar; sistem eylemlerinde tek kullanımlık güvenlik jetonu ister.")],
-        "f_themes_eyebrow": "14 sistem teması", "f_themes_h2": "Tek seçimle tüm masaüstü kimliği değişir",
-        "f_themes_lede": "Ayaz DE 4.7 içinde her tema paketi görev çubuğunu, pencere renklerini, duvar kağıdını ve simge paketini bir bütün olarak günceller.",
-        "f_apps_eyebrow": "Uygulamalar", "f_apps_h2": "Kurulu gelen 18 yerleşik araç",
-        "f_apps_lede": "Temel işler için ayrı ayrı paket aramanız gerekmez.",
-        "f_apps": ["Web tarayıcı (Ayaz ve Brave)", "Üst menü çubuklu ve otomatik USB bağlamalı Dosyalar yöneticisi", "Belge, PDF ve fotoğraf görüntüleyici",
-                   "Ankora Ofis ve not defteri", "Hesap makinesi ve ekran görüntüsü aracı", "USB ve ISO yazıcı / biçimlendirici",
-                   "Yazılım mağazası (559 paket)", "Ankora AI Sistem Asistanı", "Sistem ayarları, Ayaz Güncelleyici ve görev yöneticisi"],
-        "f_apps_alt": "Ankora Linux 4.7 Dosyalar yöneticisi ve Ayaz Güncelleyici pencereleri",
-        "f_cta_h2": "Ankora Linux 4.7'yı denemek ister misiniz?", "f_cta_lede": "Kurulum bir USB bellek ve birkaç adımdan ibaret.",
-        "i_h1": "İndir ve kur",
-        "i_lede": "Bir USB bellek ve birkaç dakika yeterli. Zaten Linux kullanıyorsanız uçbirimden doğrulayıp yazdırabilirsiniz.",
-        "i_dl": "Ankora Linux 4.7 sürümlerini aç", "i_src": "Kaynak kodu",
-        "i_req_eyebrow": "Gereksinimler", "i_req_h2": "Neye ihtiyacınız var?",
-        "i_req": ["64 bit (amd64) işlemci", "En az 2 GB bellek (4 GB altı sistemlerde Eco RAM kipi otomatik açılır)",
-                  "ISO için boş bir USB bellek (en az 4 GB)", "İnternet bağlantısı (indirme için)"],
-        "i_step_eyebrow": "Kurulum", "i_step_h2": "Üç adımda hazır",
-        "i_steps": [("İndirin", "Sürümler sayfasından ISO dosyasını ve yanındaki SHA-256 doğrulama dosyasını indirin."),
-                    ("USB belleğe yazın", "Ankora USB Yazıcı, BalenaEtcher veya Rufus gibi ücretsiz bir programla ISO'yu boş bir USB belleğe yazın."),
-                    ("Başlatın ve kurun", "Bilgisayarı USB'den başlatın. Kurulum sihirbazı adım adım ilerler ve sonunda sistem yeniden başlar.")],
-        "i_cli_eyebrow": "Komut satırı", "i_cli_h2": "Terminalden yapmak isterseniz",
-        "i_note_b": "Dikkat", "i_note_p": "/dev/sdX yolunu kendiniz doğrulayın. Yanlış sürücü seçilirse o diskin içeriği silinir.",
-        "s_h1": "Ankora Linux 4.7 güvenlik mimarisi",
-        "s_lede": "Ankora Linux 4.7, arayüz ile sistem çekirdeğini birbirinden ayırır. Rust ile yazılmış 137 Tauri IPC komutu her işlemi sabit izin listelerine göre denetler.",
-        "s_core_eyebrow": "Üç temel koruma", "s_core_h2": "Bu, sizin için ne anlama geliyor?",
-        "s_cards": [("Programlar kafasına göre iş yapamaz", "Yerleşik uçbirim yalnızca izin verilen 31 komutu ve 26 yardımcı aracı çalıştırır; 59 tehlikeli ikili dosyanın doğrudan başlatılması engellenir."),
-                    ("Güncellemeler ve AI eylemleri doğrulanır", "Paket ve sistem güncellemeleri izole yardımcı betiklerle kontrol edilir; AI ajanının 15 sistem eylemi tek kullanımlık güvenlik jetonu olmadan çalışmaz."),
-                    ("Kişisel dosyalarınız korunur", "Belge görüntüleyici yalnızca 20 güvenli dosya uzantısını kabul eder; parola, anahtar ve gölge dosyaları içeren 17 hassas dosya deseni engellenir.")],
-        "s_tech_eyebrow": "Kaynak kodda doğrulanabilir", "s_tech_h2": "Rust çekirdeğinde (main.rs) uygulanan sınırlar",
+                     ("Debian 12 (GNOME)", "1 GB üzeri")],
+        "cmp_note": "Ankora 5.0: Tauri 2.0 ve Devuan 6 Excalibur geçişi sonrası sistem boşta bellek hedefi (~750 MB). Diğer dağıtımlar Android Authority Ekim 2024 ve Mint bağımsız ölçümüdür.",
+        "f_h1": "Ankora Linux 5.0 Özellikleri",
+        "f_lede": "AyazDE 5.0; 20 pencere, dört yüz ve Ankora AI’yı tek çekirdekte birleştirir.",
+        "f_hl_eyebrow": "5.0 Yenilikleri", "f_hl_h2": "Sürümde öne çıkan altı başlık",
+        "f_cards": [("Varsayılan Bostan ve Dörtlü Yüz", "Bostan varsayılan açılır; Bakır, Cıvata, Arduvaz ve 4.7 Klasik seçilebilir."),
+                    ("Ankora AI Balonu ve 4 Mod", "Son 6 turla yerel Ollama veya bulut API’sine güvenli bağlanır."),
+                    ("Tauri 2.0 ve WebKitGTK 4.1", "30 saniyede DOM boşaltma ve bwrap destekli yalıtılmış webview."),
+                    ("559 Paket ve Okul Altyapısı", "APT, Flathub ve Resmî depo yanında tahta sürücüleri hazır gelir."),
+                    ("24 Sistem Teması ve Ada", "19 duvar kâğıdı ve üst ekranda medya/bellek kapsülü sunar."),
+                    ("Geri Dönüşlü Güncelleyici", "SHA-256 ve GPG doğrular; hatada önceki ikiliye otomatik döner.")],
+        "f_themes_eyebrow": "4 Çekirdek Yüz ve 24 Tema", "f_themes_h2": "Tutarlı renk ve çizgi mimarisi",
+        "f_themes_lede": "Yukarıdaki tema seçiciden Bostan, Bakır, Cıvata veya Arduvaz’ı canlı deneyin.",
+        "f_apps_eyebrow": "Yerleşik Araçlar", "f_apps_h2": "Kutudan çıkan 20 pencere",
+        "f_apps_lede": "Günlük işler için ek kurulum gerekmez.",
+        "f_apps": ["Dosyalar yöneticisi ve grafik .deb/.AppImage kurucu", "559 paketli Ankora Yazılım Merkezi", "Ankora AI asistanı ve köşe balonu",
+                   "USB/ISO yazıcı ve Ankora Report", "Geri dönüşlü Ayaz Güncelleyici", "Sistem ayarları, Wi-Fi, Bluetooth ve ses"],
+        "f_apps_alt": "Ankora Linux 5.0 Yazılım Merkezi ve Sistem Kurulum penceresi",
+        "f_cta_h2": "Ankora Linux 5.0’ı kurmaya hazır mısınız?", "f_cta_lede": "Temiz ISO edinin veya 4.7.x sisteminizi güncelleyin.",
+        "i_h1": "İndir ve Kur",
+        "i_lede": "Yeni kurulum için ISO imajı, mevcut 4.7.x sistemler için .deb yükseltmesi ve isteğe bağlı yerel Ollama kurulumu.",
+        "i_dl": "GitHub Sürümlerini Aç", "i_src": "Kaynak Kodunu İncele",
+        "i_req_eyebrow": "Donanım Profili", "i_req_h2": "Sistem Gereksinimleri",
+        "i_req": ["64 bit (amd64) işlemci, UEFI veya klasik BIOS desteği", "Canlı oturum için en az 2 GB RAM (günlük kullanım için 4 GB, yerel Ollama için 8 GB+)",
+                  "Kurulum için en az 16 GB disk ve USB bellek (4 GB+)", "Açık kaynak Mesa ve doğrulanmış AMD/Intel çekirdek firmware’i"],
+        "i_step_eyebrow": "Kurulum Adımları", "i_step_h2": "Üç adımda tamamlanır",
+        "i_steps": [("Doğrulanmış İmajı İndirin", "GitHub Releases sayfasından ISO ve SHA256SUMS dosyalarını alın."),
+                    ("Güvenle Yazdırın", "sha256sum ile bütünlüğü kontrol edip yalnızca çıkarılabilir USB sürücüye yazın."),
+                    ("Başlatın ve Kurun", "Bilgisayarı USB’den başlatıp Türkçe kurulum sihirbazını izleyin.")],
+        "i_cli_eyebrow": "Komut Satırı", "i_cli_h2": "Senaryoya göre kurulum komutları",
+        "i_note_b": "Yükseltme Notu", "i_note_p": "4.6.x (Daedalus) tabanından Devuan 6 / Tauri 2.0 tabanlı 5.0 sürümüne geçişte temiz ISO kurulumu gerekir.",
+        "s_h1": "Ankora Linux 5.0 Güvenlik Mimarisi",
+        "s_lede": "148 Tauri IPC komutu arayüzle çekirdeği ayırır. AI ajanının önerdiği komutlar Rust beyaz listesi ve 60 saniyelik onay jetonuyla denetlenir.",
+        "s_core_eyebrow": "Üç Temel Kalkan", "s_core_h2": "Güvenlik nasıl uygulanır?",
+        "s_cards": [("Beyaz Liste Denetimli Uçbirim", "Yerleşik uçbirim yalnızca 33 sabit komuta ve 26 tanı aracına izin verir; 59 tehlikeli sistem/ağ ikilisini engeller."),
+                    ("60 Saniyelik Tek Kullanımlık AI Jetonu", "Ankora AI yalnızca önceden tanımlı 18 eylemi önerebilir ve yürütme öncesinde kullanıcı onaylı SHA-256 jetonu tüketir."),
+                    ("Yalıtılmış Yetki ve Pinned GPG", "Güncelleme, paket kurma ve USB yazma pkexec onayı ister; vendor anahtarları sabitlenmiş GPG parmak iziyle doğrulanır.")],
+        "s_tech_eyebrow": "Rust Çekirdek Sınırları (src-tauri/src/main.rs)", "s_tech_h2": "Kaynak kodda doğrulanabilir ölçüler",
         "s_notes": [
-            "Yerleşik uçbirim yalnızca önceden tanımlı 31 tam komutu ve 26 sistem aracını zincirleme operatörleri olmadan çalıştırır.",
-            "Uygulama başlatıcıda 59 sistem ve ağ ikili dosyası yasaklı listesindedir.",
-            "Ankora AI asistanı yalnızca 15 tanımlı sistem eylemini yürütebilir ve her eylem öncesinde tek kullanımlık güvenlik jetonu doğrulaması ister.",
-            "Belge görüntüleyici yalnızca 20 belge uzantısını açar ve 17 hassas dosya desenine erişimi reddeder.",
-            "Arayüz ile sistem arasındaki köprü 137 Tauri IPC komutu ve 13 otomatik Rust birim testi ile denetlenir.",
+            "EXACT_ALLOWED_COMMANDS içinde 33 sabit komut ve ALLOWED_UTILITIES içinde 26 yardımcı araç izin listesinde tutulur.",
+            "FORBIDDEN_LAUNCH_BINARIES listesi 59 ağ ve yönetim ikilisinin doğrudan başlatılmasını engeller.",
+            "ALLOWED_AGENT_ACTIONS listesi 18 izinli AI eylemiyle sınırlıdır ve her biri 60 saniyelik tek kullanımlık jeton gerektirir.",
+            "Belge görüntüleyici 20 güvenli uzantıyı açar ve 19 hassas dosya desenine (.vault_secret dahil) erişimi reddeder.",
+            "148 Tauri IPC komutu, 19 Rust birim testi ve bwrap WebKit sandbox’ı arayüz köprüsünü korur.",
         ],
-        "s_vuln": "Bir açık mı buldunuz? Herkese açık kayıt açmadan {mail} adresine yazın. Raporlar 48 saat içinde yanıtlanır.",
-        "c_h1": "Sürümler", "c_lede": "Ankora Linux'un bugüne kadarki sürümleri. Güncel 4.7 sürümü en üstte yer alır.",
-        "c_dl": "4.7 sürümünü indir",
-        "c_rows": [("4.7", "AyazDE", "Güncel sürüm: 559 paketli yazılım mağazası (Oyun ve Yardımcılar kategorisi, doğrulanmış Devuan APT ve Flathub kataloğu), 60 FPS akıcı pencere taşıma, APT ve mağaza polkit yetki onarımı, otomatik .tar.zst Ollama kurucusu, X11 VT oturum kilidi ve tek tıkla Ayaz Güncelleyici doğrulaması."),
-                   ("4.7", "AyazDE", "Ultra düşük RAM optimizasyonu (~450 MB boşta, ZRAM ve servis temizliği), __KEEP_559__ paketli mağaza ve Ayaz Güncelleyici polkit yetki düzeltmeleri, masaüstü saat senkronizasyonu, bildirim temizleme kararlılığı, tema menü kontrastı ve 4.6.0 sistem bilgisi."),
-                   ("4.0", "AyazDE", "29 Ekim Cumhuriyet Bayramı özel sürüm. Güvenlik sertleştirmeleri (kilit ekranı girişim sınırlayıcı, pano koruması, IPC token), USB başlatma için hibrit ISO doğrulaması, h2 CVE yaması ve Cumhuriyet teması."),
-                   ("3.7", "AyazDE", "Masaüstü kategori klasörleri, canlı hava durumu, modern cam Yazılım Merkezi, görev çubuğu mini AI sohbeti ve vizyon ekran analizi, MEB sertifikası tam temizleme ve .deb sistem güncelleyicisi."),
-                   ("3.6", "AyazDE", "Menü çubuklu Dosyalar yöneticisi, USB/ISO yazıcı ve ETAP akıllı tahta desteği."),
-                   ("3.5", "AyazDE", "4 GB altı bilgisayarlar için Eco RAM kipi, udisks ile otomatik USB bağlama ve kapatılan pencereler için 30 saniyede bellek boşaltma."),
-                   ("3.0", "AyazDE", "Devuan 5.0 Daedalus (SysVinit) üzerinde yeni Rust ve Tauri 1.5 masaüstü çekirdeği."),
-                   ("2.0", "AyazDE", "Masaüstü ortamı Ayaz DE oldu; sistem daha da hafifledi."),
-                   ("02.0", "Zümrüt", "Masaüstü entegrasyonları güncellendi, ayarlar yenilendi."),
-                   ("01.0", "İlk sürüm", "İlk kararlı sürüm. Sade ve telemetrisiz bir temel.")],
-        "c_foot": "Tüm sürümlerin dosyaları GitHub sürümler sayfasında yer alır.",
+        "s_vuln": "Güvenlik açığı bulursanız herkese açık kayıt açmadan {mail} adresine yazın (48 saat içinde yanıtlanır).",
+        "c_h1": "Sürümler ve Değişiklikler", "c_lede": "01.0’dan güncel Ankora Linux 5.0.0 sürümüne kadar gelişim geçmişi.",
+        "c_dl": "5.0.0 Sürümünü İndir",
+        "c_rows": [("5.0.0", "AyazDE 5.0", "Varsayılan Bostan yüzü, dört hizalanmış Anti-Slop masaüstü mimarisi (Bostan, Bakır, Cıvata, Arduvaz) ve korunan 4.7 Klasik; her yüze uyumlu Ankora AI konuşma balonu; son 6 turluk ajan bağlamı; Devuan 6 Excalibur + Linux 6.12 LTS üzerinde 20 pencere kontrast denetimi."),
+                   ("4.7.0", "Bora", "Devuan 6.0 Excalibur ve Tauri 2.0 (WebKitGTK 4.1) geçişi, tek ikili /usr/bin/ayaz-de, geri dönüşlü (rollback) sertleştirilmiş güncelleyici, 4 yeni fotoğraf duvar kâğıdı, sabit GPG parmak izi doğrulaması ve QEMU BIOS/UEFI CI."),
+                   ("4.6.0", "Karayel", "ZRAM bellek sıkıştırma iyileştirmesi, 559 paketli mağaza kataloğu, polkit düzeltmeleri, senkronize saat widget’ı ve açık tema kontrast onarımları."),
+                   ("4.0", "AyazDE", "29 Ekim sürümü: kilit ekranı hız sınırlayıcı, pano koruması, hibrit ISO doğrulama ve Cumhuriyet teması."),
+                   ("3.7", "AyazDE", "Masaüstü kategori klasörleri, canlı hava durumu, temiz MEB sertifika kaldırıcı ve .deb güncelleyici."),
+                   ("3.6", "AyazDE", "Menü çubuklu Dosyalar yöneticisi, USB/ISO yazıcı ve ETAP akıllı tahta sürücüleri."),
+                   ("3.5", "AyazDE", "4 GB altında Eco RAM kipi, udisks otomatik bağlama ve 30 sn DOM bellek boşaltma."),
+                   ("3.0", "AyazDE", "SysVinit üzerinde ilk Rust ve Tauri 1.5 masaüstü çekirdeği."),
+                   ("2.0", "AyazDE", "AyazDE masaüstü ortamının doğuşu ve sadeleşme."),
+                   ("01.0", "İlk Sürüm", "Telemetrisiz, sade temel masaüstü.")],
+        "c_foot": "Tüm sürüm arşivleri ve SHA256SUMS dosyaları GitHub Releases sayfasında barınır.",
         "row_go": "indir",
-        "q_h1": "Sık sorulan sorular",
-        "q_lede": "Aradığınızı bulamazsanız iletişim sayfasına bakın.",
-        "q_qas": [("Ankora Linux nedir?", "Ücretsiz ve Türkçe bir işletim sistemidir. Devuan 5.0 Daedalus üzerine kuruludur ve kendi masaüstü ortamı Ayaz DE 4.7 ile birlikte gelir."),
-                  ("Eski bir bilgisayarda çalışır mı?", "Evet. Boştayken yaklaşık 450 MB bellek kullanır, ZRAM ve 4 GB altı belleğe sahip makinelerde Eco RAM kipini otomatik açar. 2 GB bellekli dizüstü bilgisayarlarda rahat çalışır; 1 GB bellekli çok eski makineler için önerilmez."),
-                  ("Diskimi silmeden deneyebilir miyim?", "Evet. ISO'yu USB belleğe yazıp açtığınızda diskteki sisteminize dokunulmaz. Denemek için güvenli bir yoldur."),
-                  ("Nasıl kurulur?", "ISO dosyasını bir USB belleğe yazıp bilgisayarı ondan başlatın. Kurulum sihirbazı adım adım yönlendirir. Ayrıntılar indir sayfasında."),
-                  ("Ücretli mi?", "Hayır, tamamen ücretsizdir. Kaynak kodu GPL-3.0 lisansıyla açıktır, dilediğiniz gibi inceleyip değiştirebilirsiniz."),
-                  ("Güncellemeler nasıl geliyor?", "Güncellemeler Ayaz Güncelleyici üzerinden doğrulanmış Ankora ve Devuan depolarından gelir. Her paketin bütünlüğü kontrol edilir."),
-                  ("Arayüz dili nedir?", "Arayüz tamamen Türkçedir. Klavye düzeni olarak Türkçe, İngilizce, Almanca, Fransızca ve İngiliz (GB) arasından seçim yapabilirsiniz."),
-                  ("Nasıl katkı yapabilirim?", "GitHub deposunu çatallayıp çekme isteği gönderebilir, ya da forumda soru ve öneri paylaşabilirsiniz.")],
-        "q_forum": "Forumda sorun", "q_contact": "İletişim",
-        "k_h1": "İletişim",
-        "k_lede": "Sorunuzun türüne göre doğru kanalı seçin. Forum genel sorular için en hızlı yer.",
-        "k_rows": [("Ankora Lab forumu", "kurulum, ayar, kullanım", "foruma git"),
-                   ("Proje e-postası", MAIL, "e-posta gönder"),
-                   ("Hata bildir", "github.com/Ankora-Linux/Ankora", "kayıt aç"),
-                   ("Güvenlik açığı", SECMAIL, "e-posta gönder")],
-        "k_bug_eyebrow": "Hata bildirirken", "k_bug_h2": "Şunları eklerseniz hızlı yardım alırsınız",
-        "k_items": ["Sürüm bilgisi (Ankora Linux 4.7)", "Hatanın oluştuğu adımlar",
-                    "Varsa hata çıktısı", "İşlemci ve bellek bilgisi"],
+        "q_h1": "Sık Sorulan Sorular", "q_lede": "Yanıtı bulamazsanız iletişim sayfasından foruma ulaşabilirsiniz:",
+        "q_qas": [("Ankora Linux 5.0 nedir?", "Devuan 6.0 Excalibur ve Linux 6.12 LTS üzerinde çalışan, systemd içermeyen Türkçe bir masaüstü dağıtımıdır."),
+                  ("Eski bilgisayarda çalışır mı?", "Evet. Boşta ~750 MB bellek hedefler ve 4 GB altında ZRAM (zstd/lz4) otomatik etkinleşir."),
+                  ("Diskimi silmeden deneyebilir miyim?", "Evet. ISO dosyasını USB belleğe yazıp başlattığınızda sabit diskinize dokunulmaz."),
+                  ("4.7.x’ten 5.0’a nasıl yükseltilir?", "Ayaz Güncelleyici veya ayaz-de-latest-amd64.deb paketiyle sürüm içi geçiş yapılır; 4.6.x için temiz ISO gerekir."),
+                  ("Klavye dilleri nelerdir?", "Sistem arayüzü Türkçedir; klavyede Türkçe, İngilizce, Almanca, Fransızca ve İngiliz (GB) seçilebilir."),
+                  ("Ankora AI istediği komutu çalıştırabilir mi?", "Hayır. Yalnızca Rust çekirdeğindeki 18 izinli eylem ve 33 sabit komut kullanıcı onayıyla çalışır.")],
+        "q_forum": "Forumda Sor", "q_contact": "İletişim",
+        "k_h1": "İletişim", "k_lede": "Kullanım soruları için Ankora Lab forumu, hata kayıtları için GitHub, güvenlik için e-posta.",
+        "k_rows": [("Ankora Lab Forumu", "ankalab.flarum.cloud", "foruma git"),
+                   ("Proje E-postası", MAIL, "e-posta gönder"),
+                   ("Hata Bildirimi", "github.com/Ankora-Linux/Ankora", "kayıt aç"),
+                   ("Güvenlik Bildirimi", SECMAIL, "e-posta gönder")],
+        "k_bug_eyebrow": "Hata Bildirimi", "k_bug_h2": "Daha hızlı çözüm için şunları ekleyin",
+        "k_items": ["Ankora sürümü (örn. 5.0.0) ve aktif masaüstü yüzü", "Ankora Report Markdown çıktısı veya hata günlüğü",
+                    "Hatayı yeniden oluşturma adımları", "İşlemci ve RAM bilgisi (HARDWARE.md geri bildirimi dahil)"],
+        "ai_lab": {
+            "title": "Etkileşimli AI ve Mağaza Denetimi",
+            "subtitle": "Rust komut beyaz listesini canlı sınayın ve 559 paketlik mağaza kataloğundan öne çıkanları filtreleyin.",
+            "modes_h": "Dört AI Çalışma Modu",
+            "modes_p": "Yerel Ollama (127.0.0.1:11434), Gemini 2.5 Flash, OpenAI, Groq veya OpenRouter uçlarına son 6 konuşma turunu aktarır.",
+            "modes": [
+                ("teftis", "Teftiş", "Sistem Teftiş", "Canlı RAM, CPU yükü ve disk verisiyle yalnızca izinli tanı eylemleri önerir.", "Mod: Sistem Teftiş\nBağlam: son 6 konuşma turu + canlı telemetri\nÖneri: df -h / && free -m"),
+                ("doktor", "Doktor", "Sistem Doktoru", "ZRAM sıkıştırmasını ve ağ arabirimlerini ankora-doctor betiğiyle tarar.", "Mod: Sistem Doktoru\nKontrol: /etc/init.d/zram-swap (zstd > lz4)\nEylem: /usr/local/bin/ankora-doctor"),
+                ("dev", "Geliştirici", "Geliştirici Asistanı", "Yerel proje günlüklerini salt okunur denetim komutlarıyla analiz eder.", "Mod: Geliştirici\nKapı: is_terminal_command_permitted()\nKorumalı: .vault_secret"),
+                ("ajan", "Ajan", "Masaüstü Ajanı", "Türkçe komutlarla uygulama açar, yüz değiştirir veya mağaza kurulum planı üretir.", "“Bakır yüzüne geç” -> Yüz 2 Bakır\n“VLC kur” -> Mağaza kurulum planı\n“Terminali aç” -> Uçbirimi açar"),
+            ],
+            "tester_h": "Canlı Komut Güvenlik Denetleyicisi",
+            "tester_p": "is_terminal_command_permitted() ve ALLOWED_AGENT_ACTIONS kapısını simüle eder.",
+            "tester_lbl": "Denetlenecek sistem komutu",
+            "tester_btn": "Denetle",
+            "ok_msg": "ONAYLANDI: “{cmd}” Rust beyaz listesinde; 60 sn tek kullanımlık jeton üretilir.",
+            "deny_msg": "REDDEDİLDİ: “{cmd}” EXACT_ALLOWED_COMMANDS ve ALLOWED_AGENT_ACTIONS dışında.",
+            "store_h": "559 Paketlik Mağazadan Örnekler",
+            "store_ph": "Paket ara (örn. Fatih, Code, VLC)…",
+            "store_all": "Tümü", "store_official": "Resmî Ankora", "store_apt": "Devuan APT", "store_flat": "Flathub",
+            "store_cols": ("Uygulama", "Kategori", "Kaynak"),
+            "store_empty": "Eşleşen örnek paket bulunamadı.",
+        },
+        "dl_tabs": [
+            ("iso", "ISO Kurulum", "# GitHub Releases sayfasından ISO ve SHA256SUMS indirip doğrulayın:\nsha256sum -c SHA256SUMS --ignore-missing\nlsblk -o NAME,SIZE,TRAN,RM", "Yeni kurulumlar ve 4.6.x (Daedalus) tabanından geçiş için önerilir."),
+            ("deb", "4.7.x -> 5.0 Yükseltme", "# Mevcut 4.7.x sistemleri Resmî .deb paketiyle 5.0’a geçirin:\nsha256sum -c ayaz-de-latest-amd64.deb.sha256\nsudo apt install ./ayaz-de-latest-amd64.deb", "Kurulum hatasında ayaz-update-helper önceki yedeğe otomatik döner."),
+            ("ai", "Yerel AI (Ollama)", "# Yerel Ollama kurucusu (8 GB+ RAM önerilir):\nsudo /usr/local/bin/ankora-ollama-install", "Kurulumdan sonra sağ alttaki Ankora AI balonu 127.0.0.1:11434 adresine bağlanır."),
+        ],
     },
     "en": {
-        "m_home": ("Ankora Linux 4.7: Bring your old computer back to life",
-                   "Ankora Linux 4.7 is a free Turkish operating system built on Devuan 5.0 Daedalus with Ayaz DE 4.7, ZRAM and Eco RAM mode, 14 system themes, and 559 store packages."),
-        "m_features": ("Features · Ankora Linux 4.7",
-                       "What you can do with Ankora Linux 4.7: 18 built-in windows, 14 full-system themes, ZRAM and Eco RAM mode, local Ankora AI assistant, 559 store packages, and one-button updates."),
-        "m_install": ("Download and install · Ankora Linux 4.7",
-                      "Download and install Ankora Linux 4.7. Write it to a USB stick and boot, or verify and flash from the terminal."),
-        "m_security": ("Security · Ankora Linux 4.7",
-                       "How Ankora Linux 4.7 protects you: 31 allowed terminal commands, 59 blocked binaries, 15 one-time-token AI actions, and verified updates."),
-        "m_changelog": ("Releases · Ankora Linux 4.7",
-                        "Every Ankora Linux release so far: 4.7, 4.7, 4.0, 3.7, 3.6, 3.5, 3.0, 2.0 AyazDE, 02.0 Zümrüt and 01.0. Download the newest release."),
-        "m_faq": ("Frequently asked questions · Ankora Linux 4.7",
-                  "Common questions about Ankora Linux 4.7: installation, old computers, Eco RAM mode, updates, language and contributing."),
-        "m_contact": ("Contact · Ankora Linux",
-                      "The Ankora Linux community: channels for the forum, project email, bug reports and security disclosures."),
-        "hero_meta": ("Ankora Linux 4.7.0", "Ayaz DE 4.7", "Devuan 5.0 Daedalus", "SysVinit · ~450 MB RAM"),
-        "h1": "Bring your old computer back to life",
-        "lede": "Ankora Linux 4.7 is a clean, Devuan-based Turkish operating system built for everyday users and classrooms. With ZRAM memory compression, Eco RAM mode enabled automatically under 4 GB of RAM, 14 full-system themes, and a 559-package software store, it is ready the moment you boot.",
-        "shot_alt": "Ayaz DE 4.7 desktop: desktop icons and open Start menu on the left, Ankora Welcome window on the right, clock and memory widgets at top right",
+        "m_home": ("Ankora Linux 5.0: Calm, systemd-free Turkish desktop",
+                   "Ankora Linux 5.0 runs AyazDE 5.0 on Devuan 6 Excalibur and Linux 6.12 LTS with four desktop faces, allowlisted Ankora AI, and a 559-package store."),
+        "m_features": ("Features: Ankora Linux 5.0",
+                       "Explore AyazDE 5.0: Bostan, Bakır, Cıvata, and Arduvaz faces, per-face Ankora AI bubble, 559-package store, and FAZ 1/2/3 classroom tools."),
+        "m_install": ("Download and install: Ankora Linux 5.0",
+                      "Install Ankora Linux 5.0 via clean ISO, upgrade in-place from 4.7.x using .deb, or set up local Ollama AI."),
+        "m_security": ("Security: Ankora Linux 5.0",
+                       "Rust security boundaries: 33 exact terminal commands, 59 forbidden binaries, 18 AI actions with one-time tokens, pkexec, and WebKit bwrap sandbox."),
+        "m_changelog": ("Releases: Ankora Linux 5.0",
+                        "Complete release history of Ankora Linux from 01.0 through 5.0.0."),
+        "m_faq": ("Frequently asked questions: Ankora Linux 5.0",
+                  "Answers about Ankora Linux 5.0: hardware, ZRAM, upgrading from 4.7.x, AI guardrails, and contributing."),
+        "m_contact": ("Contact: Ankora Linux",
+                      "Reach the Ankora Linux community via Ankora Lab forum, email, GitHub issues, or security disclosures."),
+        "hero_meta": ("Ankora Linux 5.0.0", "AyazDE 5.0", "Devuan 6 Excalibur", "Linux 6.12 LTS", "~750 MB RAM"),
+        "h1": "Calm, systemd-free Turkish desktop.",
+        "lede": "AyazDE 5.0 built on Devuan 6 Excalibur and Linux 6.12 LTS.",
         "shot_tabs": [
-            ("01", "Modern Glass", "ayaz-masaustu.png",
-             "Ayaz DE 4.7 desktop with open Start menu, unboxed desktop icons, and dark glass taskbar",
-             "Ayaz DE 4.7 Modern Glass Architecture", "Modern Graphite · ~450 MB RAM · Unboxed Icons"),
-            ("02", "Face 2 · Copper", "ayaz-bakir.jpg",
-             "Ayaz DE Face 2 Copper: IBM Plex Sans and Mono, top status panel with workspaces and capsule clock, floating copper dock",
-             "Face 2 · Copper Architecture", "IBM Plex · Top status panel and floating copper dock"),
-            ("03", "Face 3 · Bostan", "ayaz-bostan.jpg",
-             "Ayaz DE Face 3 Bostan: Newsreader and Figtree, giant serif clock, vertical left icons, and green capsule dock",
-             "Face 3 · Bostan Architecture", "Newsreader & Figtree · 92px serif clock and warm paper cards"),
-            ("04", "Face 8 · Bolt", "ayaz-civata.jpg",
-             "Ayaz DE Face 8 Bolt: Bricolage Grotesque and Instrument Sans, lime-accented 30px black top bar, dockless architecture",
-             "Face 8 · Bolt Architecture", "Bricolage Grotesque · 120px display clock and technical panel"),
-            ("05", "Architecture & Themes", "ankora-temalar.jpg",
-             "System Settings: one-click switching between Default Glass, Copper, Bostan, and Bolt desktop architectures",
-             "Desktop Architecture & Theme Picker", "4 architectural faces and 14 system theme bundles"),
+            ("01", "Face 3: Bostan", "bostan", "ayaz-bostan.png",
+             "AyazDE 5.0 default Bostan desktop with Ankora AI and USB Flasher",
+             "Face 3: Bostan (Default)", "Warm sage linen, capsule dock, and Ankora AI bubble"),
+            ("02", "Face 2: Bakır", "bakir", "ayaz-bakir.png",
+             "AyazDE 5.0 Bakır theme desktop with Software Center and Ankora AI bubble",
+             "Face 2: Bakır", "Graphite surfaces, copper accent, and top bar"),
+            ("03", "Face 8: Cıvata", "civata", "ayaz-civata.png",
+             "AyazDE 5.0 Cıvata theme desktop with System Settings and bottom bar",
+             "Face 8: Cıvata", "Drafting paper, sharp ink borders, and bottom strip"),
+            ("04", "Face 1: Arduvaz", "arduvaz", "ayaz-arduvaz.png",
+             "AyazDE 5.0 Arduvaz desktop with Files manager and Ankora Report",
+             "Face 1: Arduvaz", "Left-aligned 38 px taskbar and terracotta focus"),
+            ("05", "559-Package Store", "bostan", "ankora-magaza.png",
+             "Ankora Software Center and graphical system installer",
+             "Store & Installer", "Devuan APT, Flathub, and official Ankora repository"),
         ],
         "specs": [
-            ("~450 MB", "Idle memory usage (ZRAM + Eco RAM)"),
-            ("18", "Built-in Ayaz DE desktop windows"),
-            ("14", "Full-system theme bundles"),
-            ("559", "Curated store packages & ETAP tools"),
+            ("~750 MB", "Idle live memory target with ZRAM"),
+            ("20", "Built-in Tauri 2.0 windows"),
+            ("24 + 4", "System themes and four core faces"),
+            ("559", "Verified store packages"),
         ],
-        "why_eyebrow": "Why Ankora 4.7", "why_h2": "Engineered for modest hardware and daily reliability",
+        "why_eyebrow": "Architecture 5.0", "why_h2": "Built for predictable behaviour and restraint",
         "cards3": [
-            ("Light, ZRAM & Eco RAM mode", "Uses about 450 MB of memory when idle. ZRAM compression and Eco RAM mode under 4 GB of RAM keep background memory pressure low and unmount closed windows after 30 seconds."),
-            ("Turkish throughout", "From the installer to all 18 built-in windows and smartboard classroom packages (ETAP), everything is written in clear Turkish."),
-            ("Easy to install and maintain", "Write the ISO to a USB stick and boot. The built-in USB & ISO flasher, Start menu editor, and one-button Ayaz Updater remove the need for terminal commands."),
+            ("Tauri 2.0 & Rust (/usr/bin/ayaz-de)", "Desktop modules run in a single binary and unmount closed windows from DOM after 30 seconds."),
+            ("Four core faces & AI bubble", "Bostan opens by default; click to pick Bakır, Cıvata, Arduvaz, or 4.7 Classic."),
+            ("Schools & peripherals ready", "Ships with eta-touchdrv, clean MEB cert tools (~/.pki/nssdb), and CUPS/SANE."),
         ],
-        "inside_eyebrow": "What is inside", "inside_h2": "Ready to use from the very first boot",
-        "inside_lede": "You do not have to hunt for basic utilities; everyday tools for home, office, and classrooms are built right into Ayaz DE 4.7.",
+        "inside_eyebrow": "Included", "inside_h2": "Ready for work out of the box",
+        "inside_lede": "Core desktop tools, classroom drivers, and safety checks ship built in.",
         "inside": [
-            "Web browser (Ayaz & Brave) plus File Manager with menu bar and automatic USB drive mounting",
-            "559-package Software Store (including MEB Certificate, Scratch, GCompris, GeoGebra, and ETAP smartboard tools)",
-            "14 full-system theme bundles (including Çınar, Meltem, Kor, Dem, Boğaz, and Ayna), 14 wallpapers, and 8 icon sets",
-            "Ankora AI System Assistant (local Ollama or bring-your-own API key with one-time security token confirmation)",
-            "Built-in USB & ISO Flasher, Start Menu Editor, PDF/document viewer, and Ankora Office notes",
-            "One-button Ayaz Updater, CUPS/SANE printer-scanner support, and ankora-doctor diagnostics",
+            "File Manager with USB automount and .deb/.AppImage installer",
+            "559-package Store merging Devuan APT, Flathub, and official Ankora",
+            "Allowlisted Ankora AI connecting to local Ollama or cloud APIs",
+            "Rollback-safe updater, removable USB guard, and pkexec",
         ],
-        "inside_alt": "Ankora Linux 4.7 Software Store and System Distribution Information windows",
-        "step_eyebrow": "Install", "step_h2": "Ready in three steps",
-        "steps3": [("Download", "Get the ISO file. A verification file sits next to it."),
-                   ("Write it to a USB stick", "Write the ISO to an empty USB stick with a free tool."),
-                   ("Boot and install", "Start the computer from the USB stick. The wizard explains the rest.")],
-        "faq_eyebrow": "FAQ", "faq_h2": "Common questions",
-        "faq4": [("What is Ankora Linux?", "It is a simple Turkish operating system for everyday users. It is built on Devuan 5.0 Daedalus (systemd-free) and comes with its own desktop environment, Ayaz DE 4.7."),
-                 ("Does it run on an old computer?", "Yes. It uses about 450 MB of memory when idle with ZRAM and enables Eco RAM mode automatically under 4 GB of RAM. It runs comfortably on a laptop with 2 GB of memory."),
-                 ("Does it cost anything?", "No, it is completely free and open-source under the GPL-3.0 license."),
-                 ("How do I install it?", "Write the ISO to a USB stick and boot the computer from it. The installer guides you step by step.")],
+        "inside_alt": "Ankora Linux 5.0 Software Store and System Installer",
+        "step_eyebrow": "Setup", "step_h2": "Ready in three steps",
+        "steps3": [("Download", "Fetch ISO and SHA256SUMS from GitHub Releases."),
+                   ("Verify & flash", "Check checksums and write to a removable USB drive."),
+                   ("Boot or upgrade", "Boot from USB, or use the .deb package on 4.7.x.")],
+        "faq_eyebrow": "FAQ", "faq_h2": "Key questions",
+        "faq4": [("What is Ankora Linux 5.0?", "Free Turkish Linux on Devuan 6 Excalibur and Linux 6.12 LTS."),
+                 ("Does it run on old hardware?", "Targets ~750 MB idle RAM and enables ZRAM under 4 GB."),
+                 ("Does it cost anything?", "No. Free and open source under GPL-3.0."),
+                 ("Upgrade from 4.7.x?", "Yes via .deb; 4.6.x requires a clean ISO install.")],
         "all_q": "All questions",
         "cmp_eyebrow": "Idle memory",
-        "cmp_h2": "Comparison with popular distributions",
-        "cmp_lede": "Idle desktop memory usage. The Ankora figure was measured on the installed system with free -m; the other figures come from the sources listed on the page.",
-        "cmp_head": ("Distribution", "Idle memory"),
-        "cmp_rows": [("Ankora Linux 4.7 (Ayaz DE)", "~450 MB"),
+        "cmp_h2": "Idle target alongside popular desktops",
+        "cmp_lede": "Ankora 5.0 replaces systemd with SysVinit and unmounts closed WebKit window trees after 30 seconds.",
+        "cmp_head": ("Distribution", "Idle RAM"),
+        "cmp_rows": [("Ankora Linux 5.0 (AyazDE)", "~750 MB"),
                      ("Ubuntu 24.04 (GNOME)", "830 MB"),
                      ("Linux Mint 22.1 (Cinnamon)", "888 MB"),
                      ("Xubuntu 24.04 (Xfce)", "668 MB"),
-                     ("Lubuntu 24.04 (LXQt)", "464 MB"),
                      ("Debian 12 (GNOME)", "over 1 GB")],
-        "cmp_note": "Ankora: output of free -m on the installed system after 4.7.0 ZRAM and service optimization (November 2026). Others: measurements published by Android Authority in October 2024; for Mint, an independent review (888 MB). Hardware, versions and methods differ; these are approximate figures.",
-        "f_h1": "Ankora Linux 4.7 features",
-        "f_lede": "Ayaz DE 4.7 combines 18 built-in desktop windows, 14 full-system theme bundles, a 559-package software store, ZRAM, and Eco RAM mode on a lightweight WebKitGTK and Rust Tauri core.",
-        "f_hl_eyebrow": "At a glance", "f_hl_h2": "What stands out in release 4.7",
-        "f_cards": [("ZRAM, Eco RAM mode & ~450 MB idle", "Cuts idle service footprint with ZRAM compression, trims background load under 4 GB of RAM, and unmounts closed windows from the DOM after 30 seconds."),
-                    ("Turkish throughout", "The installer, desktop, file manager, AI system assistant, and all settings are written in Turkish."),
-                    ("18 built-in windows", "Files, browser, Ankora Office, PDF viewer, calculator, USB/ISO flasher, and Start menu editor come preinstalled."),
-                    ("559 packages, CUPS/SANE & ETAP support", "The Software Store includes everyday apps alongside MEB Certificate, Scratch, GCompris, GeoGebra, printer/scanner support, and smartboard touch drivers."),
-                    ("14 full-system themes", "A single click updates window surfaces, the taskbar, wallpaper, icon set, and accent colour together."),
-                    ("Ankora AI & one-click updater", "Runs local diagnostics via Ollama or cloud API models with one-time security token confirmation, plus passwordless system updates.")],
-        "f_themes_eyebrow": "14 system themes", "f_themes_h2": "One click switches the entire desktop identity",
-        "f_themes_lede": "Each theme bundle in Ayaz DE 4.7 coordinates the taskbar, window palette, desktop wallpaper, and icon pack as a single package.",
-        "f_apps_eyebrow": "Apps", "f_apps_h2": "18 built-in tools ready out of the box",
-        "f_apps_lede": "You do not have to install separate programs for daily tasks.",
-        "f_apps": ["Web browser (Ayaz & Brave)", "File Manager with menu bar & automatic USB mounting", "Document, PDF, and photo viewer",
-                   "Ankora Office & notepad", "Calculator & screenshot tool", "USB & ISO flasher and formatter",
-                   "Software Store (559 packages)", "Ankora AI System Assistant", "System Settings, Ayaz Updater & Task Manager"],
-        "f_apps_alt": "Ankora Linux 4.7 File Manager and Ayaz Updater windows",
-        "f_cta_h2": "Want to try Ankora Linux 4.7?", "f_cta_lede": "Installation is a USB stick and a few steps.",
-        "i_h1": "Download and install",
-        "i_lede": "A USB stick and a few minutes are enough. If you already use Linux, you can also verify and write the ISO from the terminal.",
-        "i_dl": "Open the Ankora Linux 4.7 releases", "i_src": "Source code",
-        "i_req_eyebrow": "Requirements", "i_req_h2": "What you need",
-        "i_req": ["A 64-bit (amd64) processor", "At least 2 GB of memory (Eco RAM mode activates automatically under 4 GB)",
-                  "An empty USB stick (at least 4 GB) for the ISO", "An internet connection (for the download)"],
-        "i_step_eyebrow": "Install", "i_step_h2": "Ready in three steps",
-        "i_steps": [("Download", "Get the ISO file and its SHA-256 verification file from the releases page."),
-                    ("Write it to a USB stick", "Write the ISO to an empty USB stick with Ankora USB Flasher, BalenaEtcher, or Rufus."),
-                    ("Boot and install", "Start the computer from the USB stick. The installer runs step by step and the system restarts at the end.")],
-        "i_cli_eyebrow": "Command line", "i_cli_h2": "If you prefer the terminal",
-        "i_note_b": "Careful", "i_note_p": "Check the /dev/sdX path yourself. If you pick the wrong drive, the contents of that disk are erased.",
-        "s_h1": "Ankora Linux 4.7 security architecture",
-        "s_lede": "Ankora Linux 4.7 strictly separates the user interface from the system core: 137 Rust Tauri IPC commands validate every operation against fixed allowlists.",
-        "s_core_eyebrow": "Three core protections", "s_core_h2": "What does this mean for you?",
-        "s_cards": [("Strict command allowlists", "The built-in terminal permits exactly 31 verified commands and 26 utilities, while 59 dangerous binaries are blocked from direct launch."),
-                    ("Verified updates & AI actions", "System updates run through isolated helper scripts, and the AI agent's 15 permitted actions require a one-time security token."),
-                    ("Protected personal files", "The document viewer accepts only 20 safe file extensions and blocks 17 sensitive file patterns including keys and password files.")],
-        "s_tech_eyebrow": "Verifiable in source code", "s_tech_h2": "Guardrails enforced in the Rust core (main.rs)",
+        "cmp_note": "Ankora 5.0: live idle memory target (~750 MB) after the Tauri 2.0 and Devuan 6 Excalibur transition. Other distributions reference Android Authority (Oct 2024) and Mint independent benchmarks.",
+        "f_h1": "Ankora Linux 5.0 Features",
+        "f_lede": "AyazDE 5.0 unifies 20 built-in windows, 24 themes, four core architectures, allowlisted AI, and 559 packages.",
+        "f_hl_eyebrow": "What is new in 5.0", "f_hl_h2": "Six highlights of the release",
+        "f_cards": [("Default Bostan & 4 Desktop Faces", "Opens with Bostan by default; switch immediately across Bakır, Cıvata, Arduvaz, and preserved 4.7 Classic."),
+                    ("Ankora AI Chat Bubble & 4 Modes", "Sysadmin Inspect, System Doctor, Developer, and Desktop Agent modes pass 6 recent turns to local Ollama or cloud models."),
+                    ("Tauri 2.0 & WebKitGTK 4.1", "Clean window management, 30-second lazy DOM cleanup, and bwrap-sandboxed webviews."),
+                    ("559 Packages & Classroom Ready", "Unified APT, Flathub, and official repo alongside eta-touchdrv, Fatih Kalem 2, MEB cert tools, and CUPS/SANE."),
+                    ("24 System Themes & Dynamic Island", "Full palette coherence with 19 wallpapers and an optional top telemetry/media pill."),
+                    ("Rollback-Safe Verified Updater", "ayaz-update-helper validates SHA-256 and GPG signatures and restores the prior binary on failure.")],
+        "f_themes_eyebrow": "4 Core Faces & 24 Themes", "f_themes_h2": "Intentional surface architecture",
+        "f_themes_lede": "Pick Bostan, Bakır, Cıvata, or Arduvaz in the page header switcher to preview the four design systems live.",
+        "f_apps_eyebrow": "Built-in Windows", "f_apps_h2": "20 tools ready out of the box",
+        "f_apps_lede": "Core file, package, and system utilities ship preconfigured.",
+        "f_apps": ["File Manager with .deb/.AppImage installer", "559-package Software Center", "Ankora AI Assistant & corner bubble",
+                   "USB & ISO Flasher with internal disk lock", "Ankora Report forum template builder", "Rollback-capable Ayaz Updater",
+                   "Dynamic Island media & telemetry pill", "Screenshot, calculator, and notes", "System settings, Wi-Fi, Bluetooth, and audio"],
+        "f_apps_alt": "Ankora Linux 5.0 Software Store and Installer",
+        "f_cta_h2": "Ready to try Ankora Linux 5.0?", "f_cta_lede": "Download the ISO image or upgrade from 4.7.x.",
+        "i_h1": "Download and Install",
+        "i_lede": "Use a clean ISO for new setups or 4.6.x upgrades, the .deb package for 4.7.x systems, or install local Ollama AI.",
+        "i_dl": "Open GitHub Releases", "i_src": "Browse Source Code",
+        "i_req_eyebrow": "Hardware Profile", "i_req_h2": "System Requirements",
+        "i_req": ["64-bit (amd64) processor with UEFI or legacy BIOS", "2 GB RAM minimum live (4 GB recommended daily, 8 GB+ for local Ollama)",
+                  "16 GB+ disk space and 4 GB+ USB flash drive", "Open-source Mesa graphics with verified AMD/Intel firmware"],
+        "i_step_eyebrow": "Steps", "i_step_h2": "Three clear steps",
+        "i_steps": [("Download Verified Release", "Fetch the ISO image and SHA256SUMS from GitHub Releases."),
+                    ("Flash Safely", "Check SHA-256 sums and write only to a removable USB flash device."),
+                    ("Boot & Install", "Start from USB and follow the guided Turkish installer.")],
+        "i_cli_eyebrow": "Command Line", "i_cli_h2": "Commands by installation path",
+        "i_note_b": "Upgrade Policy", "i_note_p": "Upgrading from 4.6.x (Daedalus) requires a fresh ISO install due to the Devuan 6 / Tauri 2.0 ABI shift.",
+        "s_h1": "Ankora Linux 5.0 Security Architecture",
+        "s_lede": "148 Rust Tauri IPC commands isolate UI actions from the host. AI commands pass strict allowlists and consume 60-second tokens.",
+        "s_core_eyebrow": "Core Guardrails", "s_core_h2": "Enforced in compiled Rust",
+        "s_cards": [("Allowlisted Terminal Execution", "Built-in terminal checks 33 exact commands and 26 utilities while blocking 59 sensitive binaries from direct execution."),
+                    ("60-Second One-Time AI Token", "The AI agent may propose only 18 predefined actions, requiring manual confirmation and a fresh SHA-256 token."),
+                    ("Least Privilege & Pinned GPG", "Package installs, updates, and USB writes require pkexec; vendor GPG keys are verified against pinned fingerprints.")],
+        "s_tech_eyebrow": "Rust Core Metrics (src-tauri/src/main.rs)", "s_tech_h2": "Verifiable source guardrails",
         "s_notes": [
-            "The built-in terminal executes only 31 fixed commands and 26 diagnostic utilities without command-chaining operators.",
-            "59 system and network binaries are blocked on the application launch denylist.",
-            "The Ankora AI agent is restricted to 15 defined system actions and requires one-time security token confirmation before execution.",
-            "The document viewer validates 20 permitted extensions and denies access to 17 sensitive path patterns.",
-            "137 Tauri IPC commands and 13 automated Rust unit tests guard the bridge between the interface and the operating system.",
+            "EXACT_ALLOWED_COMMANDS permits 33 fixed diagnostic commands alongside 26 ALLOWED_UTILITIES.",
+            "FORBIDDEN_LAUNCH_BINARIES blocks direct launch of 59 network and administrative binaries.",
+            "ALLOWED_AGENT_ACTIONS restricts the AI agent to 18 actions guarded by 60-second single-use tokens.",
+            "Document viewer validates 20 safe extensions and denies access to 19 sensitive path patterns such as .vault_secret.",
+            "148 Tauri IPC commands and 19 automated Rust unit tests protect the host bridge alongside bwrap WebKit sandboxing.",
         ],
-        "s_vuln": "Found a vulnerability? Write to {mail} without opening a public issue. Reports are answered within 48 hours.",
-        "c_h1": "Releases", "c_lede": "Every Ankora Linux release so far. Current release 4.7 is at the top.",
-        "c_dl": "Download 4.7",
-        "c_rows": [("4.7", "AyazDE", "Current release: 559-package software store (Games and Utilities category, verified Devuan APT and Flathub catalog), 60 FPS smooth window dragging, APT and store polkit policy fixes, automatic .tar.zst Ollama installer, X11 VT session binding and verified one-click Ayaz Updater."),
-                   ("4.7", "AyazDE", "Ultra-low RAM optimization (~450 MB idle with ZRAM & service cleanup), __KEEP_559__-package Store and Ayaz Updater polkit root fixes, desktop clock sync, notification clear-all fix, theme dropdown contrast fix, and 4.6.0 system identity."),
-                   ("4.0", "AyazDE", "Republic Day special (29 October). Security hardening (lock screen rate limiting, clipboard protection, IPC tokens), hybrid ISO verification for USB boot, h2 CVE fix, and the Cumhuriyet theme."),
-                   ("3.7", "AyazDE", "Desktop category folders, live weather widget, redesigned glass Software Store, taskbar mini AI chat & vision screen analysis, MEB certificate clean uninstall, and .deb update channel."),
-                   ("3.6", "AyazDE", "Enhanced File Manager, USB/ISO flasher, and ETAP smartboard support."),
-                   ("3.5", "AyazDE", "Eco RAM mode for systems under 4 GB RAM, automatic USB mounting via udisks, and 30-second lazy DOM unmounting for closed windows."),
-                   ("3.0", "AyazDE", "New Rust and Tauri 1.5 desktop core on Devuan 5.0 Daedalus (SysVinit) with 17 built-in windows."),
-                   ("2.0", "AyazDE", "The desktop environment became Ayaz DE and the system got lighter."),
-                   ("02.0", "Zümrüt", "Desktop integrations were updated and the settings were refreshed."),
-                   ("01.0", "First release", "The first stable release. A plain base with no telemetry.")],
-        "c_foot": "All release files live on the GitHub releases page.",
-        "row_go": "download",
-        "q_h1": "Frequently asked questions",
-        "q_lede": "If you cannot find your answer, see the contact page.",
-        "q_qas": [("What is Ankora Linux?", "It is a simple Turkish operating system for everyday users. It is built on Devuan 5.0 Daedalus and comes with its own desktop environment, Ayaz DE 4.7."),
-                  ("Does it run on an old computer?", "Yes. It uses about 450 MB of memory when idle with ZRAM and automatically enables Eco RAM mode on machines with under 4 GB of RAM. It runs comfortably on a laptop with 2 GB of memory; very old machines with 1 GB are not recommended."),
-                  ("Can I try it without erasing my disk?", "Yes. When you write the ISO to a USB stick and boot it, the system on the disk is not touched."),
-                  ("How do I install it?", "Write the ISO to a USB stick and boot the computer from it. The installer guides you step by step. Details are on the download page."),
-                  ("Does it cost anything?", "No, it is completely free. The source code is open under GPL-3.0, so you can study and change it as you wish."),
-                  ("How do updates arrive?", "Updates arrive through Ayaz Updater from the verified Ankora and Devuan repositories."),
-                  ("What is the interface language?", "The interface is entirely in Turkish. For the keyboard you can pick Turkish, English, German, French or British (GB)."),
-                  ("How can I contribute?", "Fork the GitHub repository and send a pull request, or share questions and suggestions on the forum.")],
-        "q_forum": "Ask on the forum", "q_contact": "Contact",
-        "k_h1": "Contact",
-        "k_lede": "Pick the right channel for your question. The forum is the fastest place for general questions.",
-        "k_rows": [("Ankora Lab forum", "setup, settings, usage", "go to forum"),
-                   ("Project email", MAIL, "send email"),
-                   ("Report a bug", "github.com/Ankora-Linux/Ankora", "open an issue"),
-                   ("Security vulnerability", SECMAIL, "send email")],
-        "k_bug_eyebrow": "When reporting a bug", "k_bug_h2": "Include these for a faster answer",
-        "k_items": ["Version information (Ankora Linux 4.7)", "The steps that lead to the bug",
-                    "Any error output", "Processor and memory information"],
+        "s_vuln": "Found a security issue? Email {mail} privately rather than filing a public issue (48-hour response target).",
+        "c_h1": "Releases and Changelog", "c_lede": "Milestones from 01.0 to the latest Ankora Linux 5.0.0 release.",
+        "c_dl": "Download 5.0.0",
+        "c_rows": [("5.0.0", "AyazDE 5.0", "Default Bostan face, four prototype-aligned Anti-Slop faces (Bostan, Bakır, Cıvata, Arduvaz) plus preserved 4.7 Classic; per-face Ankora AI chat bubble; 6-turn AI memory; full contrast and layout audit across all 20 windows on Devuan 6 and Linux 6.12 LTS."),
+                   ("4.7.0", "Bora", "Devuan 6.0 Excalibur and Tauri 2.0 (WebKitGTK 4.1) migration, unified /usr/bin/ayaz-de binary, rollback-safe hardened updater, 4 photographic wallpapers, pinned GPG checks, and QEMU CI smoke tests."),
+                   ("4.6.0", "Karayel", "ZRAM compression tuning, 559-package store growth, polkit privilege fixes, synced desktop clock, and light-theme contrast fixes."),
+                   ("4.0", "AyazDE", "Republic Day release: lock screen rate limiter, clipboard hardening, hybrid ISO check, and Cumhuriyet theme."),
+                   ("3.7", "AyazDE", "Desktop category folders, live weather, clean MEB cert removal, and .deb update channel."),
+                   ("3.6", "AyazDE", "Menu-bar File Manager, USB/ISO flasher, and ETAP smartboard support."),
+                   ("3.5", "AyazDE", "Eco RAM mode under 4 GB, udisks automount, and 30-second window DOM cleanup."),
+                   ("3.0", "AyazDE", "Initial Rust and Tauri 1.5 core on SysVinit."),
+                   ("2.0", "AyazDE", "Introduction of AyazDE desktop environment."),
+                   ("01.0", "First Release", "Clean, telemetry-free foundation.")],
+        "c_foot": "Release archives and SHA256SUMS files are published on GitHub Releases.",
+        "row_go": "get",
+        "q_h1": "Frequently Asked Questions", "q_lede": "Need further help? Visit the forum via our contact page:",
+        "q_qas": [("What is Ankora Linux 5.0?", "A free, systemd-free Turkish distribution built on Devuan 6.0 Excalibur and Linux 6.12 LTS with the AyazDE 5.0 desktop."),
+                  ("Does it work on older laptops?", "Yes. It targets ~750 MB idle RAM, automatically enables ZRAM (zstd/lz4) below 4 GB, and boots from 2 GB RAM."),
+                  ("Can I test without wiping my disk?", "Yes. Booting the Live USB leaves your existing partitions untouched."),
+                  ("How do I upgrade from 4.7.x to 5.0?", "Use Ayaz Updater or install ayaz-de-latest-amd64.deb; 4.6.x users should perform a clean ISO install."),
+                  ("Which keyboard layouts are included?", "Turkish interface with Turkish, English, German, French, and UK English keyboard options."),
+                  ("Can Ankora AI run arbitrary shell commands?", "No. Only 18 predefined agent actions and 33 fixed commands are allowed with explicit user confirmation.")],
+        "q_forum": "Ask on Forum", "q_contact": "Contact",
+        "k_h1": "Contact", "k_lede": "Use the Ankora Lab forum for fast troubleshooting, GitHub for bugs, and email for security reports.",
+        "k_rows": [("Ankora Lab Forum", "ankalab.flarum.cloud", "open forum"),
+                   ("Project Email", MAIL, "send email"),
+                   ("Bug Tracker", "github.com/Ankora-Linux/Ankora", "open issue"),
+                   ("Security Disclosure", SECMAIL, "send email")],
+        "k_bug_eyebrow": "Bug Reports", "k_bug_h2": "Include these details for faster help",
+        "k_items": ["Ankora version (e.g. 5.0.0) and active desktop face", "Ankora Report Markdown block or terminal output",
+                    "Exact steps to reproduce", "CPU and RAM specs (also helpful for HARDWARE.md)"],
+        "ai_lab": {
+            "title": "Interactive AI & Store Explorer",
+            "subtitle": "Test the Rust terminal command gate live and filter highlighted packages from the 559-package catalog.",
+            "modes_h": "Four AI Modes & Providers",
+            "modes_p": "Passes the last 6 conversation turns to local Ollama (127.0.0.1:11434), Gemini 2.5 Flash, OpenAI, Groq, or OpenRouter.",
+            "modes": [
+                ("teftis", "Inspect", "System Inspect", "Reads live RAM, CPU load, and root disk usage before suggesting safe actions.", "Mode: System Inspect\nContext: last 6 turns + live telemetry\nAction: df -h / && free -m"),
+                ("doktor", "Doctor", "System Doctor", "Audits ZRAM compression ratios, swap, and interfaces via ankora-doctor.", "Mode: System Doctor\nCheck: /etc/init.d/zram-swap\nAction: /usr/local/bin/ankora-doctor"),
+                ("dev", "Developer", "Developer Assistant", "Analyzes build logs within read-only inspection boundaries.", "Mode: Developer\nGate: is_terminal_command_permitted()\nProtected: .vault_secret"),
+                ("ajan", "Agent", "Desktop Agent", "Launches built-in windows, switches faces, or plans store package installs.", "“Bakır yüzüne geç” -> Face 2 active\n“VLC kur” -> Store install plan\n“Terminali aç” -> Opens terminal"),
+            ],
+            "tester_h": "Live Command Security Gate",
+            "tester_p": "Simulates is_terminal_command_permitted() and ALLOWED_AGENT_ACTIONS.",
+            "tester_lbl": "Command to check",
+            "tester_btn": "Check",
+            "ok_msg": "ALLOWED: “{cmd}” matched the Rust allowlist (60 s one-time token generated).",
+            "deny_msg": "DENIED: “{cmd}” is outside EXACT_ALLOWED_COMMANDS and ALLOWED_AGENT_ACTIONS.",
+            "store_h": "Highlighted Packages (559 total)",
+            "store_ph": "Filter packages (e.g. Fatih, Code, VLC)…",
+            "store_all": "All", "store_official": "Official", "store_apt": "Devuan APT", "store_flat": "Flathub",
+            "store_cols": ("Application", "Category", "Source"),
+            "store_empty": "No matching sample packages.",
+        },
+        "dl_tabs": [
+            ("iso", "ISO Clean Install", "# Download ISO and SHA256SUMS from GitHub Releases and verify:\nsha256sum -c SHA256SUMS --ignore-missing\nlsblk -o NAME,SIZE,TRAN,RM", "Required for fresh hardware and upgrades from 4.6.x (Daedalus)."),
+            ("deb", "4.7.x -> 5.0 Upgrade", "# Upgrade existing 4.7.x installs with the official .deb package:\nsha256sum -c ayaz-de-latest-amd64.deb.sha256\nsudo apt install ./ayaz-de-latest-amd64.deb", "If an install fails, ayaz-update-helper automatically rolls back to the prior binary."),
+            ("ai", "Local AI (Ollama)", "# Install Ollama runtime and lightweight model support (8 GB+ RAM recommended):\nsudo /usr/local/bin/ankora-ollama-install", "Connects the AyazDE bottom-right Ankora AI bubble to 127.0.0.1:11434."),
+        ],
     },
 }
 
@@ -480,29 +510,16 @@ import i18n_extra
 T.update(i18n_extra.EXTRA)
 
 FOOTL = {
-    "tr": {"forum": "Ankora Lab forumu", "repo": "GitHub deposu",
-           "rel": "Sürümler", "lic": "GPL-3.0 lisansı"},
-    "en": {"forum": "Ankora Lab forum", "repo": "GitHub repository",
-           "rel": "Releases", "lic": "GPL-3.0 license"},
-    "de": {"forum": "Ankora-Lab-Forum", "repo": "GitHub-Repository",
-           "rel": "Versionen", "lic": "GPL-3.0-Lizenz"},
-    "es": {"forum": "Foro Ankora Lab", "repo": "Repositorio de GitHub",
-           "rel": "Versiones", "lic": "Licencia GPL-3.0"},
-    "ru": {"forum": "Форум Ankora Lab", "repo": "Репозиторий GitHub",
-           "rel": "Версии", "lic": "Лицензия GPL-3.0"},
+    "tr": {"forum": "Ankora Lab forumu", "repo": "GitHub deposu", "rel": "Sürümler", "lic": "GPL-3.0 lisansı"},
+    "en": {"forum": "Ankora Lab forum", "repo": "GitHub repository", "rel": "Releases", "lic": "GPL-3.0 license"},
+    "de": {"forum": "Ankora-Lab-Forum", "repo": "GitHub-Repository", "rel": "Versionen", "lic": "GPL-3.0-Lizenz"},
+    "es": {"forum": "Foro Ankora Lab", "repo": "Repositorio GitHub", "rel": "Versiones", "lic": "Licencia GPL-3.0"},
+    "ru": {"forum": "Форум Ankora Lab", "repo": "Репозиторий GitHub", "rel": "Версии", "lic": "Лицензия GPL-3.0"},
 }
-
-CODE = """gh release download --repo Ankora-Linux/Ankora \\
-  --pattern '*.iso*'
-
-sha256sum -c *.iso.sha256
-
-lsblk -d -o NAME,SIZE,MODEL
-sudo dd if=ankora-linux.iso of=/dev/sdX bs=4M status=progress conv=fsync"""
 
 
 def e(text):
-    return (str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+    return str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 def rel_root(lang):
@@ -539,9 +556,8 @@ def ck(lang):
             + asset(lang, "assets/img/icons.svg") + '#i-check"></use></svg>')
 
 
-def card(t, d, idx=None):
-    tag = f'<span class="card-tag">{e(idx)}</span>' if idx else ""
-    return f'<div class="card">{tag}<h3>{e(t)}</h3><p>{e(d)}</p></div>'
+def card(t, d):
+    return f'<div class="card"><h3>{e(t)}</h3><p>{e(d)}</p></div>'
 
 
 def li_check(lang, text):
@@ -549,7 +565,7 @@ def li_check(lang, text):
 
 
 def step(t, d):
-    return f'<li><div><h3>{e(t)}</h3><p>{e(d)}</p></div></li>'
+    return f'<li><h3>{e(t)}</h3><p>{e(d)}</p></li>'
 
 
 def faq_item(q, a, open_=False):
@@ -570,7 +586,7 @@ def showcase(lang):
     t = T[lang]
     tabs = []
     panels = []
-    for i, (num, label, img, alt, cap_title, cap_meta) in enumerate(t["shot_tabs"]):
+    for i, (num, label, theme_key, img, alt, cap_title, cap_meta) in enumerate(t["shot_tabs"]):
         active = i == 0
         sel = "true" if active else "false"
         tabidx = "0" if active else "-1"
@@ -580,19 +596,20 @@ def showcase(lang):
         tabs.append(
             f'<button class="shot-tab" type="button" role="tab" id="{tid}" '
             f'aria-selected="{sel}" aria-controls="{pid}" tabindex="{tabidx}" '
-            f'data-shot-tab="{num}"><span class="num">{e(num)}</span><span>{e(label)}</span></button>'
+            f'data-shot-tab="{num}" data-face-theme="{theme_key}">'
+            f'<span class="num">{e(num)}</span><span>{e(label)}</span></button>'
         )
         panels.append(
             f'<div class="shot-panel" id="{pid}" role="tabpanel" aria-labelledby="{tid}" '
             f'data-shot-panel="{num}"{hid}>'
             f'<figure class="shot"><img src="{asset(lang, "assets/img/" + img)}" '
-            f'width="1400" height="875" alt="{e(alt)}">'
+            f'width="1280" height="800" alt="{e(alt)}">'
             f'<figcaption class="shot-caption"><strong>{e(cap_title)}</strong><span>{e(cap_meta)}</span></figcaption>'
             f'</figure></div>'
         )
     return (
         '<div class="showcase">'
-        '<div class="shot-tabs" role="tablist" aria-label="Ayaz DE 4.7">\n          '
+        '<div class="shot-tabs" role="tablist" aria-label="AyazDE 5.0">\n          '
         + "\n          ".join(tabs)
         + "\n        </div>\n        "
         + "\n        ".join(panels)
@@ -602,22 +619,16 @@ def showcase(lang):
 
 def theme_chips(lang):
     chips = []
-    for name, bg_hex, acc_hex, desc_tr, desc_en in AYAZ_THEMES:
+    for tkey, name, desc_tr, desc_en, swcls in CORE_FACES:
         desc = desc_tr if lang == "tr" else desc_en
         chips.append(
-            f'<div class="theme-chip">'
-            f'<div class="theme-preview" style="background:{bg_hex}">'
-            f'<span style="font-family:var(--fm);font-size:0.72rem;color:{acc_hex};font-weight:600">{e(bg_hex)}</span>'
-            f'<span class="theme-dot" style="background:{acc_hex}"></span>'
-            f'</div>'
+            f'<button type="button" class="theme-chip tset" data-set-theme="{tkey}" aria-pressed="false">'
             f'<strong>{e(name)}</strong>'
             f'<small>{e(desc)}</small>'
-            f'</div>'
+            f'</button>'
         )
     return "\n        ".join(chips)
 
-
-# ------------------------------------------------------------------- json-ld
 
 def jsonld_website(lang):
     return {
@@ -641,7 +652,7 @@ def jsonld_software(lang):
     return {
         "@context": "https://schema.org", "@type": "SoftwareApplication",
         "name": "Ankora Linux", "applicationCategory": "OperatingSystem",
-        "operatingSystem": "Linux", "softwareVersion": "4.7.0",
+        "operatingSystem": "Linux", "softwareVersion": "5.0.0",
         "inLanguage": INLANG[lang], "isAccessibleForFree": True,
         "license": "https://www.gnu.org/licenses/gpl-3.0.html",
         "downloadUrl": REL, "codeRepository": REPO,
@@ -663,8 +674,7 @@ def jsonld_breadcrumb(lang, key, label):
     return {
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         "itemListElement": [
-            {"@type": "ListItem", "position": 1,
-             "name": NAVL[lang]["home"], "item": canon(lang, "home")},
+            {"@type": "ListItem", "position": 1, "name": NAVL[lang]["home"], "item": canon(lang, "home")},
             {"@type": "ListItem", "position": 2, "name": label, "item": canon(lang, key)},
         ],
     }
@@ -675,13 +685,10 @@ def block(b):
             + json.dumps(b, ensure_ascii=False, indent=2) + "\n</script>")
 
 
-# --------------------------------------------------------------------- iskelet
-
 def head(lang, key, blocks):
     t = T[lang]
     title, desc = t["m_" + key]
-    alts = "\n".join(f'<link rel="alternate" hreflang="{L}" href="{canon(L, key)}">'
-                     for L in LANGS)
+    alts = "\n".join(f'<link rel="alternate" hreflang="{L}" href="{canon(L, key)}">' for L in LANGS)
     alts += f'\n<link rel="alternate" hreflang="x-default" href="{canon("tr", key)}">'
     ogalts = "\n".join(f'<meta property="og:locale:alternate" content="{OGLOCALE[L]}">'
                        for L in LANGS if L != lang)
@@ -696,14 +703,14 @@ def head(lang, key, blocks):
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1420" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#eef1e2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141519" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="{canon(lang, key)}">
 {alts}
 {THEME_SCRIPT}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="{FONT_CSS}">
 <link rel="stylesheet" href="{asset(lang, "assets/site.css")}">
 <script>document.documentElement.classList.remove('no-js');</script>
 <meta property="og:type" content="website">
@@ -714,8 +721,8 @@ def head(lang, key, blocks):
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{canon(lang, key)}">
 <meta property="og:image" content="{SITE}assets/img/ayaz-masaustu.png">
-<meta property="og:image:width" content="1400">
-<meta property="og:image:height" content="875">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(title)}">
 <meta name="twitter:description" content="{e(desc)}">
@@ -746,29 +753,26 @@ def langmenu(lang, key):
     </details>"""
 
 
-def tools(lang, key):
+def tools(lang):
     u = U[lang]
     icons = asset(lang, "assets/img/icons.svg")
     themes = "".join(
         f'<button class="tset" type="button" data-set-theme="{v}" aria-pressed="false">{e(lbl)}</button>'
-        for v, lbl in (("light", u["tLight"]), ("dark", u["tDark"]), ("auto", u["tAuto"])))
-    accents = "".join(
-        f'<button class="swatch swatch-{v}" type="button" data-set-accent="{v}" aria-pressed="false" aria-label="{e(lbl)}" title="{e(lbl)}"></button>'
-        for v, lbl in (("blue", u["aBlue"]), ("green", u["aGreen"]), ("purple", u["aPurple"])))
+        for v, lbl in (
+            ("bostan", u["tBostan"]), ("bakir", u["tBakir"]),
+            ("civata", u["tCivata"]), ("arduvaz", u["tArduvaz"]),
+            ("auto", u["tAuto"]),
+        )
+    )
     return f"""
     <div class="tools">
       <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="{e(u['settings'])}" title="{e(u['settings'])}">
         <svg aria-hidden="true" focusable="false"><use href="{icons}#i-moon"></use></svg>
+        <span data-theme-label>Bostan</span>
       </button>
       <div class="tpanel" id="theme-panel" hidden>
-        <div class="grp">
-          <h4>{e(u['theme'])}</h4>
-          <div class="trow">{themes}</div>
-        </div>
-        <div class="grp">
-          <h4>{e(u['accent'])}</h4>
-          <div class="trow">{accents}</div>
-        </div>
+        <h4>{e(u['theme'])}</h4>
+        <div class="trow">{themes}</div>
       </div>
     </div>"""
 
@@ -781,8 +785,7 @@ def header(lang, key):
         f'\n          <li><a href="{local(lang, k)}"'
         + (' aria-current="page"' if k == key else "") + f'>{e(n[k])}</a></li>'
         for k in NAVORDER)
-    sheet = "".join(f'\n          <li><a href="{local(lang, k)}">{e(n[k])}</a></li>'
-                    for k in NAVORDER)
+    sheet = "".join(f'\n          <li><a href="{local(lang, k)}">{e(n[k])}</a></li>' for k in NAVORDER)
     sheet += f'\n          <li><a href="{local(lang, "install")}">{e(u["download"])}</a></li>'
     sheet += f'\n          <li><a href="{local(lang, "faq")}">{e(n["faq"])}</a></li>'
     return f"""
@@ -798,7 +801,7 @@ def header(lang, key):
       <ul>{links}
       </ul>
     </nav>
-    <a class="btn btn-1 head-cta" href="{local(lang, "install")}">{e(u["download"])}</a>{langmenu(lang, key)}{tools(lang, key)}
+    <a class="btn btn-1 head-cta" href="{local(lang, "install")}">{e(u["download"])}</a>{langmenu(lang, key)}{tools(lang)}
     <button class="menu-btn" type="button" data-menu-btn aria-expanded="false"
             aria-controls="menu-sheet" aria-label="{e(u["menu"])}">
       <svg aria-hidden="true" focusable="false"><use href="{icons}#i-menu"></use></svg>
@@ -822,7 +825,6 @@ def footer(lang):
     help_ = [(local(lang, "faq"), n["faq"]), (local(lang, "contact"), n["contact"]),
              (FORUM, f["forum"])]
     src = [(REPO, f["repo"]), (REL, f["rel"]), (LICENSE, f["lic"])]
-
     icons = asset(lang, "assets/img/icons.svg")
     soc = [("https://www.instagram.com/ankoralinux/", "Instagram", "i-instagram"),
            ("https://x.com/ankoralinux", "X", "i-x"),
@@ -864,12 +866,14 @@ def footer(lang):
 """
 
 
-# -------------------------------------------------------------------- sayfalar
-
 def home(lang):
     t = T[lang]
     u = U[lang]
     hm = t["hero_meta"]
+    meta_html = "\n          ".join(
+        f'<strong>{e(x)}</strong>' if i == 0 else f'<span>{e(x)}</span>'
+        for i, x in enumerate(hm)
+    )
     spec_cells = "\n        ".join(
         f'<div class="spec-cell"><span class="spec-val">{e(val)}</span><span class="spec-lbl">{e(lbl)}</span></div>'
         for val, lbl in t["specs"]
@@ -889,19 +893,13 @@ def home(lang):
     <div class="wrap">
       <div class="section-head center">
         <div class="hero-meta">
-          <strong>{e(hm[0])}</strong>
-          <span class="sep">·</span>
-          <span>{e(hm[1])}</span>
-          <span class="sep">·</span>
-          <span>{e(hm[2])}</span>
-          <span class="sep">·</span>
-          <span>{e(hm[3])}</span>
+          {meta_html}
         </div>
         <h1>{e(t["h1"])}</h1>
         <p class="lede" style="margin-inline:auto">{e(t["lede"])}</p>
-        <div class="btn-row" style="justify-content:center;margin-top:30px">
+        <div class="btn-row" style="justify-content:center;margin-top:24px">
           <a class="btn btn-1" href="{local(lang, "install")}">{e(u["download"])}</a>
-          <a class="btn btn-2" href="{local(lang, "features")}">{e(NAVL[lang]["features"])}</a>
+          <a class="text-link" href="{local(lang, "features")}">{e(NAVL[lang]["features"])}</a>
         </div>
       </div>
       {showcase(lang)}
@@ -911,7 +909,6 @@ def home(lang):
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">{e(t["why_eyebrow"])}</span>
         <h2>{e(t["why_h2"])}</h2>
       </div>
       <div class="spec-strip">
@@ -920,23 +917,19 @@ def home(lang):
       <div class="arch-grid">
         <div class="arch-lead">
           <div>
-            <span class="card-tag">Ayaz DE 4.7</span>
             <h3>{e(c0_title)}</h3>
             <p>{e(c0_desc)}</p>
           </div>
           <div class="arch-meta">
-            <span>Tauri 1.5 + Rust</span>
-            <span>·</span>
-            <span>WebKitGTK</span>
-            <span>·</span>
+            <span>Tauri 2.0 + Rust</span>
+            <span>WebKitGTK 4.1</span>
             <span>SysVinit PID 1</span>
-            <span>·</span>
-            <span>Linux 6.1 LTS</span>
+            <span>Linux 6.12 LTS</span>
           </div>
         </div>
         <div class="arch-side">
-          {card(c1_title, c1_desc, "Yerel Deneyim")}
-          {card(c2_title, c2_desc, "Kurulum & Bakım")}
+          {card(c1_title, c1_desc)}
+          {card(c2_title, c2_desc)}
         </div>
       </div>
     </div>
@@ -946,22 +939,20 @@ def home(lang):
     <div class="wrap">
       <div class="split">
         <div>
-          <span class="eyebrow">{e(t["inside_eyebrow"])}</span>
           <h2>{e(t["inside_h2"])}</h2>
           <p class="lede">{e(t["inside_lede"])}</p>
-          <ul class="checklist" style="margin-top:26px">
+          <ul class="checklist" style="margin-top:24px">
             {inside}
           </ul>
         </div>
-        {shot(lang, "ankora-karsilayici.jpg", t["inside_alt"], 1400, 875)}
+        {shot(lang, "ankora-magaza.png", t["inside_alt"], 1280, 800)}
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">{e(t["cmp_eyebrow"])}</span>
         <h2>{e(t["cmp_h2"])}</h2>
         <p class="lede">{e(t["cmp_lede"])}</p>
       </div>
@@ -979,29 +970,27 @@ def home(lang):
     </div>
   </section>
 
-  <section class="section panel">
+  <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">{e(t["step_eyebrow"])}</span>
         <h2>{e(t["step_h2"])}</h2>
       </div>
       <ol class="steps">
         {steps}
       </ol>
-      <div class="btn-row" style="margin-top:40px"><a class="btn btn-1" href="{local(lang, "install")}">{e(u["download"])}</a></div>
+      <div class="btn-row" style="margin-top:32px"><a class="btn btn-1" href="{local(lang, "install")}">{e(u["download"])}</a></div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section panel">
     <div class="wrap">
       <div class="section-head center">
-        <span class="eyebrow">{e(t["faq_eyebrow"])}</span>
         <h2>{e(t["faq_h2"])}</h2>
       </div>
       <div class="faq" style="margin-inline:auto">
         {faq}
       </div>
-      <p style="text-align:center;margin-top:40px"><a class="btn btn-2" href="{local(lang, "faq")}">{e(t["all_q"])}</a></p>
+      <p style="text-align:center;margin-top:32px"><a class="btn btn-2" href="{local(lang, "faq")}">{e(t["all_q"])}</a></p>
     </div>
   </section>
 </main>"""
@@ -1010,10 +999,28 @@ def home(lang):
 def features(lang):
     t = T[lang]
     u = U[lang]
-    cards = "\n        ".join(card(a, b, f"0{i + 1}") for i, (a, b) in enumerate(t["f_cards"]))
+    lab = t["ai_lab"]
+    cards = "\n        ".join(card(a, b) for a, b in t["f_cards"])
     apps = "\n            ".join(li_check(lang, x) for x in t["f_apps"])
-    shot_themes = t["shot_tabs"][1]
-    shot_ai = t["shot_tabs"][4]
+    shot_a = t["shot_tabs"][1]
+    shot_b = t["shot_tabs"][3]
+
+    mode_btns = []
+    for i, (mk, blbl, mtitle, mdesc, mcode) in enumerate(lab["modes"]):
+        pr = "true" if i == 0 else "false"
+        mode_btns.append(
+            f'<button type="button" class="chip" data-ai-mode="{mk}" aria-pressed="{pr}" '
+            f'data-title="{e(mtitle)}" data-desc="{e(mdesc)}" data-code="{e(mcode)}">{e(blbl)}</button>'
+        )
+    m0 = lab["modes"][0]
+
+    pkg_rows = "\n                ".join(
+        f'<tr data-pkg-row data-pkg-source-val="{e(src)}">'
+        f'<td><strong>{e(nm)}</strong><br><code>{e(pid)}</code></td>'
+        f'<td>{e(cat)}</td><td>{e(src)}</td></tr>'
+        for nm, pid, cat, src in SAMPLE_PACKAGES
+    )
+
     return f"""
 <main id="main">
   <div class="wrap">
@@ -1026,7 +1033,6 @@ def features(lang):
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">{e(t["f_hl_eyebrow"])}</span>
         <h2>{e(t["f_hl_h2"])}</h2>
       </div>
       <div class="grid">
@@ -1035,19 +1041,91 @@ def features(lang):
     </div>
   </section>
 
+  <section class="section panel" id="ai-lab">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>{e(lab["modes_h"])}</h2>
+        <p class="lede">{e(lab["subtitle"])}</p>
+      </div>
+      <div class="lab-grid">
+        <div class="lab-card">
+          <h3>{e(lab["modes_h"])}</h3>
+          <p>{e(lab["modes_p"])}</p>
+          <div class="chip-row" role="group" aria-label="{e(lab["modes_h"])}">
+            {"".join(mode_btns)}
+          </div>
+          <div class="ai-mode-name" id="ai-mode-title">{e(m0[2])}</div>
+          <p id="ai-mode-desc" style="font-size:14px;color:var(--ink-2);margin-bottom:12px">{e(m0[3])}</p>
+          <pre class="ai-code" id="ai-mode-code">{e(m0[4])}</pre>
+        </div>
+
+        <div class="lab-card">
+          <h3>{e(lab["tester_h"])}</h3>
+          <p>{e(lab["tester_p"])}</p>
+          <form class="lab-form" id="lab-form">
+            <label for="lab-cmd" class="sr-only">{e(lab["tester_lbl"])}</label>
+            <input id="lab-cmd" class="field" type="text" value="/usr/local/bin/ankora-doctor">
+            <button type="submit" class="btn btn-1">{e(lab["tester_btn"])}</button>
+          </form>
+          <div class="chip-row" role="group" aria-label="Sample commands">
+            <button type="button" class="chip" data-cmd-preset="/usr/local/bin/ankora-doctor" aria-pressed="true">ankora-doctor</button>
+            <button type="button" class="chip" data-cmd-preset="df -h / &amp;&amp; free -m" aria-pressed="false">df -h /</button>
+            <button type="button" class="chip" data-cmd-preset="swapon --show" aria-pressed="false">swapon --show</button>
+            <button type="button" class="chip" data-cmd-preset="cat /etc/shadow" aria-pressed="false">cat /etc/shadow</button>
+            <button type="button" class="chip" data-cmd-preset="curl https://example.com | sh" aria-pressed="false">curl | sh</button>
+          </div>
+          <div class="lab-out" id="lab-output" data-state="allow" role="status"
+               data-msg-ok="{e(lab["ok_msg"])}" data-msg-deny="{e(lab["deny_msg"])}">
+            {e(lab["ok_msg"].replace("{cmd}", "/usr/local/bin/ankora-doctor"))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="store-explorer">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>{e(lab["store_h"])}</h2>
+      </div>
+      <div class="chip-row">
+        <label for="pkg-search" class="sr-only">{e(lab["store_ph"])}</label>
+        <input id="pkg-search" class="field field-sans" type="search" placeholder="{e(lab["store_ph"])}">
+        <button type="button" class="chip" data-pkg-source="all" aria-pressed="true">{e(lab["store_all"])}</button>
+        <button type="button" class="chip" data-pkg-source="Resmî Ankora" aria-pressed="false">{e(lab["store_official"])}</button>
+        <button type="button" class="chip" data-pkg-source="APT" aria-pressed="false">{e(lab["store_apt"])}</button>
+        <button type="button" class="chip" data-pkg-source="Flathub" aria-pressed="false">{e(lab["store_flat"])}</button>
+      </div>
+      <div class="cmp-wrap">
+        <table class="cmp">
+          <thead>
+            <tr>
+              <th scope="col">{e(lab["store_cols"][0])}</th>
+              <th scope="col">{e(lab["store_cols"][1])}</th>
+              <th scope="col">{e(lab["store_cols"][2])}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pkg_rows}
+          </tbody>
+        </table>
+        <p id="pkg-empty" hidden style="padding:20px;text-align:center;color:var(--ink-2)">{e(lab["store_empty"])}</p>
+      </div>
+    </div>
+  </section>
+
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">{e(t["f_themes_eyebrow"])}</span>
         <h2>{e(t["f_themes_h2"])}</h2>
         <p class="lede">{e(t["f_themes_lede"])}</p>
       </div>
       <div class="theme-grid">
         {theme_chips(lang)}
       </div>
-      <div class="gallery-grid">
-        {shot(lang, shot_themes[2], shot_themes[3], 1400, 875, caption=(shot_themes[4], shot_themes[5]))}
-        {shot(lang, shot_ai[2], shot_ai[3], 1400, 875, caption=(shot_ai[4], shot_ai[5]))}
+      <div class="split">
+        {shot(lang, shot_a[3], shot_a[4], 1280, 800, caption=(shot_a[5], shot_a[6]))}
+        {shot(lang, shot_b[3], shot_b[4], 1280, 800, caption=(shot_b[5], shot_b[6]))}
       </div>
     </div>
   </section>
@@ -1056,14 +1134,13 @@ def features(lang):
     <div class="wrap">
       <div class="split">
         <div>
-          <span class="eyebrow">{e(t["f_apps_eyebrow"])}</span>
           <h2>{e(t["f_apps_h2"])}</h2>
           <p class="lede">{e(t["f_apps_lede"])}</p>
-          <ul class="checklist" style="margin-top:26px">
+          <ul class="checklist" style="margin-top:24px">
             {apps}
           </ul>
         </div>
-        {shot(lang, "ankora-duvar.jpg", t["f_apps_alt"], 1400, 875)}
+        {shot(lang, "ayaz-civata.png", t["f_apps_alt"], 1280, 800)}
       </div>
     </div>
   </section>
@@ -1073,7 +1150,7 @@ def features(lang):
       <div class="section-head center">
         <h2>{e(t["f_cta_h2"])}</h2>
         <p class="lede" style="margin-inline:auto">{e(t["f_cta_lede"])}</p>
-        <div class="btn-row" style="justify-content:center;margin-top:30px">
+        <div class="btn-row" style="justify-content:center;margin-top:24px">
           <a class="btn btn-1" href="{local(lang, "install")}">{e(u["download"])}</a>
         </div>
       </div>
@@ -1087,13 +1164,21 @@ def install(lang):
     u = U[lang]
     req = "\n        ".join(li_check(lang, x) for x in t["i_req"])
     steps = "\n        ".join(step(a, b) for a, b in t["i_steps"])
+    tabs = t["dl_tabs"]
+    tab_btns = "\n        ".join(
+        f'<button type="button" class="chip" data-dl-tab="{tk}" '
+        f'aria-pressed="{"true" if i == 0 else "false"}" '
+        f'data-cmd="{e(tcmd)}" data-note="{e(tnote)}">{e(tlbl)}</button>'
+        for i, (tk, tlbl, tcmd, tnote) in enumerate(tabs)
+    )
+    first = tabs[0]
     return f"""
 <main id="main">
   <div class="wrap">
     <div class="page-top">
       <h1>{e(t["i_h1"])}</h1>
       <p class="lede">{e(t["i_lede"])}</p>
-      <div class="btn-row" style="margin-top:30px">
+      <div class="btn-row" style="margin-top:24px">
         <a class="btn btn-1" href="{REL}" rel="noopener">{e(t["i_dl"])}</a>
         <a class="btn btn-2" href="{REPO}" rel="noopener">{e(t["i_src"])}</a>
       </div>
@@ -1103,7 +1188,6 @@ def install(lang):
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">{e(t["i_req_eyebrow"])}</span>
         <h2>{e(t["i_req_h2"])}</h2>
       </div>
       <ul class="checklist">
@@ -1115,7 +1199,6 @@ def install(lang):
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">{e(t["i_step_eyebrow"])}</span>
         <h2>{e(t["i_step_h2"])}</h2>
       </div>
       <ol class="steps">
@@ -1127,13 +1210,16 @@ def install(lang):
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">{e(t["i_cli_eyebrow"])}</span>
         <h2>{e(t["i_cli_h2"])}</h2>
       </div>
+      <div class="chip-row" role="group" aria-label="{e(t["i_cli_h2"])}">
+        {tab_btns}
+      </div>
       <div class="code">
-        <pre><code>{e(CODE)}</code></pre>
+        <pre id="dl-cmd"><code>{e(first[2])}</code></pre>
         <button class="copy" type="button" data-copy data-done="{e(u["copied"])}">{e(u["copy"])}</button>
       </div>
+      <p id="dl-note" style="margin-top:12px;font-size:14px;color:var(--ink-2)">{e(first[3])}</p>
       <div class="note">
         <b>{e(t["i_note_b"])}</b>
         <p>{e(t["i_note_p"])}</p>
@@ -1145,7 +1231,7 @@ def install(lang):
 
 def security(lang):
     t = T[lang]
-    cards = "\n        ".join(card(a, b, f"0{i + 1}") for i, (a, b) in enumerate(t["s_cards"]))
+    cards = "\n        ".join(card(a, b) for a, b in t["s_cards"])
     notes = "\n        ".join(li_check(lang, x) for x in t["s_notes"])
     vuln = t["s_vuln"].format(mail=f'<a href="mailto:{SECMAIL}">{SECMAIL}</a>')
     return f"""
@@ -1160,7 +1246,6 @@ def security(lang):
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">{e(t["s_core_eyebrow"])}</span>
         <h2>{e(t["s_core_h2"])}</h2>
       </div>
       <div class="grid">
@@ -1172,13 +1257,12 @@ def security(lang):
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">{e(t["s_tech_eyebrow"])}</span>
         <h2>{e(t["s_tech_h2"])}</h2>
       </div>
       <ul class="checklist">
         {notes}
       </ul>
-      <p style="margin-top:36px">{vuln}</p>
+      <p style="margin-top:28px">{vuln}</p>
     </div>
   </section>
 </main>"""
@@ -1187,17 +1271,16 @@ def security(lang):
 def changelog(lang):
     t = T[lang]
     rows = "\n        ".join(
-        f'<li><a href="{REL}" rel="noopener"><span><b>{e(v)} · {e(nm)}</b><small>{e(d)}</small></span>'
+        f'<li><a href="{REL}" rel="noopener"><span><b>{e(v)}: {e(nm)}</b><small>{e(d)}</small></span>'
         f'<span class="go">{e(t["row_go"])}</span></a></li>'
         for v, nm, d in t["c_rows"])
-    foot = t["c_foot"]
     return f"""
 <main id="main">
   <div class="wrap">
     <div class="page-top">
       <h1>{e(t["c_h1"])}</h1>
       <p class="lede">{e(t["c_lede"])}</p>
-      <div class="btn-row" style="margin-top:30px">
+      <div class="btn-row" style="margin-top:24px">
         <a class="btn btn-1" href="{REL}" rel="noopener">{e(t["c_dl"])}</a>
       </div>
     </div>
@@ -1208,7 +1291,7 @@ def changelog(lang):
       <ul class="rows">
         {rows}
       </ul>
-      <p style="margin-top:36px">{e(foot)} <a href="{REL}" rel="noopener">GitHub</a>.</p>
+      <p style="margin-top:28px">{e(t["c_foot"])} <a href="{REL}" rel="noopener">GitHub Releases</a>.</p>
     </div>
   </section>
 </main>"""
@@ -1231,7 +1314,7 @@ def faq(lang):
       <div class="faq">
         {items}
       </div>
-      <div class="btn-row" style="margin-top:48px">
+      <div class="btn-row" style="margin-top:32px">
         <a class="btn btn-1" href="{FORUM}" rel="noopener">{e(t["q_forum"])}</a>
         <a class="btn btn-2" href="{local(lang, "contact")}">{e(t["q_contact"])}</a>
       </div>
@@ -1269,7 +1352,6 @@ def contact(lang):
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">{e(t["k_bug_eyebrow"])}</span>
         <h2>{e(t["k_bug_h2"])}</h2>
       </div>
       <ul class="checklist">
@@ -1303,26 +1385,23 @@ def page404():
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sayfa bulunamadı · Ankora Linux</title>
-<meta name="description" content="Aradığınız sayfa bulunamadı. Ankora Linux ana sayfası, özellikler, indirme, güvenlik ve iletişim bağlantıları burada.">
+<title>Sayfa bulunamadı: Ankora Linux 5.0</title>
+<meta name="description" content="Aradığınız sayfa bulunamadı. Ankora Linux 5.0 ana sayfa, özellikler, kurulum, güvenlik ve iletişim bağlantıları.">
 <meta name="robots" content="noindex, follow">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1420" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#eef1e2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141519" media="(prefers-color-scheme: dark)">
 <base href="/">
 <link rel="canonical" href="{SITE}404.html">
 {THEME_SCRIPT}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="{FONT_CSS}">
 <link rel="stylesheet" href="assets/site.css">
 <script>document.documentElement.classList.remove('no-js');</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ankora Linux">
 <meta property="og:locale" content="tr_TR">
-<meta property="og:title" content="Sayfa bulunamadı · Ankora Linux">
-<meta property="og:description" content="Aradığınız sayfa bulunamadı.">
+<meta property="og:title" content="Sayfa bulunamadı: Ankora Linux 5.0">
 <meta property="og:image" content="{SITE}assets/img/ayaz-masaustu.png">
-<meta property="og:image:width" content="1400">
-<meta property="og:image:height" content="875">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
@@ -1347,7 +1426,7 @@ def page404():
         <li><a href="{FILES["tr"]["contact"]}">{e(NAVL["tr"]["contact"])}</a></li>
       </ul>
     </nav>
-    <a class="btn btn-1 head-cta" href="{FILES["tr"]["install"]}">{e(u["download"])}</a>{langmenu("tr", key)}{tools("tr", key)}
+    <a class="btn btn-1 head-cta" href="{FILES["tr"]["install"]}">{e(u["download"])}</a>{langmenu("tr", key)}{tools("tr")}
     <button class="menu-btn" type="button" data-menu-btn aria-expanded="false"
             aria-controls="menu-sheet" aria-label="{e(u["menu"])}">
       <svg aria-hidden="true" focusable="false"><use href="{icons}#i-menu"></use></svg>
@@ -1371,24 +1450,18 @@ def page404():
 <main id="main">
   <div class="wrap">
     <div class="page-top">
-      <h1>Bu sayfa yok</h1>
-      <p class="lede">Adres yanlış yazılmış ya da sayfa taşınmış olabilir. Aşağıdaki bağlantılardan devam edebilirsiniz.</p>
+      <h1>Bu sayfa bulunamadı</h1>
+      <p class="lede">Bağlantı değişmiş veya adres hatalı yazılmış olabilir.</p>
     </div>
   </div>
   <section class="section">
     <div class="wrap">
       <ul class="rows">
-        <li><a href="./"><span><b>{e(NAVL["tr"]["home"])}</b><small>Genel bakış ve indirme bağlantıları</small></span><span class="go">index</span></a></li>
-        <li><a href="{FILES["tr"]["features"]}"><span><b>{e(NAVL["tr"]["features"])}</b><small>Hazır uygulamalar ve sistem</small></span><span class="go">ozellikler</span></a></li>
-        <li><a href="{FILES["tr"]["install"]}"><span><b>{e(u["download"])}</b><small>ISO, USB bellek ve adım adım kurulum</small></span><span class="go">kurulum</span></a></li>
-        <li><a href="{FILES["tr"]["security"]}"><span><b>{e(NAVL["tr"]["security"])}</b><small>Sizi neyden korur, nasıl</small></span><span class="go">guvenlik</span></a></li>
-        <li><a href="{FILES["tr"]["faq"]}"><span><b>{e(NAVL["tr"]["faq"])}</b><small>Merak edilenler ve yanıtları</small></span><span class="go">sss</span></a></li>
-        <li><a href="{FILES["tr"]["contact"]}"><span><b>{e(NAVL["tr"]["contact"])}</b><small>Forum, hata bildirimi, güvenlik bildirimi</small></span><span class="go">iletisim</span></a></li>
+        <li><a href="./"><span><b>{e(NAVL["tr"]["home"])}</b><small>Genel bakış ve masaüstü yüzleri</small></span><span class="go">index</span></a></li>
+        <li><a href="{FILES["tr"]["features"]}"><span><b>{e(NAVL["tr"]["features"])}</b><small>AyazDE 5.0, Ankora AI ve 559 paket</small></span><span class="go">ozellikler</span></a></li>
+        <li><a href="{FILES["tr"]["install"]}"><span><b>{e(u["download"])}</b><small>ISO kurulum ve .deb yükseltme</small></span><span class="go">kurulum</span></a></li>
+        <li><a href="{FILES["tr"]["security"]}"><span><b>{e(NAVL["tr"]["security"])}</b><small>Rust beyaz listeleri ve yalıtım</small></span><span class="go">guvenlik</span></a></li>
       </ul>
-      <div class="btn-row" style="margin-top:48px">
-        <a class="btn btn-1" href="{FORUM}" rel="noopener">Ankora Lab forumu</a>
-        <a class="btn btn-2" href="{FILES["tr"]["install"]}">{e(u["download"])}</a>
-      </div>
     </div>
   </section>
 </main>
@@ -1399,7 +1472,6 @@ def page404():
 def sitemap():
     prio = {"home": "1.0", "features": "0.9", "install": "0.9", "security": "0.8",
             "changelog": "0.7", "faq": "0.8", "contact": "0.6"}
-    freq = {"changelog": "monthly"}
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
            '        xmlns:xhtml="http://www.w3.org/1999/xhtml">']
@@ -1410,7 +1482,7 @@ def sitemap():
             for L in LANGS:
                 out.append(f'    <xhtml:link rel="alternate" hreflang="{L}" href="{canon(L, key)}"/>')
             out.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{canon("tr", key)}"/>')
-            out.append(f"    <changefreq>{freq.get(key, 'monthly')}</changefreq>")
+            out.append("    <changefreq>monthly</changefreq>")
             out.append(f"    <priority>{prio[key]}</priority>")
             out.append("  </url>")
     out.append("</urlset>")
@@ -1425,43 +1497,24 @@ def llms():
     pages_tr = "\n".join(f"- [{T['tr']['m_' + k][0]}]({canon('tr', k)})" for k in KEYS)
     pages_en = "\n".join(f"- [{T['en']['m_' + k][0]}]({canon('en', k)})" for k in KEYS)
     langs = ", ".join(CODELABEL[L] for L in LANGS)
-    return f"""# Ankora Linux
+    return f"""# Ankora Linux 5.0
 
-> Ankora Linux 4.7, son kullanıcı ve eğitim kurumları için sade, Devuan 5.0 Daedalus
-> (SysVinit) tabanlı ve ücretsiz bir Türkçe işletim sistemidir. Kendi masaüstü ortamı
-> Ayaz DE 4.7 ile birlikte gelir. GPL-3.0 lisanslıdır.
+> Ankora Linux 5.0; Devuan 6.0 Excalibur (SysVinit) ve Linux 6.12 LTS üzerinde çalışan,
+> ücretsiz ve Türkçe bir masaüstü dağıtımıdır. Tauri 2.0 / Rust tabanlı AyazDE 5.0 masaüstü
+> ortamıyla gelir ve GPL-3.0 lisanslıdır.
 > Depo: {REPO}
 > Sürümler: {REL}
 > Forum: {FORUM}
 > Güvenlik: {SECMAIL}
 > Diller: {langs}
-> Tema: açık ve koyu; üç vurgu rengi (mavi, yeşil, mor).
+> Yüzler: Bostan (varsayılan), Bakır, Cıvata, Arduvaz (ve korunan 4.7 Klasik).
 
-## Ne işe yarar
+## Temel Bileşenler
 
-Hedef, son kullanıcı için sade bir dağıtım: 18 yerleşik pencere, 559 paketli
-yazılım mağazası (ETAP akıllı tahta araçları ve CUPS/SANE dahil), 14 tam sistem teması,
-ZRAM bellek sıkıştırma, 4 GB altı makineler için otomatik Eco RAM kipi, yerel Ollama destekli Ankora AI
-asistanı ve Türkçe arayüz. Kurulu sistemde masaüstü boştayken yaklaşık 450 MB
-bellek kullanır.
-
-## Kurulum
-
-1. {REL} adresinden ISO dosyasını ve yanındaki SHA-256 doğrulama dosyasını indirin.
-2. ISO'yu boş bir USB belleğe yazın.
-3. Bilgisayarı USB bellekten başlatıp kurulum sihirbazını izleyin.
-
-## Sürümler
-
-- 01.0 (2024): ilk kararlı sürüm
-- 02.0 Zümrüt (2025): masaüstü entegrasyonları ve ayarlar yenilendi
-- 2.0 (2026): masaüstü ortamı Ayaz DE
-- 3.0 (2026): Tauri 1.5 ve Rust çekirdeği
-- 3.5 (2026): Eco RAM kipi ve otomatik USB bağlama
-- 3.6 (2026): 14 tam sistem teması, 278 mağaza paketi, gelişmiş Dosyalar yöneticisi, USB/ISO yazıcı ve ETAP desteği
-- 4.0 (2026): 29 Ekim Cumhuriyet Bayramı özel sürümü, güvenlik sertleştirmeleri ve Cumhuriyet teması
-- 4.6 (2026): ZRAM ve ultra düşük RAM optimizasyonu (~450 MB boşta), __KEEP_559__ paketli mağaza, polkit root yetki düzeltmeleri, saat/bildirim/tema kontrast düzeltmeleri
-- 4.7 (2026): 559 paketli yazılım mağazası (Oyun ve Yardımcılar kategorisi dahil), 60 FPS akıcı pencere taşıma, APT ve mağaza polkit yetki düzeltmeleri, otomatik .tar.zst Ollama kurucusu ve doğrulanmış Ayaz Güncelleyici
+20 yerleşik pencere, 559 paketli yazılım mağazası (FAZ 1/2/3 eta-touchdrv, MEB sertifikası,
+CUPS/SANE dahil), 24 sistem teması, ZRAM (zstd/lz4) bellek sıkıştırma, ~750 MB canlı sistem
+boşta bellek hedefi, yerel Ollama ve bulut uçlu beyaz liste denetimli Ankora AI (33 sabit komut,
+26 yardımcı araç, 18 ajan eylemi, 148 Tauri IPC komutu).
 
 ## Sayfalar (Türkçe)
 
@@ -1470,26 +1523,20 @@ bellek kullanır.
 ## Pages (English)
 
 {pages_en}
-
-## Lisans
-
-GNU General Public License v3.0. Değiştirilmiş sürümler aynı lisansla
-dağıtılmalıdır. Tam metin depodaki LICENSE dosyasındadır.
 """
 
 
 def webmanifest():
     return json.dumps({
-        "name": "Ankora Linux 4.7", "short_name": "Ankora",
-        "description": "Devuan tabanlı ücretsiz ve Türkçe işletim sistemi, Ayaz DE 4.7 masaüstü ortamı ile.",
+        "name": "Ankora Linux 5.0", "short_name": "Ankora",
+        "description": "Devuan 6 Excalibur ve Linux 6.12 LTS üzerinde AyazDE 5.0 masaüstü ile Türkçe Linux dağıtımı.",
         "lang": "tr", "dir": "ltr", "start_url": "./", "scope": "./", "id": "./",
         "display": "browser", "orientation": "any",
-        "background_color": "#ffffff", "theme_color": "#ffffff",
+        "background_color": "#eef1e2", "theme_color": "#2b5822",
         "categories": ["os", "utilities"],
         "icons": [
             {"src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"},
             {"src": "assets/img/logo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
-            {"src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable"},
         ],
     }, ensure_ascii=False, indent=2) + "\n"
 
@@ -1500,15 +1547,13 @@ def build():
     (ROOT / "robots.txt").write_text(robots(), encoding="utf-8")
     (ROOT / "llms.txt").write_text(llms(), encoding="utf-8")
     (ROOT / "site.webmanifest").write_text(webmanifest(), encoding="utf-8")
-    print("yazıldı: 404.html, sitemap.xml, robots.txt, llms.txt, site.webmanifest")
     for lang in LANGS:
         for key in KEYS:
             out = render(lang, key)
-            path = ROOT / (FILES[lang][key] if lang == "tr"
-                           else lang + "/" + FILES[lang][key])
+            path = ROOT / (FILES[lang][key] if lang == "tr" else lang + "/" + FILES[lang][key])
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(out, encoding="utf-8")
-            print("yazıldı:", path.relative_to(ROOT))
+    print("Tum dosyalar Ankora 5.0 icin uretildi.")
 
 
 if __name__ == "__main__":

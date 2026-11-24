@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Безопасность · Ankora Linux 4.7</title>
-<meta name="description" content="Как Ankora Linux 4.7 защищает вас: 31 разрешённая команда терминала, 59 заблокированных бинарных файлов, 15 действий ИИ с одноразовым токеном и проверка обновлений.">
+<title>Безопасность: Ankora Linux 5.0</title>
+<meta name="description" content="Защита в ядре Rust: 33 разрешённые команды терминала, 59 запрещённых бинарных файлов, 18 действий ИИ с одноразовым токеном и pkexec.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1420" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#eef1e2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141519" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://ankora-linux.github.io/ru/bezopasnost.html">
 <link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/guvenlik.html">
 <link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/security.html">
@@ -17,10 +17,10 @@
 <link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/seguridad.html">
 <link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/bezopasnost.html">
 <link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/guvenlik.html">
-<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'auto';if(['light','dark','auto'].indexOf(t)<0)t='auto';var a=g('ankora-accent')||'blue';if(['blue','green','purple'].indexOf(a)<0)a='blue';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t);r.dataset.accent=a;})();</script>
+<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'bostan';if(t==='light')t='bostan';if(t==='dark')t='bakir';if(['bostan','bakir','civata','arduvaz','auto'].indexOf(t)<0)t='bostan';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'bakir':'bostan'):t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 <script>document.documentElement.classList.remove('no-js');</script>
 <meta property="og:type" content="website">
@@ -30,15 +30,15 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="es_ES">
-<meta property="og:title" content="Безопасность · Ankora Linux 4.7">
-<meta property="og:description" content="Как Ankora Linux 4.7 защищает вас: 31 разрешённая команда терминала, 59 заблокированных бинарных файлов, 15 действий ИИ с одноразовым токеном и проверка обновлений.">
+<meta property="og:title" content="Безопасность: Ankora Linux 5.0">
+<meta property="og:description" content="Защита в ядре Rust: 33 разрешённые команды терминала, 59 запрещённых бинарных файлов, 18 действий ИИ с одноразовым токеном и pkexec.">
 <meta property="og:url" content="https://ankora-linux.github.io/ru/bezopasnost.html">
 <meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
-<meta property="og:image:width" content="1400">
-<meta property="og:image:height" content="875">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Безопасность · Ankora Linux 4.7">
-<meta name="twitter:description" content="Как Ankora Linux 4.7 защищает вас: 31 разрешённая команда терминала, 59 заблокированных бинарных файлов, 15 действий ИИ с одноразовым токеном и проверка обновлений.">
+<meta name="twitter:title" content="Безопасность: Ankora Linux 5.0">
+<meta name="twitter:description" content="Защита в ядре Rust: 33 разрешённые команды терминала, 59 запрещённых бинарных файлов, 18 действий ИИ с одноразовым токеном и pkexec.">
 <meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
@@ -97,18 +97,13 @@
       </ul>
     </details>
     <div class="tools">
-      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Оформление" title="Оформление">
+      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Облик / Тема" title="Облик / Тема">
         <svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-moon"></use></svg>
+        <span data-theme-label>Bostan</span>
       </button>
       <div class="tpanel" id="theme-panel" hidden>
-        <div class="grp">
-          <h4>Тема</h4>
-          <div class="trow"><button class="tset" type="button" data-set-theme="light" aria-pressed="false">Светлая</button><button class="tset" type="button" data-set-theme="dark" aria-pressed="false">Тёмная</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">Системная</button></div>
-        </div>
-        <div class="grp">
-          <h4>Акцентный цвет</h4>
-          <div class="trow"><button class="swatch swatch-blue" type="button" data-set-accent="blue" aria-pressed="false" aria-label="Синий" title="Синий"></button><button class="swatch swatch-green" type="button" data-set-accent="green" aria-pressed="false" aria-label="Зелёный" title="Зелёный"></button><button class="swatch swatch-purple" type="button" data-set-accent="purple" aria-pressed="false" aria-label="Фиолетовый" title="Фиолетовый"></button></div>
-        </div>
+        <h4>Облик сайта и среды</h4>
+        <div class="trow"><button class="tset" type="button" data-set-theme="bostan" aria-pressed="false">Bostan</button><button class="tset" type="button" data-set-theme="bakir" aria-pressed="false">Bakır</button><button class="tset" type="button" data-set-theme="civata" aria-pressed="false">Cıvata</button><button class="tset" type="button" data-set-theme="arduvaz" aria-pressed="false">Arduvaz</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">Система</button></div>
       </div>
     </div>
     <button class="menu-btn" type="button" data-menu-btn aria-expanded="false"
@@ -117,7 +112,7 @@
     </button>
   </div>
   <div class="sheet" id="menu-sheet">
-    <nav class="wrap" aria-label="Основная навигация (мобильная)">
+    <nav class="wrap" aria-label="Основная навигация (моб.)">
       <ul>
           <li><a href="index.html">Главная</a></li>
           <li><a href="vozmozhnosti.html">Возможности</a></li>
@@ -133,21 +128,20 @@
 <main id="main">
   <div class="wrap">
     <div class="page-top">
-      <h1>Безопасность в Ankora Linux 4.7</h1>
-      <p class="lede">Ankora Linux 4.7 строго отделяет интерфейс от системного ядра: 137 IPC-команд Tauri на Rust проверяют каждый запрос по фиксированным белым спискам.</p>
+      <h1>Архитектура безопасности Ankora Linux 5.0</h1>
+      <p class="lede">148 IPC-команд Tauri на Rust разделяют интерфейс и систему. Действия ИИ требуют белого списка и одноразового токена.</p>
     </div>
   </div>
 
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Три ключевые защиты</span>
-        <h2>Что это значит для вас?</h2>
+        <h2>Ограничения, проверяемые в коде Rust</h2>
       </div>
       <div class="grid">
-        <div class="card"><span class="card-tag">01</span><h3>Строгие белые списки команд</h3><p>Встроенный терминал разрешает ровно 31 проверенную команду и 26 утилит, а 59 опасных бинарных файлов заблокированы для прямого запуска.</p></div>
-        <div class="card"><span class="card-tag">02</span><h3>Проверка обновлений</h3><p>Каждый пакет и системное обновление проверяется изолированным помощником перед установкой.</p></div>
-        <div class="card"><span class="card-tag">03</span><h3>Защита личных файлов</h3><p>Просмотрщик документов принимает только 20 разрешённых расширений и блокирует 17 шаблонов чувствительных файлов, включая ключи и пароли.</p></div>
+        <div class="card"><h3>Белые списки команд</h3><p>Терминал разрешает 33 точные команды и 26 утилит; 59 системных бинарников запрещены для прямого запуска.</p></div>
+        <div class="card"><h3>Одноразовый токен (60 с) и pkexec</h3><p>18 разрешённых действий ИИ требуют токен SHA-256 сроком 60 секунд; запись на USB и пакеты идут через pkexec.</p></div>
+        <div class="card"><h3>Защита файлов и pinned GPG</h3><p>Просмотрщик принимает 20 расширений, блокирует 19 секретных шаблонов и проверяет отпечатки ключей GPG.</p></div>
       </div>
     </div>
   </section>
@@ -155,17 +149,16 @@
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Проверяется по исходному коду</span>
-        <h2>Показатели ядра Rust (main.rs)</h2>
+        <h2>Границы в исходном коде Rust</h2>
       </div>
       <ul class="checklist">
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Встроенный терминал выполняет только 31 фиксированную команду и 26 диагностических утилит без операторов склейки.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>59 системных и сетевых бинарных файлов внесены в чёрный список прямого запуска.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>ИИ-агент Ankora может выполнять только 15 заданных действий и требует подтверждения одноразовым токеном безопасности.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Просмотрщик документов проверяет 20 разрешённых расширений и блокирует 17 шаблонов секретных путей.</span></li>
-        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>137 команд Tauri и 13 модульных тестов Rust защищают мост между интерфейсом и операционной системой.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>EXACT_ALLOWED_COMMANDS содержит 33 точные команды диагностики и 26 утилит (ALLOWED_UTILITIES).</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>FORBIDDEN_LAUNCH_BINARIES блокирует прямой вызов 59 сетевых и системных программ.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>ALLOWED_AGENT_ACTIONS ограничивает ИИ 18 действиями с одноразовым SHA-256-токеном.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Фильтр документов разрешает 20 расширений и закрывает 19 путей вроде .vault_secret.</span></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>148 команд Tauri IPC и 19 модульных тестов Rust работают поверх песочницы WebKit bwrap.</span></li>
       </ul>
-      <p style="margin-top:36px">Нашли уязвимость? Напишите на <a href="mailto:linuxankora@gmail.com">linuxankora@gmail.com</a>, не открывая публичный отчёт. Ответ в течение 48 часов.</p>
+      <p style="margin-top:28px">Обнаружили уязвимость? Сообщите на <a href="mailto:linuxankora@gmail.com">linuxankora@gmail.com</a> (ответ в течение 48 часов).</p>
     </div>
   </section>
 </main>
@@ -177,7 +170,7 @@
           <img src="../assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
           <span>Ankora Linux</span>
         </a>
-        <p>Простая турецкая операционная система на базе Devuan.</p>
+        <p>Турецкий дистрибутив на Devuan 6 Excalibur, Linux 6.12 LTS и AyazDE 5.0.</p>
         <div class="soc"><a href="https://www.instagram.com/ankoralinux/" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-instagram"></use></svg></a>
           <a href="https://x.com/ankoralinux" rel="noopener" aria-label="X" title="X"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-x"></use></svg></a>
           <a href="https://www.youtube.com/@AnkoraLinux" rel="noopener" aria-label="YouTube" title="YouTube"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-youtube"></use></svg></a>
@@ -210,7 +203,7 @@
       </div>
     </div>
     <div class="foot-bar">
-      <span>Ankora Linux 4.7 · GPL-3.0</span>
+      <span>Ankora Linux 5.0 (GPL-3.0)</span>
       <span><a href="../sitemap.xml">Карта сайта</a></span>
     </div>
   </div>

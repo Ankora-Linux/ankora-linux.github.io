@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ankora Linux 4.7: Bring your old computer back to life</title>
-<meta name="description" content="Ankora Linux 4.7 is a free Turkish operating system built on Devuan 5.0 Daedalus with Ayaz DE 4.7, ZRAM and Eco RAM mode, 14 system themes, and 559 store packages.">
+<title>Ankora Linux 5.0: Calm, systemd-free Turkish desktop</title>
+<meta name="description" content="Ankora Linux 5.0 runs AyazDE 5.0 on Devuan 6 Excalibur and Linux 6.12 LTS with four desktop faces, allowlisted Ankora AI, and a 559-package store.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1420" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#eef1e2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141519" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://ankora-linux.github.io/en/">
 <link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/">
 <link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/">
@@ -17,10 +17,10 @@
 <link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/">
 <link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/">
 <link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/">
-<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'auto';if(['light','dark','auto'].indexOf(t)<0)t='auto';var a=g('ankora-accent')||'blue';if(['blue','green','purple'].indexOf(a)<0)a='blue';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t);r.dataset.accent=a;})();</script>
+<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'bostan';if(t==='light')t='bostan';if(t==='dark')t='bakir';if(['bostan','bakir','civata','arduvaz','auto'].indexOf(t)<0)t='bostan';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'bakir':'bostan'):t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 <script>document.documentElement.classList.remove('no-js');</script>
 <meta property="og:type" content="website">
@@ -30,15 +30,15 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="ru_RU">
-<meta property="og:title" content="Ankora Linux 4.7: Bring your old computer back to life">
-<meta property="og:description" content="Ankora Linux 4.7 is a free Turkish operating system built on Devuan 5.0 Daedalus with Ayaz DE 4.7, ZRAM and Eco RAM mode, 14 system themes, and 559 store packages.">
+<meta property="og:title" content="Ankora Linux 5.0: Calm, systemd-free Turkish desktop">
+<meta property="og:description" content="Ankora Linux 5.0 runs AyazDE 5.0 on Devuan 6 Excalibur and Linux 6.12 LTS with four desktop faces, allowlisted Ankora AI, and a 559-package store.">
 <meta property="og:url" content="https://ankora-linux.github.io/en/">
 <meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
-<meta property="og:image:width" content="1400">
-<meta property="og:image:height" content="875">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ankora Linux 4.7: Bring your old computer back to life">
-<meta name="twitter:description" content="Ankora Linux 4.7 is a free Turkish operating system built on Devuan 5.0 Daedalus with Ayaz DE 4.7, ZRAM and Eco RAM mode, 14 system themes, and 559 store packages.">
+<meta name="twitter:title" content="Ankora Linux 5.0: Calm, systemd-free Turkish desktop">
+<meta name="twitter:description" content="Ankora Linux 5.0 runs AyazDE 5.0 on Devuan 6 Excalibur and Linux 6.12 LTS with four desktop faces, allowlisted Ankora AI, and a 559-package store.">
 <meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
@@ -87,7 +87,7 @@
   "name": "Ankora Linux",
   "applicationCategory": "OperatingSystem",
   "operatingSystem": "Linux",
-  "softwareVersion": "4.7.0",
+  "softwareVersion": "5.0.0",
   "inLanguage": "en-US",
   "isAccessibleForFree": true,
   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
@@ -106,66 +106,50 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is Ankora Linux?",
+      "name": "What is Ankora Linux 5.0?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It is a simple Turkish operating system for everyday users. It is built on Devuan 5.0 Daedalus and comes with its own desktop environment, Ayaz DE 4.7."
+        "text": "A free, systemd-free Turkish distribution built on Devuan 6.0 Excalibur and Linux 6.12 LTS with the AyazDE 5.0 desktop."
       }
     },
     {
       "@type": "Question",
-      "name": "Does it run on an old computer?",
+      "name": "Does it work on older laptops?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. It uses about 450 MB of memory when idle with ZRAM and automatically enables Eco RAM mode on machines with under 4 GB of RAM. It runs comfortably on a laptop with 2 GB of memory; very old machines with 1 GB are not recommended."
+        "text": "Yes. It targets ~750 MB idle RAM, automatically enables ZRAM (zstd/lz4) below 4 GB, and boots from 2 GB RAM."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I try it without erasing my disk?",
+      "name": "Can I test without wiping my disk?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. When you write the ISO to a USB stick and boot it, the system on the disk is not touched."
+        "text": "Yes. Booting the Live USB leaves your existing partitions untouched."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I install it?",
+      "name": "How do I upgrade from 4.7.x to 5.0?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Write the ISO to a USB stick and boot the computer from it. The installer guides you step by step. Details are on the download page."
+        "text": "Use Ayaz Updater or install ayaz-de-latest-amd64.deb; 4.6.x users should perform a clean ISO install."
       }
     },
     {
       "@type": "Question",
-      "name": "Does it cost anything?",
+      "name": "Which keyboard layouts are included?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No, it is completely free. The source code is open under GPL-3.0, so you can study and change it as you wish."
+        "text": "Turkish interface with Turkish, English, German, French, and UK English keyboard options."
       }
     },
     {
       "@type": "Question",
-      "name": "How do updates arrive?",
+      "name": "Can Ankora AI run arbitrary shell commands?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Updates arrive through Ayaz Updater from the verified Ankora and Devuan repositories."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the interface language?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The interface is entirely in Turkish. For the keyboard you can pick Turkish, English, German, French or British (GB)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How can I contribute?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Fork the GitHub repository and send a pull request, or share questions and suggestions on the forum."
+        "text": "No. Only 18 predefined agent actions and 33 fixed commands are allowed with explicit user confirmation."
       }
     }
   ]
@@ -205,18 +189,13 @@
       </ul>
     </details>
     <div class="tools">
-      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Appearance" title="Appearance">
+      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Face / Theme" title="Face / Theme">
         <svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-moon"></use></svg>
+        <span data-theme-label>Bostan</span>
       </button>
       <div class="tpanel" id="theme-panel" hidden>
-        <div class="grp">
-          <h4>Theme</h4>
-          <div class="trow"><button class="tset" type="button" data-set-theme="light" aria-pressed="false">Light</button><button class="tset" type="button" data-set-theme="dark" aria-pressed="false">Dark</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">System</button></div>
-        </div>
-        <div class="grp">
-          <h4>Accent colour</h4>
-          <div class="trow"><button class="swatch swatch-blue" type="button" data-set-accent="blue" aria-pressed="false" aria-label="Blue" title="Blue"></button><button class="swatch swatch-green" type="button" data-set-accent="green" aria-pressed="false" aria-label="Green" title="Green"></button><button class="swatch swatch-purple" type="button" data-set-accent="purple" aria-pressed="false" aria-label="Purple" title="Purple"></button></div>
-        </div>
+        <h4>Site &amp; Desktop Face</h4>
+        <div class="trow"><button class="tset" type="button" data-set-theme="bostan" aria-pressed="false">Bostan</button><button class="tset" type="button" data-set-theme="bakir" aria-pressed="false">Bakır</button><button class="tset" type="button" data-set-theme="civata" aria-pressed="false">Cıvata</button><button class="tset" type="button" data-set-theme="arduvaz" aria-pressed="false">Arduvaz</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">System</button></div>
       </div>
     </div>
     <button class="menu-btn" type="button" data-menu-btn aria-expanded="false"
@@ -243,33 +222,31 @@
     <div class="wrap">
       <div class="section-head center">
         <div class="hero-meta">
-          <strong>Ankora Linux 4.7.0</strong>
-          <span class="sep">·</span>
-          <span>Ayaz DE 4.7</span>
-          <span class="sep">·</span>
-          <span>Devuan 5.0 Daedalus</span>
-          <span class="sep">·</span>
-          <span>SysVinit · ~450 MB RAM</span>
+          <strong>Ankora Linux 5.0.0</strong>
+          <span>AyazDE 5.0</span>
+          <span>Devuan 6 Excalibur</span>
+          <span>Linux 6.12 LTS</span>
+          <span>~750 MB RAM</span>
         </div>
-        <h1>Bring your old computer back to life</h1>
-        <p class="lede" style="margin-inline:auto">Ankora Linux 4.7 is a clean, Devuan-based Turkish operating system built for everyday users and classrooms. With ZRAM memory compression, Eco RAM mode enabled automatically under 4 GB of RAM, 14 full-system themes, and a 559-package software store, it is ready the moment you boot.</p>
-        <div class="btn-row" style="justify-content:center;margin-top:30px">
+        <h1>Calm, systemd-free Turkish desktop.</h1>
+        <p class="lede" style="margin-inline:auto">AyazDE 5.0 built on Devuan 6 Excalibur and Linux 6.12 LTS.</p>
+        <div class="btn-row" style="justify-content:center;margin-top:24px">
           <a class="btn btn-1" href="install.html">Download</a>
-          <a class="btn btn-2" href="features.html">Features</a>
+          <a class="text-link" href="features.html">Features</a>
         </div>
       </div>
-      <div class="showcase"><div class="shot-tabs" role="tablist" aria-label="Ayaz DE 4.7">
-          <button class="shot-tab" type="button" role="tab" id="shot-tab-01" aria-selected="true" aria-controls="shot-panel-01" tabindex="0" data-shot-tab="01"><span class="num">01</span><span>Modern Glass</span></button>
-          <button class="shot-tab" type="button" role="tab" id="shot-tab-02" aria-selected="false" aria-controls="shot-panel-02" tabindex="-1" data-shot-tab="02"><span class="num">02</span><span>Face 2 · Copper</span></button>
-          <button class="shot-tab" type="button" role="tab" id="shot-tab-03" aria-selected="false" aria-controls="shot-panel-03" tabindex="-1" data-shot-tab="03"><span class="num">03</span><span>Face 3 · Bostan</span></button>
-          <button class="shot-tab" type="button" role="tab" id="shot-tab-04" aria-selected="false" aria-controls="shot-panel-04" tabindex="-1" data-shot-tab="04"><span class="num">04</span><span>Face 8 · Bolt</span></button>
-          <button class="shot-tab" type="button" role="tab" id="shot-tab-05" aria-selected="false" aria-controls="shot-panel-05" tabindex="-1" data-shot-tab="05"><span class="num">05</span><span>Architecture &amp; Themes</span></button>
+      <div class="showcase"><div class="shot-tabs" role="tablist" aria-label="AyazDE 5.0">
+          <button class="shot-tab" type="button" role="tab" id="shot-tab-01" aria-selected="true" aria-controls="shot-panel-01" tabindex="0" data-shot-tab="01" data-face-theme="bostan"><span class="num">01</span><span>Face 3: Bostan</span></button>
+          <button class="shot-tab" type="button" role="tab" id="shot-tab-02" aria-selected="false" aria-controls="shot-panel-02" tabindex="-1" data-shot-tab="02" data-face-theme="bakir"><span class="num">02</span><span>Face 2: Bakır</span></button>
+          <button class="shot-tab" type="button" role="tab" id="shot-tab-03" aria-selected="false" aria-controls="shot-panel-03" tabindex="-1" data-shot-tab="03" data-face-theme="civata"><span class="num">03</span><span>Face 8: Cıvata</span></button>
+          <button class="shot-tab" type="button" role="tab" id="shot-tab-04" aria-selected="false" aria-controls="shot-panel-04" tabindex="-1" data-shot-tab="04" data-face-theme="arduvaz"><span class="num">04</span><span>Face 1: Arduvaz</span></button>
+          <button class="shot-tab" type="button" role="tab" id="shot-tab-05" aria-selected="false" aria-controls="shot-panel-05" tabindex="-1" data-shot-tab="05" data-face-theme="bostan"><span class="num">05</span><span>559-Package Store</span></button>
         </div>
-        <div class="shot-panel" id="shot-panel-01" role="tabpanel" aria-labelledby="shot-tab-01" data-shot-panel="01"><figure class="shot"><img src="../assets/img/ayaz-masaustu.png" width="1400" height="875" alt="Ayaz DE 4.7 desktop with open Start menu, unboxed desktop icons, and dark glass taskbar"><figcaption class="shot-caption"><strong>Ayaz DE 4.7 Modern Glass Architecture</strong><span>Modern Graphite · ~450 MB RAM · Unboxed Icons</span></figcaption></figure></div>
-        <div class="shot-panel" id="shot-panel-02" role="tabpanel" aria-labelledby="shot-tab-02" data-shot-panel="02" hidden><figure class="shot"><img src="../assets/img/ayaz-bakir.jpg" width="1400" height="875" alt="Ayaz DE Face 2 Copper: IBM Plex Sans and Mono, top status panel with workspaces and capsule clock, floating copper dock"><figcaption class="shot-caption"><strong>Face 2 · Copper Architecture</strong><span>IBM Plex · Top status panel and floating copper dock</span></figcaption></figure></div>
-        <div class="shot-panel" id="shot-panel-03" role="tabpanel" aria-labelledby="shot-tab-03" data-shot-panel="03" hidden><figure class="shot"><img src="../assets/img/ayaz-bostan.jpg" width="1400" height="875" alt="Ayaz DE Face 3 Bostan: Newsreader and Figtree, giant serif clock, vertical left icons, and green capsule dock"><figcaption class="shot-caption"><strong>Face 3 · Bostan Architecture</strong><span>Newsreader &amp; Figtree · 92px serif clock and warm paper cards</span></figcaption></figure></div>
-        <div class="shot-panel" id="shot-panel-04" role="tabpanel" aria-labelledby="shot-tab-04" data-shot-panel="04" hidden><figure class="shot"><img src="../assets/img/ayaz-civata.jpg" width="1400" height="875" alt="Ayaz DE Face 8 Bolt: Bricolage Grotesque and Instrument Sans, lime-accented 30px black top bar, dockless architecture"><figcaption class="shot-caption"><strong>Face 8 · Bolt Architecture</strong><span>Bricolage Grotesque · 120px display clock and technical panel</span></figcaption></figure></div>
-        <div class="shot-panel" id="shot-panel-05" role="tabpanel" aria-labelledby="shot-tab-05" data-shot-panel="05" hidden><figure class="shot"><img src="../assets/img/ankora-temalar.jpg" width="1400" height="875" alt="System Settings: one-click switching between Default Glass, Copper, Bostan, and Bolt desktop architectures"><figcaption class="shot-caption"><strong>Desktop Architecture &amp; Theme Picker</strong><span>4 architectural faces and 14 system theme bundles</span></figcaption></figure></div>
+        <div class="shot-panel" id="shot-panel-01" role="tabpanel" aria-labelledby="shot-tab-01" data-shot-panel="01"><figure class="shot"><img src="../assets/img/ayaz-bostan.png" width="1280" height="800" alt="AyazDE 5.0 default Bostan desktop with Ankora AI and USB Flasher"><figcaption class="shot-caption"><strong>Face 3: Bostan (Default)</strong><span>Warm sage linen, capsule dock, and Ankora AI bubble</span></figcaption></figure></div>
+        <div class="shot-panel" id="shot-panel-02" role="tabpanel" aria-labelledby="shot-tab-02" data-shot-panel="02" hidden><figure class="shot"><img src="../assets/img/ayaz-bakir.png" width="1280" height="800" alt="AyazDE 5.0 Bakır theme desktop with Software Center and Ankora AI bubble"><figcaption class="shot-caption"><strong>Face 2: Bakır</strong><span>Graphite surfaces, copper accent, and top bar</span></figcaption></figure></div>
+        <div class="shot-panel" id="shot-panel-03" role="tabpanel" aria-labelledby="shot-tab-03" data-shot-panel="03" hidden><figure class="shot"><img src="../assets/img/ayaz-civata.png" width="1280" height="800" alt="AyazDE 5.0 Cıvata theme desktop with System Settings and bottom bar"><figcaption class="shot-caption"><strong>Face 8: Cıvata</strong><span>Drafting paper, sharp ink borders, and bottom strip</span></figcaption></figure></div>
+        <div class="shot-panel" id="shot-panel-04" role="tabpanel" aria-labelledby="shot-tab-04" data-shot-panel="04" hidden><figure class="shot"><img src="../assets/img/ayaz-arduvaz.png" width="1280" height="800" alt="AyazDE 5.0 Arduvaz desktop with Files manager and Ankora Report"><figcaption class="shot-caption"><strong>Face 1: Arduvaz</strong><span>Left-aligned 38 px taskbar and terracotta focus</span></figcaption></figure></div>
+        <div class="shot-panel" id="shot-panel-05" role="tabpanel" aria-labelledby="shot-tab-05" data-shot-panel="05" hidden><figure class="shot"><img src="../assets/img/ankora-magaza.png" width="1280" height="800" alt="Ankora Software Center and graphical system installer"><figcaption class="shot-caption"><strong>Store &amp; Installer</strong><span>Devuan APT, Flathub, and official Ankora repository</span></figcaption></figure></div>
       </div>
     </div>
   </section>
@@ -277,35 +254,30 @@
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Why Ankora 4.7</span>
-        <h2>Engineered for modest hardware and daily reliability</h2>
+        <h2>Built for predictable behaviour and restraint</h2>
       </div>
       <div class="spec-strip">
-        <div class="spec-cell"><span class="spec-val">~450 MB</span><span class="spec-lbl">Idle memory usage (ZRAM + Eco RAM)</span></div>
-        <div class="spec-cell"><span class="spec-val">18</span><span class="spec-lbl">Built-in Ayaz DE desktop windows</span></div>
-        <div class="spec-cell"><span class="spec-val">14</span><span class="spec-lbl">Full-system theme bundles</span></div>
-        <div class="spec-cell"><span class="spec-val">559</span><span class="spec-lbl">Curated store packages &amp; ETAP tools</span></div>
+        <div class="spec-cell"><span class="spec-val">~750 MB</span><span class="spec-lbl">Idle live memory target with ZRAM</span></div>
+        <div class="spec-cell"><span class="spec-val">20</span><span class="spec-lbl">Built-in Tauri 2.0 windows</span></div>
+        <div class="spec-cell"><span class="spec-val">24 + 4</span><span class="spec-lbl">System themes and four core faces</span></div>
+        <div class="spec-cell"><span class="spec-val">559</span><span class="spec-lbl">Verified store packages</span></div>
       </div>
       <div class="arch-grid">
         <div class="arch-lead">
           <div>
-            <span class="card-tag">Ayaz DE 4.7</span>
-            <h3>Light, ZRAM &amp; Eco RAM mode</h3>
-            <p>Uses about 450 MB of memory when idle. ZRAM compression and Eco RAM mode under 4 GB of RAM keep background memory pressure low and unmount closed windows after 30 seconds.</p>
+            <h3>Tauri 2.0 &amp; Rust (/usr/bin/ayaz-de)</h3>
+            <p>Desktop modules run in a single binary and unmount closed windows from DOM after 30 seconds.</p>
           </div>
           <div class="arch-meta">
-            <span>Tauri 1.5 + Rust</span>
-            <span>·</span>
-            <span>WebKitGTK</span>
-            <span>·</span>
+            <span>Tauri 2.0 + Rust</span>
+            <span>WebKitGTK 4.1</span>
             <span>SysVinit PID 1</span>
-            <span>·</span>
-            <span>Linux 6.1 LTS</span>
+            <span>Linux 6.12 LTS</span>
           </div>
         </div>
         <div class="arch-side">
-          <div class="card"><span class="card-tag">Yerel Deneyim</span><h3>Turkish throughout</h3><p>From the installer to all 18 built-in windows and smartboard classroom packages (ETAP), everything is written in clear Turkish.</p></div>
-          <div class="card"><span class="card-tag">Kurulum &amp; Bakım</span><h3>Easy to install and maintain</h3><p>Write the ISO to a USB stick and boot. The built-in USB &amp; ISO flasher, Start menu editor, and one-button Ayaz Updater remove the need for terminal commands.</p></div>
+          <div class="card"><h3>Four core faces &amp; AI bubble</h3><p>Bostan opens by default; click to pick Bakır, Cıvata, Arduvaz, or 4.7 Classic.</p></div>
+          <div class="card"><h3>Schools &amp; peripherals ready</h3><p>Ships with eta-touchdrv, clean MEB cert tools (~/.pki/nssdb), and CUPS/SANE.</p></div>
         </div>
       </div>
     </div>
@@ -315,77 +287,70 @@
     <div class="wrap">
       <div class="split">
         <div>
-          <span class="eyebrow">What is inside</span>
-          <h2>Ready to use from the very first boot</h2>
-          <p class="lede">You do not have to hunt for basic utilities; everyday tools for home, office, and classrooms are built right into Ayaz DE 4.7.</p>
-          <ul class="checklist" style="margin-top:26px">
-            <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Web browser (Ayaz &amp; Brave) plus File Manager with menu bar and automatic USB drive mounting</span></li>
-            <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>559-package Software Store (including MEB Certificate, Scratch, GCompris, GeoGebra, and ETAP smartboard tools)</span></li>
-            <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>14 full-system theme bundles (including Çınar, Meltem, Kor, Dem, Boğaz, and Ayna), 14 wallpapers, and 8 icon sets</span></li>
-            <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Ankora AI System Assistant (local Ollama or bring-your-own API key with one-time security token confirmation)</span></li>
-            <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Built-in USB &amp; ISO Flasher, Start Menu Editor, PDF/document viewer, and Ankora Office notes</span></li>
-            <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>One-button Ayaz Updater, CUPS/SANE printer-scanner support, and ankora-doctor diagnostics</span></li>
+          <h2>Ready for work out of the box</h2>
+          <p class="lede">Core desktop tools, classroom drivers, and safety checks ship built in.</p>
+          <ul class="checklist" style="margin-top:24px">
+            <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>File Manager with USB automount and .deb/.AppImage installer</span></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>559-package Store merging Devuan APT, Flathub, and official Ankora</span></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Allowlisted Ankora AI connecting to local Ollama or cloud APIs</span></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-check"></use></svg><span>Rollback-safe updater, removable USB guard, and pkexec</span></li>
           </ul>
         </div>
-        <figure class="shot"><img src="../assets/img/ankora-karsilayici.jpg" width="1400" height="875" loading="lazy" alt="Ankora Linux 4.7 Software Store and System Distribution Information windows"></figure>
+        <figure class="shot"><img src="../assets/img/ankora-magaza.png" width="1280" height="800" loading="lazy" alt="Ankora Linux 5.0 Software Store and System Installer"></figure>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Idle memory</span>
-        <h2>Comparison with popular distributions</h2>
-        <p class="lede">Idle desktop memory usage. The Ankora figure was measured on the installed system with free -m; the other figures come from the sources listed on the page.</p>
-      </div>
-      <div class="cmp-wrap">
-        <table class="cmp">
-          <thead>
-            <tr><th scope="col">Distribution</th><th scope="col">Idle memory</th></tr>
-          </thead>
-          <tbody>
-          <tr data-self="true"><td>Ankora Linux 4.7 (Ayaz DE)</td><td>~450 MB</td></tr>
-        <tr><td>Ubuntu 24.04 (GNOME)</td><td>830 MB</td></tr>
-        <tr><td>Linux Mint 22.1 (Cinnamon)</td><td>888 MB</td></tr>
-        <tr><td>Xubuntu 24.04 (Xfce)</td><td>668 MB</td></tr>
-        <tr><td>Lubuntu 24.04 (LXQt)</td><td>464 MB</td></tr>
-        <tr><td>Debian 12 (GNOME)</td><td>over 1 GB</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="cmp-note">Ankora: output of free -m on the installed system after 4.7.0 ZRAM and service optimization (November 2026). Others: measurements published by Android Authority in October 2024; for Mint, an independent review (888 MB). Hardware, versions and methods differ; these are approximate figures.</p>
     </div>
   </section>
 
   <section class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Install</span>
-        <h2>Ready in three steps</h2>
+        <h2>Idle target alongside popular desktops</h2>
+        <p class="lede">Ankora 5.0 replaces systemd with SysVinit and unmounts closed WebKit window trees after 30 seconds.</p>
       </div>
-      <ol class="steps">
-        <li><div><h3>Download</h3><p>Get the ISO file. A verification file sits next to it.</p></div></li>
-        <li><div><h3>Write it to a USB stick</h3><p>Write the ISO to an empty USB stick with a free tool.</p></div></li>
-        <li><div><h3>Boot and install</h3><p>Start the computer from the USB stick. The wizard explains the rest.</p></div></li>
-      </ol>
-      <div class="btn-row" style="margin-top:40px"><a class="btn btn-1" href="install.html">Download</a></div>
+      <div class="cmp-wrap">
+        <table class="cmp">
+          <thead>
+            <tr><th scope="col">Distribution</th><th scope="col">Idle RAM</th></tr>
+          </thead>
+          <tbody>
+          <tr data-self="true"><td>Ankora Linux 5.0 (AyazDE)</td><td>~750 MB</td></tr>
+        <tr><td>Ubuntu 24.04 (GNOME)</td><td>830 MB</td></tr>
+        <tr><td>Linux Mint 22.1 (Cinnamon)</td><td>888 MB</td></tr>
+        <tr><td>Xubuntu 24.04 (Xfce)</td><td>668 MB</td></tr>
+        <tr><td>Debian 12 (GNOME)</td><td>over 1 GB</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cmp-note">Ankora 5.0: live idle memory target (~750 MB) after the Tauri 2.0 and Devuan 6 Excalibur transition. Other distributions reference Android Authority (Oct 2024) and Mint independent benchmarks.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
+      <div class="section-head">
+        <h2>Ready in three steps</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Download</h3><p>Fetch ISO and SHA256SUMS from GitHub Releases.</p></li>
+        <li><h3>Verify &amp; flash</h3><p>Check checksums and write to a removable USB drive.</p></li>
+        <li><h3>Boot or upgrade</h3><p>Boot from USB, or use the .deb package on 4.7.x.</p></li>
+      </ol>
+      <div class="btn-row" style="margin-top:32px"><a class="btn btn-1" href="install.html">Download</a></div>
+    </div>
+  </section>
+
+  <section class="section panel">
+    <div class="wrap">
       <div class="section-head center">
-        <span class="eyebrow">FAQ</span>
-        <h2>Common questions</h2>
+        <h2>Key questions</h2>
       </div>
       <div class="faq" style="margin-inline:auto">
-        <details open><summary>What is Ankora Linux?</summary><div class="answer"><p>It is a simple Turkish operating system for everyday users. It is built on Devuan 5.0 Daedalus (systemd-free) and comes with its own desktop environment, Ayaz DE 4.7.</p></div></details>
-        <details><summary>Does it run on an old computer?</summary><div class="answer"><p>Yes. It uses about 450 MB of memory when idle with ZRAM and enables Eco RAM mode automatically under 4 GB of RAM. It runs comfortably on a laptop with 2 GB of memory.</p></div></details>
-        <details><summary>Does it cost anything?</summary><div class="answer"><p>No, it is completely free and open-source under the GPL-3.0 license.</p></div></details>
-        <details><summary>How do I install it?</summary><div class="answer"><p>Write the ISO to a USB stick and boot the computer from it. The installer guides you step by step.</p></div></details>
+        <details open><summary>What is Ankora Linux 5.0?</summary><div class="answer"><p>Free Turkish Linux on Devuan 6 Excalibur and Linux 6.12 LTS.</p></div></details>
+        <details><summary>Does it run on old hardware?</summary><div class="answer"><p>Targets ~750 MB idle RAM and enables ZRAM under 4 GB.</p></div></details>
+        <details><summary>Does it cost anything?</summary><div class="answer"><p>No. Free and open source under GPL-3.0.</p></div></details>
+        <details><summary>Upgrade from 4.7.x?</summary><div class="answer"><p>Yes via .deb; 4.6.x requires a clean ISO install.</p></div></details>
       </div>
-      <p style="text-align:center;margin-top:40px"><a class="btn btn-2" href="faq.html">All questions</a></p>
+      <p style="text-align:center;margin-top:32px"><a class="btn btn-2" href="faq.html">All questions</a></p>
     </div>
   </section>
 </main>
@@ -397,7 +362,7 @@
           <img src="../assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
           <span>Ankora Linux</span>
         </a>
-        <p>A simple, Turkish operating system built on Devuan.</p>
+        <p>Turkish desktop distribution built on Devuan 6 Excalibur, Linux 6.12 LTS, and AyazDE 5.0.</p>
         <div class="soc"><a href="https://www.instagram.com/ankoralinux/" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-instagram"></use></svg></a>
           <a href="https://x.com/ankoralinux" rel="noopener" aria-label="X" title="X"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-x"></use></svg></a>
           <a href="https://www.youtube.com/@AnkoraLinux" rel="noopener" aria-label="YouTube" title="YouTube"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-youtube"></use></svg></a>
@@ -430,7 +395,7 @@
       </div>
     </div>
     <div class="foot-bar">
-      <span>Ankora Linux 4.7 · GPL-3.0</span>
+      <span>Ankora Linux 5.0 (GPL-3.0)</span>
       <span><a href="../sitemap.xml">Sitemap</a></span>
     </div>
   </div>

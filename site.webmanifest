@@ -1,7 +1,7 @@
 {
-  "name": "Ankora Linux 4.7",
+  "name": "Ankora Linux 5.0",
   "short_name": "Ankora",
-  "description": "Devuan tabanlı ücretsiz ve Türkçe işletim sistemi, Ayaz DE 4.7 masaüstü ortamı ile.",
+  "description": "Devuan 6 Excalibur ve Linux 6.12 LTS üzerinde AyazDE 5.0 masaüstü ile Türkçe Linux dağıtımı.",
   "lang": "tr",
   "dir": "ltr",
   "start_url": "./",
@@ -9,8 +9,8 @@
   "id": "./",
   "display": "browser",
   "orientation": "any",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#eef1e2",
+  "theme_color": "#2b5822",
   "categories": [
     "os",
     "utilities"
@@ -27,12 +27,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "assets/img/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "maskable"
     }
   ]
 }

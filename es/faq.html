@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Preguntas frecuentes · Ankora Linux 4.7</title>
-<meta name="description" content="Preguntas frecuentes sobre Ankora Linux 4.7: instalación, ordenadores antiguos, modo Eco RAM, actualizaciones, idioma y contribución.">
+<title>Preguntas frecuentes: Ankora Linux 5.0</title>
+<meta name="description" content="Respuestas sobre Ankora Linux 5.0: instalación, equipos antiguos, ZRAM, seguridad de IA y actualizaciones.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Ankora Linux Projesi">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1420" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#eef1e2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141519" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://ankora-linux.github.io/es/faq.html">
 <link rel="alternate" hreflang="tr" href="https://ankora-linux.github.io/sss.html">
 <link rel="alternate" hreflang="en" href="https://ankora-linux.github.io/en/faq.html">
@@ -17,10 +17,10 @@
 <link rel="alternate" hreflang="es" href="https://ankora-linux.github.io/es/faq.html">
 <link rel="alternate" hreflang="ru" href="https://ankora-linux.github.io/ru/faq.html">
 <link rel="alternate" hreflang="x-default" href="https://ankora-linux.github.io/sss.html">
-<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'auto';if(['light','dark','auto'].indexOf(t)<0)t='auto';var a=g('ankora-accent')||'blue';if(['blue','green','purple'].indexOf(a)<0)a='blue';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t);r.dataset.accent=a;})();</script>
+<script>(function(){var r=document.documentElement;function g(k){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){var m=(document.cookie||'').match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m){try{v=decodeURIComponent(m[1])}catch(e){v=m[1]}}}return v}var t=g('ankora-theme')||'bostan';if(t==='light')t='bostan';if(t==='dark')t='bakir';if(['bostan','bakir','civata','arduvaz','auto'].indexOf(t)<0)t='bostan';r.dataset.themePref=t;r.dataset.theme=(t==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'bakir':'bostan'):t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 <script>document.documentElement.classList.remove('no-js');</script>
 <meta property="og:type" content="website">
@@ -30,15 +30,15 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="ru_RU">
-<meta property="og:title" content="Preguntas frecuentes · Ankora Linux 4.7">
-<meta property="og:description" content="Preguntas frecuentes sobre Ankora Linux 4.7: instalación, ordenadores antiguos, modo Eco RAM, actualizaciones, idioma y contribución.">
+<meta property="og:title" content="Preguntas frecuentes: Ankora Linux 5.0">
+<meta property="og:description" content="Respuestas sobre Ankora Linux 5.0: instalación, equipos antiguos, ZRAM, seguridad de IA y actualizaciones.">
 <meta property="og:url" content="https://ankora-linux.github.io/es/faq.html">
 <meta property="og:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
-<meta property="og:image:width" content="1400">
-<meta property="og:image:height" content="875">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Preguntas frecuentes · Ankora Linux 4.7">
-<meta name="twitter:description" content="Preguntas frecuentes sobre Ankora Linux 4.7: instalación, ordenadores antiguos, modo Eco RAM, actualizaciones, idioma y contribución.">
+<meta name="twitter:title" content="Preguntas frecuentes: Ankora Linux 5.0">
+<meta name="twitter:description" content="Respuestas sobre Ankora Linux 5.0: instalación, equipos antiguos, ZRAM, seguridad de IA y actualizaciones.">
 <meta name="twitter:image" content="https://ankora-linux.github.io/assets/img/ayaz-masaustu.png">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
@@ -71,18 +71,18 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "¿Qué es Ankora Linux?",
+      "name": "¿Qué es Ankora Linux 5.0?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Un sistema operativo turco y sencillo para el uso cotidiano. Está basado en Devuan 5.0 Daedalus e incluye su propio entorno de escritorio, Ayaz DE 4.7."
+        "text": "Una distribución libre sin systemd basada en Devuan 6 Excalibur y Linux 6.12 LTS con el escritorio Rust AyazDE 5.0."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Funciona en un ordenador antiguo?",
+      "name": "¿Funciona en equipos antiguos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí. Usa unos 450 MB de memoria en reposo y activa automáticamente el modo Eco RAM en equipos con menos de 4 GB de memoria. Funciona bien en un portátil con 2 GB de memoria; no se recomienda para equipos muy antiguos con 1 GB."
+        "text": "Sí. Apunta a ~750 MB en reposo con ZRAM automático bajo 4 GB y funciona desde 2 GB RAM."
       }
     },
     {
@@ -90,47 +90,31 @@
       "name": "¿Puedo probarlo sin borrar mi disco?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí. Al escribir la ISO en una memoria USB y arrancar desde ella, el sistema del disco no se toca."
+        "text": "Sí. El modo Live USB no modifica las particiones del disco duro."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Cómo se instala?",
+      "name": "¿Cómo instalo o actualizo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Escriba la ISO en una memoria USB y arranque el ordenador desde ella. El instalador le guía paso a paso. Los detalles están en la página de descarga."
+        "text": "Mediante ISO desde GitHub Releases o paquete ayaz-de-latest-amd64.deb desde 4.7.x."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Tiene algún coste?",
+      "name": "¿Qué distribuciones de teclado incluye?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No, es totalmente gratuito. El código fuente es abierto bajo GPL-3.0, puede estudiarlo y modificarlo."
+        "text": "Turco, inglés, alemán, francés y británico (GB), con interfaz completa en turco."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Cómo llegan las actualizaciones?",
+      "name": "¿La IA puede ejecutar cualquier comando?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Las actualizaciones llegan a través de Ayaz Updater desde los repositorios verificados de Ankora y Devuan."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuál es el idioma de la interfaz?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La interfaz está totalmente en turco. Para el teclado puede elegir turco, inglés, alemán, francés o británico (GB)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo puedo contribuir?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Bifurque el repositorio de GitHub y envíe una pull request, o comparta preguntas y sugerencias en el foro."
+        "text": "No. Solo 18 acciones preaprobadas y 33 comandos fijos tras confirmación manual con token."
       }
     }
   ]
@@ -170,18 +154,13 @@
       </ul>
     </details>
     <div class="tools">
-      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Apariencia" title="Apariencia">
+      <button class="tbtn" type="button" data-theme-btn aria-expanded="false" aria-controls="theme-panel" aria-label="Estilo / Tema" title="Estilo / Tema">
         <svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-moon"></use></svg>
+        <span data-theme-label>Bostan</span>
       </button>
       <div class="tpanel" id="theme-panel" hidden>
-        <div class="grp">
-          <h4>Tema</h4>
-          <div class="trow"><button class="tset" type="button" data-set-theme="light" aria-pressed="false">Claro</button><button class="tset" type="button" data-set-theme="dark" aria-pressed="false">Oscuro</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">Sistema</button></div>
-        </div>
-        <div class="grp">
-          <h4>Color de acento</h4>
-          <div class="trow"><button class="swatch swatch-blue" type="button" data-set-accent="blue" aria-pressed="false" aria-label="Azul" title="Azul"></button><button class="swatch swatch-green" type="button" data-set-accent="green" aria-pressed="false" aria-label="Verde" title="Verde"></button><button class="swatch swatch-purple" type="button" data-set-accent="purple" aria-pressed="false" aria-label="Morado" title="Morado"></button></div>
-        </div>
+        <h4>Estilo del sitio y escritorio</h4>
+        <div class="trow"><button class="tset" type="button" data-set-theme="bostan" aria-pressed="false">Bostan</button><button class="tset" type="button" data-set-theme="bakir" aria-pressed="false">Bakır</button><button class="tset" type="button" data-set-theme="civata" aria-pressed="false">Cıvata</button><button class="tset" type="button" data-set-theme="arduvaz" aria-pressed="false">Arduvaz</button><button class="tset" type="button" data-set-theme="auto" aria-pressed="false">Sistema</button></div>
       </div>
     </div>
     <button class="menu-btn" type="button" data-menu-btn aria-expanded="false"
@@ -207,23 +186,21 @@
   <div class="wrap">
     <div class="page-top">
       <h1>Preguntas frecuentes</h1>
-      <p class="lede">Si no encuentra su respuesta, consulte la página de contacto. <a href="contacto.html">Contacto</a>.</p>
+      <p class="lede">¿Dudas? Visite el foro desde la página de contacto: <a href="contacto.html">Contacto</a>.</p>
     </div>
   </div>
 
   <section class="section">
     <div class="wrap">
       <div class="faq">
-        <details open><summary>¿Qué es Ankora Linux?</summary><div class="answer"><p>Un sistema operativo turco y sencillo para el uso cotidiano. Está basado en Devuan 5.0 Daedalus e incluye su propio entorno de escritorio, Ayaz DE 4.7.</p></div></details>
-        <details><summary>¿Funciona en un ordenador antiguo?</summary><div class="answer"><p>Sí. Usa unos 450 MB de memoria en reposo y activa automáticamente el modo Eco RAM en equipos con menos de 4 GB de memoria. Funciona bien en un portátil con 2 GB de memoria; no se recomienda para equipos muy antiguos con 1 GB.</p></div></details>
-        <details><summary>¿Puedo probarlo sin borrar mi disco?</summary><div class="answer"><p>Sí. Al escribir la ISO en una memoria USB y arrancar desde ella, el sistema del disco no se toca.</p></div></details>
-        <details><summary>¿Cómo se instala?</summary><div class="answer"><p>Escriba la ISO en una memoria USB y arranque el ordenador desde ella. El instalador le guía paso a paso. Los detalles están en la página de descarga.</p></div></details>
-        <details><summary>¿Tiene algún coste?</summary><div class="answer"><p>No, es totalmente gratuito. El código fuente es abierto bajo GPL-3.0, puede estudiarlo y modificarlo.</p></div></details>
-        <details><summary>¿Cómo llegan las actualizaciones?</summary><div class="answer"><p>Las actualizaciones llegan a través de Ayaz Updater desde los repositorios verificados de Ankora y Devuan.</p></div></details>
-        <details><summary>¿Cuál es el idioma de la interfaz?</summary><div class="answer"><p>La interfaz está totalmente en turco. Para el teclado puede elegir turco, inglés, alemán, francés o británico (GB).</p></div></details>
-        <details><summary>¿Cómo puedo contribuir?</summary><div class="answer"><p>Bifurque el repositorio de GitHub y envíe una pull request, o comparta preguntas y sugerencias en el foro.</p></div></details>
+        <details open><summary>¿Qué es Ankora Linux 5.0?</summary><div class="answer"><p>Una distribución libre sin systemd basada en Devuan 6 Excalibur y Linux 6.12 LTS con el escritorio Rust AyazDE 5.0.</p></div></details>
+        <details><summary>¿Funciona en equipos antiguos?</summary><div class="answer"><p>Sí. Apunta a ~750 MB en reposo con ZRAM automático bajo 4 GB y funciona desde 2 GB RAM.</p></div></details>
+        <details><summary>¿Puedo probarlo sin borrar mi disco?</summary><div class="answer"><p>Sí. El modo Live USB no modifica las particiones del disco duro.</p></div></details>
+        <details><summary>¿Cómo instalo o actualizo?</summary><div class="answer"><p>Mediante ISO desde GitHub Releases o paquete ayaz-de-latest-amd64.deb desde 4.7.x.</p></div></details>
+        <details><summary>¿Qué distribuciones de teclado incluye?</summary><div class="answer"><p>Turco, inglés, alemán, francés y británico (GB), con interfaz completa en turco.</p></div></details>
+        <details><summary>¿La IA puede ejecutar cualquier comando?</summary><div class="answer"><p>No. Solo 18 acciones preaprobadas y 33 comandos fijos tras confirmación manual con token.</p></div></details>
       </div>
-      <div class="btn-row" style="margin-top:48px">
+      <div class="btn-row" style="margin-top:32px">
         <a class="btn btn-1" href="https://ankalab.flarum.cloud" rel="noopener">Preguntar en el foro</a>
         <a class="btn btn-2" href="contacto.html">Contacto</a>
       </div>
@@ -238,7 +215,7 @@
           <img src="../assets/img/logo-128.png" width="32" height="32" alt="Ankora Linux">
           <span>Ankora Linux</span>
         </a>
-        <p>Un sistema operativo turco, sencillo y basado en Devuan.</p>
+        <p>Distribución turca basada en Devuan 6 Excalibur, Linux 6.12 LTS y AyazDE 5.0.</p>
         <div class="soc"><a href="https://www.instagram.com/ankoralinux/" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-instagram"></use></svg></a>
           <a href="https://x.com/ankoralinux" rel="noopener" aria-label="X" title="X"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-x"></use></svg></a>
           <a href="https://www.youtube.com/@AnkoraLinux" rel="noopener" aria-label="YouTube" title="YouTube"><svg aria-hidden="true" focusable="false"><use href="../assets/img/icons.svg#i-youtube"></use></svg></a>
@@ -264,14 +241,14 @@
       <div>
         <h2>Código</h2>
         <ul>
-          <li><a href="https://github.com/Ankora-Linux/Ankora" rel="noopener">Repositorio de GitHub</a></li>
+          <li><a href="https://github.com/Ankora-Linux/Ankora" rel="noopener">Repositorio GitHub</a></li>
           <li><a href="https://github.com/Ankora-Linux/Ankora/releases" rel="noopener">Versiones</a></li>
           <li><a href="https://github.com/Ankora-Linux/Ankora/blob/main/LICENSE" rel="noopener">Licencia GPL-3.0</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bar">
-      <span>Ankora Linux 4.7 · GPL-3.0</span>
+      <span>Ankora Linux 5.0 (GPL-3.0)</span>
       <span><a href="../sitemap.xml">Mapa del sitio</a></span>
     </div>
   </div>

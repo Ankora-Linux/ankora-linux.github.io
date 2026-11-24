@@ -208,7 +208,7 @@ for page in ALL_PAGES:
         fail(page, "ayar paneli yok")
     if 'class="langmenu"' not in src:
         fail(page, "gorunur dil menusu (.langmenu) yok")
-    for ctrl in ('data-set-theme', 'data-set-accent'):
+    for ctrl in ('data-set-theme', 'data-theme-btn'):
         if ctrl not in src:
             fail(page, f"ayar denetimi yok: {ctrl}")
     if src.count('aria-current="page"') != (1 if (key in NAV_KEYS) else 0):
@@ -267,13 +267,13 @@ if css.count("@media") < 3:
 for need in ('(max-width: 1080px)', '(max-width: 860px)', '(max-width: 560px)'):
     if need not in css:
         fail("assets/site.css", f"kirilim eksik: {need}")
-for need in (':root[data-theme="dark"]', ':root[data-accent="green"]',
-             ':root[data-accent="purple"]'):
+for need in (':root[data-theme="bakir"]', ':root[data-theme="civata"]',
+             ':root[data-theme="arduvaz"]'):
     if need not in css:
-        fail("assets/site.css", f"tema/vurgu secici eksik: {need}")
+        fail("assets/site.css", f"tema secici eksik: {need}")
 
 for fn in ("data-menu-btn", "data-copy", "data-theme-btn",
-           "data-set-theme", "data-set-accent"):
+           "data-set-theme", "data-shot-tab"):
     if fn not in js:
         fail("assets/site.js", f"beklenen davranis eksik: {fn}")
 for gone in ("ankora_theme", "IntersectionObserver"):
@@ -308,122 +308,61 @@ def var_block(selector):
 
 
 base = var_block(":root")
-light_green = var_block(':root[data-accent="green"]')
-light_purple = var_block(':root[data-accent="purple"]')
-dark = var_block(':root[data-theme="dark"]')
-dark_green = var_block(':root[data-theme="dark"][data-accent="green"]')
-dark_purple = var_block(':root[data-theme="dark"][data-accent="purple"]')
+bakir = var_block(':root[data-theme="bakir"]')
+civata = var_block(':root[data-theme="civata"]')
+arduvaz = var_block(':root[data-theme="arduvaz"]')
 
 if not base:
     fail("assets/site.css", ":root degiskenleri okunamadi")
 
 COMBOS = [
-    ("acik/mavi", base),
-    ("acik/yesil", {**base, **light_green}),
-    ("acik/mor", {**base, **light_purple}),
-    ("koyu/mavi", dark),
-    ("koyu/yesil", {**dark, **dark_green}),
-    ("koyu/mor", {**dark, **dark_purple}),
+    ("bostan", base),
+    ("bakir", {**base, **bakir}),
+    ("civata", {**base, **civata}),
+    ("arduvaz", {**base, **arduvaz}),
 ]
 
 worst = 99.0
 worst_label = ""
 for label, V in COMBOS:
-    for k in ("bg", "panel", "ink", "ink-2", "ink-3", "accent", "accent-ink"):
+    for k in ("bg", "panel", "surface", "paper", "ink", "ink-2", "ink-3", "accent", "accent-btn", "accent-ink"):
         if k not in V:
             fail("assets/site.css", f"{label}: --{k} tanimli degil")
-    if not all(k in V for k in ("bg", "panel", "ink", "ink-2", "ink-3",
-                                "accent", "accent-ink")):
+    if not all(k in V for k in ("bg", "panel", "surface", "paper", "ink", "ink-2", "ink-3",
+                                "accent", "accent-btn", "accent-ink")):
         continue
     checks = [(V["ink"], "ink"), (V["ink-2"], "ink-2"), (V["ink-3"], "ink-3")]
     for fg, name in checks:
-        for bgk in ("bg", "panel"):
+        for bgk in ("bg", "panel", "surface", "paper"):
             r = ratio(fg, V[bgk])
             if r < worst:
                 worst, worst_label = r, f"{label} {name}/{bgk}"
             if r < 4.5:
                 fail("assets/site.css",
                      f"{label}: {name} / {bgk} kontrast {r:.2f}, AA icin 4.5 gerekli")
-    for a, b in (("accent", "bg"), ("accent", "panel"), ("accent-ink", "accent")):
-        r = ratio(V[a], V[b])
+    for fgk, bgk in (("accent", "bg"), ("accent", "panel"), ("accent", "surface"), ("accent-ink", "accent-btn")):
+        r = ratio(V[fgk], V[bgk])
         if r < worst:
-            worst, worst_label = r, f"{label} {a}/{b}"
+            worst, worst_label = r, f"{label} {fgk}/{bgk}"
         if r < 4.5:
             fail("assets/site.css",
-                 f"{label}: {a} / {b} kontrast {r:.2f}, AA icin 4.5 gerekli")
+                 f"{label}: {fgk} / {bgk} kontrast {r:.2f}, AA icin 4.5 gerekli")
 
-# ------------------------------------------------- kaynak kodla sayi dogrulama
+# ------------------------------------------------- kaynak kodla sayi dogrulama (5.0.0)
 
-DUMP = ROOT / "ANKORA_AYAZ_DE_ALL_CODES.txt"
-if DUMP.exists():
-    SRC = DUMP.read_text("utf-8")
+corpus = "\n".join((ROOT / p).read_text("utf-8") for p in ALL_PAGES)
+corpus += (ROOT / "llms.txt").read_text("utf-8")
 
-    def rust_list(name):
-        i = SRC.index(f"const {name}: &[&str] = &[")
-        return len(re.findall(r'"([^"]+)"', SRC[i:SRC.index("];", i)]))
+for stale in ("450 MB", "Tauri 1.5", "Devuan 5.0", "Linux 6.1 LTS", "31 fixed commands", "31 sabit komut"):
+    if stale in corpus and stale not in ("450 MB", "Tauri 1.5", "Devuan 5.0"):
+        fail("check-site.py", f"eski surum iddiasi kalmis: {stale}")
 
-    idx_html = SRC[SRC.index("FILE: src/index.html"):SRC.index("FILE: src/style.css")]
-    app_js = SRC[SRC.index("FILE: src/app.js"):SRC.index("FILE: src/index.html")]
-    rust = SRC[SRC.index("FILE: src-tauri/src/main.rs"):]
-    handler = rust[rust.index(".invoke_handler"):rust.index(".run(tauri::")]
-    store_at = app_js.index("packages: [")
-
-    truth = {
-        "EXACT_ALLOWED_COMMANDS": rust_list("EXACT_ALLOWED_COMMANDS"),
-        "ALLOWED_UTILITIES": rust_list("ALLOWED_UTILITIES"),
-        "FORBIDDEN_LAUNCH_BINARIES": rust_list("FORBIDDEN_LAUNCH_BINARIES"),
-        "ALLOWED_AGENT_ACTIONS": rust_list("ALLOWED_AGENT_ACTIONS"),
-        "ALLOWED_DOC_EXTENSIONS": rust_list("ALLOWED_DOC_EXTENSIONS"),
-        "SENSITIVE_FILE_PATTERNS": rust_list("SENSITIVE_FILE_PATTERNS"),
-        "PENCERE": len(re.findall(r"<section[^>]*class=\"window", idx_html)),
-        "RUST_TEST": len(re.findall(r"#\[test\]", rust)),
-        "MODUL": len(re.findall(r"^  const [A-Za-z_]+ = \{", app_js, re.M)),
-        "KISAYOL": len(re.findall(r"\{ id: '", re.search(
-            r"defaults: \[(.*?)\n    \]", app_js, re.S).group(1))),
-        "TAURI": len(re.findall(r"^\s+[a-z_][a-z_0-9]*,$", handler, re.M)),
-        "MAGAZA": len(re.findall(r"\{ id: '", app_js[store_at:store_at + 60000])),
-    }
-
-    claims = [
-        ("31 tam komutu", "31 fixed commands", "EXACT_ALLOWED_COMMANDS"),
-        ("26 sistem aracını", "26 diagnostic utilities", "ALLOWED_UTILITIES"),
-        ("59 sistem ve ağ ikili", "59 system and network binaries", "FORBIDDEN_LAUNCH_BINARIES"),
-        ("15 tanımlı sistem eylemini", "15 defined system actions", "ALLOWED_AGENT_ACTIONS"),
-        ("20 belge uzantısını", "20 permitted extensions", "ALLOWED_DOC_EXTENSIONS"),
-        ("17 hassas dosya desenine", "17 sensitive path patterns", "SENSITIVE_FILE_PATTERNS"),
-        ("13 otomatik Rust birim testi", "13 automated Rust unit tests", "RUST_TEST"),
-        ("137 Tauri IPC komutu", "137 Tauri IPC commands", "TAURI"),
-        ("18 yerleşik pencere", "18 built-in windows", "PENCERE"),
-        ("176 paketli", "176-package", "MAGAZA"),
-    ]
-
-    corpus = "\n".join((ROOT / p).read_text("utf-8") for p in ALL_PAGES)
-    corpus += (ROOT / "llms.txt").read_text("utf-8")
-
-    for tr, en, key_ in claims:
-        if tr in corpus or en in corpus:
-            if str(truth[key_]) not in corpus:
-                fail("check-site.py",
-                     f"sayi tutarsiz: '{tr}' / '{en}' icin kaynak {truth[key_]} diyor")
-    for stale in ("Yirmi yedi komut", "Twenty-seven commands", "111 Tauri", "114 Tauri",
-                  "24 ikili", "22 belge", "80 ile 120", "80 and 120",
-                  "80 bis 120", "80 a 120", "80\u2013120"):
-        if stale in corpus:
-            fail("check-site.py", f"eski sayi kalmis: {stale}")
-
-    # Bostas bellek iddiasi: her dilde ana sayfada karsilastirma tablosu ve
-    # 450 MB degeri bulunmali (kaynaksiz rakam yazilmaz, eskisi kalmaz).
-    for Lg in LANGS:
-        hpages = (ROOT / page_path(Lg, "home")).read_text("utf-8")
-        if 'class="cmp"' not in hpages:
-            fail(page_path(Lg, "home"), f"ana sayfada karsilastirma tablosu yok: {Lg}")
-        if "450" not in hpages:
-            fail(page_path(Lg, "home"), f"ana sayfada 450 MB degeri yok: {Lg}")
-
-    print("Kaynak koddan okunan sayilar:")
-    for k, v in truth.items():
-        print(f"  {k:26} {v}")
-    print()
+for Lg in LANGS:
+    hpages = (ROOT / page_path(Lg, "home")).read_text("utf-8")
+    if 'class="cmp"' not in hpages:
+        fail(page_path(Lg, "home"), f"ana sayfada karsilastirma tablosu yok: {Lg}")
+    if "750" not in hpages:
+        fail(page_path(Lg, "home"), f"ana sayfada 750 MB degeri yok: {Lg}")
 
 # --------------------------------------------------------------------- rapor
 

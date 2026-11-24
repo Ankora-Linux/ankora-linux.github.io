@@ -1,62 +1,38 @@
-# Ankora Linux
+# Ankora Linux 5.0
 
-> Ankora Linux 4.7, son kullanıcı ve eğitim kurumları için sade, Devuan 5.0 Daedalus
-> (SysVinit) tabanlı ve ücretsiz bir Türkçe işletim sistemidir. Kendi masaüstü ortamı
-> Ayaz DE 4.7 ile birlikte gelir. GPL-3.0 lisanslıdır.
+> Ankora Linux 5.0; Devuan 6.0 Excalibur (SysVinit) ve Linux 6.12 LTS üzerinde çalışan,
+> ücretsiz ve Türkçe bir masaüstü dağıtımıdır. Tauri 2.0 / Rust tabanlı AyazDE 5.0 masaüstü
+> ortamıyla gelir ve GPL-3.0 lisanslıdır.
 > Depo: https://github.com/Ankora-Linux/Ankora
 > Sürümler: https://github.com/Ankora-Linux/Ankora/releases
 > Forum: https://ankalab.flarum.cloud
 > Güvenlik: linuxankora@gmail.com
 > Diller: TR, EN, DE, ES, RU
-> Tema: açık ve koyu; üç vurgu rengi (mavi, yeşil, mor).
+> Yüzler: Bostan (varsayılan), Bakır, Cıvata, Arduvaz (ve korunan 4.7 Klasik).
 
-## Ne işe yarar
+## Temel Bileşenler
 
-Hedef, son kullanıcı için sade bir dağıtım: 18 yerleşik pencere, 559 paketli
-yazılım mağazası (ETAP akıllı tahta araçları ve CUPS/SANE dahil), 14 tam sistem teması,
-ZRAM bellek sıkıştırma, 4 GB altı makineler için otomatik Eco RAM kipi, yerel Ollama destekli Ankora AI
-asistanı ve Türkçe arayüz. Kurulu sistemde masaüstü boştayken yaklaşık 450 MB
-bellek kullanır.
-
-## Kurulum
-
-1. https://github.com/Ankora-Linux/Ankora/releases adresinden ISO dosyasını ve yanındaki SHA-256 doğrulama dosyasını indirin.
-2. ISO'yu boş bir USB belleğe yazın.
-3. Bilgisayarı USB bellekten başlatıp kurulum sihirbazını izleyin.
-
-## Sürümler
-
-- 01.0 (2024): ilk kararlı sürüm
-- 02.0 Zümrüt (2025): masaüstü entegrasyonları ve ayarlar yenilendi
-- 2.0 (2026): masaüstü ortamı Ayaz DE
-- 3.0 (2026): Tauri 1.5 ve Rust çekirdeği
-- 3.5 (2026): Eco RAM kipi ve otomatik USB bağlama
-- 3.6 (2026): 14 tam sistem teması, 278 mağaza paketi, gelişmiş Dosyalar yöneticisi, USB/ISO yazıcı ve ETAP desteği
-- 4.0 (2026): 29 Ekim Cumhuriyet Bayramı özel sürümü, güvenlik sertleştirmeleri ve Cumhuriyet teması
-- 4.6 (2026): ZRAM ve ultra düşük RAM optimizasyonu (~450 MB boşta), __KEEP_559__ paketli mağaza, polkit root yetki düzeltmeleri, saat/bildirim/tema kontrast düzeltmeleri
-- 4.7 (2026): 559 paketli yazılım mağazası (Oyun ve Yardımcılar kategorisi dahil), 60 FPS akıcı pencere taşıma, APT ve mağaza polkit yetki düzeltmeleri, otomatik .tar.zst Ollama kurucusu ve doğrulanmış Ayaz Güncelleyici
+20 yerleşik pencere, 559 paketli yazılım mağazası (FAZ 1/2/3 eta-touchdrv, MEB sertifikası,
+CUPS/SANE dahil), 24 sistem teması, ZRAM (zstd/lz4) bellek sıkıştırma, ~750 MB canlı sistem
+boşta bellek hedefi, yerel Ollama ve bulut uçlu beyaz liste denetimli Ankora AI (33 sabit komut,
+26 yardımcı araç, 18 ajan eylemi, 148 Tauri IPC komutu).
 
 ## Sayfalar (Türkçe)
 
-- [Ankora Linux 4.7: Eski bilgisayarınızı yeniden kullanın](https://ankora-linux.github.io/)
-- [Özellikler · Ankora Linux 4.7](https://ankora-linux.github.io/ozellikler.html)
-- [İndir ve kur · Ankora Linux 4.7](https://ankora-linux.github.io/kurulum.html)
-- [Güvenlik · Ankora Linux 4.7](https://ankora-linux.github.io/guvenlik.html)
-- [Sürümler · Ankora Linux 4.7](https://ankora-linux.github.io/surum-gecmisi.html)
-- [Sık sorulan sorular · Ankora Linux 4.7](https://ankora-linux.github.io/sss.html)
-- [İletişim · Ankora Linux](https://ankora-linux.github.io/iletisim.html)
+- [Ankora Linux 5.0: Sakin, systemd’siz Türkçe masaüstü](https://ankora-linux.github.io/)
+- [Özellikler: Ankora Linux 5.0](https://ankora-linux.github.io/ozellikler.html)
+- [İndir ve kur: Ankora Linux 5.0](https://ankora-linux.github.io/kurulum.html)
+- [Güvenlik: Ankora Linux 5.0](https://ankora-linux.github.io/guvenlik.html)
+- [Sürümler: Ankora Linux 5.0](https://ankora-linux.github.io/surum-gecmisi.html)
+- [Sık sorulan sorular: Ankora Linux 5.0](https://ankora-linux.github.io/sss.html)
+- [İletişim: Ankora Linux](https://ankora-linux.github.io/iletisim.html)
 
 ## Pages (English)
 
-- [Ankora Linux 4.7: Bring your old computer back to life](https://ankora-linux.github.io/en/)
-- [Features · Ankora Linux 4.7](https://ankora-linux.github.io/en/features.html)
-- [Download and install · Ankora Linux 4.7](https://ankora-linux.github.io/en/install.html)
-- [Security · Ankora Linux 4.7](https://ankora-linux.github.io/en/security.html)
-- [Releases · Ankora Linux 4.7](https://ankora-linux.github.io/en/changelog.html)
-- [Frequently asked questions · Ankora Linux 4.7](https://ankora-linux.github.io/en/faq.html)
-- [Contact · Ankora Linux](https://ankora-linux.github.io/en/contact.html)
-
-## Lisans
-
-GNU General Public License v3.0. Değiştirilmiş sürümler aynı lisansla
-dağıtılmalıdır. Tam metin depodaki LICENSE dosyasındadır.
+- [Ankora Linux 5.0: Calm, systemd-free Turkish desktop](https://ankora-linux.github.io/en/)
+- [Features: Ankora Linux 5.0](https://ankora-linux.github.io/en/features.html)
+- [Download and install: Ankora Linux 5.0](https://ankora-linux.github.io/en/install.html)
+- [Security: Ankora Linux 5.0](https://ankora-linux.github.io/en/security.html)
+- [Releases: Ankora Linux 5.0](https://ankora-linux.github.io/en/changelog.html)
+- [Frequently asked questions: Ankora Linux 5.0](https://ankora-linux.github.io/en/faq.html)
+- [Contact: Ankora Linux](https://ankora-linux.github.io/en/contact.html)
